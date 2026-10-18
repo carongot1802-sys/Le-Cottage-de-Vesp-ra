@@ -1,9 +1,4 @@
 {
- "welcome": {
-  "vi": {},
-  "fr": {}
- },
- "iris": {},
  "design": {
   "hImg": "",
   "blur": 10,
@@ -30,6 +25,22 @@
  "about": {
   "vi": "",
   "fr": ""
+ },
+ "welcome": {
+  "vi": {},
+  "fr": {}
+ },
+ "iris": {},
+ "quote": {
+  "date": "2026-10-19",
+  "vi": {
+   "text": "Chông gai đã quen rồi, nhưng tôi chưa quen",
+   "note": ""
+  },
+  "fr": {
+   "text": "Quoi de neuf?",
+   "note": ""
+  }
  },
  "cv": {
   "edu": [
@@ -69,16 +80,5 @@
     "url": "https://lecourrier.vn/comment-la-gastronomie-francophone-exprime-lexcellence-sur-la-table-de-la-culture/1219351.html"
    }
   ]
- },
- "quote": {
-  "date": "2026-10-19",
-  "vi": {
-   "text": "Chông gai đã quen rồi, nhưng tôi chưa quen",
-   "note": ""
-  },
-  "fr": {
-   "text": "",
-   "note": ""
-  }
  }
 }
