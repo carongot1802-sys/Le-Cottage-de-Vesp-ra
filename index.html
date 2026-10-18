@@ -120,7 +120,7 @@ const DEF_ABOUT={vi:"Bonjour ! Mình là Vespéra, chủ nhân của cái cottag
 fr:"Bonjour ! Je suis Vespéra, la maîtresse de ce petit cottage.\n\nJe suis passionnée de français : des sons nasaux capricieux aux règles de grammaire « pour le plaisir », jusqu’aux expressions d’argot qu’on ne trouve dans aucun manuel. Ce blog est l’endroit où je « yappe » sur tout ce que j’apprends : de courts fun facts qu’on a envie de partager aussitôt.\n\nEntrez, servez-vous une tasse de thé (ou un verre de vin rouge 🍷) et laissez-moi un petit mot. À bientôt !"};
 const T={vi:{h:'Bienvenue au cottage',edu:'Học vấn',exp:'Kinh nghiệm làm việc',awd:'Giải thưởng',contact:'Liên hệ',pf:'Link Portfolio',edit:'Sửa phần giới thiệu',navp:'Bài viết',tl:'Nơi Vespéra nhả fun fact về tiếng Pháp ✦',all:'Tất cả',search:'Tìm bài viết…',back:'← Về trang chủ',nf:'Không tìm thấy bài này.',loading:'Đang mở cửa cottage…',none:'Chưa có bài nào.',noneAdm:'Bấm “Viết bài mới” để đăng bài đầu tiên nhé!',noneUsr:'Vespéra sắp nhả fun fact đầu tiên…',nomatch:'Không có bài nào khớp 🔍',pedit:'Sửa bài',pdel:'Xóa bài',cdel:'Xóa bài này?',miss:'Bài này chưa có bản tiếng Việt, đang hiển thị bản tiếng Pháp.'},
 fr:{h:'Bienvenue au cottage',edu:'Formation',exp:'Expérience professionnelle',awd:'Prix et distinctions',contact:'Contact',pf:'Portfolio',edit:'Modifier la présentation',navp:'Articles',tl:'Le coin où Vespéra partage ses fun facts sur le français ✦',all:'Tous',search:'Rechercher un article…',back:'← Retour à l’accueil',nf:'Article introuvable.',loading:'Ouverture du cottage…',none:'Aucun article pour le moment.',noneAdm:'Utilisez le bouton « Viết bài mới » pour publier le premier !',noneUsr:'Vespéra prépare son premier fun fact…',nomatch:'Aucun article ne correspond 🔍',pedit:'Modifier',pdel:'Supprimer',cdel:'Supprimer cet article ?',miss:'Cet article n’existe pas encore en français : version vietnamienne affichée.'}};
-const CV={edu:[
+let CV={edu:[
 {vi:"Cử nhân ngành Truyền thông quốc tế - Khoa Truyền thông và Văn hóa đối ngoại - Học viện Ngoại giao Việt Nam (2023-2027)",fr:"Licence en Communication internationale - Faculté de Communication et de Culture extérieure - Académie diplomatique du Vietnam (2023-2027)"},
 {vi:"Tốt nghiệp Tú Tài - Lớp chuyên Pháp - Trường THPT Chuyên Trần Phú (Hải Phòng) (2020-2023)",fr:"Baccalauréat - Classe spécialisée de français - Lycée pour élèves doués Trần Phú (Hải Phòng) (2020-2023)"}],
 exp:[
@@ -188,7 +188,7 @@ function bindFilters(){const i=$('#q');if(!i)return;
   i.oninput=()=>{q=i.value;const pos=i.selectionStart;render();const n=$('#q');n.focus();n.setSelectionRange(pos,pos)};
   document.querySelectorAll('.chip').forEach(c=>c.onclick=()=>{tagF=c.dataset.t;render()})}
 function renderAbout(){const v=$('#view'),L=T[lang],t=about[lang]||DEF_ABOUT[lang];
-  const sec=(h,a)=>'<h2 class="sec">'+h+'</h2><ul class="cv">'+a.map(i=>'<li>'+esc(i[lang])+'</li>').join('')+'</ul>';
+  const sec=(h,a)=>'<h2 class="sec">'+h+'</h2><ul class="cv">'+a.map(i=>'<li>'+esc(i[lang]||i.vi||i.fr||'')+'</li>').join('')+'</ul>';
   v.innerHTML='<article><span class="tag">À propos</span><h1>'+L.h+'</h1><div id="ab">'+t.split(/\n\s*\n/).map(x=>'<p>'+esc(x.trim())+'</p>').join('')+'</div>'+(admin?'<div class="bar"><button class="ghost" id="ea">'+L.edit+'</button></div>':'')+sec(L.edu,CV.edu)+sec(L.exp,CV.exp)+sec(L.awd,CV.awd)+'</article>';
   window.scrollTo(0,0);
   if(admin)$('#ea').onclick=()=>{$('#ab').innerHTML='<textarea class="ta" id="at"></textarea><div class="bar"><button id="as">Lưu</button><button class="ghost" id="ac">Hủy</button></div>';$('#at').value=t;$('#ea').style.display='none';
@@ -227,7 +227,7 @@ applyLang();renderContact();render();
   const g=async u=>{try{const r=await fetch(u+'?t='+Date.now(),{cache:'no-store'});return r.ok?await r.json():null}catch(e){return null}};
   const [ps,st]=await Promise.all([g('data/posts.json'),g('data/site.json')]);
   posts=Array.isArray(ps)?ps.slice().sort((a,b)=>(b.ts||0)-(a.ts||0)):[];
-  if(st){if(Array.isArray(st.contact)&&st.contact.length)contact=st.contact;if(st.about)about={vi:st.about.vi||'',fr:st.about.fr||''};if(st.design)dz={...DEF_DZ,...st.design}}
+  if(st){if(Array.isArray(st.contact)&&st.contact.length)contact=st.contact;if(st.about)about={vi:st.about.vi||'',fr:st.about.fr||''};if(st.design)dz={...DEF_DZ,...st.design};if(st.cv&&st.cv.edu&&st.cv.exp&&st.cv.awd)CV=st.cv}
   applyDesign();renderContact();loaded=true;render();
 })();
 </script>

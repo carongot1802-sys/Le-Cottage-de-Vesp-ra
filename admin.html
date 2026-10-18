@@ -101,6 +101,8 @@ footer{text-align:left;background:#6d1a2c;color:#d9b8bf;font-size:12px;padding:6
 .thumbs b{position:absolute;top:-6px;right:-6px;background:var(--wine);color:#fff;border-radius:50%;width:20px;height:20px;line-height:19px;text-align:center;font-size:13px;cursor:pointer}
 .crow input{background:var(--bg);color:var(--ink);border:1px solid var(--line)}
 .crow b{color:var(--wine)}
+.cvrow{display:grid;grid-template-columns:1fr 1fr auto;gap:8px;align-items:start;margin-bottom:8px}.cvrow textarea{min-height:76px;margin:0}.cvrow b{cursor:pointer;color:var(--wine);padding:6px}
+@media(max-width:600px){.cvrow{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -154,8 +156,10 @@ footer{text-align:left;background:#6d1a2c;color:#d9b8bf;font-size:12px;padding:6
     <h3>Đoạn giới thiệu trang À propos</h3>
     <label>Tiếng Việt</label><textarea id="a-vi" class="ta"></textarea>
     <label>Français</label><textarea id="a-fr" class="ta"></textarea>
-    <div class="row"><button id="asave">Lưu</button><span id="ast"></span></div>
-    <p class="date">Phần Học vấn, Kinh nghiệm, Giải thưởng nằm cố định trong index.html.</p>
+    <h3 style="margin-top:26px">Học vấn, Kinh nghiệm, Giải thưởng</h3>
+    <p class="date">Mỗi dòng có một ô tiếng Việt và một ô tiếng Pháp. Bấm ✕ để xóa, “＋ Thêm dòng” để thêm.</p>
+    <div id="cvbox"></div>
+    <div class="row" style="margin-top:16px"><button id="asave">Lưu</button><span id="ast"></span></div>
   </section>
 </div>
 </main>
@@ -166,7 +170,17 @@ const DEF_ABOUT={vi:"Bonjour ! Mình là Vespéra, chủ nhân của cái cottag
 fr:"Bonjour ! Je suis Vespéra, la maîtresse de ce petit cottage.\n\nJe suis passionnée de français : des sons nasaux capricieux aux règles de grammaire « pour le plaisir », jusqu’aux expressions d’argot qu’on ne trouve dans aucun manuel. Ce blog est l’endroit où je « yappe » sur tout ce que j’apprends : de courts fun facts qu’on a envie de partager aussitôt.\n\nEntrez, servez-vous une tasse de thé (ou un verre de vin rouge 🍷) et laissez-moi un petit mot. À bientôt !"};
 const DEF_DZ={hImg:'',blur:10,ov:70,hc:'#1f3a2e',bg:'',pImg:'',pOp:15};
 const DEF_CONTACT=[{label:'Email',url:'thiminhngocnguyen22@gmail.com'},{label:'LinkedIn',url:'https://www.linkedin.com/in/margot-nguyen-n1802'},{label:'Portfolio',url:'https://carongot1802-sys.github.io/portfolio/'}];
-let cfg={repo:'',token:''},posts=[],site={design:{...DEF_DZ},contact:DEF_CONTACT.map(x=>({...x})),about:{vi:'',fr:''}},prev={},editId=null,med=[];
+const CV={edu:[
+{vi:"Cử nhân ngành Truyền thông quốc tế - Khoa Truyền thông và Văn hóa đối ngoại - Học viện Ngoại giao Việt Nam (2023-2027)",fr:"Licence en Communication internationale - Faculté de Communication et de Culture extérieure - Académie diplomatique du Vietnam (2023-2027)"},
+{vi:"Tốt nghiệp Tú Tài - Lớp chuyên Pháp - Trường THPT Chuyên Trần Phú (Hải Phòng) (2020-2023)",fr:"Baccalauréat - Classe spécialisée de français - Lycée pour élèves doués Trần Phú (Hải Phòng) (2020-2023)"}],
+exp:[
+{vi:"Thực tập sinh tại Đại sứ quán Việt Nam tại Algeria",fr:"Stagiaire à l’Ambassade du Vietnam en Algérie"},
+{vi:"Cộng tác viên biên tập tại Chuyên trang Sinh Viên Việt Nam - Báo Tiền Phong",fr:"Collaboration éditoriale - Page Sinh Viên Việt Nam, journal Tiền Phong"}],
+awd:[
+{vi:"Top 20 chung cuộc - cuộc thi « Jeunes Reporters Francophones 2026 » với bài thi « La jeunesse est l’avenir »",fr:"Top 20 final - concours « Jeunes Reporters Francophones 2026 », article « La jeunesse est l’avenir »"},
+{vi:"Giải Khuyến khích - cuộc thi « Jeunes Reporters Francophones 2025 » với bài thi « Nous nous éduquons, donc nous préservons : la jeunesse au service d’un patrimoine vivant »",fr:"Prix d’encouragement - concours « Jeunes Reporters Francophones 2025 », article « Nous nous éduquons, donc nous préservons : la jeunesse au service d’un patrimoine vivant »"},
+{vi:"Giải Đại sứ quán Romania - cuộc thi « Jeunes Reporters Francophones 2023 » với bài thi « Comment la gastronomie francophone exprime l’excellence sur la table de la culture »",fr:"Prix de l’Ambassade de Roumanie - concours « Jeunes Reporters Francophones 2023 », article « Comment la gastronomie francophone exprime l’excellence sur la table de la culture »"}]};
+let cfg={repo:'',token:''},posts=[],site={design:{...DEF_DZ},contact:DEF_CONTACT.map(x=>({...x})),about:{vi:'',fr:''},cv:JSON.parse(JSON.stringify(CV))},prev={},editId=null,med=[];
 const U=p=>prev[p]||p,hex=x=>/^#[0-9a-f]{6}$/i.test(x||'');
 const lsGet=k=>{try{return localStorage.getItem(k)||''}catch(e){return ''}},lsSet=(k,v)=>{try{v?localStorage.setItem(k,v):localStorage.removeItem(k)}catch(e){}};
 function b64(u8){let s='';for(let i=0;i<u8.length;i+=0x8000)s+=String.fromCharCode.apply(null,u8.subarray(i,i+0x8000));return btoa(s)}
@@ -189,12 +203,12 @@ async function connect(){
     if(r.status===401)throw new Error('Token sai hoặc đã hết hạn');if(!r.ok)throw new Error('Không tìm thấy repo "'+cfg.repo+'"');
     const j=await r.json();if(!j.permissions||!j.permissions.push)throw new Error('Token này chưa có quyền ghi (Contents: Read and write)');
     const a=await getFile('data/posts.json');posts=a?JSON.parse(a.text):[];
-    const b=await getFile('data/site.json');if(b){const s=JSON.parse(b.text);site={design:{...DEF_DZ,...(s.design||{})},contact:s.contact&&s.contact.length?s.contact:site.contact,about:{vi:(s.about||{}).vi||'',fr:(s.about||{}).fr||''}}}
+    const b=await getFile('data/site.json');if(b){const s=JSON.parse(b.text);site={design:{...DEF_DZ,...(s.design||{})},contact:s.contact&&s.contact.length?s.contact:site.contact,about:{vi:(s.about||{}).vi||'',fr:(s.about||{}).fr||''},cv:(s.cv&&s.cv.edu&&s.cv.exp&&s.cv.awd)?s.cv:JSON.parse(JSON.stringify(CV))}}
     lsSet('cv_repo',cfg.repo);lsSet('cv_tok',cfg.token);
     $('#login').hidden=true;$('#app').hidden=false;$('#out').hidden=false;drawAll();
   }catch(e){say('#lerr',e.message)}
 }
-function drawAll(){drawPosts();syncDesign();applyDesign();drawContact();$('#a-vi').value=site.about.vi||DEF_ABOUT.vi;$('#a-fr').value=site.about.fr||DEF_ABOUT.fr}
+function drawAll(){drawPosts();syncDesign();applyDesign();drawContact();drawCV();$('#a-vi').value=site.about.vi||DEF_ABOUT.vi;$('#a-fr').value=site.about.fr||DEF_ABOUT.fr}
 
 /* tabs */
 $$('.tabs .chip').forEach(c=>c.onclick=()=>{$$('.tabs .chip').forEach(x=>x.classList.toggle('on',x===c));['posts','design','contact','about'].forEach(t=>$('#t-'+t).hidden=t!==c.dataset.t)});
@@ -246,7 +260,12 @@ $('#cadd').onclick=()=>{site.contact.push({label:'',url:''});drawContact()};
 $('#csave').onclick=()=>{site.contact=site.contact.map(x=>({label:x.label.trim(),url:x.url.trim()})).filter(x=>x.label||x.url);drawContact();saveSite('#cst')};
 
 /* about */
-$('#asave').onclick=()=>{site.about={vi:$('#a-vi').value,fr:$('#a-fr').value};saveSite('#ast')};
+const CVN={edu:'Học vấn / Formation',exp:'Kinh nghiệm làm việc / Expérience',awd:'Giải thưởng / Prix'};
+function drawCV(){const b=$('#cvbox');
+  b.innerHTML=Object.keys(CVN).map(k=>'<h4 style="margin:20px 0 8px;color:var(--wine)">'+CVN[k]+'</h4>'+site.cv[k].map((it,i)=>'<div class="cvrow"><textarea class="ta" data-k="'+k+'" data-i="'+i+'" data-l="vi" placeholder="Tiếng Việt">'+esc(it.vi)+'</textarea><textarea class="ta" data-k="'+k+'" data-i="'+i+'" data-l="fr" placeholder="Français">'+esc(it.fr)+'</textarea><b data-xk="'+k+'" data-xi="'+i+'">✕</b></div>').join('')+'<button class="ghost" data-add="'+k+'">＋ Thêm dòng</button>').join('');
+  b.oninput=e=>{const t=e.target;if(t.dataset.l)site.cv[t.dataset.k][+t.dataset.i][t.dataset.l]=t.value};
+  b.onclick=e=>{const t=e.target;if(t.dataset.xk){site.cv[t.dataset.xk].splice(+t.dataset.xi,1);drawCV()}else if(t.dataset.add){site.cv[t.dataset.add].push({vi:'',fr:''});drawCV()}}}
+$('#asave').onclick=()=>{site.about={vi:$('#a-vi').value,fr:$('#a-fr').value};Object.keys(CVN).forEach(k=>site.cv[k]=site.cv[k].filter(x=>(x.vi||'').trim()||(x.fr||'').trim()));drawCV();saveSite('#ast')};
 
 /* login */
 $('#go').onclick=connect;
