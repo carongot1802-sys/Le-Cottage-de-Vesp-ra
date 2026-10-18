@@ -1,8 +1,8 @@
 # Le Cottage de Vespéra - bản chạy trên GitHub Pages
 
 ## Cấu trúc
-- `index.html`: trang web cho mọi người đọc (ai cũng xem được, không cần đăng nhập)
-- `admin.html`: trang quản trị của bạn (đăng bài, ảnh, video, giao diện, liên hệ, À propos)
+- `index.html`: trang web cho khách quán đọc (ai cũng xem được, không cần đăng nhập). Trang đầu tiên là mục Chào mừng, tiếp theo là Bài viết và À propos
+- `admin.html`: trang quản trị của cô chủ cottage (đăng bài, ảnh, video, trang Chào mừng, giao diện, liên hệ, À propos)
 - `data/posts.json`, `data/site.json`: nơi lưu bài viết và cài đặt (admin tự cập nhật, bạn không cần mở)
 - `media/`: thư mục ảnh/video, tự tạo khi bạn upload lần đầu
 
@@ -23,9 +23,18 @@
 2. Điền repo (thường tự điền sẵn) và dán token, bấm **Kết nối**. Token chỉ lưu trong trình duyệt của bạn.
 3. Viết bài, thêm ảnh/video, bấm **Đăng bài**. Web cập nhật sau khoảng 1 phút.
 
+## Trang Chào mừng và hoa iris
+- Mục Chào mừng hiện đầu tiên khi khách quán mở web: hoa iris tím, tiêu đề, lời chào, lời nhắn, hình ao sen có chú ếch nhảy, và số iris cottage đã nhận.
+- Muốn đổi chữ, vào admin, tab **Chào mừng**, sửa rồi bấm **Lưu trang chào mừng** (có cả bản tiếng Việt và tiếng Pháp). Trong đó có cả dòng đếm iris, lời mời và lời cảm ơn ở cuối bài. Ghi `{n}` ở chỗ muốn hiện con số.
+- Cuối mỗi bài có một bông iris tím. Khách bấm vào thì cottage được thêm một iris, mỗi khách chỉ tặng được một bông cho mỗi bài (trình duyệt tự nhớ).
+- Số iris được lưu bằng dịch vụ đếm miễn phí bên ngoài (abacus.jasoncameron.dev), vì GitHub Pages không tự lưu được lượt bấm của khách. Admin hiện tổng iris ở tab Chào mừng và số iris của từng bài ở tab Bài viết.
+- Nếu một ngày dịch vụ đếm ngừng hoạt động, web vẫn chạy bình thường, chỉ là khung đếm iris sẽ ẩn đi. Khi đó bạn có thể thêm khóa `"iris": {"api": "địa chỉ dịch vụ khác"}` vào `data/site.json`.
+- Số iris gắn với địa chỉ web. Nếu đổi tên repo hoặc đổi tên miền thì bộ đếm sẽ bắt đầu lại từ 0.
+
 ## Lưu ý
 - Ai cũng mở được `admin.html` nhưng không có token thì không làm gì được. Đừng chia sẻ token. Nếu lộ, xóa token trên GitHub rồi tạo cái mới.
 - Mỗi file ảnh/video tối đa 40 MB, video nên dưới 25 MB. Video dài nên nén trước hoặc đăng lên YouTube.
 - Xóa bài chỉ gỡ bài khỏi web, file ảnh vẫn nằm trong `media/`.
-- Phần Học vấn, Kinh nghiệm, Giải thưởng nằm trong `index.html` (biến `CV`), muốn thêm thì sửa ở đó.
+- Phần Học vấn, Kinh nghiệm, Giải thưởng sửa trong admin, tab **À propos**.
+- Biểu tượng của web nay là hoa iris tím (trên tab trình duyệt và trang chào mừng) và fleur-de-lis vàng (ở các điểm trang trí). Các nút chức năng như mũi tên quay lại hay dấu đóng ảnh vẫn giữ nguyên.
 - Mở trực tiếp file bằng cách nhấp đúp trên máy sẽ không hiện bài vì trình duyệt chặn đọc dữ liệu. Hãy xem qua link GitHub Pages.
