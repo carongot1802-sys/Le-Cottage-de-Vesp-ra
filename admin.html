@@ -162,7 +162,7 @@ footer{text-align:left;background:#6d1a2c;color:#d9b8bf;font-size:12px;padding:6
   <div class="row" style="margin-top:14px"><button id="go">Kết nối</button><span id="lerr"></span></div>
 </div>
 <div id="app" hidden>
-  <div class="chips tabs" style="margin-bottom:20px"><span class="chip on" data-t="posts">Bài viết</span><span class="chip" data-t="welcome">Chào mừng</span><span class="chip" data-t="design">Giao diện</span><span class="chip" data-t="contact">Liên hệ</span><span class="chip" data-t="about">À propos</span></div>
+  <div class="chips tabs" style="margin-bottom:20px"><span class="chip on" data-t="posts">Bài viết</span><span class="chip" data-t="welcome">Chào mừng</span><span class="chip" data-t="design">Giao diện</span><span class="chip" data-t="contact">Liên hệ</span><span class="chip" data-t="about">Giới thiệu</span></div>
   <section id="t-posts">
     <div class="bar"><button id="new"><svg class="fl" aria-hidden="true"><use href="#fdl"/></svg> Viết bài mới</button><span id="pst"></span></div>
     <div id="ed" class="panel" hidden>
@@ -218,7 +218,7 @@ footer{text-align:left;background:#6d1a2c;color:#d9b8bf;font-size:12px;padding:6
     <div class="row"><button class="ghost" id="cadd">＋ Thêm link</button><button id="csave">Lưu</button><span id="cst"></span></div>
   </section>
   <section id="t-about" class="panel" hidden>
-    <h3>Đoạn giới thiệu trang À propos</h3>
+    <h3>Đoạn giới thiệu trang Giới thiệu</h3>
     <label>Tiếng Việt</label><textarea id="a-vi" class="ta"></textarea>
     <label>Français</label><textarea id="a-fr" class="ta"></textarea>
     <h3 style="margin-top:26px">Học vấn, Kinh nghiệm, Giải thưởng</h3>
@@ -246,9 +246,9 @@ exp:[
 {vi:"Thực tập sinh tại Đại sứ quán Việt Nam tại Algeria",fr:"Stagiaire à l’Ambassade du Vietnam en Algérie"},
 {vi:"Cộng tác viên biên tập tại Chuyên trang Sinh Viên Việt Nam - Báo Tiền Phong",fr:"Collaboration éditoriale - Page Sinh Viên Việt Nam, journal Tiền Phong"}],
 awd:[
-{vi:"Top 20 chung cuộc - cuộc thi « Jeunes Reporters Francophones 2026 » với bài thi « La jeunesse est l’avenir »",fr:"Top 20 final - concours « Jeunes Reporters Francophones 2026 », article « La jeunesse est l’avenir »"},
-{vi:"Giải Khuyến khích - cuộc thi « Jeunes Reporters Francophones 2025 » với bài thi « Nous nous éduquons, donc nous préservons : la jeunesse au service d’un patrimoine vivant »",fr:"Prix d’encouragement - concours « Jeunes Reporters Francophones 2025 », article « Nous nous éduquons, donc nous préservons : la jeunesse au service d’un patrimoine vivant »"},
-{vi:"Giải Đại sứ quán Romania - cuộc thi « Jeunes Reporters Francophones 2023 » với bài thi « Comment la gastronomie francophone exprime l’excellence sur la table de la culture »",fr:"Prix de l’Ambassade de Roumanie - concours « Jeunes Reporters Francophones 2023 », article « Comment la gastronomie francophone exprime l’excellence sur la table de la culture »"}]};
+{vi:"Top 20 chung cuộc - cuộc thi « Jeunes Reporters Francophones 2026 » với bài thi « La jeunesse est l’avenir »",fr:"Top 20 final - concours « Jeunes Reporters Francophones 2026 », article « La jeunesse est l’avenir »",url:"https://lecourrier.vn/la-jeunesse-est-lavenir/1357370.html"},
+{vi:"Giải Khuyến khích - cuộc thi « Jeunes Reporters Francophones 2025 » với bài thi « Nous nous éduquons, donc nous préservons : la jeunesse au service d’un patrimoine vivant »",fr:"Prix d’encouragement - concours « Jeunes Reporters Francophones 2025 », article « Nous nous éduquons, donc nous préservons : la jeunesse au service d’un patrimoine vivant »",url:"https://lecourrier.vn/nous-nous-eduquons-donc-nous-preservons-la-jeunesse-au-service-dun-patrimoine-vivant/1292561.html"},
+{vi:"Giải Đại sứ quán Romania - cuộc thi « Jeunes Reporters Francophones 2023 » với bài thi « Comment la gastronomie francophone exprime l’excellence sur la table de la culture »",fr:"Prix de l’Ambassade de Roumanie - concours « Jeunes Reporters Francophones 2023 », article « Comment la gastronomie francophone exprime l’excellence sur la table de la culture »",url:"https://lecourrier.vn/comment-la-gastronomie-francophone-exprime-lexcellence-sur-la-table-de-la-culture/1219351.html"}]};
 let cfg={repo:'',token:''},posts=[],site={welcome:{vi:{},fr:{}},iris:{},design:{...DEF_DZ},contact:DEF_CONTACT.map(x=>({...x})),about:{vi:'',fr:''},cv:JSON.parse(JSON.stringify(CV))},prev={},editId=null,med=[];
 const U=p=>prev[p]||p,hex=x=>/^#[0-9a-f]{6}$/i.test(x||'');
 const lsGet=k=>{try{return localStorage.getItem(k)||''}catch(e){return ''}},lsSet=(k,v)=>{try{v?localStorage.setItem(k,v):localStorage.removeItem(k)}catch(e){}};
@@ -343,7 +343,7 @@ $('#csave').onclick=()=>{site.contact=site.contact.map(x=>({label:x.label.trim()
 /* about */
 const CVN={edu:'Học vấn / Formation',exp:'Kinh nghiệm làm việc / Expérience',awd:'Giải thưởng / Prix'};
 function drawCV(){const b=$('#cvbox');
-  b.innerHTML=Object.keys(CVN).map(k=>'<h4 style="margin:20px 0 8px;color:var(--wine)">'+CVN[k]+'</h4>'+site.cv[k].map((it,i)=>'<div class="cvrow"><textarea class="ta" data-k="'+k+'" data-i="'+i+'" data-l="vi" placeholder="Tiếng Việt">'+esc(it.vi)+'</textarea><textarea class="ta" data-k="'+k+'" data-i="'+i+'" data-l="fr" placeholder="Français">'+esc(it.fr)+'</textarea><b data-xk="'+k+'" data-xi="'+i+'">✕</b></div>').join('')+'<button class="ghost" data-add="'+k+'">＋ Thêm dòng</button>').join('');
+  b.innerHTML=Object.keys(CVN).map(k=>'<h4 style="margin:20px 0 8px;color:var(--wine)">'+CVN[k]+'</h4>'+site.cv[k].map((it,i)=>'<div class="cvrow"><textarea class="ta" data-k="'+k+'" data-i="'+i+'" data-l="vi" placeholder="Tiếng Việt">'+esc(it.vi)+'</textarea><textarea class="ta" data-k="'+k+'" data-i="'+i+'" data-l="fr" placeholder="Français">'+esc(it.fr)+'</textarea><b data-xk="'+k+'" data-xi="'+i+'">✕</b>'+(k==='awd'?'<input type="text" class="fi" style="grid-column:1/-1;margin:0" data-k="awd" data-i="'+i+'" data-l="url" placeholder="Link bài báo (không bắt buộc)" value="'+esc(it.url||'')+'">':'')+'</div>').join('')+'<button class="ghost" data-add="'+k+'">＋ Thêm dòng</button>').join('');
   b.oninput=e=>{const t=e.target;if(t.dataset.l)site.cv[t.dataset.k][+t.dataset.i][t.dataset.l]=t.value};
   b.onclick=e=>{const t=e.target;if(t.dataset.xk){site.cv[t.dataset.xk].splice(+t.dataset.xi,1);drawCV()}else if(t.dataset.add){site.cv[t.dataset.add].push({vi:'',fr:''});drawCV()}}}
 $('#asave').onclick=()=>{site.about={vi:$('#a-vi').value,fr:$('#a-fr').value};Object.keys(CVN).forEach(k=>site.cv[k]=site.cv[k].filter(x=>(x.vi||'').trim()||(x.fr||'').trim()));drawCV();saveSite('#ast')};

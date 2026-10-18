@@ -146,6 +146,20 @@ header h1{display:flex;align-items:center;justify-content:center;gap:.4em}
 #lb .fl{display:none}
 footer .fl{width:1.1em;height:1.1em;vertical-align:-.2em}
 @media (prefers-reduced-motion:reduce){.irisbtn.pop{animation:none}}
+
+.filters input{padding-right:50px}
+.sbox{position:relative;margin-bottom:14px}
+.sbox input{margin-bottom:0}
+.sbtn{position:absolute;right:6px;top:50%;transform:translateY(-50%);width:34px;height:34px;padding:0;border-radius:50%;background:none;color:var(--wine);display:flex;align-items:center;justify-content:center}
+.sbtn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.6;stroke-linecap:round}
+.sbtn:hover{background:#6d1a2c1a}.sbtn:focus-visible{outline:2px solid var(--wine)}
+article p,.welcome .msg p,.cv li{text-align:justify;hyphens:auto;-webkit-hyphens:auto}
+article h1{margin:.25em 0 .6em}
+.welcome .msg{max-width:640px}
+a.ext{color:var(--wine);white-space:nowrap;text-underline-offset:3px;font-size:.92em}
+.filters input[type=search]::-webkit-search-cancel-button,.filters input[type=search]::-webkit-search-decoration{-webkit-appearance:none;appearance:none}
+#contact,footer{padding-left:max(24px,calc((100% - 700px)/2));padding-right:max(24px,calc((100% - 700px)/2))}
+@media (min-width:900px){main{padding-top:44px}.grid{gap:28px}}
 </style>
 </head>
 <body>
@@ -197,7 +211,7 @@ footer .fl{width:1.1em;height:1.1em;vertical-align:-.2em}
   <div id="view"></div>
 </main>
 <section id="contact"></section>
-<footer>© Le Cottage de Vespéra - fait avec <svg class="fl" aria-hidden="true"><use href="#fdl"/></svg></footer>
+<footer>© Le Cottage de Vespéra - fait avec ♥</footer>
 <div id="lb"><button class="x" id="lbx">✕</button><button class="n p" id="lbp">‹</button><button class="n nx" id="lbn">›</button><div id="lbm"></div><div class="c" id="lbc"></div></div>
 
 <script>
@@ -207,8 +221,8 @@ let db=null,assets=null,user=null,posts=[],admin=false,editId=null,media=[],load
 let lang='vi';
 const DEF_ABOUT={vi:"Bonjour ! Mình là Vespéra, chủ nhân của cái cottage nhỏ xíu này.\n\nMình mê tiếng Pháp, từ những âm mũi khó nhằn, những quy tắc ngữ pháp “cho vui”, cho tới những câu lóng không có trong giáo trình. Blog này là nơi mình nhả (yap) mọi thứ hay ho mình học được: fun fact ngắn ngắn, đọc xong là muốn khoe với ai đó liền.\n\nGhé chơi nhé, pha một tách trà (hoặc một ly vang đỏ 🍷) và nhớ để lại lời chào. À bientôt !",
 fr:"Bonjour ! Je suis Vespéra, la maîtresse de ce petit cottage.\n\nJe suis passionnée de français : des sons nasaux capricieux aux règles de grammaire « pour le plaisir », jusqu’aux expressions d’argot qu’on ne trouve dans aucun manuel. Ce blog est l’endroit où je « yappe » sur tout ce que j’apprends : de courts fun facts qu’on a envie de partager aussitôt.\n\nEntrez, servez-vous une tasse de thé (ou un verre de vin rouge 🍷) et laissez-moi un petit mot. À bientôt !"};
-const T={vi:{nvw:'Chào mừng',h:'Bienvenue au cottage',edu:'Học vấn',exp:'Kinh nghiệm làm việc',awd:'Giải thưởng',contact:'Liên hệ',pf:'Link Portfolio',edit:'Sửa phần giới thiệu',navp:'Bài viết',pondAlt:'Chú ếch xanh nhảy giữa những lá sen và hoa sen trên mặt ao',irisWord:'iris',tl:'Nơi Vespéra nhả fun fact về tiếng Pháp',all:'Tất cả',search:'Tìm bài viết…',back:'← Về mục bài viết',nf:'Không tìm thấy bài này.',loading:'Đang mở cửa cottage…',none:'Chưa có bài nào.',noneAdm:'Bấm “Viết bài mới” để đăng bài đầu tiên nhé!',noneUsr:'Vespéra sắp nhả fun fact đầu tiên…',nomatch:'Không có bài nào khớp',pedit:'Sửa bài',pdel:'Xóa bài',cdel:'Xóa bài này?',miss:'Bài này chưa có bản tiếng Việt, đang hiển thị bản tiếng Pháp.'},
-fr:{nvw:'Bienvenue',h:'Bienvenue au cottage',edu:'Formation',exp:'Expérience professionnelle',awd:'Prix et distinctions',contact:'Contact',pf:'Portfolio',edit:'Modifier la présentation',navp:'Articles',pondAlt:'Une grenouille verte saute entre les nénuphars et les lotus de l’étang',irisWord:'iris',tl:'Le coin où Vespéra partage ses fun facts sur le français',all:'Tous',search:'Rechercher un article…',back:'← Retour aux articles',nf:'Article introuvable.',loading:'Ouverture du cottage…',none:'Aucun article pour le moment.',noneAdm:'Utilisez le bouton « Viết bài mới » pour publier le premier !',noneUsr:'Vespéra prépare son premier fun fact…',nomatch:'Aucun article ne correspond',pedit:'Modifier',pdel:'Supprimer',cdel:'Supprimer cet article ?',miss:'Cet article n’existe pas encore en français : version vietnamienne affichée.'}};
+const T={vi:{nvw:'Chào mừng',nva:'Giới thiệu',h:'Về cô chủ cottage',rd:'Đọc bài báo',edu:'Học vấn',exp:'Kinh nghiệm làm việc',awd:'Giải thưởng',contact:'Liên hệ',pf:'Link Portfolio',edit:'Sửa phần giới thiệu',navp:'Bài viết',pondAlt:'Chú ếch xanh nhảy giữa những lá sen và hoa sen trên mặt ao',irisWord:'iris',tl:'Nơi Vespéra nhả fun fact về tiếng Pháp',all:'Tất cả',search:'Tìm bài viết…',searchBtn:'Tìm',back:'← Về mục bài viết',nf:'Không tìm thấy bài này.',loading:'Đang mở cửa cottage…',none:'Chưa có bài nào.',noneAdm:'Bấm “Viết bài mới” để đăng bài đầu tiên nhé!',noneUsr:'Vespéra sắp nhả fun fact đầu tiên…',nomatch:'Không có bài nào khớp',pedit:'Sửa bài',pdel:'Xóa bài',cdel:'Xóa bài này?',miss:'Bài này chưa có bản tiếng Việt, đang hiển thị bản tiếng Pháp.'},
+fr:{nvw:'Bienvenue',nva:'À propos',h:'La maîtresse du cottage',rd:'Lire l’article',edu:'Formation',exp:'Expérience professionnelle',awd:'Prix et distinctions',contact:'Contact',pf:'Portfolio',edit:'Modifier la présentation',navp:'Articles',pondAlt:'Une grenouille verte saute entre les nénuphars et les lotus de l’étang',irisWord:'iris',tl:'Le coin où Vespéra partage ses fun facts sur le français',all:'Tous',search:'Rechercher un article…',searchBtn:'Rechercher',back:'← Retour aux articles',nf:'Article introuvable.',loading:'Ouverture du cottage…',none:'Aucun article pour le moment.',noneAdm:'Utilisez le bouton « Viết bài mới » pour publier le premier !',noneUsr:'Vespéra prépare son premier fun fact…',nomatch:'Aucun article ne correspond',pedit:'Modifier',pdel:'Supprimer',cdel:'Supprimer cet article ?',miss:'Cet article n’existe pas encore en français : version vietnamienne affichée.'}};
 let CV={edu:[
 {vi:"Cử nhân ngành Truyền thông quốc tế - Khoa Truyền thông và Văn hóa đối ngoại - Học viện Ngoại giao Việt Nam (2023-2027)",fr:"Licence en Communication internationale - Faculté de Communication et de Culture extérieure - Académie diplomatique du Vietnam (2023-2027)"},
 {vi:"Tốt nghiệp Tú Tài - Lớp chuyên Pháp - Trường THPT Chuyên Trần Phú (Hải Phòng) (2020-2023)",fr:"Baccalauréat - Classe spécialisée de français - Lycée pour élèves doués Trần Phú (Hải Phòng) (2020-2023)"}],
@@ -216,9 +230,9 @@ exp:[
 {vi:"Thực tập sinh tại Đại sứ quán Việt Nam tại Algeria",fr:"Stagiaire à l’Ambassade du Vietnam en Algérie"},
 {vi:"Cộng tác viên biên tập tại Chuyên trang Sinh Viên Việt Nam - Báo Tiền Phong",fr:"Collaboration éditoriale - Page Sinh Viên Việt Nam, journal Tiền Phong"}],
 awd:[
-{vi:"Top 20 chung cuộc - cuộc thi « Jeunes Reporters Francophones 2026 » với bài thi « La jeunesse est l’avenir »",fr:"Top 20 final - concours « Jeunes Reporters Francophones 2026 », article « La jeunesse est l’avenir »"},
-{vi:"Giải Khuyến khích - cuộc thi « Jeunes Reporters Francophones 2025 » với bài thi « Nous nous éduquons, donc nous préservons : la jeunesse au service d’un patrimoine vivant »",fr:"Prix d’encouragement - concours « Jeunes Reporters Francophones 2025 », article « Nous nous éduquons, donc nous préservons : la jeunesse au service d’un patrimoine vivant »"},
-{vi:"Giải Đại sứ quán Romania - cuộc thi « Jeunes Reporters Francophones 2023 » với bài thi « Comment la gastronomie francophone exprime l’excellence sur la table de la culture »",fr:"Prix de l’Ambassade de Roumanie - concours « Jeunes Reporters Francophones 2023 », article « Comment la gastronomie francophone exprime l’excellence sur la table de la culture »"}]};
+{vi:"Top 20 chung cuộc - cuộc thi « Jeunes Reporters Francophones 2026 » với bài thi « La jeunesse est l’avenir »",fr:"Top 20 final - concours « Jeunes Reporters Francophones 2026 », article « La jeunesse est l’avenir »",url:"https://lecourrier.vn/la-jeunesse-est-lavenir/1357370.html"},
+{vi:"Giải Khuyến khích - cuộc thi « Jeunes Reporters Francophones 2025 » với bài thi « Nous nous éduquons, donc nous préservons : la jeunesse au service d’un patrimoine vivant »",fr:"Prix d’encouragement - concours « Jeunes Reporters Francophones 2025 », article « Nous nous éduquons, donc nous préservons : la jeunesse au service d’un patrimoine vivant »",url:"https://lecourrier.vn/nous-nous-eduquons-donc-nous-preservons-la-jeunesse-au-service-dun-patrimoine-vivant/1292561.html"},
+{vi:"Giải Đại sứ quán Romania - cuộc thi « Jeunes Reporters Francophones 2023 » với bài thi « Comment la gastronomie francophone exprime l’excellence sur la table de la culture »",fr:"Prix de l’Ambassade de Roumanie - concours « Jeunes Reporters Francophones 2023 », article « Comment la gastronomie francophone exprime l’excellence sur la table de la culture »",url:"https://lecourrier.vn/comment-la-gastronomie-francophone-exprime-lexcellence-sur-la-table-de-la-culture/1219351.html"}]};
 const DEF_CONTACT=[{label:'Email',url:'thiminhngocnguyen22@gmail.com'},{label:'LinkedIn',url:'https://www.linkedin.com/in/margot-nguyen-n1802'},{label:'Portfolio',url:'https://carongot1802-sys.github.io/portfolio/'}];
 let contact=DEF_CONTACT.map(x=>({...x})),cDraft=null;
 const chref=u=>{u=(u||'').trim();if(/^[^\s@\/]+@[^\s@\/]+\.[^\s@\/]+$/.test(u))return 'mailto:'+u;if(/^https?:\/\//i.test(u))return u;if(/^[\w-]+(\.[\w-]+)+(\/\S*)?$/.test(u))return 'https://'+u;return ''};
@@ -263,7 +277,7 @@ const excerpt=b=>{const t=(b||'').replace(/\s+/g,' ').trim();return t.length>130
 function route(){const h=location.hash.slice(1);return h.startsWith('post=')?h.slice(5):null}
 const isWelcome=()=>{const h=location.hash.slice(1);return h===''||h==='welcome'};
 const pf=(p,f)=>{const a=p[f]||'',b=p[f+'_fr']||'';return lang==='fr'?(b||a):(a||b)};
-function applyLang(){document.documentElement.lang=lang;document.querySelectorAll('.gsw span').forEach(e=>e.classList.toggle('on',e.dataset.l===lang));$('#nv-home').textContent=T[lang].navp;$('#nv-welcome').textContent=T[lang].nvw;$('#tagline').innerHTML=esc(T[lang].tl)+' <svg class="fl" aria-hidden="true"><use href="#fdl"/></svg>'}
+function applyLang(){document.documentElement.lang=lang;document.querySelectorAll('.gsw span').forEach(e=>e.classList.toggle('on',e.dataset.l===lang));$('#nv-home').textContent=T[lang].navp;$('#nv-welcome').textContent=T[lang].nvw;$('#nv-about').textContent=T[lang].nva;$('#tagline').textContent=T[lang].tl}
 function setLang(l){lang=l;tagF='';applyLang();render()}
 function render(){
   const v=$('#view'),id=route(),L=T[lang];
@@ -283,17 +297,10 @@ function render(){
     if(admin){$('#edit').onclick=()=>openEditor(p);$('#del').onclick=async()=>{if(confirm(L.cdel)){await db.doc('posts/'+p.id).delete();location.hash='articles'}}}
     window.scrollTo(0,0);return;
   }
-  const none=!posts.length;
   const tags=[...new Set(posts.map(p=>pf(p,'tag').trim()).filter(Boolean))];
-  const ql=q.trim().toLowerCase();
-  const list=posts.filter(p=>(!tagF||pf(p,'tag').trim()===tagF)&&(!ql||[p.title,p.title_fr,p.body,p.body_fr,p.tag,p.tag_fr].join(' ').toLowerCase().includes(ql)));
-  const fb='<div class="filters"><input type="search" id="q" placeholder="'+L.search+'" value="'+esc(q)+'"><div class="chips"><span class="chip'+(!tagF?' on':'')+'" data-t="">'+L.all+'</span>'+tags.map(t=>'<span class="chip'+(tagF===t?' on':'')+'" data-t="'+esc(t)+'">'+esc(t)+'</span>').join('')+'</div></div>';
-  v.innerHTML=fb+(list.length?'<div class="grid">'+list.map(p=>{const c=(p.media||[])[0];
-    const cv=c?(c.type==='video'?'<video src="'+src(c)+'#t=0.1" preload="metadata" muted playsinline></video>':'<img src="'+src(c)+'" alt="" loading="lazy">'):'<svg class="fl" aria-hidden="true"><use href="#fdl"/></svg>';
-    return '<div class="card" data-id="'+esc(p.id)+'"><div class="cover">'+cv+'</div><div class="in"><span class="tag">'+esc(pf(p,'tag')||'Fun fact')+'</span><h2>'+esc(pf(p,'title'))+'</h2><div class="date">'+esc(fmt(p.date))+'</div><p class="excerpt">'+esc(excerpt(pf(p,'body')))+'</p></div></div>'}).join('')+'</div>':(none?'<div class="empty">'+L.none+' '+(admin?L.noneAdm:L.noneUsr)+'</div>':'<div class="empty">'+L.nomatch+'</div>'));
-  bindFilters();v.querySelectorAll('.card').forEach(e=>e.onclick=()=>location.hash='post='+e.dataset.id);
+  const fb='<div class="filters"><div class="sbox"><input type="search" id="q" placeholder="'+L.search+'" value="'+esc(q)+'" autocomplete="off" enterkeyhint="search"><button type="button" class="sbtn" id="qb" aria-label="'+L.searchBtn+'"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="10" r="6.5"/><path d="M15 15l6 6"/></svg></button></div><div class="chips"><span class="chip'+(!tagF?' on':'')+'" data-t="">'+L.all+'</span>'+tags.map(t=>'<span class="chip'+(tagF===t?' on':'')+'" data-t="'+esc(t)+'">'+esc(t)+'</span>').join('')+'</div></div><div id="results"></div>';
+  v.innerHTML=fb;drawResults();bindFilters();
 }
-
 
 function renderWelcome(){const v=$('#view');
   v.innerHTML='<section class="welcome"><svg class="crest" role="img" aria-label="Hoa iris"><use href="#iris"/></svg><h1>'+esc(wf('title'))+'</h1><p class="hello">'+esc(wf('hello'))+'</p><div class="msg">'+wf('msg').split(/\n\s*\n/).map(x=>'<p>'+esc(x.trim())+'</p>').join('')+'</div>'+
@@ -310,12 +317,21 @@ function bindIris(p){const b=$('#ibtn');if(!b)return;paintCount(p.id);
     irisCache[p.id]=(irisCache[p.id]||0)+1;if(irisTotal!=null)irisTotal++;paintCount(p.id);
     const [a,t]=await Promise.all([irisHit(irisKey(p.id)),irisHit('total')]);
     if(a!=null){irisCache[p.id]=a;paintCount(p.id)}if(t!=null)irisTotal=t}}
+const norm=t=>String(t||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/đ/gi,'d').toLowerCase().replace(/\s+/g,' ').trim();
+function drawResults(){const el=$('#results');if(!el)return;const L=T[lang],none=!posts.length,ql=norm(q);
+  const list=posts.filter(p=>(!tagF||pf(p,'tag').trim()===tagF)&&(!ql||norm([p.title,p.title_fr,p.body,p.body_fr,p.tag,p.tag_fr].join(' ')).includes(ql)));
+  el.innerHTML=list.length?'<div class="grid">'+list.map(p=>{const c=(p.media||[])[0];
+    const cv=c?(c.type==='video'?'<video src="'+src(c)+'#t=0.1" preload="metadata" muted playsinline></video>':'<img src="'+src(c)+'" alt="" loading="lazy">'):'<svg class="fl" aria-hidden="true"><use href="#fdl"/></svg>';
+    return '<div class="card" data-id="'+esc(p.id)+'"><div class="cover">'+cv+'</div><div class="in"><span class="tag">'+esc(pf(p,'tag')||'Fun fact')+'</span><h2>'+esc(pf(p,'title'))+'</h2><div class="date">'+esc(fmt(p.date))+'</div><p class="excerpt">'+esc(excerpt(pf(p,'body')))+'</p></div></div>'}).join('')+'</div>':(none?'<div class="empty">'+L.none+' '+(admin?L.noneAdm:L.noneUsr)+'</div>':'<div class="empty">'+L.nomatch+'</div>');
+  el.querySelectorAll('.card').forEach(e=>e.onclick=()=>location.hash='post='+e.dataset.id)}
 function bindFilters(){const i=$('#q');if(!i)return;
-  i.oninput=()=>{q=i.value;const pos=i.selectionStart;render();const n=$('#q');n.focus();n.setSelectionRange(pos,pos)};
-  document.querySelectorAll('.chip').forEach(c=>c.onclick=()=>{tagF=c.dataset.t;render()})}
+  i.oninput=()=>{q=i.value;drawResults()};
+  i.onkeydown=e=>{if(e.key==='Enter'){q=i.value;drawResults();i.blur()}};
+  $('#qb').onclick=()=>{q=i.value;drawResults();if(q.trim()){const r=$('#results');if(r)r.scrollIntoView({behavior:'smooth',block:'start'})}else i.focus()};
+  document.querySelectorAll('.chip').forEach(c=>c.onclick=()=>{tagF=c.dataset.t;document.querySelectorAll('.chip').forEach(x=>x.classList.toggle('on',x===c));drawResults()})}
 function renderAbout(){const v=$('#view'),L=T[lang],t=about[lang]||DEF_ABOUT[lang];
-  const sec=(h,a)=>'<h2 class="sec">'+h+'</h2><ul class="cv">'+a.map(i=>'<li>'+esc(i[lang]||i.vi||i.fr||'')+'</li>').join('')+'</ul>';
-  v.innerHTML='<article><span class="tag">À propos</span><h1>'+L.h+'</h1><div id="ab">'+t.split(/\n\s*\n/).map(x=>'<p>'+esc(x.trim())+'</p>').join('')+'</div>'+(admin?'<div class="bar"><button class="ghost" id="ea">'+L.edit+'</button></div>':'')+sec(L.edu,CV.edu)+sec(L.exp,CV.exp)+sec(L.awd,CV.awd)+'</article>';
+  const sec=(h,a)=>'<h2 class="sec">'+h+'</h2><ul class="cv">'+a.map(i=>'<li>'+esc(i[lang]||i.vi||i.fr||'')+(/^https?:\/\//i.test(i.url||'')?' <a class="ext" href="'+esc(i.url)+'" target="_blank" rel="noopener">'+L.rd+'</a>':'')+'</li>').join('')+'</ul>';
+  v.innerHTML='<article><span class="tag">'+L.nva+'</span><h1>'+L.h+'</h1><div id="ab">'+t.split(/\n\s*\n/).map(x=>'<p>'+esc(x.trim())+'</p>').join('')+'</div>'+(admin?'<div class="bar"><button class="ghost" id="ea">'+L.edit+'</button></div>':'')+sec(L.edu,CV.edu)+sec(L.exp,CV.exp)+sec(L.awd,CV.awd)+'</article>';
   window.scrollTo(0,0);
   if(admin)$('#ea').onclick=()=>{$('#ab').innerHTML='<textarea class="ta" id="at"></textarea><div class="bar"><button id="as">Lưu</button><button class="ghost" id="ac">Hủy</button></div>';$('#at').value=t;$('#ea').style.display='none';
     $('#ac').onclick=renderAbout;
