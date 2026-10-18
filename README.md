@@ -3,6 +3,8 @@
 ## Cấu trúc
 - `index.html`: trang web cho khách quán đọc (ai cũng xem được, không cần đăng nhập). Khi mở web sẽ hiện một lá thư chào, gõ cửa xong mới vào mục Chào mừng, tiếp theo là Bài viết và À propos
 - `admin.html`: trang quản trị của cô chủ cottage (đăng bài, ảnh, video, câu hàng ngày, trang Chào mừng, giao diện, liên hệ, À propos)
+- `assets/`: hai hình hoa iris (`iris-to.png` ở đầu trang Chào mừng, `iris-be.png` cho mọi iris nhỏ còn lại). Nhớ upload cả thư mục này lên GitHub
+- `media/welcome.mp4`: video của trang Chào mừng (bạn tự thêm vào, xem phần bên dưới)
 - `data/posts.json`, `data/site.json`: nơi lưu bài viết và cài đặt (admin tự cập nhật, bạn không cần mở)
 - `media/`: thư mục ảnh/video, tự tạo khi bạn upload lần đầu
 
@@ -24,12 +26,21 @@
 3. Viết bài, thêm ảnh/video, bấm **Đăng bài**. Web cập nhật sau khoảng 1 phút.
 
 ## Trang Chào mừng và hoa iris
-- Mục Chào mừng hiện đầu tiên khi khách quán mở web: hoa iris tím, tiêu đề, lời chào, lời nhắn, hình ao sen có chú ếch nhảy, và số iris cottage đã nhận.
+- Mục Chào mừng hiện đầu tiên khi khách quán mở web: hoa iris, tiêu đề, lời chào, lời nhắn, khung video 16:9, và số iris cottage đã nhận.
 - Muốn đổi chữ, vào admin, tab **Chào mừng**, sửa rồi bấm **Lưu trang chào mừng** (có cả bản tiếng Việt và tiếng Pháp). Trong đó có cả dòng đếm iris, lời mời và lời cảm ơn ở cuối bài. Ghi `{n}` ở chỗ muốn hiện con số.
 - Cuối mỗi bài có một bông iris tím. Khách bấm vào thì cottage được thêm một iris, mỗi khách chỉ tặng được một bông cho mỗi bài (trình duyệt tự nhớ).
 - Số iris được lưu bằng dịch vụ đếm miễn phí bên ngoài (abacus.jasoncameron.dev), vì GitHub Pages không tự lưu được lượt bấm của khách. Admin hiện tổng iris ở tab Chào mừng và số iris của từng bài ở tab Bài viết.
 - Nếu một ngày dịch vụ đếm ngừng hoạt động, web vẫn chạy bình thường, chỉ là khung đếm iris sẽ ẩn đi. Khi đó bạn có thể thêm khóa `"iris": {"api": "địa chỉ dịch vụ khác"}` vào `data/site.json`.
 - Số iris gắn với địa chỉ web. Nếu đổi tên repo hoặc đổi tên miền thì bộ đếm sẽ bắt đầu lại từ 0.
+
+## Menu 3 gạch
+- Ba mục Chào mừng, Bài viết, Giới thiệu nay ẩn trong biểu tượng 3 gạch ở góc trên bên trái. Bấm vào thì menu trượt ra, bấm mục nào, bấm ra ngoài vùng menu, bấm dấu ✕ hoặc phím Esc đều đóng lại.
+
+## Video ở trang Chào mừng
+- Khung video tỉ lệ 16:9 nằm ngay dưới lời nhắn. Để thêm video: vào repo GitHub, tạo thư mục `media` (nếu chưa có), upload file đặt tên đúng **`welcome.mp4`** vào đó (Add file → Upload files).
+- Khi chưa có file, khung hiện chữ "Video sắp được đặt ở đây". Có file rồi thì khung tự đổi thành video.
+- Video tự phát khi khách kéo xuống tới nơi, tự dừng khi kéo đi chỗ khác. Nếu khách chủ động bấm dừng thì web không tự phát lại nữa. Video phát ở chế độ tắt tiếng (trình duyệt bắt buộc mới cho tự phát), khách bật tiếng bằng nút loa trên thanh điều khiển.
+- Nên dùng mp4 mã hóa H.264, dưới 25 MB. Muốn đổi tên hoặc đường dẫn file thì sửa `media/welcome.mp4` trong `index.html`.
 
 ## Lá thư chào và nút Mời thưởng trà
 - Mỗi khi khách mở web sẽ thấy một lá thư cũ có in chìm hoa iris: "Chào mừng đến Cottage của tôi, chúc một ngày tốt lành". Khách bấm dòng **Mời gõ cửa** (hoặc phím Esc) để đóng thư và vào trang Chào mừng.
@@ -50,5 +61,5 @@
 - Mỗi file ảnh/video tối đa 40 MB, video nên dưới 25 MB. Video dài nên nén trước hoặc đăng lên YouTube.
 - Xóa bài chỉ gỡ bài khỏi web, file ảnh vẫn nằm trong `media/`.
 - Phần Học vấn, Kinh nghiệm, Giải thưởng sửa trong admin, tab **À propos**.
-- Biểu tượng của web nay là hoa iris tím (trên tab trình duyệt và trang chào mừng) và fleur-de-lis vàng (ở các điểm trang trí). Các nút chức năng như mũi tên quay lại hay dấu đóng ảnh vẫn giữ nguyên.
+- Biểu tượng của web nay dùng hình iris vẽ màu nước của bạn (trên tab trình duyệt, trang chào mừng, lá thư, khung đếm iris và cuối mỗi bài) và fleur-de-lis vàng (ở các điểm trang trí). Các nút chức năng như mũi tên quay lại hay dấu đóng ảnh vẫn giữ nguyên.
 - Mở trực tiếp file bằng cách nhấp đúp trên máy sẽ không hiện bài vì trình duyệt chặn đọc dữ liệu. Hãy xem qua link GitHub Pages.
