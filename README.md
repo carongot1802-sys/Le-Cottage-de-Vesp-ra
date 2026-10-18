@@ -42,11 +42,12 @@
 - Video tự phát khi khách kéo xuống tới nơi, tự dừng khi kéo đi chỗ khác. Nếu khách chủ động bấm dừng thì web không tự phát lại nữa. Video phát ở chế độ tắt tiếng (trình duyệt bắt buộc mới cho tự phát), khách bật tiếng bằng nút loa trên thanh điều khiển.
 - Nên dùng mp4 mã hóa H.264, dưới 25 MB. Muốn đổi tên hoặc đường dẫn file thì sửa `media/welcome.mp4` trong `index.html`.
 
-## Lá thư chào và nút Mời thưởng trà
-- Mỗi khi khách mở web sẽ thấy một lá thư cũ có in chìm hoa iris: "Chào mừng đến Cottage của tôi, chúc một ngày tốt lành". Khách bấm dòng **Mời gõ cửa** (hoặc phím Esc) để đóng thư và vào trang Chào mừng.
-- Nếu khách mở thẳng link một bài viết hoặc trang Giới thiệu, thư vẫn hiện nhưng đóng xong khách ở lại đúng trang họ cần.
-- Dưới khung đếm iris ở trang Chào mừng có nút xanh lá **Mời thưởng trà**, bấm vào sẽ chuyển sang mục Bài viết.
-- Muốn đổi chữ trên lá thư hoặc nút, sửa trong `index.html`, các khóa `lw`, `lk` (thư) và `tea` (nút) ở đối tượng `T`.
+## Thiệp chào và nút Mời thưởng trà
+- Mỗi khi khách mở web sẽ thấy tấm thiệp hoa tím (file `assets/thu-chao.jpg`) nổi lên giữa màn hình, nhẹ nhàng lơ lửng, vài bông iris nhỏ rơi chầm chậm xung quanh. Khách bấm vào chữ **Mời gõ cửa !** (hoặc bấm vào thiệp, hoặc phím Esc) để đóng thiệp và vào trang Chào mừng.
+- Nếu khách mở thẳng link một bài viết hoặc trang Giới thiệu, thiệp vẫn hiện nhưng đóng xong khách ở lại đúng trang họ cần.
+- Muốn đổi thiệp: làm ảnh vuông mới, đặt tên `thu-chao.jpg` rồi upload đè vào thư mục `assets`. Giữ chữ "Mời gõ cửa !" ở vị trí cũ (khoảng 2/3 chiều cao ảnh, giữa ảnh) vì nút bấm nằm chồng đúng chỗ đó.
+- Chữ trên thiệp là chữ trong ảnh nên không đổi theo VI/FR.
+- Dưới khung đếm iris ở trang Chào mừng có nút xanh lá **Mời thưởng trà**, bấm vào sẽ chuyển sang mục Bài viết. Chữ nút sửa trong `index.html`, khóa `tea` ở đối tượng `T`.
 
 ## Câu hàng ngày
 - Ở đầu trang Bài viết, phía trên danh sách bài, có một khung hiện câu quote hoặc expression của hôm nay.
