@@ -1,8 +1,8 @@
 # Le Cottage de Vespéra - bản chạy trên GitHub Pages
 
 ## Cấu trúc
-- `index.html`: trang web cho khách quán đọc (ai cũng xem được, không cần đăng nhập). Trang đầu tiên là mục Chào mừng, tiếp theo là Bài viết và À propos
-- `admin.html`: trang quản trị của cô chủ cottage (đăng bài, ảnh, video, trang Chào mừng, giao diện, liên hệ, À propos)
+- `index.html`: trang web cho khách quán đọc (ai cũng xem được, không cần đăng nhập). Khi mở web sẽ hiện một lá thư chào, gõ cửa xong mới vào mục Chào mừng, tiếp theo là Bài viết và À propos
+- `admin.html`: trang quản trị của cô chủ cottage (đăng bài, ảnh, video, câu hàng ngày, trang Chào mừng, giao diện, liên hệ, À propos)
 - `data/posts.json`, `data/site.json`: nơi lưu bài viết và cài đặt (admin tự cập nhật, bạn không cần mở)
 - `media/`: thư mục ảnh/video, tự tạo khi bạn upload lần đầu
 
@@ -30,6 +30,20 @@
 - Số iris được lưu bằng dịch vụ đếm miễn phí bên ngoài (abacus.jasoncameron.dev), vì GitHub Pages không tự lưu được lượt bấm của khách. Admin hiện tổng iris ở tab Chào mừng và số iris của từng bài ở tab Bài viết.
 - Nếu một ngày dịch vụ đếm ngừng hoạt động, web vẫn chạy bình thường, chỉ là khung đếm iris sẽ ẩn đi. Khi đó bạn có thể thêm khóa `"iris": {"api": "địa chỉ dịch vụ khác"}` vào `data/site.json`.
 - Số iris gắn với địa chỉ web. Nếu đổi tên repo hoặc đổi tên miền thì bộ đếm sẽ bắt đầu lại từ 0.
+
+## Lá thư chào và nút Mời thưởng trà
+- Mỗi khi khách mở web sẽ thấy một lá thư cũ có in chìm hoa iris: "Chào mừng đến Cottage của tôi, chúc một ngày tốt lành". Khách bấm dòng **Mời gõ cửa** (hoặc phím Esc) để đóng thư và vào trang Chào mừng.
+- Nếu khách mở thẳng link một bài viết hoặc trang Giới thiệu, thư vẫn hiện nhưng đóng xong khách ở lại đúng trang họ cần.
+- Dưới khung đếm iris ở trang Chào mừng có nút xanh lá **Mời thưởng trà**, bấm vào sẽ chuyển sang mục Bài viết.
+- Muốn đổi chữ trên lá thư hoặc nút, sửa trong `index.html`, các khóa `lw`, `lk` (thư) và `tea` (nút) ở đối tượng `T`.
+
+## Câu hàng ngày
+- Ở đầu trang Bài viết, phía trên danh sách bài, có một khung hiện câu quote hoặc expression của hôm nay.
+- Mỗi ngày vào admin, tab **Câu hàng ngày**, gõ câu (có ô giải nghĩa, có cả bản tiếng Việt và tiếng Pháp), chọn ngày rồi bấm **Lưu câu hôm nay**. Web cập nhật sau khoảng 1 phút.
+- Để trống cả hai ngôn ngữ thì khung tự ẩn. Câu được lưu trong `data/site.json`, khóa `quote`.
+
+## Bài trước và bài kế tiếp
+- Cuối mỗi bài có hai ô gợi ý: bài đăng trước đó (cũ hơn) bên trái và bài đăng kế tiếp (mới hơn) bên phải. Bài đầu hoặc bài mới nhất thì chỉ hiện một ô.
 
 ## Lưu ý
 - Ai cũng mở được `admin.html` nhưng không có token thì không làm gì được. Đừng chia sẻ token. Nếu lộ, xóa token trên GitHub rồi tạo cái mới.

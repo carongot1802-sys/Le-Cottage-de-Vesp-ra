@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<!-- cottage-build 5: footer sát trái, welcome căn giữa -->
+<!-- cottage-build 6: thư chào, nút Mời thưởng trà, câu hàng ngày, bài trước/sau, chuyển động mượt -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Le Cottage de Vespéra</title>
 <meta name="description" content="Nơi Vespéra nhả fun fact về tiếng Pháp">
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20100%20120%22%3E%3Cpath%20d%3D%22M46%20119C45%20104%2042%2094%2034%2084c10%204%2016%2016%2016%2035z%22%20fill%3D%22%234f8a5b%22/%3E%3Cg%20transform%3D%22translate%2850%2054%29%22%3E%3Cpath%20transform%3D%22rotate%28-52%29%22%20d%3D%22M0%200C-15%208-19%2034%200%2052C19%2034%2015%208%200%200Z%22%20fill%3D%22%235b2d96%22/%3E%3Cpath%20transform%3D%22rotate%2852%29%22%20d%3D%22M0%200C-15%208-19%2034%200%2052C19%2034%2015%208%200%200Z%22%20fill%3D%22%235b2d96%22/%3E%3Cpath%20transform%3D%22rotate%28-34%29%22%20d%3D%22M0%204C-11-4-12-26%200-42C12-26%2011-4%200%204Z%22%20fill%3D%22%23a98ae0%22/%3E%3Cpath%20transform%3D%22rotate%2834%29%22%20d%3D%22M0%204C-11-4-12-26%200-42C12-26%2011-4%200%204Z%22%20fill%3D%22%23a98ae0%22/%3E%3Cpath%20d%3D%22M0%200C-17%208-21%2036%200%2056C21%2036%2017%208%200%200Z%22%20fill%3D%22%236a3fa3%22/%3E%3Cpath%20d%3D%22M0%202C-4%2010-4%2022%200%2031C4%2022%204%2010%200%202Z%22%20fill%3D%22%23f2c230%22/%3E%3Cpath%20d%3D%22M0%206C-9-2-10-24%200-40C10-24%209-2%200%206Z%22%20fill%3D%22%23a98ae0%22/%3E%3C/g%3E%3C/svg%3E">
-<link href="https://fonts.googleapis.com/css2?family=Chantelli+Antiqua&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Chantelli+Antiqua&family=Montserrat:wght@400;500;700&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#f3ead8;--card:#faf4e6;--ink:#2b1a1a;--wine:#6d1a2c;--green:#1f3a2e;--line:#d9c9a8;--muted:#7a6a5a;
  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -66,7 +66,7 @@ button.ghost{background:transparent;color:var(--wine);border:1px solid var(--win
 .thumbs div{width:84px;height:84px;position:relative;border:1px solid var(--line);background:var(--bg)}
 .thumbs img,.thumbs video{width:100%;height:100%;object-fit:cover}
 .thumbs b{position:absolute;top:-6px;right:-6px;background:var(--wine);color:#fff;border-radius:50%;width:20px;height:20px;line-height:19px;text-align:center;font-size:13px;cursor:pointer}
-#lb{position:fixed;inset:0;background:#000e;z-index:50;display:none;align-items:center;justify-content:center;padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}
+#lb{position:fixed;inset:0;background:#000e;z-index:50;display:flex;opacity:0;visibility:hidden;transition:opacity .35s ease,visibility 0s linear .35s;align-items:center;justify-content:center;padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}
 #lb img,#lb video{max-width:94vw;max-height:86vh;border:6px solid #f3ead8}
 #lb .x,#lb .n{position:absolute;color:#fff;font-size:34px;background:none;padding:12px;opacity:.85}
 #lb .x{top:calc(env(safe-area-inset-top,0px) + 6px);right:10px}#lb .p{left:6px}#lb .nx{right:6px}#lb .n{top:50%;transform:translateY(-50%)}
@@ -161,6 +161,60 @@ article h1{margin:.25em 0 .6em}
 a.ext{color:var(--wine);white-space:nowrap;text-underline-offset:3px;font-size:.92em}
 .filters input[type=search]::-webkit-search-cancel-button,.filters input[type=search]::-webkit-search-decoration{-webkit-appearance:none;appearance:none}
 @media (min-width:900px){main{padding-top:44px}.grid{gap:28px}}
+
+/* ===== build 6 ===== */
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+button,.btn,.chip,nav a,.back,.gsw span,.card,.sbtn,.pn a{transition:transform .4s cubic-bezier(.22,.61,.36,1),box-shadow .4s ease,background-color .3s ease,color .3s ease,border-color .3s ease,opacity .3s ease}
+button:not(.sbtn):not(.irisbtn):not(.n):not(.x):active{transform:scale(.97)}
+.card:hover{transform:translateY(-5px);box-shadow:0 14px 30px #0002}
+.card .cover img,.card .cover video{transition:transform .8s cubic-bezier(.22,.61,.36,1)}
+.card:hover .cover img,.card:hover .cover video{transform:scale(1.05)}
+.chip:hover{transform:translateY(-1px)}
+.back:hover{transform:translateX(-3px)}
+#lb.open{opacity:1;visibility:visible;transition:opacity .35s ease,visibility 0s}
+#lbm{transform:scale(.96);transition:transform .45s cubic-bezier(.22,.61,.36,1)}
+#lb.open #lbm{transform:none}
+#lbm>*{animation:lbin .4s cubic-bezier(.22,.61,.36,1)}
+@keyframes lbin{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:none}}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.grid.stag .card{animation:rise .7s cubic-bezier(.22,.61,.36,1) backwards;animation-delay:calc(var(--i,0)*70ms)}
+.welcome>*{animation:rise .8s cubic-bezier(.22,.61,.36,1) backwards}
+.welcome>:nth-child(2){animation-delay:.08s}.welcome>:nth-child(3){animation-delay:.16s}.welcome>:nth-child(4){animation-delay:.24s}.welcome>:nth-child(5){animation-delay:.32s}.welcome>:nth-child(6){animation-delay:.42s}
+.teabtn{display:inline-flex;align-items:center;gap:10px;margin-top:14px;padding:13px 32px;border-radius:40px;background:var(--green);color:var(--bg);font-size:16px;font-weight:500;letter-spacing:.05em;box-shadow:0 6px 16px #1f3a2e40}
+.teabtn svg{width:22px;height:22px;flex:none}
+.teabtn:hover{transform:translateY(-3px);box-shadow:0 12px 26px #1f3a2e55}
+.teabtn:focus-visible{outline:2px solid var(--green);outline-offset:4px}
+.qbox{position:relative;margin:0 0 32px;padding:26px 30px 24px;background:var(--card);border:1px solid var(--line);border-top:3px double var(--wine);border-radius:6px;text-align:center;box-shadow:0 8px 22px #1f3a2e14;overflow:hidden;animation:rise .8s cubic-bezier(.22,.61,.36,1) backwards}
+.qbox::before{content:"“";position:absolute;top:-6px;left:16px;font:700 96px/1 Georgia,serif;color:var(--wine);opacity:.12;pointer-events:none}
+.qlab{font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--wine)}
+.qlab .fl{color:#b8860b}
+.qtext{margin:12px auto 0;max-width:640px;font-family:'Playfair Display','Chantelli Antiqua',Georgia,serif;font-style:italic;font-weight:500;font-size:clamp(20px,3.4vw,27px);line-height:1.45;color:var(--green);white-space:pre-wrap}
+.qnote{margin:12px auto 0;max-width:600px;font-size:15px;line-height:1.6;color:var(--muted);white-space:pre-wrap}
+.pn{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:42px 0 8px;padding-top:26px;border-top:1px solid var(--line)}
+.pn a{display:block;padding:14px 18px;border:1px solid var(--line);background:var(--card);border-radius:4px;text-decoration:none;color:var(--ink)}
+.pn a:hover,.pn a:focus-visible{transform:translateY(-3px);box-shadow:0 10px 22px #0002;border-color:var(--green)}
+.pn small{display:block;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--wine)}
+.pn strong{display:block;margin-top:4px;color:var(--green);font-size:17px;line-height:1.35;font-weight:600}
+.pn .pnn{text-align:right}
+@media (max-width:560px){.pn{grid-template-columns:1fr}.pn .pnn{text-align:left}}
+#letter{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:max(20px,env(safe-area-inset-top,0px)) 20px max(20px,env(safe-area-inset-bottom,0px));background:rgba(24,14,12,.58);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);animation:lfade .6s ease both}
+#letter.bye{animation:lfadeout .6s ease forwards;pointer-events:none}
+.paper{position:relative;width:min(460px,100%);padding:40px 34px 28px;text-align:center;color:#3a2814;background:radial-gradient(ellipse at 18% 12%,#fff6dc66,transparent 55%),radial-gradient(ellipse at 85% 90%,#b0843a33,transparent 60%),linear-gradient(165deg,#f4e5bf,#e8d3a0 60%,#dfc48a);border-radius:3px 9px 4px 11px/9px 4px 11px 3px;box-shadow:inset 0 0 50px #8a5f1f55,inset 0 0 6px #6b4a1a66,0 24px 60px #000a;transform:rotate(-1.2deg);animation:paperin .9s cubic-bezier(.22,.61,.36,1) .12s both}
+.paper::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(to bottom,transparent 32.5%,#6b4a1a26 33%,#fff4 33.4%,transparent 34%,transparent 65.5%,#6b4a1a20 66%,#fff3 66.4%,transparent 67%)}
+.paper .wm{position:absolute;left:50%;top:50%;width:64%;height:auto;aspect-ratio:100/120;transform:translate(-50%,-52%);opacity:.15;filter:sepia(.35);mix-blend-mode:multiply;pointer-events:none}
+.paper .orn{font-size:26px;margin:0 0 4px;position:relative;z-index:1}
+.paper .lt{position:relative;z-index:1;font-family:'Playfair Display','Chantelli Antiqua',Georgia,serif;font-style:italic;font-weight:500;font-size:clamp(22px,5.6vw,30px);line-height:1.45;margin:10px 0 28px}
+.knock{position:relative;z-index:1;background:none;color:#4a1522;border:0;border-top:1px solid #7a5a2a66;border-bottom:1px solid #7a5a2a66;border-radius:0;padding:9px 26px;font-family:inherit;font-weight:700;font-size:17px;letter-spacing:.06em;cursor:pointer}
+.knock:hover,.knock:focus-visible{color:#6d1a2c;transform:translateY(-2px)}
+.knock:focus-visible{outline:2px solid #6d1a2c;outline-offset:4px}
+#letter.knk .paper{animation:knock .45s ease both}
+#letter.bye .paper{animation:paperout .6s cubic-bezier(.4,0,.2,1) forwards}
+@keyframes lfade{from{opacity:0}to{opacity:1}}
+@keyframes lfadeout{to{opacity:0}}
+@keyframes paperin{from{opacity:0;transform:translateY(40px) rotate(-5deg) scale(.92)}to{opacity:1;transform:rotate(-1.2deg)}}
+@keyframes paperout{from{opacity:1;transform:rotate(-1.2deg)}to{opacity:0;transform:translateY(-34px) rotate(2deg) scale(.96)}}
+@keyframes knock{0%,100%{transform:rotate(-1.2deg)}20%{transform:rotate(-1.2deg) translateX(-6px)}40%{transform:rotate(-1.2deg) translateX(5px)}60%{transform:rotate(-1.2deg) translateX(-3px)}80%{transform:rotate(-1.2deg) translateX(2px)}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.grid.stag .card,.welcome>*,.qbox,#lbm>*,#letter,.paper{animation:none!important}#lb,#lbm,button,.card,.card .cover img{transition:none!important}}
 </style>
 </head>
 <body>
@@ -217,13 +271,15 @@ a.ext{color:var(--wine);white-space:nowrap;text-underline-offset:3px;font-size:.
 
 <script>
 const $=s=>document.querySelector(s);
+const toTop=()=>{const r=document.documentElement;r.style.scrollBehavior='auto';window.scrollTo(0,0);r.style.scrollBehavior=''};
+const RM=window.matchMedia('(prefers-reduced-motion:reduce)');
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 let db=null,assets=null,user=null,posts=[],admin=false,editId=null,media=[],loaded=false,denied=false,q='',tagF='',about={vi:'',fr:''};
 let lang='vi';
 const DEF_ABOUT={vi:"Bonjour ! Mình là Vespéra, chủ nhân của cái cottage nhỏ xíu này.\n\nMình mê tiếng Pháp, từ những âm mũi khó nhằn, những quy tắc ngữ pháp “cho vui”, cho tới những câu lóng không có trong giáo trình. Blog này là nơi mình nhả (yap) mọi thứ hay ho mình học được: fun fact ngắn ngắn, đọc xong là muốn khoe với ai đó liền.\n\nGhé chơi nhé, pha một tách trà (hoặc một ly vang đỏ 🍷) và nhớ để lại lời chào. À bientôt !",
 fr:"Bonjour ! Je suis Vespéra, la maîtresse de ce petit cottage.\n\nJe suis passionnée de français : des sons nasaux capricieux aux règles de grammaire « pour le plaisir », jusqu’aux expressions d’argot qu’on ne trouve dans aucun manuel. Ce blog est l’endroit où je « yappe » sur tout ce que j’apprends : de courts fun facts qu’on a envie de partager aussitôt.\n\nEntrez, servez-vous une tasse de thé (ou un verre de vin rouge 🍷) et laissez-moi un petit mot. À bientôt !"};
-const T={vi:{nvw:'Chào mừng',nva:'Giới thiệu',h:'Về cô chủ cottage',rd:'Đọc bài báo',edu:'Học vấn',exp:'Kinh nghiệm làm việc',awd:'Giải thưởng',contact:'Liên hệ',pf:'Link Portfolio',edit:'Sửa phần giới thiệu',navp:'Bài viết',pondAlt:'Chú ếch xanh nhảy giữa những lá sen và hoa sen trên mặt ao',irisWord:'iris',tl:'Nơi Vespéra nhả fun fact về tiếng Pháp',all:'Tất cả',search:'Tìm bài viết…',searchBtn:'Tìm',back:'← Về mục bài viết',nf:'Không tìm thấy bài này.',loading:'Đang mở cửa cottage…',none:'Chưa có bài nào.',noneAdm:'Bấm “Viết bài mới” để đăng bài đầu tiên nhé!',noneUsr:'Vespéra sắp nhả fun fact đầu tiên…',nomatch:'Không có bài nào khớp',pedit:'Sửa bài',pdel:'Xóa bài',cdel:'Xóa bài này?',miss:'Bài này chưa có bản tiếng Việt, đang hiển thị bản tiếng Pháp.'},
-fr:{nvw:'Bienvenue',nva:'À propos',h:'La maîtresse du cottage',rd:'Lire l’article',edu:'Formation',exp:'Expérience professionnelle',awd:'Prix et distinctions',contact:'Contact',pf:'Portfolio',edit:'Modifier la présentation',navp:'Articles',pondAlt:'Une grenouille verte saute entre les nénuphars et les lotus de l’étang',irisWord:'iris',tl:'Le coin où Vespéra partage ses fun facts sur le français',all:'Tous',search:'Rechercher un article…',searchBtn:'Rechercher',back:'← Retour aux articles',nf:'Article introuvable.',loading:'Ouverture du cottage…',none:'Aucun article pour le moment.',noneAdm:'Utilisez le bouton « Viết bài mới » pour publier le premier !',noneUsr:'Vespéra prépare son premier fun fact…',nomatch:'Aucun article ne correspond',pedit:'Modifier',pdel:'Supprimer',cdel:'Supprimer cet article ?',miss:'Cet article n’existe pas encore en français : version vietnamienne affichée.'}};
+const T={vi:{nvw:'Chào mừng',nva:'Giới thiệu',h:'Về cô chủ cottage',rd:'Đọc bài báo',edu:'Học vấn',exp:'Kinh nghiệm làm việc',awd:'Giải thưởng',contact:'Liên hệ',pf:'Link Portfolio',edit:'Sửa phần giới thiệu',navp:'Bài viết',tea:'Mời thưởng trà',prev:'Bài đăng trước',next:'Bài đăng kế tiếp',ql:'Câu của hôm nay',lw:'Chào mừng đến Cottage của tôi, chúc một ngày tốt lành',lk:'Mời gõ cửa',pondAlt:'Chú ếch xanh nhảy giữa những lá sen và hoa sen trên mặt ao',irisWord:'iris',tl:'Nơi Vespéra nhả fun fact về tiếng Pháp',all:'Tất cả',search:'Tìm bài viết…',searchBtn:'Tìm',back:'← Về mục bài viết',nf:'Không tìm thấy bài này.',loading:'Đang mở cửa cottage…',none:'Chưa có bài nào.',noneAdm:'Bấm “Viết bài mới” để đăng bài đầu tiên nhé!',noneUsr:'Vespéra sắp nhả fun fact đầu tiên…',nomatch:'Không có bài nào khớp',pedit:'Sửa bài',pdel:'Xóa bài',cdel:'Xóa bài này?',miss:'Bài này chưa có bản tiếng Việt, đang hiển thị bản tiếng Pháp.'},
+fr:{nvw:'Bienvenue',nva:'À propos',h:'La maîtresse du cottage',rd:'Lire l’article',edu:'Formation',exp:'Expérience professionnelle',awd:'Prix et distinctions',contact:'Contact',pf:'Portfolio',edit:'Modifier la présentation',navp:'Articles',tea:'Venez prendre le thé',prev:'Article précédent',next:'Article suivant',ql:'Citation du jour',lw:'Bienvenue dans mon cottage, passez une très belle journée',lk:'Frappez à la porte',pondAlt:'Une grenouille verte saute entre les nénuphars et les lotus de l’étang',irisWord:'iris',tl:'Le coin où Vespéra partage ses fun facts sur le français',all:'Tous',search:'Rechercher un article…',searchBtn:'Rechercher',back:'← Retour aux articles',nf:'Article introuvable.',loading:'Ouverture du cottage…',none:'Aucun article pour le moment.',noneAdm:'Utilisez le bouton « Viết bài mới » pour publier le premier !',noneUsr:'Vespéra prépare son premier fun fact…',nomatch:'Aucun article ne correspond',pedit:'Modifier',pdel:'Supprimer',cdel:'Supprimer cet article ?',miss:'Cet article n’existe pas encore en français : version vietnamienne affichée.'}};
 let CV={edu:[
 {vi:"Cử nhân ngành Truyền thông quốc tế - Khoa Truyền thông và Văn hóa đối ngoại - Học viện Ngoại giao Việt Nam (2023-2027)",fr:"Licence en Communication internationale - Faculté de Communication et de Culture extérieure - Académie diplomatique du Vietnam (2023-2027)"},
 {vi:"Tốt nghiệp Tú Tài - Lớp chuyên Pháp - Trường THPT Chuyên Trần Phú (Hải Phòng) (2020-2023)",fr:"Baccalauréat - Classe spécialisée de français - Lycée pour élèves doués Trần Phú (Hải Phòng) (2020-2023)"}],
@@ -255,7 +311,7 @@ function renderContact(){const el=$('#contact');
 const DEF_WELCOME={
 vi:{title:"Chào mừng đến với Cottage của Vespéra",hello:"Bonjour, khách quán thân mến !",msg:"Cô chủ cottage đã pha sẵn một ấm trà và để cửa mở cho bạn.\n\nCứ thong thả đọc vài fun fact tiếng Pháp. Nếu bài nào làm bạn thấy vui hay hữu ích, hãy để lại một bông iris tím ở cuối bài nhé.",counter:"Cottage đã nhận được {n} bông iris từ khách quán",ask:"Bài này có ích với bạn? Tặng cô chủ cottage một bông iris nhé.",thanks:"Cảm ơn khách quán, cô chủ cottage đã nhận được bông iris của bạn.",unit:"iris"},
 fr:{title:"Bienvenue au Cottage de Vespéra",hello:"Bonjour, chers hôtes !",msg:"La maîtresse du cottage a préparé le thé et laissé la porte ouverte.\n\nLisez tranquillement quelques fun facts sur le français. Si un article vous a plu ou aidé, déposez un iris violet au bas de la page.",counter:"Le cottage a reçu {n} iris de ses hôtes",ask:"Cet article vous a aidé ? Offrez un iris à la maîtresse du cottage.",thanks:"Merci, cher hôte. La maîtresse du cottage a bien reçu votre iris.",unit:"iris"}};
-let welcome={vi:{},fr:{}},irisCfg={};
+let welcome={vi:{},fr:{}},irisCfg={},quote={};
 const wf=k=>(welcome[lang]&&welcome[lang][k])||DEF_WELCOME[lang][k];
 /* ---------- Iris counter (dịch vụ đếm miễn phí, không cần máy chủ) ---------- */
 const IRIS_API_DEF='https://abacus.jasoncameron.dev';
@@ -279,7 +335,14 @@ function route(){const h=location.hash.slice(1);return h.startsWith('post=')?h.s
 const isWelcome=()=>{const h=location.hash.slice(1);return h===''||h==='welcome'};
 const pf=(p,f)=>{const a=p[f]||'',b=p[f+'_fr']||'';return lang==='fr'?(b||a):(a||b)};
 function applyLang(){document.documentElement.lang=lang;document.querySelectorAll('.gsw span').forEach(e=>e.classList.toggle('on',e.dataset.l===lang));$('#nv-home').textContent=T[lang].navp;$('#nv-welcome').textContent=T[lang].nvw;$('#nv-about').textContent=T[lang].nva;$('#tagline').textContent=T[lang].tl}
-function setLang(l){lang=l;tagF='';applyLang();render()}
+let swapId=0;
+function swap(fn){const v=$('#view'),id=++swapId;
+  if(!v.animate||RM.matches||!v.firstElementChild){fn();return}
+  if(v._o)v._o.cancel();
+  const o=v.animate([{opacity:1,transform:'none'},{opacity:0,transform:'translateY(-8px)'}],{duration:200,easing:'ease-in',fill:'forwards'});
+  v._o=o;
+  o.onfinish=()=>{if(id!==swapId)return;fn();o.cancel();v.animate([{opacity:0,transform:'translateY(14px)'},{opacity:1,transform:'none'}],{duration:520,easing:'cubic-bezier(.22,.61,.36,1)'})}}
+function setLang(l){lang=l;tagF='';applyLang();swap(render)}
 function render(){
   const v=$('#view'),id=route(),L=T[lang];
   $('#nv-about').classList.toggle('on',location.hash==='#about');$('#nv-welcome').classList.toggle('on',isWelcome());$('#nv-home').classList.toggle('on',!isWelcome()&&location.hash!=='#about');
@@ -293,22 +356,29 @@ function render(){
     const paras=pf(p,'body').split(/\n\s*\n/).map(t=>'<p>'+esc(t.trim())+'</p>').join('');
     const miss=lang==='fr'?!(p.title_fr||p.body_fr):!(p.title||p.body);
     const ms=(p.media||[]).map((m,i)=>'<div class="m" data-i="'+i+'">'+(m.type==='video'?'<video src="'+src(m)+'#t=0.1" preload="metadata" muted playsinline></video><div class="play">▶</div>':'<img src="'+src(m)+'" alt="" loading="lazy">')+'</div>').join('');
-    v.innerHTML='<article><button class="back" onclick="location.hash=\'articles\'">'+L.back+'</button><div style="margin-top:18px"><span class="tag">'+esc(pf(p,'tag')||'Fun fact')+'</span> · <span class="date">'+esc(fmt(p.date))+'</span></div><h1>'+esc(pf(p,'title'))+'</h1>'+(miss?'<div class="note">'+L.miss+'</div>':'')+'<div class="media">'+ms+'</div>'+paras+irisEnd(p)+(admin?'<div class="bar"><button class="ghost" id="edit">'+L.pedit+'</button><button class="ghost" id="del">'+L.pdel+'</button></div>':'')+'</article>';
+    v.innerHTML='<article><button class="back" onclick="location.hash=\'articles\'">'+L.back+'</button><div style="margin-top:18px"><span class="tag">'+esc(pf(p,'tag')||'Fun fact')+'</span> · <span class="date">'+esc(fmt(p.date))+'</span></div><h1>'+esc(pf(p,'title'))+'</h1>'+(miss?'<div class="note">'+L.miss+'</div>':'')+'<div class="media">'+ms+'</div>'+paras+irisEnd(p)+postNav(p)+(admin?'<div class="bar"><button class="ghost" id="edit">'+L.pedit+'</button><button class="ghost" id="del">'+L.pdel+'</button></div>':'')+'</article>';
     v.querySelectorAll('.m').forEach(e=>e.onclick=()=>openLB(p.media,+e.dataset.i));bindIris(p);
     if(admin){$('#edit').onclick=()=>openEditor(p);$('#del').onclick=async()=>{if(confirm(L.cdel)){await db.doc('posts/'+p.id).delete();location.hash='articles'}}}
-    window.scrollTo(0,0);return;
+    toTop();return;
   }
   const tags=[...new Set(posts.map(p=>pf(p,'tag').trim()).filter(Boolean))];
   const fb='<div class="filters"><div class="sbox"><input type="search" id="q" placeholder="'+L.search+'" value="'+esc(q)+'" autocomplete="off" enterkeyhint="search"><button type="button" class="sbtn" id="qb" aria-label="'+L.searchBtn+'"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="10" r="6.5"/><path d="M15 15l6 6"/></svg></button></div><div class="chips"><span class="chip'+(!tagF?' on':'')+'" data-t="">'+L.all+'</span>'+tags.map(t=>'<span class="chip'+(tagF===t?' on':'')+'" data-t="'+esc(t)+'">'+esc(t)+'</span>').join('')+'</div></div><div id="results"></div>';
-  v.innerHTML=fb;drawResults();bindFilters();
+  v.innerHTML=quoteBox()+fb;drawResults(true);bindFilters();
 }
 
+function quoteBox(){const a=quote[lang]||{},b=quote[lang==='vi'?'fr':'vi']||{},sx=(a.text||'').trim()?a:b,t=(sx.text||'').trim();if(!t)return '';
+  const n=(sx.note||'').trim(),L=T[lang],fl='<svg class="fl xs" aria-hidden="true"><use href="#fdl"/></svg>';
+  return '<section class="qbox" aria-label="'+esc(L.ql)+'"><div class="qlab">'+fl+' '+esc(L.ql)+(quote.date?' · '+esc(fmt(quote.date)):'')+' '+fl+'</div><blockquote class="qtext" style="margin-left:auto;margin-right:auto">'+esc(t)+'</blockquote>'+(n?'<div class="qnote">'+esc(n)+'</div>':'')+'</section>'}
 function renderWelcome(){const v=$('#view');
   v.innerHTML='<section class="welcome"><svg class="crest" role="img" aria-label="Hoa iris"><use href="#iris"/></svg><h1>'+esc(wf('title'))+'</h1><p class="hello">'+esc(wf('hello'))+'</p><div class="msg">'+wf('msg').split(/\n\s*\n/).map(x=>'<p>'+esc(x.trim())+'</p>').join('')+'</div>'+
   POND.replace('__ALT__',esc(T[lang].pondAlt))+
-  '<div><div class="irisbank" id="bank" style="visibility:hidden"><svg aria-hidden="true"><use href="#iris"/></svg><span id="banktxt"></span></div></div></section>';
-  window.scrollTo(0,0);paintBank();
+  '<div><div class="irisbank" id="bank" style="visibility:hidden"><svg aria-hidden="true"><use href="#iris"/></svg><span id="banktxt"></span></div><div><button type="button" class="teabtn" id="tea"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h12v3.5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V10z"/><path d="M16 11h1.5a2.5 2.5 0 0 1 0 5H16"/><path d="M8 3.5c-1 1 1 2 0 3.5M12 3.5c-1 1 1 2 0 3.5"/></svg><span>'+esc(T[lang].tea)+'</span></button></div></div></section>';
+  $('#tea').onclick=()=>{location.hash='articles'};toTop();paintBank();
   irisGet('total').then(n=>{if(n!=null){irisTotal=n;paintBank()}})}
+function postNav(p){const i=posts.findIndex(x=>x.id===p.id),L=T[lang];if(i<0||posts.length<2)return '';
+  const o=posts[i+1],n=posts[i-1];
+  const a=(x,c,lab)=>x?'<a class="'+c+'" href="#post='+esc(x.id)+'"><small>'+lab+'</small><strong>'+esc(pf(x,'title')||pf(x,'title_fr'))+'</strong></a>':'<div></div>';
+  return '<div class="pn" role="navigation" aria-label="'+esc(L.navp)+'">'+a(o,'pnp','← '+esc(L.prev))+a(n,'pnn',esc(L.next)+' →')+'</div>'}
 function irisEnd(p){const g=hasGiven(p.id);
   return '<div class="irisend"><p id="iask">'+esc(g?wf('thanks'):wf('ask'))+'</p><button class="irisbtn'+(g?' given':'')+'" id="ibtn" aria-pressed="'+g+'" aria-label="'+esc(wf('ask'))+'"><svg aria-hidden="true"><use href="#iris"/></svg></button><div class="irisn" id="icount"></div></div>'}
 function paintCount(id){const el=$('#icount');if(!el)return;const n=irisCache[id];el.textContent=n==null?'':n+' '+T[lang].irisWord}
@@ -319,34 +389,34 @@ function bindIris(p){const b=$('#ibtn');if(!b)return;paintCount(p.id);
     const [a,t]=await Promise.all([irisHit(irisKey(p.id)),irisHit('total')]);
     if(a!=null){irisCache[p.id]=a;paintCount(p.id)}if(t!=null)irisTotal=t}}
 const norm=t=>String(t||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/đ/gi,'d').toLowerCase().replace(/\s+/g,' ').trim();
-function drawResults(){const el=$('#results');if(!el)return;const L=T[lang],none=!posts.length,ql=norm(q);
+function drawResults(anim){const el=$('#results');if(!el)return;const L=T[lang],none=!posts.length,ql=norm(q);
   const list=posts.filter(p=>(!tagF||pf(p,'tag').trim()===tagF)&&(!ql||norm([p.title,p.title_fr,p.body,p.body_fr,p.tag,p.tag_fr].join(' ')).includes(ql)));
-  el.innerHTML=list.length?'<div class="grid">'+list.map(p=>{const c=(p.media||[])[0];
+  el.innerHTML=list.length?'<div class="grid'+(anim?' stag':'')+'">'+list.map((p,ix)=>{const c=(p.media||[])[0];
     const cv=c?(c.type==='video'?'<video src="'+src(c)+'#t=0.1" preload="metadata" muted playsinline></video>':'<img src="'+src(c)+'" alt="" loading="lazy">'):'<svg class="fl" aria-hidden="true"><use href="#fdl"/></svg>';
-    return '<div class="card" data-id="'+esc(p.id)+'"><div class="cover">'+cv+'</div><div class="in"><span class="tag">'+esc(pf(p,'tag')||'Fun fact')+'</span><h2>'+esc(pf(p,'title'))+'</h2><div class="date">'+esc(fmt(p.date))+'</div><p class="excerpt">'+esc(excerpt(pf(p,'body')))+'</p></div></div>'}).join('')+'</div>':(none?'<div class="empty">'+L.none+' '+(admin?L.noneAdm:L.noneUsr)+'</div>':'<div class="empty">'+L.nomatch+'</div>');
+    return '<div class="card" style="--i:'+Math.min(ix,8)+'" data-id="'+esc(p.id)+'"><div class="cover">'+cv+'</div><div class="in"><span class="tag">'+esc(pf(p,'tag')||'Fun fact')+'</span><h2>'+esc(pf(p,'title'))+'</h2><div class="date">'+esc(fmt(p.date))+'</div><p class="excerpt">'+esc(excerpt(pf(p,'body')))+'</p></div></div>'}).join('')+'</div>':(none?'<div class="empty">'+L.none+' '+(admin?L.noneAdm:L.noneUsr)+'</div>':'<div class="empty">'+L.nomatch+'</div>');
   el.querySelectorAll('.card').forEach(e=>e.onclick=()=>location.hash='post='+e.dataset.id)}
 function bindFilters(){const i=$('#q');if(!i)return;
   i.oninput=()=>{q=i.value;drawResults()};
   i.onkeydown=e=>{if(e.key==='Enter'){q=i.value;drawResults();i.blur()}};
   $('#qb').onclick=()=>{q=i.value;drawResults();if(q.trim()){const r=$('#results');if(r)r.scrollIntoView({behavior:'smooth',block:'start'})}else i.focus()};
-  document.querySelectorAll('.chip').forEach(c=>c.onclick=()=>{tagF=c.dataset.t;document.querySelectorAll('.chip').forEach(x=>x.classList.toggle('on',x===c));drawResults()})}
+  document.querySelectorAll('.chip').forEach(c=>c.onclick=()=>{tagF=c.dataset.t;document.querySelectorAll('.chip').forEach(x=>x.classList.toggle('on',x===c));drawResults(true)})}
 function renderAbout(){const v=$('#view'),L=T[lang],t=about[lang]||DEF_ABOUT[lang];
   const sec=(h,a)=>'<h2 class="sec">'+h+'</h2><ul class="cv">'+a.map(i=>'<li>'+esc(i[lang]||i.vi||i.fr||'')+(/^https?:\/\//i.test(i.url||'')?' <a class="ext" href="'+esc(i.url)+'" target="_blank" rel="noopener">'+L.rd+'</a>':'')+'</li>').join('')+'</ul>';
   v.innerHTML='<article><span class="tag">'+L.nva+'</span><h1>'+L.h+'</h1><div id="ab">'+t.split(/\n\s*\n/).map(x=>'<p>'+esc(x.trim())+'</p>').join('')+'</div>'+(admin?'<div class="bar"><button class="ghost" id="ea">'+L.edit+'</button></div>':'')+sec(L.edu,CV.edu)+sec(L.exp,CV.exp)+sec(L.awd,CV.awd)+'</article>';
-  window.scrollTo(0,0);
+  toTop();
   if(admin)$('#ea').onclick=()=>{$('#ab').innerHTML='<textarea class="ta" id="at"></textarea><div class="bar"><button id="as">Lưu</button><button class="ghost" id="ac">Hủy</button></div>';$('#at').value=t;$('#ea').style.display='none';
     $('#ac').onclick=renderAbout;
     $('#as').onclick=async()=>{const nx={...about,[lang]:$('#at').value};try{await db.doc('site/about').set({text:nx.vi||'',text_fr:nx.fr||''});about=nx;renderAbout()}catch(e){alert('Không lưu được: '+(e.message||e.code))}}}}
 
 /* ---------- Photo / video viewer ---------- */
 let lbList=[],lbI=0;
-function openLB(list,i){lbList=list;lbI=i;showLB();$('#lb').style.display='flex'}
+function openLB(list,i){lbList=list;lbI=i;showLB();$('#lb').classList.add('open')}
 function showLB(){const m=lbList[lbI];$('#lbm').innerHTML=m.type==='video'?'<video src="'+src(m)+'" controls autoplay playsinline></video>':'<img src="'+src(m)+'" alt="">';$('#lbc').textContent=(lbI+1)+' / '+lbList.length;const m2=lbList.length<2;$('#lbp').style.display=$('#lbn').style.display=m2?'none':''}
-function closeLB(){$('#lb').style.display='none';$('#lbm').innerHTML=''}
+function closeLB(){$('#lb').classList.remove('open');setTimeout(()=>{if(!$('#lb').classList.contains('open'))$('#lbm').innerHTML=''},380)}
 const step=d=>{lbI=(lbI+d+lbList.length)%lbList.length;showLB()};
 $('#lbx').onclick=closeLB;$('#lbp').onclick=()=>step(-1);$('#lbn').onclick=()=>step(1);
 $('#lb').onclick=e=>{if(e.target.id==='lb')closeLB()};
-document.addEventListener('keydown',e=>{if($('#lb').style.display!=='flex')return;if(e.key==='Escape')closeLB();if(e.key==='ArrowLeft')step(-1);if(e.key==='ArrowRight')step(1)});
+document.addEventListener('keydown',e=>{if(!$('#lb').classList.contains('open'))return;if(e.key==='Escape')closeLB();if(e.key==='ArrowLeft')step(-1);if(e.key==='ArrowRight')step(1)});
 let tx=0;$('#lb').addEventListener('touchstart',e=>tx=e.touches[0].clientX);
 $('#lb').addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>60&&lbList.length>1)step(d>0?-1:1)});
 
@@ -364,15 +434,28 @@ function applyDesign(){
   if(dz.pImg){pg.src=dz.pImg;pg.style.display='block'}else{pg.removeAttribute('src');pg.style.display='none'}
   r.setProperty('--pgop',(+dz.pOp||15)/100);
 }
-window.addEventListener('hashchange',render);
+function showLetter(){const L=T[lang],entry=location.hash.slice(1),deep=entry.startsWith('post=')||entry==='about'||entry==='articles';
+  const el=document.createElement('div');el.id='letter';el.setAttribute('role','dialog');el.setAttribute('aria-modal','true');el.setAttribute('aria-label',L.lw);
+  el.innerHTML='<div class="paper"><svg class="wm" viewBox="0 0 100 120" aria-hidden="true"><use href="#iris"/></svg><div class="orn" aria-hidden="true"><svg class="fl"><use href="#fdl"/></svg></div><p class="lt">'+esc(L.lw)+'</p><button type="button" class="knock" id="knock">'+esc(L.lk)+'</button></div>';
+  document.body.appendChild(el);document.body.style.overflow='hidden';
+  const k=el.querySelector('#knock');
+  let done=false;
+  const onKey=e=>{if(e.key==='Escape')close()};
+  function close(){if(done)return;done=true;document.removeEventListener('keydown',onKey);
+    el.classList.add('knk');
+    setTimeout(()=>{el.classList.remove('knk');el.classList.add('bye');
+      setTimeout(()=>{el.remove();document.body.style.overflow='';
+        if(!deep&&location.hash!==''&&location.hash!=='#')location.hash='';else swap(render)},620)},RM.matches?0:460)}
+  k.onclick=close;document.addEventListener('keydown',onKey)}
+window.addEventListener('hashchange',()=>swap(()=>{render();toTop()}));
 document.querySelectorAll('.gsw span').forEach(e=>e.onclick=()=>setLang(e.dataset.l));
-applyLang();renderContact();render();
+applyLang();renderContact();render();showLetter();
 (async()=>{
   const g=async u=>{try{const r=await fetch(u+'?t='+Date.now(),{cache:'no-store'});return r.ok?await r.json():null}catch(e){return null}};
   const [ps,st]=await Promise.all([g('data/posts.json'),g('data/site.json')]);
   posts=Array.isArray(ps)?ps.slice().sort((a,b)=>(b.ts||0)-(a.ts||0)):[];
-  if(st){if(Array.isArray(st.contact)&&st.contact.length)contact=st.contact;if(st.about)about={vi:st.about.vi||'',fr:st.about.fr||''};if(st.design)dz={...DEF_DZ,...st.design};if(st.welcome)welcome={vi:st.welcome.vi||{},fr:st.welcome.fr||{}};if(st.iris)irisCfg=st.iris;if(st.cv&&st.cv.edu&&st.cv.exp&&st.cv.awd)CV=st.cv}
-  applyDesign();renderContact();loaded=true;render();
+  if(st){if(Array.isArray(st.contact)&&st.contact.length)contact=st.contact;if(st.about)about={vi:st.about.vi||'',fr:st.about.fr||''};if(st.design)dz={...DEF_DZ,...st.design};if(st.welcome)welcome={vi:st.welcome.vi||{},fr:st.welcome.fr||{}};if(st.iris)irisCfg=st.iris;if(st.quote&&typeof st.quote==='object')quote=st.quote;if(st.cv&&st.cv.edu&&st.cv.exp&&st.cv.awd)CV=st.cv}
+  applyDesign();renderContact();loaded=true;swap(render);
 })();
 </script>
 </body>

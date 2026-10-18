@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<!-- cottage-build 5: footer sát trái, welcome căn giữa -->
+<!-- cottage-build 6: thêm tab Câu hàng ngày -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex">
@@ -112,6 +112,12 @@ footer{text-align:left;background:#6d1a2c;color:#d9b8bf;font-size:12px;padding:6
 .ibank{display:flex;align-items:center;gap:12px;margin:6px 0 14px}
 .ibank svg{width:30px;height:36px}.ibank b{font-size:22px;color:var(--wine)}
 .ic{color:var(--wine);white-space:nowrap}.ic .fl{color:#b8860b}
+@media (prefers-reduced-motion:no-preference){
+#app>section{animation:tabin .45s cubic-bezier(.22,.61,.36,1)}
+@keyframes tabin{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+button,.chip{transition:transform .3s cubic-bezier(.22,.61,.36,1),background-color .3s ease,color .3s ease,border-color .3s ease,opacity .3s ease}
+.chip:hover{transform:translateY(-1px)}
+}
 </style>
 </head>
 <body>
@@ -163,7 +169,7 @@ footer{text-align:left;background:#6d1a2c;color:#d9b8bf;font-size:12px;padding:6
   <div class="row" style="margin-top:14px"><button id="go">Kết nối</button><span id="lerr"></span></div>
 </div>
 <div id="app" hidden>
-  <div class="chips tabs" style="margin-bottom:20px"><span class="chip on" data-t="posts">Bài viết</span><span class="chip" data-t="welcome">Chào mừng</span><span class="chip" data-t="design">Giao diện</span><span class="chip" data-t="contact">Liên hệ</span><span class="chip" data-t="about">Giới thiệu</span></div>
+  <div class="chips tabs" style="margin-bottom:20px"><span class="chip on" data-t="posts">Bài viết</span><span class="chip" data-t="quote">Câu hàng ngày</span><span class="chip" data-t="welcome">Chào mừng</span><span class="chip" data-t="design">Giao diện</span><span class="chip" data-t="contact">Liên hệ</span><span class="chip" data-t="about">Giới thiệu</span></div>
   <section id="t-posts">
     <div class="bar"><button id="new"><svg class="fl" aria-hidden="true"><use href="#fdl"/></svg> Viết bài mới</button><span id="pst"></span></div>
     <div id="ed" class="panel" hidden>
@@ -179,6 +185,20 @@ footer{text-align:left;background:#6d1a2c;color:#d9b8bf;font-size:12px;padding:6
       <div class="bar"><button class="ghost" id="addm">＋ Thêm ảnh/video</button><button id="esave">Đăng bài</button><button class="ghost" id="ecancel">Hủy</button><span id="est"></span></div>
     </div>
     <div id="plist"></div>
+  </section>
+  <section id="t-quote" class="panel" hidden>
+    <h3>Câu của hôm nay</h3>
+    <p class="hint">Khung này hiện ở đầu trang Bài viết, phía trên danh sách bài. Mỗi ngày bạn chỉ cần thay chữ rồi bấm Lưu. Để trống cả hai ngôn ngữ thì khung tự ẩn đi. Nếu chỉ điền một ngôn ngữ, khách chọn ngôn ngữ còn lại vẫn thấy bản bạn đã điền.</p>
+    <label>Ngày</label><div class="row"><input type="date" id="q-date" class="fi" style="width:auto"><button class="ghost" id="q-today">Hôm nay</button></div>
+    <div class="lgrp"><h4>Tiếng Việt</h4>
+      <label>Câu quote / expression</label><textarea id="q-vi-text" class="ta"></textarea>
+      <label>Giải nghĩa / ghi chú (không bắt buộc)</label><textarea id="q-vi-note" class="ta"></textarea>
+    </div>
+    <div class="lgrp"><h4>Français</h4>
+      <label>Citation / expression</label><textarea id="q-fr-text" class="ta"></textarea>
+      <label>Explication / note (facultatif)</label><textarea id="q-fr-note" class="ta"></textarea>
+    </div>
+    <div class="row" style="margin-top:16px"><button id="q-save">Lưu câu hôm nay</button><button class="ghost" id="q-clear">Xóa trống</button><span id="qst"></span></div>
   </section>
   <section id="t-welcome" class="panel" hidden>
     <h3>Trang chào mừng</h3>
@@ -250,7 +270,7 @@ awd:[
 {vi:"Top 20 chung cuộc - cuộc thi « Jeunes Reporters Francophones 2026 » với bài thi « La jeunesse est l’avenir »",fr:"Top 20 final - concours « Jeunes Reporters Francophones 2026 », article « La jeunesse est l’avenir »",url:"https://lecourrier.vn/la-jeunesse-est-lavenir/1357370.html"},
 {vi:"Giải Khuyến khích - cuộc thi « Jeunes Reporters Francophones 2025 » với bài thi « Nous nous éduquons, donc nous préservons : la jeunesse au service d’un patrimoine vivant »",fr:"Prix d’encouragement - concours « Jeunes Reporters Francophones 2025 », article « Nous nous éduquons, donc nous préservons : la jeunesse au service d’un patrimoine vivant »",url:"https://lecourrier.vn/nous-nous-eduquons-donc-nous-preservons-la-jeunesse-au-service-dun-patrimoine-vivant/1292561.html"},
 {vi:"Giải Đại sứ quán Romania - cuộc thi « Jeunes Reporters Francophones 2023 » với bài thi « Comment la gastronomie francophone exprime l’excellence sur la table de la culture »",fr:"Prix de l’Ambassade de Roumanie - concours « Jeunes Reporters Francophones 2023 », article « Comment la gastronomie francophone exprime l’excellence sur la table de la culture »",url:"https://lecourrier.vn/comment-la-gastronomie-francophone-exprime-lexcellence-sur-la-table-de-la-culture/1219351.html"}]};
-let cfg={repo:'',token:''},posts=[],site={welcome:{vi:{},fr:{}},iris:{},design:{...DEF_DZ},contact:DEF_CONTACT.map(x=>({...x})),about:{vi:'',fr:''},cv:JSON.parse(JSON.stringify(CV))},prev={},editId=null,med=[];
+let cfg={repo:'',token:''},posts=[],site={welcome:{vi:{},fr:{}},iris:{},design:{...DEF_DZ},contact:DEF_CONTACT.map(x=>({...x})),about:{vi:'',fr:''},cv:JSON.parse(JSON.stringify(CV)),quote:{}},prev={},editId=null,med=[];
 const U=p=>prev[p]||p,hex=x=>/^#[0-9a-f]{6}$/i.test(x||'');
 const lsGet=k=>{try{return localStorage.getItem(k)||''}catch(e){return ''}},lsSet=(k,v)=>{try{v?localStorage.setItem(k,v):localStorage.removeItem(k)}catch(e){}};
 function b64(u8){let s='';for(let i=0;i<u8.length;i+=0x8000)s+=String.fromCharCode.apply(null,u8.subarray(i,i+0x8000));return btoa(s)}
@@ -277,15 +297,15 @@ async function connect(){
     if(r.status===401)throw new Error('Token sai hoặc đã hết hạn');if(!r.ok)throw new Error('Không tìm thấy repo "'+cfg.repo+'"');
     const j=await r.json();if(!j.permissions||!j.permissions.push)throw new Error('Token này chưa có quyền ghi (Contents: Read and write)');
     const a=await getFile('data/posts.json');posts=a?JSON.parse(a.text):[];
-    const b=await getFile('data/site.json');if(b){const s=JSON.parse(b.text);site={design:{...DEF_DZ,...(s.design||{})},contact:s.contact&&s.contact.length?s.contact:site.contact,about:{vi:(s.about||{}).vi||'',fr:(s.about||{}).fr||''},welcome:{vi:(s.welcome||{}).vi||{},fr:(s.welcome||{}).fr||{}},iris:s.iris||{},cv:(s.cv&&s.cv.edu&&s.cv.exp&&s.cv.awd)?s.cv:JSON.parse(JSON.stringify(CV))}}
+    const b=await getFile('data/site.json');if(b){const s=JSON.parse(b.text);site={design:{...DEF_DZ,...(s.design||{})},contact:s.contact&&s.contact.length?s.contact:site.contact,about:{vi:(s.about||{}).vi||'',fr:(s.about||{}).fr||''},welcome:{vi:(s.welcome||{}).vi||{},fr:(s.welcome||{}).fr||{}},iris:s.iris||{},quote:(s.quote&&typeof s.quote==='object')?s.quote:{},cv:(s.cv&&s.cv.edu&&s.cv.exp&&s.cv.awd)?s.cv:JSON.parse(JSON.stringify(CV))}}
     lsSet('cv_repo',cfg.repo);lsSet('cv_tok',cfg.token);
     $('#login').hidden=true;$('#app').hidden=false;$('#out').hidden=false;drawAll();
   }catch(e){say('#lerr',e.message)}
 }
-function drawAll(){drawWelcome();drawPosts();syncDesign();applyDesign();drawContact();drawCV();$('#a-vi').value=site.about.vi||DEF_ABOUT.vi;$('#a-fr').value=site.about.fr||DEF_ABOUT.fr}
+function drawAll(){drawWelcome();drawQuote();drawPosts();syncDesign();applyDesign();drawContact();drawCV();$('#a-vi').value=site.about.vi||DEF_ABOUT.vi;$('#a-fr').value=site.about.fr||DEF_ABOUT.fr}
 
 /* tabs */
-$$('.tabs .chip').forEach(c=>c.onclick=()=>{$$('.tabs .chip').forEach(x=>x.classList.toggle('on',x===c));['posts','welcome','design','contact','about'].forEach(t=>$('#t-'+t).hidden=t!==c.dataset.t)});
+$$('.tabs .chip').forEach(c=>c.onclick=()=>{$$('.tabs .chip').forEach(x=>x.classList.toggle('on',x===c));['posts','quote','welcome','design','contact','about'].forEach(t=>$('#t-'+t).hidden=t!==c.dataset.t)});
 
 /* posts */
 const fmtd=d=>d||'';
@@ -310,6 +330,13 @@ $('#esave').onclick=async()=>{
   say('#est','Đang lưu…');
   try{const np=editId?posts.map(p=>p.id===editId?post:p):[post,...posts];await saveJSON('data/posts.json',np,'Save post');posts=np;$('#ed').hidden=true;drawPosts();say('#pst','Đã đăng ✓ Web sẽ cập nhật sau ~1 phút.')}catch(e){say('#est',e.message)}};
 
+
+/* quote */
+const today=()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
+function drawQuote(){const q=site.quote||{};$('#q-date').value=q.date||today();['vi','fr'].forEach(l=>['text','note'].forEach(k=>$('#q-'+l+'-'+k).value=(q[l]||{})[k]||''))}
+$('#q-today').onclick=()=>$('#q-date').value=today();
+$('#q-save').onclick=()=>{const q={date:$('#q-date').value||today(),vi:{},fr:{}};['vi','fr'].forEach(l=>['text','note'].forEach(k=>q[l][k]=$('#q-'+l+'-'+k).value.trim()));site.quote=q;saveSite('#qst')};
+$('#q-clear').onclick=()=>{if(confirm('Xóa trống khung này? Khung sẽ ẩn khỏi trang Bài viết.')){site.quote={};drawQuote();saveSite('#qst')}};
 
 /* welcome */
 function drawWelcome(){['vi','fr'].forEach(l=>WK.forEach(k=>$('#w-'+l+'-'+k).value=(site.welcome[l]||{})[k]||DEF_WELCOME[l][k]));
