@@ -1,0 +1,84 @@
+{
+ "welcome": {
+  "vi": {},
+  "fr": {}
+ },
+ "iris": {},
+ "design": {
+  "hImg": "",
+  "blur": 10,
+  "ov": 70,
+  "hc": "#1f3a2e",
+  "bg": "",
+  "pImg": "",
+  "pOp": 15
+ },
+ "contact": [
+  {
+   "label": "Email",
+   "url": "thiminhngocnguyen22@gmail.com"
+  },
+  {
+   "label": "LinkedIn",
+   "url": "https://www.linkedin.com/in/margot-nguyen-n1802"
+  },
+  {
+   "label": "Portfolio",
+   "url": "https://carongot1802-sys.github.io/portfolio/"
+  }
+ ],
+ "about": {
+  "vi": "",
+  "fr": ""
+ },
+ "cv": {
+  "edu": [
+   {
+    "vi": "Cử nhân ngành Truyền thông quốc tế - Khoa Truyền thông và Văn hóa đối ngoại - Học viện Ngoại giao Việt Nam (2023-2027)",
+    "fr": "Licence en Communication internationale - Faculté de Communication et de Culture extérieure - Académie diplomatique du Vietnam (2023-2027)"
+   },
+   {
+    "vi": "Tốt nghiệp Tú Tài - Lớp chuyên Pháp - Trường THPT Chuyên Trần Phú (Hải Phòng) (2020-2023)",
+    "fr": "Baccalauréat - Classe spécialisée de français - Lycée pour élèves doués Trần Phú (Hải Phòng) (2020-2023)"
+   }
+  ],
+  "exp": [
+   {
+    "vi": "Thực tập sinh tại Đại sứ quán Việt Nam tại Algeria",
+    "fr": "Stagiaire à l’Ambassade du Vietnam en Algérie"
+   },
+   {
+    "vi": "Cộng tác viên biên tập tại Chuyên trang Sinh Viên Việt Nam - Báo Tiền Phong",
+    "fr": "Collaboration éditoriale - Page Sinh Viên Việt Nam, journal Tiền Phong"
+   }
+  ],
+  "awd": [
+   {
+    "vi": "Top 20 chung cuộc - cuộc thi « Jeunes Reporters Francophones 2026 » với bài thi « La jeunesse est l’avenir »",
+    "fr": "Top 20 final - concours « Jeunes Reporters Francophones 2026 », article « La jeunesse est l’avenir »",
+    "url": "https://lecourrier.vn/la-jeunesse-est-lavenir/1357370.html"
+   },
+   {
+    "vi": "Giải Khuyến khích - cuộc thi « Jeunes Reporters Francophones 2025 » với bài thi « Nous nous éduquons, donc nous préservons : la jeunesse au service d’un patrimoine vivant »",
+    "fr": "Prix d’encouragement - concours « Jeunes Reporters Francophones 2025 », article « Nous nous éduquons, donc nous préservons : la jeunesse au service d’un patrimoine vivant »",
+    "url": "https://lecourrier.vn/nous-nous-eduquons-donc-nous-preservons-la-jeunesse-au-service-dun-patrimoine-vivant/1292561.html"
+   },
+   {
+    "vi": "Giải Đại sứ quán Romania - cuộc thi « Jeunes Reporters Francophones 2023 » với bài thi « Comment la gastronomie francophone exprime l’excellence sur la table de la culture »",
+    "fr": "Prix de l’Ambassade de Roumanie - concours « Jeunes Reporters Francophones 2023 », article « Comment la gastronomie francophone exprime l’excellence sur la table de la culture »",
+    "url": "https://lecourrier.vn/comment-la-gastronomie-francophone-exprime-lexcellence-sur-la-table-de-la-culture/1219351.html"
+   }
+  ]
+ },
+ "quote": {
+  "date": "2026-10-19",
+  "vi": {
+   "text": "Chông gai đã quen rồi, nhưng tôi chưa quen",
+   "note": ""
+  },
+  "fr": {
+   "text": "",
+   "note": ""
+  }
+ }
+}
