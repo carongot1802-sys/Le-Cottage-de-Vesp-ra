@@ -1,0 +1,29 @@
+{
+ "design": {
+  "hImg": "",
+  "blur": 10,
+  "ov": 70,
+  "hc": "#1f3a2e",
+  "bg": "",
+  "pImg": "",
+  "pOp": 15
+ },
+ "contact": [
+  {
+   "label": "Email",
+   "url": "thiminhngocnguyen22@gmail.com"
+  },
+  {
+   "label": "LinkedIn",
+   "url": "https://www.linkedin.com/in/margot-nguyen-n1802"
+  },
+  {
+   "label": "Portfolio",
+   "url": "https://carongot1802-sys.github.io/portfolio/"
+  }
+ ],
+ "about": {
+  "vi": "",
+  "fr": ""
+ }
+}

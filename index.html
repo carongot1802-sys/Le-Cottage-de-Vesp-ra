@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Le Cottage de Vespéra</title>
+<meta name="description" content="Nơi Vespéra nhả fun fact về tiếng Pháp">
+<link href="https://fonts.googleapis.com/css2?family=Chantelli+Antiqua&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f3ead8;--card:#faf4e6;--ink:#2b1a1a;--wine:#6d1a2c;--green:#1f3a2e;--line:#d9c9a8;--muted:#7a6a5a;
+ box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1b1412;--card:#251b19;--ink:#f1e6d0;--wine:#d9798b;--green:#8fb59f;--line:#4a3a33;--muted:#b3a490}}
+:root[data-theme="dark"]{--bg:#1b1412;--card:#251b19;--ink:#f1e6d0;--wine:#d9798b;--green:#8fb59f;--line:#4a3a33;--muted:#b3a490}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Montserrat',system-ui,sans-serif;font-size:17px;line-height:1.75}
+h1,h2,h3,.brand{font-family:'Chantelli Antiqua',Georgia,serif;font-weight:700}
+header{position:relative;overflow:hidden;background:var(--hc,#1f3a2e);color:#f3ead8;text-align:center;padding:48px 20px 40px;border-bottom:6px double var(--wine)}
+header>*{position:relative;z-index:1}
+header>#hbg{position:absolute;z-index:0;top:-40px;left:-40px;width:calc(100% + 80px);height:calc(100% + 80px);object-fit:cover;filter:blur(var(--hblur,10px));display:none}
+header>#hov{position:absolute;z-index:0;inset:0;background:var(--hc,#1f3a2e);opacity:var(--hov,1)}
+#pgbg{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:-1;opacity:var(--pgop,.15);pointer-events:none;display:none}
+.panel{background:var(--card);border:1px solid var(--line);padding:20px;margin-bottom:28px}
+.panel h3{margin:0 0 10px;color:var(--wine)}
+.panel label{display:block;font-size:14px;color:var(--muted);margin-top:12px}
+.panel input[type=range]{width:100%}
+.panel input[type=color]{width:56px;height:34px;padding:0;border:1px solid var(--line);background:none}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:6px}
+.cbtn{font-family:inherit;font-size:12px;background:transparent;color:#f3ead8;border:1px solid #d9a7b1;padding:3px 12px;border-radius:3px;cursor:pointer;margin:6px 8px 0 0}
+.crow{display:flex;gap:8px;align-items:center;margin-bottom:6px}
+.crow input{font:inherit;font-size:13px;padding:4px 8px;background:#ffffff1c;color:#f3ead8;border:1px solid #d9a7b188;border-radius:3px;min-width:0;flex:1}
+.crow input::placeholder{color:#d9b8bf}
+.crow b{cursor:pointer;padding:0 6px}
+header h1{margin:0;font-size:clamp(28px,6vw,48px);letter-spacing:.02em;cursor:pointer}
+header p{margin:10px 0 0;font-style:italic;opacity:.9}
+.orn{color:#d9a7b1;letter-spacing:.5em;font-size:14px;margin-top:8px}
+main{max-width:980px;margin:0 auto;padding:32px 20px 60px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:22px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:4px;overflow:hidden;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translateY(-3px);box-shadow:0 8px 20px #0002}
+.cover{aspect-ratio:4/3;background:var(--line);display:flex;align-items:center;justify-content:center;color:var(--wine);font-size:40px;overflow:hidden}
+.cover img,.cover video{width:100%;height:100%;object-fit:cover}
+.card .in{padding:14px 16px 18px}
+.tag{display:inline-block;color:var(--wine);font-size:13px;text-transform:uppercase;letter-spacing:.12em}
+.card h2{margin:4px 0 6px;font-size:22px;line-height:1.25;color:var(--green)}
+.date{color:var(--muted);font-size:14px}
+.excerpt{margin:8px 0 0;font-size:15px;color:var(--ink);opacity:.85}
+article{max-width:700px;margin:0 auto}
+article h1{color:var(--wine);font-size:clamp(28px,5vw,40px);line-height:1.2;margin:.2em 0}
+article p{margin:0 0 1.1em;white-space:pre-wrap}
+.media{display:grid;gap:14px;margin:26px 0}
+.media .m{cursor:zoom-in;border:1px solid var(--line);padding:6px;background:var(--card);position:relative}
+.media img,.media video{width:100%;display:block}
+.play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:48px;color:#fff;text-shadow:0 2px 12px #000;pointer-events:none}
+button,.btn{font-family:inherit;font-size:15px;background:var(--wine);color:#fff;border:0;padding:9px 18px;border-radius:3px;cursor:pointer}
+button.ghost{background:transparent;color:var(--wine);border:1px solid var(--wine)}
+.bar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px;align-items:center}
+.back{color:var(--green);cursor:pointer;background:none;border:0;padding:0;font-size:16px}
+.empty{text-align:center;color:var(--muted);padding:60px 0}
+#editor{background:var(--card);border:1px solid var(--line);padding:20px;margin-bottom:28px;display:none}
+#editor input[type=text],#editor input[type=date],#editor textarea{width:100%;font:inherit;padding:9px;margin:4px 0 12px;background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:3px}
+#editor textarea{min-height:200px}
+#editor label{font-size:14px;color:var(--muted)}
+.thumbs{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 14px}
+.thumbs div{width:84px;height:84px;position:relative;border:1px solid var(--line);background:var(--bg)}
+.thumbs img,.thumbs video{width:100%;height:100%;object-fit:cover}
+.thumbs b{position:absolute;top:-6px;right:-6px;background:var(--wine);color:#fff;border-radius:50%;width:20px;height:20px;line-height:19px;text-align:center;font-size:13px;cursor:pointer}
+#lb{position:fixed;inset:0;background:#000e;z-index:50;display:none;align-items:center;justify-content:center;padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}
+#lb img,#lb video{max-width:94vw;max-height:86vh;border:6px solid #f3ead8}
+#lb .x,#lb .n{position:absolute;color:#fff;font-size:34px;background:none;padding:12px;opacity:.85}
+#lb .x{top:calc(env(safe-area-inset-top,0px) + 6px);right:10px}#lb .p{left:6px}#lb .nx{right:6px}#lb .n{top:50%;transform:translateY(-50%)}
+#lb .c{position:absolute;bottom:calc(env(safe-area-inset-bottom,0px) + 12px);color:#f3ead8;font-size:14px}
+nav{margin-top:18px;display:flex;justify-content:center;gap:26px}
+nav a{color:#f3ead8;text-decoration:none;font-size:14px;letter-spacing:.14em;text-transform:uppercase;padding-bottom:3px;border-bottom:1px solid transparent;opacity:.75}
+nav a.on,nav a:hover{opacity:1;border-bottom-color:#d9a7b1}
+.filters{margin-bottom:26px}
+.filters input{width:100%;font:inherit;padding:11px 16px;border:1px solid var(--line);border-radius:30px;background:var(--card);color:var(--ink);margin-bottom:14px}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{cursor:pointer;font-size:14px;padding:5px 15px;border:1px solid var(--green);color:var(--green);border-radius:30px;user-select:none}
+.chip.on{background:var(--green);color:var(--bg)}
+.ta{width:100%;min-height:220px;font:inherit;padding:9px;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:3px;margin-bottom:10px}
+.lang{display:flex;gap:8px;margin-bottom:18px}
+.sec{color:var(--wine);font-size:24px;margin:1.8em 0 .5em;border-bottom:1px solid var(--line);padding-bottom:6px}
+.cv{padding-left:20px;margin:0}.cv li{margin-bottom:.8em}
+#contact{margin:24px 0 0;padding:22px 24px 4px;background:#6d1a2c;color:#f3ead8;text-align:left;font-size:13px;line-height:1.6;border-top:4px double #d9a7b1}
+#contact h2{margin:0 0 6px;color:#f3ead8;font-size:16px;letter-spacing:.04em}
+#contact ul{list-style:none;padding:0;margin:0}#contact li{margin-bottom:.15em;word-break:break-word}
+#contact a{color:#f3ead8;text-decoration:underline;text-underline-offset:3px;text-decoration-color:#d9a7b1}
+html[lang="vi"] main :is(h1,h2,h3){font-family:'Montserrat',system-ui,sans-serif;font-weight:700}
+.gsw{display:inline-flex;margin-top:16px;border:1px solid #d9a7b1;border-radius:30px;overflow:hidden}
+.gsw span{cursor:pointer;font-size:13px;letter-spacing:.12em;padding:4px 16px;color:#f3ead8;user-select:none}
+.gsw span.on{background:#d9a7b1;color:#1f3a2e}
+footer{text-align:left;background:#6d1a2c;color:#d9b8bf;font-size:12px;padding:6px 24px 22px}
+.note{background:var(--card);border-left:4px solid var(--wine);padding:10px 14px;font-size:15px;margin-bottom:20px}
+</style>
+</head>
+<body>
+<img id="pgbg" alt="">
+<header>
+  <img id="hbg" alt=""><div id="hov"></div>
+  <h1 id="home">Le Cottage de Vespéra</h1>
+  <p id="tagline">Nơi Vespéra nhả fun fact về tiếng Pháp ✦</p>
+  <div class="orn">❦ ❦ ❦</div>
+  <nav><a href="#" id="nv-home">Bài viết</a><a href="#about" id="nv-about">À propos</a></nav>
+  <div class="gsw"><span data-l="vi">VI</span><span data-l="fr">FR</span></div>
+</header>
+<main>
+  <div id="view"></div>
+</main>
+<section id="contact"></section>
+<footer>© Le Cottage de Vespéra - fait avec ♥</footer>
+<div id="lb"><button class="x" id="lbx">✕</button><button class="n p" id="lbp">‹</button><button class="n nx" id="lbn">›</button><div id="lbm"></div><div class="c" id="lbc"></div></div>
+
+<script>
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+let db=null,assets=null,user=null,posts=[],admin=false,editId=null,media=[],loaded=false,denied=false,q='',tagF='',about={vi:'',fr:''};
+let lang='vi';
+const DEF_ABOUT={vi:"Bonjour ! Mình là Vespéra, chủ nhân của cái cottage nhỏ xíu này.\n\nMình mê tiếng Pháp, từ những âm mũi khó nhằn, những quy tắc ngữ pháp “cho vui”, cho tới những câu lóng không có trong giáo trình. Blog này là nơi mình nhả (yap) mọi thứ hay ho mình học được: fun fact ngắn ngắn, đọc xong là muốn khoe với ai đó liền.\n\nGhé chơi nhé, pha một tách trà (hoặc một ly vang đỏ 🍷) và nhớ để lại lời chào. À bientôt !",
+fr:"Bonjour ! Je suis Vespéra, la maîtresse de ce petit cottage.\n\nJe suis passionnée de français : des sons nasaux capricieux aux règles de grammaire « pour le plaisir », jusqu’aux expressions d’argot qu’on ne trouve dans aucun manuel. Ce blog est l’endroit où je « yappe » sur tout ce que j’apprends : de courts fun facts qu’on a envie de partager aussitôt.\n\nEntrez, servez-vous une tasse de thé (ou un verre de vin rouge 🍷) et laissez-moi un petit mot. À bientôt !"};
+const T={vi:{h:'Bienvenue au cottage',edu:'Học vấn',exp:'Kinh nghiệm làm việc',awd:'Giải thưởng',contact:'Liên hệ',pf:'Link Portfolio',edit:'Sửa phần giới thiệu',navp:'Bài viết',tl:'Nơi Vespéra nhả fun fact về tiếng Pháp ✦',all:'Tất cả',search:'Tìm bài viết…',back:'← Về trang chủ',nf:'Không tìm thấy bài này.',loading:'Đang mở cửa cottage…',none:'Chưa có bài nào.',noneAdm:'Bấm “Viết bài mới” để đăng bài đầu tiên nhé!',noneUsr:'Vespéra sắp nhả fun fact đầu tiên…',nomatch:'Không có bài nào khớp 🔍',pedit:'Sửa bài',pdel:'Xóa bài',cdel:'Xóa bài này?',miss:'Bài này chưa có bản tiếng Việt, đang hiển thị bản tiếng Pháp.'},
+fr:{h:'Bienvenue au cottage',edu:'Formation',exp:'Expérience professionnelle',awd:'Prix et distinctions',contact:'Contact',pf:'Portfolio',edit:'Modifier la présentation',navp:'Articles',tl:'Le coin où Vespéra partage ses fun facts sur le français ✦',all:'Tous',search:'Rechercher un article…',back:'← Retour à l’accueil',nf:'Article introuvable.',loading:'Ouverture du cottage…',none:'Aucun article pour le moment.',noneAdm:'Utilisez le bouton « Viết bài mới » pour publier le premier !',noneUsr:'Vespéra prépare son premier fun fact…',nomatch:'Aucun article ne correspond 🔍',pedit:'Modifier',pdel:'Supprimer',cdel:'Supprimer cet article ?',miss:'Cet article n’existe pas encore en français : version vietnamienne affichée.'}};
+const CV={edu:[
+{vi:"Cử nhân ngành Truyền thông quốc tế - Khoa Truyền thông và Văn hóa đối ngoại - Học viện Ngoại giao Việt Nam (2023-2027)",fr:"Licence en Communication internationale - Faculté de Communication et de Culture extérieure - Académie diplomatique du Vietnam (2023-2027)"},
+{vi:"Tốt nghiệp Tú Tài - Lớp chuyên Pháp - Trường THPT Chuyên Trần Phú (Hải Phòng) (2020-2023)",fr:"Baccalauréat - Classe spécialisée de français - Lycée pour élèves doués Trần Phú (Hải Phòng) (2020-2023)"}],
+exp:[
+{vi:"Thực tập sinh tại Đại sứ quán Việt Nam tại Algeria",fr:"Stagiaire à l’Ambassade du Vietnam en Algérie"},
+{vi:"Cộng tác viên biên tập tại Chuyên trang Sinh Viên Việt Nam - Báo Tiền Phong",fr:"Collaboration éditoriale - Page Sinh Viên Việt Nam, journal Tiền Phong"}],
+awd:[
+{vi:"Top 20 chung cuộc - cuộc thi « Jeunes Reporters Francophones 2026 » với bài thi « La jeunesse est l’avenir »",fr:"Top 20 final - concours « Jeunes Reporters Francophones 2026 », article « La jeunesse est l’avenir »"},
+{vi:"Giải Khuyến khích - cuộc thi « Jeunes Reporters Francophones 2025 » với bài thi « Nous nous éduquons, donc nous préservons : la jeunesse au service d’un patrimoine vivant »",fr:"Prix d’encouragement - concours « Jeunes Reporters Francophones 2025 », article « Nous nous éduquons, donc nous préservons : la jeunesse au service d’un patrimoine vivant »"},
+{vi:"Giải Đại sứ quán Romania - cuộc thi « Jeunes Reporters Francophones 2023 » với bài thi « Comment la gastronomie francophone exprime l’excellence sur la table de la culture »",fr:"Prix de l’Ambassade de Roumanie - concours « Jeunes Reporters Francophones 2023 », article « Comment la gastronomie francophone exprime l’excellence sur la table de la culture »"}]};
+const DEF_CONTACT=[{label:'Email',url:'thiminhngocnguyen22@gmail.com'},{label:'LinkedIn',url:'https://www.linkedin.com/in/margot-nguyen-n1802'},{label:'Portfolio',url:'https://carongot1802-sys.github.io/portfolio/'}];
+let contact=DEF_CONTACT.map(x=>({...x})),cDraft=null;
+const chref=u=>{u=(u||'').trim();if(/^[^\s@\/]+@[^\s@\/]+\.[^\s@\/]+$/.test(u))return 'mailto:'+u;if(/^https?:\/\//i.test(u))return u;if(/^[\w-]+(\.[\w-]+)+(\/\S*)?$/.test(u))return 'https://'+u;return ''};
+const cshow=u=>String(u||'').replace(/^https?:\/\/(www\.)?/i,'').replace(/\/$/,'');
+function renderContact(){const el=$('#contact');
+  if(cDraft){
+    el.innerHTML='<h2>Contact</h2><div>'+cDraft.map((it,i)=>'<div class="crow"><input data-i="'+i+'" data-k="label" placeholder="Nhãn (vd: TikTok)" value="'+esc(it.label)+'"><input data-i="'+i+'" data-k="url" placeholder="Link hoặc email" value="'+esc(it.url)+'"><b data-x="'+i+'">✕</b></div>').join('')+'</div><div><button class="cbtn" id="cadd">＋ Thêm link</button><button class="cbtn" id="csave">Lưu</button><button class="cbtn" id="ccancel">Hủy</button><span id="cst"></span></div>';
+    el.oninput=e=>{const t=e.target;if(t.dataset.k)cDraft[+t.dataset.i][t.dataset.k]=t.value};
+    el.querySelectorAll('[data-x]').forEach(b=>b.onclick=()=>{cDraft.splice(+b.dataset.x,1);renderContact()});
+    $('#cadd').onclick=()=>{cDraft.push({label:'',url:''});renderContact()};
+    $('#ccancel').onclick=()=>{cDraft=null;renderContact()};
+    $('#csave').onclick=async()=>{const items=cDraft.map(x=>({label:x.label.trim(),url:x.url.trim()})).filter(x=>x.label||x.url);try{await db.doc('site/contact').set({items});contact=items;cDraft=null;renderContact()}catch(e){$('#cst').textContent='Không lưu được: '+(e.message||e.code)}};
+    return}
+  el.oninput=null;
+  el.innerHTML='<h2>Contact</h2><ul>'+contact.map(it=>{const h=chref(it.url);return '<li>'+(it.label?esc(it.label)+': ':'')+(h?'<a href="'+esc(h)+'"'+(h.startsWith('mailto')?'':' target="_blank" rel="noopener"')+'>'+esc(cshow(it.url))+'</a>':esc(it.url))+'</li>'}).join('')+'</ul>'+(admin?'<button class="cbtn" id="cedit">✎ Sửa liên hệ</button>':'');
+  if(admin)$('#cedit').onclick=()=>{cDraft=contact.map(x=>({...x}));renderContact()};
+}
+const src=m=>esc(m.src);
+const fmt=d=>{try{return new Date(d+'T00:00:00').toLocaleDateString(lang==='fr'?'fr-FR':'vi-VN',{day:'numeric',month:'long',year:'numeric'})}catch(e){return d||''}};
+const excerpt=b=>{const t=(b||'').replace(/\s+/g,' ').trim();return t.length>130?t.slice(0,130)+'…':t};
+
+/* ---------- Rendering ---------- */
+function route(){const h=location.hash.slice(1);return h.startsWith('post=')?h.slice(5):null}
+const pf=(p,f)=>{const a=p[f]||'',b=p[f+'_fr']||'';return lang==='fr'?(b||a):(a||b)};
+function applyLang(){document.documentElement.lang=lang;document.querySelectorAll('.gsw span').forEach(e=>e.classList.toggle('on',e.dataset.l===lang));$('#nv-home').textContent=T[lang].navp;$('#tagline').textContent=T[lang].tl}
+function setLang(l){lang=l;tagF='';applyLang();render()}
+function render(){
+  const v=$('#view'),id=route(),L=T[lang];
+  $('#nv-about').classList.toggle('on',location.hash==='#about');$('#nv-home').classList.toggle('on',location.hash!=='#about');
+  if(!loaded){v.innerHTML='<div class="empty">'+L.loading+'</div>';return}
+  if(denied){v.innerHTML='<div class="empty">Bạn cần đăng nhập Claude để xem blog này.</div>';return}
+  if(location.hash==='#about'){renderAbout();return}
+  if(id){
+    const p=posts.find(x=>x.id===id);
+    if(!p){v.innerHTML='<div class="empty">'+L.nf+' <br><button class="back" onclick="location.hash=\'\'">'+L.back+'</button></div>';return}
+    const paras=pf(p,'body').split(/\n\s*\n/).map(t=>'<p>'+esc(t.trim())+'</p>').join('');
+    const miss=lang==='fr'?!(p.title_fr||p.body_fr):!(p.title||p.body);
+    const ms=(p.media||[]).map((m,i)=>'<div class="m" data-i="'+i+'">'+(m.type==='video'?'<video src="'+src(m)+'#t=0.1" preload="metadata" muted playsinline></video><div class="play">▶</div>':'<img src="'+src(m)+'" alt="" loading="lazy">')+'</div>').join('');
+    v.innerHTML='<article><button class="back" onclick="location.hash=\'\'">'+L.back+'</button><div style="margin-top:18px"><span class="tag">'+esc(pf(p,'tag')||'Fun fact')+'</span> · <span class="date">'+esc(fmt(p.date))+'</span></div><h1>'+esc(pf(p,'title'))+'</h1>'+(miss?'<div class="note">'+L.miss+'</div>':'')+'<div class="media">'+ms+'</div>'+paras+(admin?'<div class="bar"><button class="ghost" id="edit">'+L.pedit+'</button><button class="ghost" id="del">'+L.pdel+'</button></div>':'')+'</article>';
+    v.querySelectorAll('.m').forEach(e=>e.onclick=()=>openLB(p.media,+e.dataset.i));
+    if(admin){$('#edit').onclick=()=>openEditor(p);$('#del').onclick=async()=>{if(confirm(L.cdel)){await db.doc('posts/'+p.id).delete();location.hash=''}}}
+    window.scrollTo(0,0);return;
+  }
+  const none=!posts.length;
+  const tags=[...new Set(posts.map(p=>pf(p,'tag').trim()).filter(Boolean))];
+  const ql=q.trim().toLowerCase();
+  const list=posts.filter(p=>(!tagF||pf(p,'tag').trim()===tagF)&&(!ql||[p.title,p.title_fr,p.body,p.body_fr,p.tag,p.tag_fr].join(' ').toLowerCase().includes(ql)));
+  const fb='<div class="filters"><input type="search" id="q" placeholder="'+L.search+'" value="'+esc(q)+'"><div class="chips"><span class="chip'+(!tagF?' on':'')+'" data-t="">'+L.all+'</span>'+tags.map(t=>'<span class="chip'+(tagF===t?' on':'')+'" data-t="'+esc(t)+'">'+esc(t)+'</span>').join('')+'</div></div>';
+  v.innerHTML=fb+(list.length?'<div class="grid">'+list.map(p=>{const c=(p.media||[])[0];
+    const cv=c?(c.type==='video'?'<video src="'+src(c)+'#t=0.1" preload="metadata" muted playsinline></video>':'<img src="'+src(c)+'" alt="" loading="lazy">'):'❦';
+    return '<div class="card" data-id="'+esc(p.id)+'"><div class="cover">'+cv+'</div><div class="in"><span class="tag">'+esc(pf(p,'tag')||'Fun fact')+'</span><h2>'+esc(pf(p,'title'))+'</h2><div class="date">'+esc(fmt(p.date))+'</div><p class="excerpt">'+esc(excerpt(pf(p,'body')))+'</p></div></div>'}).join('')+'</div>':(none?'<div class="empty">'+L.none+' '+(admin?L.noneAdm:L.noneUsr)+'</div>':'<div class="empty">'+L.nomatch+'</div>'));
+  bindFilters();v.querySelectorAll('.card').forEach(e=>e.onclick=()=>location.hash='post='+e.dataset.id);
+}
+
+function bindFilters(){const i=$('#q');if(!i)return;
+  i.oninput=()=>{q=i.value;const pos=i.selectionStart;render();const n=$('#q');n.focus();n.setSelectionRange(pos,pos)};
+  document.querySelectorAll('.chip').forEach(c=>c.onclick=()=>{tagF=c.dataset.t;render()})}
+function renderAbout(){const v=$('#view'),L=T[lang],t=about[lang]||DEF_ABOUT[lang];
+  const sec=(h,a)=>'<h2 class="sec">'+h+'</h2><ul class="cv">'+a.map(i=>'<li>'+esc(i[lang])+'</li>').join('')+'</ul>';
+  v.innerHTML='<article><span class="tag">À propos</span><h1>'+L.h+'</h1><div id="ab">'+t.split(/\n\s*\n/).map(x=>'<p>'+esc(x.trim())+'</p>').join('')+'</div>'+(admin?'<div class="bar"><button class="ghost" id="ea">'+L.edit+'</button></div>':'')+sec(L.edu,CV.edu)+sec(L.exp,CV.exp)+sec(L.awd,CV.awd)+'</article>';
+  window.scrollTo(0,0);
+  if(admin)$('#ea').onclick=()=>{$('#ab').innerHTML='<textarea class="ta" id="at"></textarea><div class="bar"><button id="as">Lưu</button><button class="ghost" id="ac">Hủy</button></div>';$('#at').value=t;$('#ea').style.display='none';
+    $('#ac').onclick=renderAbout;
+    $('#as').onclick=async()=>{const nx={...about,[lang]:$('#at').value};try{await db.doc('site/about').set({text:nx.vi||'',text_fr:nx.fr||''});about=nx;renderAbout()}catch(e){alert('Không lưu được: '+(e.message||e.code))}}}}
+
+/* ---------- Photo / video viewer ---------- */
+let lbList=[],lbI=0;
+function openLB(list,i){lbList=list;lbI=i;showLB();$('#lb').style.display='flex'}
+function showLB(){const m=lbList[lbI];$('#lbm').innerHTML=m.type==='video'?'<video src="'+src(m)+'" controls autoplay playsinline></video>':'<img src="'+src(m)+'" alt="">';$('#lbc').textContent=(lbI+1)+' / '+lbList.length;const m2=lbList.length<2;$('#lbp').style.display=$('#lbn').style.display=m2?'none':''}
+function closeLB(){$('#lb').style.display='none';$('#lbm').innerHTML=''}
+const step=d=>{lbI=(lbI+d+lbList.length)%lbList.length;showLB()};
+$('#lbx').onclick=closeLB;$('#lbp').onclick=()=>step(-1);$('#lbn').onclick=()=>step(1);
+$('#lb').onclick=e=>{if(e.target.id==='lb')closeLB()};
+document.addEventListener('keydown',e=>{if($('#lb').style.display!=='flex')return;if(e.key==='Escape')closeLB();if(e.key==='ArrowLeft')step(-1);if(e.key==='ArrowRight')step(1)});
+let tx=0;$('#lb').addEventListener('touchstart',e=>tx=e.touches[0].clientX);
+$('#lb').addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>60&&lbList.length>1)step(d>0?-1:1)});
+
+/* ---------- Design + Boot ---------- */
+const DEF_DZ={hImg:'',blur:10,ov:70,hc:'#1f3a2e',bg:'',pImg:'',pOp:15};
+let dz={...DEF_DZ};
+const hex=x=>/^#[0-9a-f]{6}$/i.test(x||'');
+function applyDesign(){
+  const r=document.documentElement.style,h=$('#hbg'),pg=$('#pgbg');
+  if(dz.hImg){h.src=dz.hImg;h.style.display='block'}else{h.removeAttribute('src');h.style.display='none'}
+  r.setProperty('--hblur',(+dz.blur||0)+'px');r.setProperty('--hov',dz.hImg?(+dz.ov||70)/100:1);
+  r.setProperty('--hc',hex(dz.hc)?dz.hc:'#1f3a2e');
+  if(hex(dz.bg))r.setProperty('--bg',dz.bg);else r.removeProperty('--bg');
+  if(dz.pImg){pg.src=dz.pImg;pg.style.display='block'}else{pg.removeAttribute('src');pg.style.display='none'}
+  r.setProperty('--pgop',(+dz.pOp||15)/100);
+}
+window.addEventListener('hashchange',render);
+document.querySelectorAll('.gsw span').forEach(e=>e.onclick=()=>setLang(e.dataset.l));
+applyLang();renderContact();render();
+(async()=>{
+  const g=async u=>{try{const r=await fetch(u+'?t='+Date.now(),{cache:'no-store'});return r.ok?await r.json():null}catch(e){return null}};
+  const [ps,st]=await Promise.all([g('data/posts.json'),g('data/site.json')]);
+  posts=Array.isArray(ps)?ps.slice().sort((a,b)=>(b.ts||0)-(a.ts||0)):[];
+  if(st){if(Array.isArray(st.contact)&&st.contact.length)contact=st.contact;if(st.about)about={vi:st.about.vi||'',fr:st.about.fr||''};if(st.design)dz={...DEF_DZ,...st.design}}
+  applyDesign();renderContact();loaded=true;render();
+})();
+</script>
+</body>
+</html>
