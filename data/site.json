@@ -1,11 +1,11 @@
 {
  "design": {
-  "hImg": "media/1792352439282-Capture_d__cran_2026-10-14_051340.png",
-  "blur": 1,
-  "ov": 82,
+  "hImg": "",
+  "blur": 10,
+  "ov": 70,
   "hc": "#1f3a2e",
   "bg": "",
-  "pImg": "media/1792352489807-atvncg.png",
+  "pImg": "",
   "pOp": 15
  },
  "contact": [
