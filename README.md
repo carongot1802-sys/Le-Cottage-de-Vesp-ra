@@ -44,6 +44,17 @@
 - Nếu một ngày dịch vụ đếm ngừng hoạt động, web vẫn chạy bình thường, chỉ là khung đếm iris sẽ ẩn đi. Khi đó bạn có thể thêm khóa `"iris": {"api": "địa chỉ dịch vụ khác"}` vào `data/site.json`.
 - Số iris gắn với địa chỉ web. Nếu đổi tên repo hoặc đổi tên miền thì bộ đếm sẽ bắt đầu lại từ 0.
 
+## Món mời thưởng trà (random)
+- Admin có thể thêm danh sách món (tên Tiếng Việt + Français + ảnh) trong tab "Chào mừng" → phần "Món mời thưởng trà (quản lý)".
+- Khi khách bấm nút "Mời thưởng trà" trên trang Chào mừng, web sẽ chọn ngẫu nhiên một món từ danh sách và hiện ảnh + tên (theo ngôn ngữ đang chọn). Khách sau đó bấm "Xem bài" để vào trang Bài viết.
+- Ảnh món được lưu trong thư mục `media/` khi bạn upload từ admin.
+- Lưu ý: nếu danh sách trống, nút sẽ chuyển khách sang trang Bài viết như trước.
+
+## Icon rơi nền (drift icons)
+- Admin có thể upload nhiều icon (PNG nền trong khuyến khích) trong tab "Chào mừng" → phần "Icon rơi nền (drift)".
+- Bật/tắt hiệu ứng rơi toàn trang từ admin. Khi bật, client sẽ vẽ các icon rơi nhẹ theo animation (tương tự hiệu ứng tuyết). Mỗi file icon được lưu vào `media/` và đường dẫn lưu trong `data/site.json` (site.design.driftIcons).
+- Lưu ý: tôi giới hạn số phần tử DOM (mặc định tối đa 20) để tránh giật trang. Nếu muốn nhiều hơn hoặc khác, chỉnh code `renderDrift()` trong `index.html`.
+
 ## Menu 3 gạch
 - Ba mục Chào mừng, Bài viết, Giới thiệu nay ẩn trong biểu tượng 3 gạch ở góc trên bên trái. Bấm vào thì menu trượt ra, bấm mục nào, bấm ra ngoài vùng menu, bấm dấu ✕ hoặc phím Esc đều đóng lại.
 
@@ -75,7 +86,7 @@
   - Tắt ô "Hiện thư chào" nếu muốn khách vào thẳng web.
 - Bấm vào chữ/nút, bấm vào thiệp hoặc phím Esc đều đóng thiệp. Nếu khách mở thẳng link một bài viết hoặc trang Giới thiệu, thiệp vẫn hiện nhưng đóng xong khách ở lại đúng trang họ cần.
 - Sửa xong bấm **Lưu thư chào**, web cập nhật sau khoảng 1 phút. Thiệp mặc định là file `assets/thu-chao.jpg`.
-- Dưới khung đếm iris ở trang Chào mừng có nút xanh lá **Mời thưởng trà**, bấm vào sẽ chuyển sang mục Bài viết. Chữ nút sửa trong `index.html`, khóa `tea` ở đối tượng `T`.
+- Dưới khung đếm iris ở trang Chào mừng có nút xanh lá **Mời thưởng trà**, bấm vào sẽ hiện món random nếu admin đã thêm; nếu chưa admin thêm nào thì nút chuyển thẳng sang trang Bài viết.
 
 ## Câu hàng ngày
 - Ở đầu trang Bài viết, phía trên danh sách bài, có một khung hiện câu quote hoặc expression của hôm nay.
