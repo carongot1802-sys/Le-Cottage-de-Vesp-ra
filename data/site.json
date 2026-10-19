@@ -6,7 +6,15 @@
   "hc": "#1f3a2e",
   "bg": "",
   "pImg": "",
-  "pOp": 15
+  "pOp": 15,
+  "hText": "#f3ead8",
+  "hLine": "",
+  "fc": "#6d1a2c",
+  "fText": "#f3ead8",
+  "fImg": "",
+  "fOv": 80,
+  "ac": "",
+  "ac2": ""
  },
  "contact": [
   {
@@ -31,6 +39,28 @@
   "fr": {}
  },
  "iris": {},
+ "letter": {
+  "on": true,
+  "img": "media/1792396699612-Beige_Black_Orange_Vintage_Scrapbook_Happy_Halloween_Instagram_Post.png",
+  "mode": "hotspot",
+  "zx": 25,
+  "zy": 66,
+  "zw": 50,
+  "zh": 15,
+  "label": {
+   "vi": "Mời gõ cửa",
+   "fr": "Frapper à la porte"
+  },
+  "ac": "#4b2386",
+  "tx": "#ffffff",
+  "veil": "#180e0c",
+  "veilOp": 58,
+  "radius": 22,
+  "frame": true,
+  "drift": "custom",
+  "driftImg": "media/1792396731498-hoa_r_i_c_a_Ph_t.png"
+ },
+ "themes": [],
  "quote": {
   "date": "2026-10-19",
   "vi": {
