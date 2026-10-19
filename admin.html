@@ -30,7 +30,7 @@ header>#hov{position:absolute;z-index:0;inset:0;background:var(--hc,#1f3a2e);opa
 .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:6px}
 .cbtn{font-family:inherit;font-size:12px;background:transparent;color:#f3ead8;border:1px solid #d9a7b1;padding:3px 12px;border-radius:3px;cursor:pointer;margin:6px 8px 0 0}
 .crow{display:flex;gap:8px;align-items:center;margin-bottom:6px}
-.crow input{font:inherit;font-size:13px;padding:4px 8px;background:#ffffff1c;color:#f3ead8;border:1px solid #f3ead188;border-radius:3px;min-width:0;flex:1}
+.crow input{font:inherit;font-size:13px;padding:4px 8px;background:#ffffff1c;color:#f3ead8;border:1px solid #d9a7b188;border-radius:3px;min-width:0;flex:1}
 .crow input::placeholder{color:#d9b8bf}
 .crow b{cursor:pointer;padding:0 6px}
 header h1{margin:0;font-size:clamp(28px,6vw,48px);letter-spacing:.02em;cursor:pointer}
@@ -243,41 +243,6 @@ button,.chip{transition:transform .3s cubic-bezier(.22,.61,.36,1),background-col
       <label>Invitation en bas d’article</label><input type="text" id="w-fr-ask" class="fi">
       <label>Remerciement après le clic</label><input type="text" id="w-fr-thanks" class="fi">
     </div>
-
-    <!-- MÓN MỜI THƯỞNG TRÀ (ADMIN) -->
-    <h4 class="sh">Món mời thưởng trà (quản lý)</h4>
-    <p class="hint">Thêm danh sách món/đồ uống mà cô chủ có thể mời khách. Mỗi món gồm tên (VI/FR) và ảnh. Khi khách bấm "Mời thưởng trà", trang sẽ hiển thị một món ngẫu nhiên.</p>
-    <div id="treats-box" class="lgrp">
-      <div id="treat-list"></div>
-      <div class="row">
-        <button class="ghost" id="t-add">＋ Thêm món</button>
-        <button class="ghost" id="t-up">Tải ảnh cho món</button>
-        <input type="file" id="f-treat" accept="image/*" hidden>
-      </div>
-      <div class="row" style="margin-top:8px">
-        <button id="t-save">Lưu danh sách món</button>
-        <button class="ghost" id="t-reset">Xóa tất cả</button>
-        <span id="tst"></span>
-      </div>
-    </div>
-
-    <!-- DRIFT ICONS (ADMIN) -->
-    <h4 class="sh">Icon rơi nền (drift)</h4>
-    <p class="hint">Tải lên nhiều hình (PNG tốt nhất) để tạo hiệu ứng rơi (ví dụ: tuyết cho Giáng sinh). Bật/tắt hiệu ứng toàn trang ở đây.</p>
-    <div class="lgrp">
-      <label class="chk"><input type="checkbox" id="drift-on"> Bật hiệu ứng rơi nền</label>
-      <div id="drift-list" style="margin-top:10px"></div>
-      <div class="row">
-        <button class="ghost" id="drift-add">＋ Thêm icon rơi</button>
-        <input type="file" id="f-drift" accept="image/*" multiple hidden>
-        <button class="ghost" id="drift-clear">Gỡ hết</button>
-      </div>
-      <div class="row" style="margin-top:8px">
-        <button id="drift-save">Lưu drift</button>
-        <span id="drift-st"></span>
-      </div>
-    </div>
-
     <div class="row" style="margin-top:16px"><button id="w-save">Lưu trang chào mừng</button><button class="ghost" id="w-reset">Về văn bản mẫu</button><span id="wst"></span></div>
   </section>
   <section id="t-letter" class="panel" hidden>
@@ -596,69 +561,6 @@ function drawCV(){const b=$('#cvbox');
   b.oninput=e=>{const t=e.target;if(t.dataset.l)site.cv[t.dataset.k][+t.dataset.i][t.dataset.l]=t.value};
   b.onclick=e=>{const t=e.target;if(t.dataset.xk){site.cv[t.dataset.xk].splice(+t.dataset.xi,1);drawCV()}else if(t.dataset.add){site.cv[t.dataset.add].push({vi:'',fr:''});drawCV()}}}
 $('#asave').onclick=()=>{site.about={vi:$('#a-vi').value,fr:$('#a-fr').value};Object.keys(CVN).forEach(k=>site.cv[k]=site.cv[k].filter(x=>(x.vi||'').trim()||(x.fr||'').trim()));drawCV();saveSite('#ast')};
-
-/* -------------------- ADMIN: treats + drift management -------------------- */
-/* === Quản lý treats (món thưởng trà) === */
-function drawTreats(){
-  const box=$('#treat-list'); box.innerHTML='';
-  site.treats = site.treats || [];
-  if(!site.treats.length){ box.innerHTML='<p class="hint">Chưa có món nào.</p>'; return; }
-  box.innerHTML = site.treats.map((t,i)=>`
-    <div class="crow" data-i="${i}">
-      <input data-i="${i}" data-k="name_vi" placeholder="Tên (Tiếng Việt)" value="${esc((t.name&&t.name.vi)||'')}">
-      <input data-i="${i}" data-k="name_fr" placeholder="Nom (Français)" value="${esc((t.name&&t.name.fr)||'')}">
-      <button class="ghost sm" data-up="${i}">Đổi ảnh</button>
-      <b data-x="${i}">✕</b>
-    </div>
-    ${t.image?'<div style="margin:6px 0"><img src="'+esc(U(t.image))+'" style="height:84px"></div>':''}
-  `).join('');
-  box.querySelectorAll('[data-x]').forEach(b=>b.onclick=()=>{site.treats.splice(+b.dataset.x,1);drawTreats()});
-  box.querySelectorAll('[data-up]').forEach(b=>b.onclick=()=>{tUpIdx=+b.dataset.up;$('#f-treat').click()});
-}
-let tUpIdx=null;
-$('#t-add').onclick=()=>{site.treats=site.treats||[];site.treats.push({id:'t'+Date.now().toString(36),name:{vi:'',fr:''},image:''});drawTreats()};
-$('#t-save').onclick=async ()=>{
-  site.treats = (site.treats||[]).map(t=>({id:t.id||('t'+Date.now().toString(36)),name:{vi:(t.name&&t.name.vi||'').trim(),fr:(t.name&&t.name.fr||'').trim()},image:t.image||''}));
-  say('#tst','Đang lưu…');
-  await saveSite('#tst');
-  drawTreats();
-};
-$('#t-reset').onclick=()=>{if(confirm('Xóa tất cả món?')){site.treats=[];drawTreats();saveSite('#tst')}};
-$('#treats-box').oninput=e=>{const t=e.target;if(!t.dataset.i) return;const i=+t.dataset.i,k=t.dataset.k; if(!site.treats[i]) return; site.treats[i].name[k.slice(5)] = t.value;};
-
-/* khi chọn file ảnh cho món */
-$('#f-treat').onchange=async e=>{const f=e.target.files[0];e.target.value='';if(!f||tUpIdx==null) return; say('#tst','Đang tải ảnh…');
-  try{site.treats[tUpIdx].image = await upload(await fitImage(f,1200)); drawTreats(); say('#tst','Xong. Nhớ bấm Lưu danh sách món.')}catch(err){say('#tst',err.message)}};
-
-/* === Quản lý drift icons === */
-function drawDriftList(){
-  const node=$('#drift-list'); node.innerHTML='';
-  site.design = site.design || {};
-  site.design.driftIcons = site.design.driftIcons||[];
-  if(!site.design.driftIcons.length) node.innerHTML='<p class="hint">Chưa có icon rơi nào.</p>';
-  else node.innerHTML = site.design.driftIcons.map((p,i)=>`<div class="crow"><img src="${esc(U(p))}" style="height:48px;margin-right:8px"><b data-ri="${i}">✕</b></div>`).join('');
-  $$('#drift-list [data-ri]').forEach(b=>b.onclick=()=>{site.design.driftIcons.splice(+b.dataset.ri,1);drawDriftList()});
-  $('#drift-on').checked = !!site.design.driftOn;
-}
-$('#drift-add').onclick=()=>$('#f-drift').click();
-$('#f-drift').onchange=async e=>{const files=[...e.target.files];e.target.value='';say('#drift-st','Đang tải…');try{
-  for(const f of files){ const up = await upload(await fitImage(f,800)); site.design.driftIcons = site.design.driftIcons||[]; site.design.driftIcons.push(up); }
-  drawDriftList(); say('#drift-st','Xong. Nhớ bấm Lưu drift.');
-}catch(err){say('#drift-st',err.message)}};
-$('#drift-clear').onclick=()=>{if(confirm('Xóa hết icon rơi?')){site.design.driftIcons=[];drawDriftList()}};
-$('#drift-save').onclick=()=>{site.design.driftOn = !!$('#drift-on').checked; saveSite('#drift-st'); drawDriftList();};
-
-/* khởi tạo khi load admin */
-(function initTreatsAndDrift(){
-  site.treats = site.treats || [];
-  site.design = site.design || {};
-  site.design.driftIcons = site.design.driftIcons || site.design.driftIcons || [];
-  drawTreats(); drawDriftList();
-})();
-
-/* ---------- REST OF ADMIN SCRIPT (unchanged) ---------- */
-/* quote, welcome, design, letter, themes, contact, about handlers defined above already.
-   The rest of the script includes login handling and boot — leave as is. */
 
 /* login */
 $('#go').onclick=connect;

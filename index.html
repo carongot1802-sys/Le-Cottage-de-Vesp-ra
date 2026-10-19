@@ -31,7 +31,7 @@ header>#hov{position:absolute;z-index:0;inset:0;background:var(--hc,#1f3a2e);opa
 .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:6px}
 .cbtn{font-family:inherit;font-size:12px;background:transparent;color:#f3ead8;border:1px solid #d9a7b1;padding:3px 12px;border-radius:3px;cursor:pointer;margin:6px 8px 0 0}
 .crow{display:flex;gap:8px;align-items:center;margin-bottom:6px}
-.crow input{font:inherit;font-size:13px;padding:4px 8px;background:#ffffff1c;color:#f3ead8;border:1px solid #f3ead188;border-radius:3px;min-width:0;flex:1}
+.crow input{font:inherit;font-size:13px;padding:4px 8px;background:#ffffff1c;color:#f3ead8;border:1px solid #d9a7b188;border-radius:3px;min-width:0;flex:1}
 .crow input::placeholder{color:#d9b8bf}
 .crow b{cursor:pointer;padding:0 6px}
 header h1{margin:0;font-size:clamp(28px,6vw,48px);letter-spacing:.02em;cursor:pointer}
@@ -116,6 +116,16 @@ footer{text-align:left;background:transparent;color:var(--ftx,#d9b8bf);font-size
 .vid video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#1f3a2e;display:block}
 .vph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:#f3ead8;font-size:15px;letter-spacing:.06em;opacity:.85;pointer-events:none}
 .vph img{height:30%;width:auto;opacity:.9}
+.vid.ok .vph{display:none}.vid.no video{visibility:hidden}
+
+header h1{display:flex;align-items:center;justify-content:center;gap:.4em}
+#tagline .fl{color:inherit}
+.welcome{max-width:760px;margin:0 auto;text-align:center}
+.crest{width:150px;height:auto;margin:4px auto 10px;display:block;filter:drop-shadow(0 6px 10px #5b2d9633)}
+.welcome h1{color:var(--wine);font-size:clamp(28px,5.4vw,42px);line-height:1.2;margin:.2em 0 .1em}
+.welcome .hello{font-size:19px;color:var(--green);font-weight:500;margin:0 0 14px}
+.welcome .msg{max-width:600px;margin:0 auto 30px;text-align:left}
+.welcome .msg p{margin:0 0 1em;white-space:pre-wrap}
 .irisbank{display:inline-flex;align-items:center;gap:12px;margin:26px auto 8px;padding:10px 22px 10px 14px;background:var(--card);border:1px solid var(--line);border-radius:40px}
 .irisbank img{height:38px;width:auto;flex:none}
 .irisbank b{font-size:22px;color:var(--wine);font-variant-numeric:tabular-nums}
@@ -193,7 +203,7 @@ button:not(.sbtn):not(.irisbtn):not(.n):not(.x):active{transform:scale(.97)}
 .paper .fl2::after{content:"";position:absolute;inset:10px;border:1px solid #4b238655;border:1px solid color-mix(in srgb,var(--lac,#4b2386) 40%,transparent);border-radius:calc(var(--lr,22px) - 8px);pointer-events:none}
 .paper.nofr .fl2::after{display:none}
 .knock{position:absolute;left:25%;top:66%;width:50%;height:15%;padding:0;border:0;border-radius:18px;background:none;cursor:pointer;z-index:1}
-.knock::before{content:"";position:absolute;inset:-4px;border-radius:inherit;background:radial-gradient(ellipse at center,#7d52c455,transparent 70%);background:radial-gradient(ellipse at center,color-mix(in srgb,var(--lac,#4b2386) 35%,transparent),transparent 70%);opacity:0;animation:lglow 2.8s ease-in-out 1.4s infinite}
+.knock::before{content:"";position:absolute;inset:-4px;border-radius:inherit;background:radial-gradient(ellipse at center,#7d52c455,transparent 70%);background:radial-gradient(ellipse at center,color-mix(in srgb,var(--lac,#7d52c4) 35%,transparent),transparent 70%);opacity:0;animation:lglow 2.8s ease-in-out 1.4s infinite}
 .knock:hover::before,.knock:focus-visible::before{animation:none;opacity:1}
 .knock:focus-visible{outline:2px solid var(--lac,#4b2386);outline-offset:2px}
 .knock.vis{left:50%;top:auto;bottom:7%;width:auto;height:auto;transform:translateX(-50%);padding:.7em 1.7em;border-radius:40px;background:var(--lac,#4b2386);color:var(--lat,#fff);font-family:inherit;font-size:clamp(15px,3.6vw,19px);font-weight:600;letter-spacing:.05em;white-space:nowrap;box-shadow:0 6px 18px #0004}
@@ -223,13 +233,15 @@ article a{color:var(--wine)}
 
 :root[data-theme="dark"]{color-scheme:dark}
 :root[data-theme="light"]{color-scheme:light}
+:root[data-theme="dark"] #pgbg{filter:brightness(.6)}
 html.tchg *,html.tchg *::before,html.tchg *::after{transition:background-color .5s ease,color .5s ease,border-color .5s ease,box-shadow .5s ease!important}
 header>.themebtn{position:absolute;z-index:2;top:12px;right:12px;width:46px;height:46px;padding:0;border:0;border-radius:50%;background:none;color:var(--htx,#f3ead8);cursor:pointer;display:flex;align-items:center;justify-content:center}
 .themebtn:hover,.themebtn:focus-visible{background:#ffffff1f}
 html.modelock .themebtn{display:none}
 .themebtn:focus-visible{outline:2px solid #d9a7b1}
-.themebtn svg{width:22px;height:22px;fill:none;stroke=currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:transform .5s cubic-bezier(.22,.61,.36,1),opacity .3s ease}
+.themebtn svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:transform .5s cubic-bezier(.22,.61,.36,1),opacity .3s ease}
 .themebtn:hover svg{transform:rotate(18deg)}
+.themebtn .sun{display:none}
 :root[data-theme="dark"] .themebtn .sun{display:block}
 :root[data-theme="dark"] .themebtn .moon{display:none}
 .crest{width:var(--wsz,150px);max-width:70vw}
@@ -243,8 +255,6 @@ html.f-wt main .welcome h1{font-family:var(--wtf)}
 html.f-wm main .welcome :is(.hello,.msg,.msg p){font-family:var(--wmf)}
 html.f-at main article.about :is(h1,h2.sec){font-family:var(--atf)}
 html.f-am main article.about :is(p,.cv li){font-family:var(--amf)}
-/* small tweak for treat modal */
-#treat-modal{display:none;align-items:center;justify-content:center}
 </style>
 </head>
 <body>
@@ -282,16 +292,6 @@ html.f-am main article.about :is(p,.cv li){font-family:var(--amf)}
 <footer>© Le Cottage de Vespéra - fait avec ♥</footer></div>
 <div id="lb"><button class="x" id="lbx">✕</button><button class="n p" id="lbp">‹</button><button class="n nx" id="lbn">›</button><div id="lbm"></div><div class="c" id="lbc"></div></div>
 
-<!-- TREAT MODAL (show random treat) -->
-<div id="treat-modal" style="display:none;position:fixed;inset:0;z-index:120;align-items:center;justify-content:center;padding:20px;background:rgba(0,0,0,0.55)">
-  <div style="background:var(--card);border:1px solid var(--line);padding:18px;border-radius:12px;max-width:520px;width:100%;text-align:center;position:relative">
-    <button id="tclose" style="position:absolute;right:10px;top:8px;background:none;border:0;font-size:20px">✕</button>
-    <div id="timg" style="max-height:320px;margin-bottom:12px"></div>
-    <h3 id="tname" style="margin:0 0 8px;color:var(--wine)"></h3>
-    <div style="margin-bottom:12px"><button id="t-to-articles" class="teabtn">Xem bài</button></div>
-  </div>
-</div>
-
 <script>
 const $=s=>document.querySelector(s);
 const toTop=()=>{const r=document.documentElement;r.style.scrollBehavior='auto';window.scrollTo(0,0);r.style.scrollBehavior=''};
@@ -311,8 +311,8 @@ exp:[
 {vi:"Cộng tác viên biên tập tại Chuyên trang Sinh Viên Việt Nam - Báo Tiền Phong",fr:"Collaboration éditoriale - Page Sinh Viên Việt Nam, journal Tiền Phong"}],
 awd:[
 {vi:"Top 20 chung cuộc - cuộc thi « Jeunes Reporters Francophones 2026 » với bài thi « La jeunesse est l’avenir »",fr:"Top 20 final - concours « Jeunes Reporters Francophones 2026 », article « La jeunesse est l’avenir »",url:"https://lecourrier.vn/la-jeunesse-est-lavenir/1357370.html"},
-{vi:"Giải Khuyến khích - cuộc thi « Jeunes Reporters Francophones 2025 » với bài thi « Nous nous éduquons, donc nous préservons : la jeunesse au service d’un patrimoine vivant »",fr:"Prix d’encouragement - concours « Jeunes Reporters Francophones 2025 », article « Nous nous educ…",url:"https://lecourrier.vn/nous-nous-eduquons-donc-nous-preservons-la-jeunesse-au-service-dun-patrimoine-vivant/1292561.html"},
-{vi:"Giải Đại sứ quán Romania - cuộc thi « Jeunes Reporters Francophones 2023 » với bài thi « Comment la gastronomie francophone exprime l’excellence sur la table de la culture »",fr:"Prix de l’Ambassade de Roumanie - concours « Jeunes Reporters Francophones 2023 », article « Comment la gastronomie …",url:"https://lecourrier.vn/comment-la-gastronomie-francophone-exprime-lexcellence-sur-la-table-de-la-culture/1219351.html"}]};
+{vi:"Giải Khuyến khích - cuộc thi « Jeunes Reporters Francophones 2025 » với bài thi « Nous nous éduquons, donc nous préservons : la jeunesse au service d’un patrimoine vivant »",fr:"Prix d’encouragement - concours « Jeunes Reporters Francophones 2025 », article « Nous nous éduquons, donc nous préservons : la jeunesse au service d’un patrimoine vivant »",url:"https://lecourrier.vn/nous-nous-eduquons-donc-nous-preservons-la-jeunesse-au-service-dun-patrimoine-vivant/1292561.html"},
+{vi:"Giải Đại sứ quán Romania - cuộc thi « Jeunes Reporters Francophones 2023 » với bài thi « Comment la gastronomie francophone exprime l’excellence sur la table de la culture »",fr:"Prix de l’Ambassade de Roumanie - concours « Jeunes Reporters Francophones 2023 », article « Comment la gastronomie francophone exprime l’excellence sur la table de la culture »",url:"https://lecourrier.vn/comment-la-gastronomie-francophone-exprime-lexcellence-sur-la-table-de-la-culture/1219351.html"}]};
 const DEF_CONTACT=[{label:'Email',url:'thiminhngocnguyen22@gmail.com'},{label:'LinkedIn',url:'https://www.linkedin.com/in/margot-nguyen-n1802'},{label:'Portfolio',url:'https://carongot1802-sys.github.io/portfolio/'}];
 let contact=DEF_CONTACT.map(x=>({...x})),cDraft=null;
 const chref=u=>{u=(u||'').trim();if(/^[^\s@\/]+@[^\s@\/]+\.[^\s@\/]+$/.test(u))return 'mailto:'+u;if(/^https?:\/\//i.test(u))return u;if(/^[\w-]+(\.[\w-]+)+(\/\S*)?$/.test(u))return 'https://'+u;return ''};
@@ -446,73 +446,53 @@ function renderWelcome(){const v=$('#view');
   '<div class="vid" id="wvid" role="group" aria-label="'+esc(T[lang].vidAlt)+'"><video id="wv" src="media/welcome.mp4" muted playsinline preload="metadata" controls aria-label="'+esc(T[lang].vidAlt)+'"></video><div class="vph"><img src="assets/iris-be.png" alt=""><span>'+esc(T[lang].vidSoon)+'</span></div></div>'+
   '<div><div class="irisbank" id="bank" style="visibility:hidden"><img src="assets/iris-be.png" alt="" aria-hidden="true"><span id="banktxt"></span></div><div><button type="button" class="teabtn" id="tea"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h12v3.5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V10z"/><path d="M16 11h1.5a2.5 2.5 0 0 1 0 5H16"/><path d="M8 3.5c-1 1 1 2 0 3.5M12 3.5c-1 1 1 2 0 3.5"/></svg><span>'+esc(T[lang].tea)+'</span></button></div></div></section>';
   $('#tea').onclick=()=>{location.hash='articles'};toTop();paintBank();setupWelcomeVideo();
-  irisGet('total').then(n=>{if(n!=null){irisTotal=n;paintBank()}}); /* hook button after render */
-  // Ensure tea button shows treat modal when treats available:
-  setTimeout(hookTeaButton,30);
-}
+  irisGet('total').then(n=>{if(n!=null){irisTotal=n;paintBank()}})}
+function postNav(p){const i=posts.findIndex(x=>x.id===p.id),L=T[lang];if(i<0||posts.length<2)return '';
+  const o=posts[i+1],n=posts[i-1];
+  const a=(x,c,lab)=>x?'<a class="'+c+'" href="#post='+esc(x.id)+'"><small>'+lab+'</small><strong>'+esc(pf(x,'title')||pf(x,'title_fr'))+'</strong></a>':'<div></div>';
+  return '<div class="pn" role="navigation" aria-label="'+esc(L.navp)+'">'+a(o,'pnp','← '+esc(L.prev))+a(n,'pnn',esc(L.next)+' →')+'</div>'}
+function irisEnd(p){const g=hasGiven(p.id);
+  return '<div class="irisend"><p id="iask">'+esc(g?wf('thanks'):wf('ask'))+'</p><button class="irisbtn'+(g?' given':'')+'" id="ibtn" aria-pressed="'+g+'" aria-label="'+esc(wf('ask'))+'"><img src="assets/iris-be.png" alt="" aria-hidden="true"></button><div class="irisn" id="icount"></div></div>'}
+function paintCount(id){const el=$('#icount');if(!el)return;const n=irisCache[id];el.textContent=n==null?'':n+' '+T[lang].irisWord}
+function bindIris(p){const b=$('#ibtn');if(!b)return;paintCount(p.id);
+  irisGet(irisKey(p.id)).then(n=>{if(n!=null){irisCache[p.id]=n;paintCount(p.id)}});
+  b.onclick=async()=>{if(hasGiven(p.id))return;markGiven(p.id);b.classList.add('given','pop');b.setAttribute('aria-pressed','true');$('#iask').textContent=wf('thanks');
+    irisCache[p.id]=(irisCache[p.id]||0)+1;if(irisTotal!=null)irisTotal++;paintCount(p.id);
+    const [a,t]=await Promise.all([irisHit(irisKey(p.id)),irisHit('total')]);
+    if(a!=null){irisCache[p.id]=a;paintCount(p.id)}if(t!=null)irisTotal=t}}
+const norm=t=>String(t||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/đ/gi,'d').toLowerCase().replace(/\s+/g,' ').trim();
+function drawResults(anim){const el=$('#results');if(!el)return;const L=T[lang],none=!posts.length,ql=norm(q);
+  const list=posts.filter(p=>(!tagF||pf(p,'tag').trim()===tagF)&&(!ql||norm(allText(p)).includes(ql)));
+  el.innerHTML=list.length?'<div class="grid'+(anim?' stag':'')+'">'+list.map((p,ix)=>{const c=coverOf(p);
+    const cv=c?(c.type==='video'?'<video src="'+src(c)+'#t=0.1" preload="metadata" muted playsinline></video>':'<img src="'+src(c)+'" alt="" loading="lazy">'):'<svg class="fl" aria-hidden="true"><use href="#fdl"/></svg>';
+    return '<div class="card" style="--i:'+Math.min(ix,8)+'" data-id="'+esc(p.id)+'"><div class="cover">'+cv+'</div><div class="in"><span class="tag">'+esc(pf(p,'tag')||'Fun fact')+'</span><h2>'+esc(pf(p,'title'))+'</h2><div class="date">'+esc(fmt(p.date))+'</div><p class="excerpt">'+esc(exOf(p))+'</p></div></div>'}).join('')+'</div>':(none?'<div class="empty">'+L.none+' '+(admin?L.noneAdm:L.noneUsr)+'</div>':'<div class="empty">'+L.nomatch+'</div>');
+  el.querySelectorAll('.card').forEach(e=>e.onclick=()=>location.hash='post='+e.dataset.id)}
+function bindFilters(){const i=$('#q');if(!i)return;
+  i.oninput=()=>{q=i.value;drawResults()};
+  i.onkeydown=e=>{if(e.key==='Enter'){q=i.value;drawResults();i.blur()}};
+  $('#qb').onclick=()=>{q=i.value;drawResults();if(q.trim()){const r=$('#results');if(r)r.scrollIntoView({behavior:'smooth',block:'start'})}else i.focus()};
+  document.querySelectorAll('.chip').forEach(c=>c.onclick=()=>{tagF=c.dataset.t;document.querySelectorAll('.chip').forEach(x=>x.classList.toggle('on',x===c));drawResults(true)})}
+function renderAbout(){const v=$('#view'),L=T[lang],t=about[lang]||DEF_ABOUT[lang];
+  const sec=(h,a)=>'<h2 class="sec">'+h+'</h2><ul class="cv">'+a.map(i=>'<li>'+esc(i[lang]||i.vi||i.fr||'')+(/^https?:\/\//i.test(i.url||'')?' <a class="ext" href="'+esc(i.url)+'" target="_blank" rel="noopener">'+L.rd+'</a>':'')+'</li>').join('')+'</ul>';
+  v.innerHTML='<article class="about"><span class="tag">'+L.nva+'</span><h1>'+L.h+'</h1><div id="ab">'+t.split(/\n\s*\n/).map(x=>'<p>'+esc(x.trim())+'</p>').join('')+'</div>'+(admin?'<div class="bar"><button class="ghost" id="ea">'+L.edit+'</button></div>':'')+sec(L.edu,CV.edu)+sec(L.exp,CV.exp)+sec(L.awd,CV.awd)+'</article>';
+  toTop();
+  if(admin)$('#ea').onclick=()=>{$('#ab').innerHTML='<textarea class="ta" id="at"></textarea><div class="bar"><button id="as">Lưu</button><button class="ghost" id="ac">Hủy</button></div>';$('#at').value=t;$('#ea').style.display='none';
+    $('#ac').onclick=renderAbout;
+    $('#as').onclick=async()=>{const nx={...about,[lang]:$('#at').value};try{await db.doc('site/about').set({text:nx.vi||'',text_fr:nx.fr||''});about=nx;renderAbout()}catch(e){alert('Không lưu được: '+(e.message||e.code))}}}}
 
-/* ---------- Video, Lightbox, Navigation, Iris (unchanged) ---------- */
+/* ---------- Photo / video viewer ---------- */
+let lbList=[],lbI=0;
+function openLB(list,i){lbList=list;lbI=i;showLB();$('#lb').classList.add('open')}
+function showLB(){const m=lbList[lbI];$('#lbm').innerHTML=m.type==='video'?'<video src="'+src(m)+'" controls autoplay playsinline></video>':'<img src="'+src(m)+'" alt="">';$('#lbc').textContent=(lbI+1)+' / '+lbList.length+(m.cap?' · '+m.cap:'');const m2=lbList.length<2;$('#lbp').style.display=$('#lbn').style.display=m2?'none':''}
+function closeLB(){$('#lb').classList.remove('open');setTimeout(()=>{if(!$('#lb').classList.contains('open'))$('#lbm').innerHTML=''},380)}
+const step=d=>{lbI=(lbI+d+lbList.length)%lbList.length;showLB()};
+$('#lbx').onclick=closeLB;$('#lbp').onclick=()=>step(-1);$('#lbn').onclick=()=>step(1);
+$('#lb').onclick=e=>{if(e.target.id==='lb')closeLB()};
+document.addEventListener('keydown',e=>{if(!$('#lb').classList.contains('open'))return;if(e.key==='Escape')closeLB();if(e.key==='ArrowLeft')step(-1);if(e.key==='ArrowRight')step(1)});
+let tx=0;$('#lb').addEventListener('touchstart',e=>tx=e.touches[0].clientX);
+$('#lb').addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>60&&lbList.length>1)step(d>0?-1:1)});
 
-/* ---------- DRIFT + TREAT client features (init, render, modal) ---------- */
-let treats = []; // loaded from site.json (st.treats)
-function initExtraFromSite(st){
-  if(!st) return;
-  treats = Array.isArray(st.treats)?st.treats.slice():[];
-  if(st.design && Array.isArray(st.design.driftIcons)) dz.driftIcons = st.design.driftIcons.slice();
-  dz.driftOn = !!(st.design && st.design.driftOn);
-  renderDrift();
-}
-
-/* render hiệu ứng drift toàn trang (dùng class .drift + animation đã có) */
-function renderDrift(){
-  const old=document.getElementById('drift-root'); if(old) old.remove();
-  if(!dz || !dz.driftOn || !Array.isArray(dz.driftIcons) || dz.driftIcons.length===0) return;
-  const root=document.createElement('div'); root.id='drift-root';
-  Object.assign(root.style,{position:'fixed',inset:'0',pointerEvents:'none',zIndex:90,overflow:'hidden'});
-  const count=Math.min(20, Math.max(8, dz.driftIcons.length*6));
-  for(let i=0;i<count;i++){
-    const idx = Math.floor(Math.random()*dz.driftIcons.length);
-    const src = dz.driftIcons[idx];
-    const img = document.createElement('img');
-    img.src = src;
-    img.className = 'drift';
-    const left = Math.random()*100;
-    const dur = 10 + Math.random()*14;
-    const delay = -Math.random()*dur;
-    const size = 24 + Math.random()*64;
-    const r0 = (-20 + Math.random()*40).toFixed(1);
-    const r1 = (-20 + Math.random()*60).toFixed(1);
-    const r2 = (-20 + Math.random()*40).toFixed(1);
-    img.style.cssText = `left:${left}%;height:${size}px;--d:${dur}s;--w:${delay}s;--x:${(20+Math.random()*120).toFixed(0)}px;--r0:${r0}deg;--r1:${r1}deg;--r2:${r2}deg;opacity:${0.6+Math.random()*0.4}`;
-    img.setAttribute('aria-hidden','true');
-    root.appendChild(img);
-  }
-  document.body.appendChild(root);
-}
-
-/* show treat modal khi bấm nút tea trên welcome */
-function showTreatModal(){
-  if(!treats || treats.length===0){ location.hash='articles'; return; }
-  const pick = treats[Math.floor(Math.random()*treats.length)];
-  const name = (lang==='fr') ? (pick.name.fr||pick.name.vi) : (pick.name.vi||pick.name.fr);
-  $('#tname').textContent = name || '';
-  $('#timg').innerHTML = pick.image?'<img src="'+esc(pick.image)+'" style="max-width:100%;max-height:320px;border:1px solid var(--line)">' : '';
-  $('#treat-modal').style.display='flex';
-  $('#t-to-articles').onclick=()=>{ $('#treat-modal').style.display='none'; location.hash='articles'; };
-}
-$('#tclose').onclick=()=>$('#treat-modal').style.display='none';
-
-/* hook tea button to show modal when treats exist */
-function hookTeaButton(){
-  const b = $('#tea'); if(!b) return;
-  b.onclick = (e)=>{
-    e.preventDefault();
-    if(treats && treats.length>0) showTreatModal();
-    else location.hash='articles';
-  }
-}
-
-/* ---------- Design + Boot (unchanged, but we call initExtraFromSite after loading site.json) ---------- */
+/* ---------- Design + Boot ---------- */
 const DEF_DZ={hImg:'',blur:10,ov:70,hc:'#1f3a2e',bg:'',pImg:'',pOp:15,hText:'#f3ead8',hLine:'',fc:'#6d1a2c',fText:'#f3ead8',fImg:'',fOv:80,ac:'',ac2:'',bgD:'',wIcon:'',wIconSz:150,wTc:'',wHc:'',wMc:'',wTf:'',wMf:'',wDark:false,lock:'',aTc:'',aMc:'',aTf:'',aMf:'',aDark:false};
 const FONTS={chantelli:"'Chantelli Antiqua',Georgia,serif",playfair:"'Playfair Display',Georgia,serif",cormorant:"'Cormorant Garamond',Georgia,serif",lora:"'Lora',Georgia,serif",dancing:"'Dancing Script','Segoe Script',cursive",montserrat:"'Montserrat',system-ui,sans-serif",bevn:"'Be Vietnam Pro',system-ui,sans-serif"};
 const isDark=()=>document.documentElement.dataset.theme==='dark';
@@ -524,7 +504,8 @@ function applyLock(){const h=document.documentElement,lk=(dz.lock==='dark'||dz.l
   h.classList.toggle('modelock',!!lk);
   try{if(lk)localStorage.setItem('cv_lock',lk);else localStorage.removeItem('cv_lock')}catch(e){}
   let t=lk;
-  if(!t){let st=null;try{st=localStorage.getItem('cv_theme')}catch(_){}    t=(st==='dark'||st==='light')?st:((window.matchMedia&&matchMedia('(prefers-color-scheme:dark)').matches)?'dark':'light')}
+  if(!t){let st=null;try{st=localStorage.getItem('cv_theme')}catch(e){}
+    t=(st==='dark'||st==='light')?st:((window.matchMedia&&matchMedia('(prefers-color-scheme:dark)').matches)?'dark':'light')}
   if(h.dataset.theme!==t){h.classList.add('tchg');h.dataset.theme=t;clearTimeout(applyLock.t);applyLock.t=setTimeout(()=>h.classList.remove('tchg'),600)}
   paintThemeBtn();return lk}
 function applyDesign(){
@@ -585,11 +566,7 @@ applyLang();renderContact();render();setTimeout(startLetter,2600);
   const [ps,st]=await Promise.all([g('data/posts.json'),g('data/site.json')]);
   posts=Array.isArray(ps)?ps.slice().sort((a,b)=>(b.ts||0)-(a.ts||0)):[];
   if(st){if(Array.isArray(st.contact)&&st.contact.length)contact=st.contact;if(st.about)about={vi:st.about.vi||'',fr:st.about.fr||''};if(st.design)dz={...DEF_DZ,...st.design};if(st.welcome)welcome={vi:st.welcome.vi||{},fr:st.welcome.fr||{}};if(st.iris)irisCfg=st.iris;if(st.quote&&typeof st.quote==='object')quote=st.quote;if(st.cv&&st.cv.edu&&st.cv.exp&&st.cv.awd)CV=st.cv;if(st.letter&&typeof st.letter==='object')letter={...DEF_LETTER,...st.letter,label:{...DEF_LETTER.label,...(st.letter.label||{})}}}
-  /* init extra features (treats + drift) */
-  initExtraFromSite(st);
   applyDesign();renderContact();loaded=true;swap(render);startLetter();
-  // hook tea button after initial render
-  setTimeout(hookTeaButton,100);
 })();
 </script>
 </body>
