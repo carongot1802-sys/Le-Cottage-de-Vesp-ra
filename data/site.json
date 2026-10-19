@@ -132,6 +132,63 @@
     "driftImg": "media/1792407638391-hoa_r_i_c_a_ph_t.png"
    },
    "ts": 1792413738693
+  },
+  {
+   "name": "X-mas is coming",
+   "design": {
+    "hImg": "media/1792413764803-x-mas_header.png",
+    "blur": 0,
+    "ov": 33,
+    "hc": "#1f3a2e",
+    "bg": "",
+    "pImg": "media/1792413796519-x-mas_n_n.png",
+    "pOp": 80,
+    "hText": "#f3ead8",
+    "hLine": "",
+    "fc": "#6d1a2c",
+    "fText": "#f3ead8",
+    "fImg": "media/1792413783902-x-mas_foot.png",
+    "fOv": 48,
+    "ac": "#1f3a2e",
+    "ac2": "#e2c922",
+    "bgD": "",
+    "wIcon": "media/1792413834861-x-mas_icon_to.png",
+    "wIconSz": 144,
+    "wTc": "#1f3a2e",
+    "wHc": "#e2c922",
+    "wMc": "#faf4e6",
+    "wTf": "",
+    "wMf": "",
+    "wDark": true,
+    "lock": "light",
+    "aTc": "#1f3a2e",
+    "aMc": "#faf4e6",
+    "aTf": "",
+    "aMf": "",
+    "aDark": true
+   },
+   "letter": {
+    "on": true,
+    "img": "media/1792413870764-x-mas_th__ch_o.png",
+    "mode": "hotspot",
+    "zx": 25,
+    "zy": 59,
+    "zw": 50,
+    "zh": 15,
+    "label": {
+     "vi": "Mời gõ cửa",
+     "fr": "Frapper à la porte"
+    },
+    "ac": "#4b2386",
+    "tx": "#ffffff",
+    "veil": "#180e0c",
+    "veilOp": 58,
+    "radius": 22,
+    "frame": true,
+    "drift": "custom",
+    "driftImg": "media/1792413897656-x-mas_tuy_t_r_i.png"
+   },
+   "ts": 1792414209761
   }
  ],
  "quote": {
