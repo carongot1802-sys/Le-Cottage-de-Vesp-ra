@@ -255,6 +255,28 @@ html.f-wt main .welcome h1{font-family:var(--wtf)}
 html.f-wm main .welcome :is(.hello,.msg,.msg p){font-family:var(--wmf)}
 html.f-at main article.about :is(h1,h2.sec){font-family:var(--atf)}
 html.f-am main article.about :is(p,.cv li){font-family:var(--amf)}
+
+/* ===== build 8: icon rơi + món mời trà ===== */
+#fall{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+#fall.front{z-index:45}
+#fall i{position:absolute;top:0;display:block;aspect-ratio:1;background:var(--fxi) center/contain no-repeat;opacity:var(--fxo,.8);will-change:transform;animation:fxfall var(--d,16s) linear var(--w,0s) infinite}
+@keyframes fxfall{0%{transform:translate3d(0,-12vh,0) rotate(0deg)}33%{transform:translate3d(var(--dx,40px),34vh,0) rotate(calc(var(--r,180deg)*.33))}66%{transform:translate3d(calc(var(--dx,40px)*-.6),68vh,0) rotate(calc(var(--r,180deg)*.66))}100%{transform:translate3d(calc(var(--dx,40px)*.4),112vh,0) rotate(var(--r,180deg))}}
+#treat{position:fixed;inset:0;z-index:90;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(24,14,12,.55);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);animation:lfade .4s ease both}
+#treat.bye{animation:lfadeout .35s ease forwards;pointer-events:none}
+.tcard{position:relative;width:min(400px,100%);text-align:center;padding:30px 26px 26px;background:var(--card);color:var(--ink);border:1px solid var(--line);border-top:3px double var(--wine);border-radius:14px;box-shadow:0 24px 60px #0007;animation:tpop .6s cubic-bezier(.2,1.2,.3,1) .05s both}
+#treat.bye .tcard{animation:tout .35s ease forwards}
+.tpicw{display:flex;justify-content:center;margin:0 auto 10px;min-height:84px}
+.tpic{max-width:78%;max-height:190px;width:auto;height:auto;object-fit:contain;filter:drop-shadow(0 8px 10px #0003);animation:tfloat 3.2s ease-in-out infinite alternate}
+.tcup{width:84px;height:84px;color:var(--green)}
+.tmsg{margin:6px 0 20px;font-family:'Playfair Display','Chantelli Antiqua',Georgia,serif;font-style:italic;font-weight:500;font-size:clamp(18px,4.6vw,22px);line-height:1.5}
+.tmsg b{font-style:normal;color:var(--wine)}
+.tgo{margin-top:0;padding:12px 26px;font-size:15px;line-height:1.35;text-align:center}
+.tx{position:absolute;top:8px;right:8px;width:38px;height:38px;padding:0;border:0;border-radius:50%;background:none;color:var(--muted);font-size:26px;line-height:1;cursor:pointer}
+.tx:hover,.tx:focus-visible{color:var(--wine);background:#00000010}
+@keyframes tpop{from{opacity:0;transform:translateY(26px) scale(.9)}to{opacity:1;transform:none}}
+@keyframes tout{to{opacity:0;transform:translateY(-16px) scale(.96)}}
+@keyframes tfloat{from{transform:translateY(-4px) rotate(-1.5deg)}to{transform:translateY(4px) rotate(1.5deg)}}
+@media (prefers-reduced-motion:reduce){#treat,.tcard,.tpic{animation:none!important}#fall{display:none}}
 </style>
 </head>
 <body>
@@ -301,8 +323,8 @@ let db=null,assets=null,user=null,posts=[],admin=false,editId=null,media=[],load
 let lang='vi';
 const DEF_ABOUT={vi:"Bonjour ! Mình là Vespéra, chủ nhân của cái cottage nhỏ xíu này.\n\nMình mê tiếng Pháp, từ những âm mũi khó nhằn, những quy tắc ngữ pháp “cho vui”, cho tới những câu lóng không có trong giáo trình. Blog này là nơi mình nhả (yap) mọi thứ hay ho mình học được: fun fact ngắn ngắn, đọc xong là muốn khoe với ai đó liền.\n\nGhé chơi nhé, pha một tách trà (hoặc một ly vang đỏ 🍷) và nhớ để lại lời chào. À bientôt !",
 fr:"Bonjour ! Je suis Vespéra, la maîtresse de ce petit cottage.\n\nJe suis passionnée de français : des sons nasaux capricieux aux règles de grammaire « pour le plaisir », jusqu’aux expressions d’argot qu’on ne trouve dans aucun manuel. Ce blog est l’endroit où je « yappe » sur tout ce que j’apprends : de courts fun facts qu’on a envie de partager aussitôt.\n\nEntrez, servez-vous une tasse de thé (ou un verre de vin rouge 🍷) et laissez-moi un petit mot. À bientôt !"};
-const T={vi:{nvw:'Chào mừng',nva:'Giới thiệu',h:'Về cô chủ cottage',rd:'Đọc bài báo',edu:'Học vấn',exp:'Kinh nghiệm làm việc',awd:'Giải thưởng',contact:'Liên hệ',pf:'Link Portfolio',edit:'Sửa phần giới thiệu',navp:'Bài viết',tea:'Mời thưởng trà',prev:'Bài đăng trước',next:'Bài đăng kế tiếp',ql:'Câu của hôm nay',lw:'Chào mừng đến Cottage của tôi, chúc một ngày tốt lành',lk:'Mời gõ cửa',vidAlt:'Video chào mừng',vidSoon:'Video sắp được đặt ở đây',irisWord:'iris',tl:'Nơi Vespéra nhả fun fact về tiếng Pháp',all:'Tất cả',search:'Tìm bài viết…',searchBtn:'Tìm',back:'← Về mục bài viết',nf:'Không tìm thấy bài này.',loading:'Đang mở cửa cottage…',none:'Chưa có bài nào.',noneAdm:'Bấm “Viết bài mới” để đăng bài đầu tiên nhé!',noneUsr:'Vespéra sắp nhả fun fact đầu tiên…',nomatch:'Không có bài nào khớp',pedit:'Sửa bài',pdel:'Xóa bài',cdel:'Xóa bài này?',miss:'Bài này chưa có bản tiếng Việt, đang hiển thị bản tiếng Pháp.'},
-fr:{nvw:'Bienvenue',nva:'À propos',h:'La maîtresse du cottage',rd:'Lire l’article',edu:'Formation',exp:'Expérience professionnelle',awd:'Prix et distinctions',contact:'Contact',pf:'Portfolio',edit:'Modifier la présentation',navp:'Articles',tea:'Venez prendre le thé',prev:'Article précédent',next:'Article suivant',ql:'Citation du jour',lw:'Bienvenue dans mon cottage, passez une très belle journée',lk:'Frappez à la porte',vidAlt:'Vidéo de bienvenue',vidSoon:'La vidéo arrive bientôt',irisWord:'iris',tl:'Le coin où Vespéra partage ses fun facts sur le français',all:'Tous',search:'Rechercher un article…',searchBtn:'Rechercher',back:'← Retour aux articles',nf:'Article introuvable.',loading:'Ouverture du cottage…',none:'Aucun article pour le moment.',noneAdm:'Utilisez le bouton « Viết bài mới » pour publier le premier !',noneUsr:'Vespéra prépare son premier fun fact…',nomatch:'Aucun article ne correspond',pedit:'Modifier',pdel:'Supprimer',cdel:'Supprimer cet article ?',miss:'Cet article n’existe pas encore en français : version vietnamienne affichée.'}};
+const T={vi:{nvw:'Chào mừng',nva:'Giới thiệu',h:'Về cô chủ cottage',rd:'Đọc bài báo',edu:'Học vấn',exp:'Kinh nghiệm làm việc',awd:'Giải thưởng',contact:'Liên hệ',pf:'Link Portfolio',edit:'Sửa phần giới thiệu',navp:'Bài viết',tea:'Mời thưởng trà',ttpl:'Cô chủ Cottage mời bạn một {item} hôm nay',tgo:'Cảm ơn cô chủ, cho tôi vào đọc bài',tclose:'Đóng',tlab:'Lời mời từ cô chủ cottage',prev:'Bài đăng trước',next:'Bài đăng kế tiếp',ql:'Câu của hôm nay',lw:'Chào mừng đến Cottage của tôi, chúc một ngày tốt lành',lk:'Mời gõ cửa',vidAlt:'Video chào mừng',vidSoon:'Video sắp được đặt ở đây',irisWord:'iris',tl:'Nơi Vespéra nhả fun fact về tiếng Pháp',all:'Tất cả',search:'Tìm bài viết…',searchBtn:'Tìm',back:'← Về mục bài viết',nf:'Không tìm thấy bài này.',loading:'Đang mở cửa cottage…',none:'Chưa có bài nào.',noneAdm:'Bấm “Viết bài mới” để đăng bài đầu tiên nhé!',noneUsr:'Vespéra sắp nhả fun fact đầu tiên…',nomatch:'Không có bài nào khớp',pedit:'Sửa bài',pdel:'Xóa bài',cdel:'Xóa bài này?',miss:'Bài này chưa có bản tiếng Việt, đang hiển thị bản tiếng Pháp.'},
+fr:{nvw:'Bienvenue',nva:'À propos',h:'La maîtresse du cottage',rd:'Lire l’article',edu:'Formation',exp:'Expérience professionnelle',awd:'Prix et distinctions',contact:'Contact',pf:'Portfolio',edit:'Modifier la présentation',navp:'Articles',tea:'Venez prendre le thé',ttpl:'La maîtresse du Cottage vous offre {item} aujourd’hui',tgo:'Merci, je vais lire les articles',tclose:'Fermer',tlab:'Invitation de la maîtresse du cottage',prev:'Article précédent',next:'Article suivant',ql:'Citation du jour',lw:'Bienvenue dans mon cottage, passez une très belle journée',lk:'Frappez à la porte',vidAlt:'Vidéo de bienvenue',vidSoon:'La vidéo arrive bientôt',irisWord:'iris',tl:'Le coin où Vespéra partage ses fun facts sur le français',all:'Tous',search:'Rechercher un article…',searchBtn:'Rechercher',back:'← Retour aux articles',nf:'Article introuvable.',loading:'Ouverture du cottage…',none:'Aucun article pour le moment.',noneAdm:'Utilisez le bouton « Viết bài mới » pour publier le premier !',noneUsr:'Vespéra prépare son premier fun fact…',nomatch:'Aucun article ne correspond',pedit:'Modifier',pdel:'Supprimer',cdel:'Supprimer cet article ?',miss:'Cet article n’existe pas encore en français : version vietnamienne affichée.'}};
 let CV={edu:[
 {vi:"Cử nhân ngành Truyền thông quốc tế - Khoa Truyền thông và Văn hóa đối ngoại - Học viện Ngoại giao Việt Nam (2023-2027)",fr:"Licence en Communication internationale - Faculté de Communication et de Culture extérieure - Académie diplomatique du Vietnam (2023-2027)"},
 {vi:"Tốt nghiệp Tú Tài - Lớp chuyên Pháp - Trường THPT Chuyên Trần Phú (Hải Phòng) (2020-2023)",fr:"Baccalauréat - Classe spécialisée de français - Lycée pour élèves doués Trần Phú (Hải Phòng) (2020-2023)"}],
@@ -445,7 +467,7 @@ function renderWelcome(){const v=$('#view');
   v.innerHTML='<section class="welcome"><img class="crest'+(dz.wIcon?' cu':'')+'" src="'+esc(dz.wIcon||'assets/iris-to.png')+'" alt="Hoa iris"><h1>'+esc(wf('title'))+'</h1><p class="hello">'+esc(wf('hello'))+'</p><div class="msg">'+wf('msg').split(/\n\s*\n/).map(x=>'<p>'+esc(x.trim())+'</p>').join('')+'</div>'+
   '<div class="vid" id="wvid" role="group" aria-label="'+esc(T[lang].vidAlt)+'"><video id="wv" src="media/welcome.mp4" muted playsinline preload="metadata" controls aria-label="'+esc(T[lang].vidAlt)+'"></video><div class="vph"><img src="assets/iris-be.png" alt=""><span>'+esc(T[lang].vidSoon)+'</span></div></div>'+
   '<div><div class="irisbank" id="bank" style="visibility:hidden"><img src="assets/iris-be.png" alt="" aria-hidden="true"><span id="banktxt"></span></div><div><button type="button" class="teabtn" id="tea"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h12v3.5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V10z"/><path d="M16 11h1.5a2.5 2.5 0 0 1 0 5H16"/><path d="M8 3.5c-1 1 1 2 0 3.5M12 3.5c-1 1 1 2 0 3.5"/></svg><span>'+esc(T[lang].tea)+'</span></button></div></div></section>';
-  $('#tea').onclick=()=>{location.hash='articles'};toTop();paintBank();setupWelcomeVideo();
+  $('#tea').onclick=showTreat;toTop();paintBank();setupWelcomeVideo();
   irisGet('total').then(n=>{if(n!=null){irisTotal=n;paintBank()}})}
 function postNav(p){const i=posts.findIndex(x=>x.id===p.id),L=T[lang];if(i<0||posts.length<2)return '';
   const o=posts[i+1],n=posts[i-1];
@@ -493,7 +515,7 @@ let tx=0;$('#lb').addEventListener('touchstart',e=>tx=e.touches[0].clientX);
 $('#lb').addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>60&&lbList.length>1)step(d>0?-1:1)});
 
 /* ---------- Design + Boot ---------- */
-const DEF_DZ={hImg:'',blur:10,ov:70,hc:'#1f3a2e',bg:'',pImg:'',pOp:15,hText:'#f3ead8',hLine:'',fc:'#6d1a2c',fText:'#f3ead8',fImg:'',fOv:80,ac:'',ac2:'',bgD:'',wIcon:'',wIconSz:150,wTc:'',wHc:'',wMc:'',wTf:'',wMf:'',wDark:false,lock:'',aTc:'',aMc:'',aTf:'',aMf:'',aDark:false};
+const DEF_DZ={hImg:'',blur:10,ov:70,hc:'#1f3a2e',bg:'',pImg:'',pOp:15,hText:'#f3ead8',hLine:'',fc:'#6d1a2c',fText:'#f3ead8',fImg:'',fOv:80,ac:'',ac2:'',bgD:'',wIcon:'',wIconSz:150,wTc:'',wHc:'',wMc:'',wTf:'',wMf:'',wDark:false,lock:'',aTc:'',aMc:'',aTf:'',aMf:'',aDark:false,fxOn:false,fxKind:'snow',fxImg:'',fxN:35,fxSz:22,fxSpd:4,fxOp:80,fxPos:'back'};
 const FONTS={chantelli:"'Chantelli Antiqua',Georgia,serif",playfair:"'Playfair Display',Georgia,serif",cormorant:"'Cormorant Garamond',Georgia,serif",lora:"'Lora',Georgia,serif",dancing:"'Dancing Script','Segoe Script',cursive",montserrat:"'Montserrat',system-ui,sans-serif",bevn:"'Be Vietnam Pro',system-ui,sans-serif"};
 const isDark=()=>document.documentElement.dataset.theme==='dark';
 const DEF_LETTER={on:true,img:'assets/thu-chao.jpg',mode:'hotspot',zx:25,zy:66,zw:50,zh:15,label:{vi:'Mời gõ cửa',fr:'Frapper à la porte'},ac:'#4b2386',tx:'#ffffff',veil:'#180e0c',veilOp:58,radius:22,frame:true,drift:'default',driftImg:''};
@@ -508,6 +530,22 @@ function applyLock(){const h=document.documentElement,lk=(dz.lock==='dark'||dz.l
     t=(st==='dark'||st==='light')?st:((window.matchMedia&&matchMedia('(prefers-color-scheme:dark)').matches)?'dark':'light')}
   if(h.dataset.theme!==t){h.classList.add('tchg');h.dataset.theme=t;clearTimeout(applyLock.t);applyLock.t=setTimeout(()=>h.classList.remove('tchg'),600)}
   paintThemeBtn();return lk}
+const FX_SNOW='data:image/svg+xml,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><defs><g id="f" fill="none" stroke-linecap="round"><path d="M12 2.5v19M9.2 5L12 7.8 14.8 5M9.2 19L12 16.2 14.8 19"/><path transform="rotate(60 12 12)" d="M12 2.5v19M9.2 5L12 7.8 14.8 5M9.2 19L12 16.2 14.8 19"/><path transform="rotate(120 12 12)" d="M12 2.5v19M9.2 5L12 7.8 14.8 5M9.2 19L12 16.2 14.8 19"/></g></defs><use href="#f" stroke="#8fb4d9" stroke-width="3.4"/><use href="#f" stroke="#ffffff" stroke-width="1.5"/></svg>');
+const FX_DOT='data:image/svg+xml,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="#ffffff" stroke="#b9d2ea" stroke-width="1.6"/><circle cx="9" cy="9" r="3" fill="#ffffff" opacity=".9"/></svg>');
+let fxSig='';
+function applyFall(){
+  const old=document.getElementById('fall'),on=dz.fxOn===true||dz.fxOn==='true';
+  const kind=dz.fxKind||'snow',src=kind==='custom'?(dz.fxImg||''):kind==='iris'?'assets/iris-be.png':kind==='dot'?FX_DOT:FX_SNOW;
+  if(!on||!src||RM.matches){if(old)old.remove();fxSig='';return}
+  const n=Math.round(nz(dz.fxN,35,5,80)*(innerWidth<640?.6:1)),sz=nz(dz.fxSz,22,8,90),spd=nz(dz.fxSpd,4,1,10),op=nz(dz.fxOp,80,15,100)/100,front=dz.fxPos==='front';
+  const sig=[src,n,sz,spd,op,front].join('|');if(old&&sig===fxSig)return;
+  fxSig=sig;if(old)old.remove();
+  const el=document.createElement('div');el.id='fall';el.setAttribute('aria-hidden','true');if(front)el.className='front';
+  el.style.setProperty('--fxi','url('+JSON.stringify(src)+')');el.style.setProperty('--fxo',op);
+  const base=26-2.3*spd;let h='';
+  for(let i=0;i<n;i++){const d=+(base*(.75+Math.random()*.6)).toFixed(1),w=-(Math.random()*d).toFixed(1),s=Math.round(sz*(.5+Math.random()*.5)),dx=Math.round((25+Math.random()*60)*(Math.random()<.5?-1:1)),r=Math.round((90+Math.random()*270)*(Math.random()<.5?-1:1));
+    h+='<i style="left:'+(Math.random()*100).toFixed(1)+'%;width:'+s+'px;--d:'+d+'s;--w:'+w+'s;--dx:'+dx+'px;--r:'+r+'deg"></i>'}
+  el.innerHTML=h;document.body.appendChild(el)}
 function applyDesign(){
   const lk=applyLock(),r=document.documentElement.style,h=$('#hbg'),pg=$('#pgbg');
   if(dz.hImg){h.src=dz.hImg;h.style.display='block'}else{h.removeAttribute('src');h.style.display='none'}
@@ -526,6 +564,7 @@ function applyDesign(){
   r.setProperty('--fc',hex(dz.fc)?dz.fc:'#6d1a2c');sv('--ftx',dz.fText,hex(dz.fText)&&dz.fText.toLowerCase()!=='#f3ead8');
   const fb=$('#ftbg');if(dz.fImg){fb.src=dz.fImg;fb.style.display='block'}else{fb.removeAttribute('src');fb.style.display='none'}
   r.setProperty('--fov',dz.fImg?(+dz.fOv||80)/100:1);
+  applyFall();
 }
 const nz=(v,d,mn,mx)=>{v=+v;return isFinite(v)?Math.min(mx,Math.max(mn,v)):d};
 const rgba=(h,a)=>{h=hex(h)?h:'#180e0c';const n=parseInt(h.slice(1),16);return 'rgba('+(n>>16&255)+','+(n>>8&255)+','+(n&255)+','+a+')'};
@@ -534,6 +573,31 @@ function paintThemeBtn(){const b=$('#themebtn');if(!b)return;const d=isDark();b.
 function setTheme(t,save){const h=document.documentElement;h.classList.add('tchg');h.dataset.theme=t;if(save){try{localStorage.setItem('cv_theme',t)}catch(e){}}applyDesign();paintThemeBtn();clearTimeout(setTheme.t);setTheme.t=setTimeout(()=>h.classList.remove('tchg'),600)}
 $('#themebtn').onclick=()=>setTheme(isDark()?'light':'dark',true);
 try{matchMedia('(prefers-color-scheme:dark)').addEventListener('change',e=>{let st=null;try{st=localStorage.getItem('cv_theme')}catch(_){}if(dz.lock==='dark'||dz.lock==='light')return;if(st!=='dark'&&st!=='light')setTheme(e.matches?'dark':'light',false)})}catch(e){}
+let treats={items:[],tpl:{},go:{}};
+const tkey=x=>String(x.id||x.img||x.vi||x.fr||'');
+function pickTreat(){const it=(treats.items||[]).filter(x=>String(x.vi||x.fr||'').trim());if(!it.length)return null;
+  let k=null;try{k=sessionStorage.getItem('cv_treat')}catch(e){}
+  let t=it.find(x=>tkey(x)===k);
+  if(!t){t=it[Math.floor(Math.random()*it.length)];try{sessionStorage.setItem('cv_treat',tkey(t))}catch(e){}}
+  return t}
+function showTreat(){
+  const t=pickTreat();if(!t){location.hash='articles';return}
+  if(document.getElementById('treat'))return;
+  const L=T[lang],name=String((lang==='fr'?(t.fr||t.vi):(t.vi||t.fr))||'').trim();
+  const tpl=String((treats.tpl||{})[lang]||'').trim()||L.ttpl,go=String((treats.go||{})[lang]||'').trim()||L.tgo,i=tpl.indexOf('{item}');
+  const sent=i<0?esc(tpl)+' <b>'+esc(name)+'</b>':esc(tpl.slice(0,i))+'<b>'+esc(name)+'</b>'+esc(tpl.slice(i+6));
+  const cup='<svg class="tcup" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h12v3.5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V10z"/><path d="M16 11h1.5a2.5 2.5 0 0 1 0 5H16"/><path d="M8 3.5c-1 1 1 2 0 3.5M12 3.5c-1 1 1 2 0 3.5"/></svg>';
+  const el=document.createElement('div');el.id='treat';
+  el.innerHTML='<div class="tcard" role="dialog" aria-modal="true" aria-label="'+esc(L.tlab)+'"><button type="button" class="tx" aria-label="'+esc(L.tclose)+'">×</button><div class="tpicw">'+(t.img?'<img class="tpic" src="'+esc(t.img)+'" alt="'+esc(name)+'" decoding="async">':cup)+'</div><p class="tmsg">'+sent+'</p><button type="button" class="teabtn tgo">'+esc(go)+'</button></div>';
+  document.body.appendChild(el);document.body.style.overflow='hidden';
+  const im=el.querySelector('.tpic');if(im)im.onerror=()=>{im.outerHTML=cup};
+  let done=false;
+  const onKey=e=>{if(e.key==='Escape')close(false)};
+  function close(enter){if(done)return;done=true;document.removeEventListener('keydown',onKey);el.classList.add('bye');
+    setTimeout(()=>{el.remove();document.body.style.overflow='';if(enter)location.hash='articles'},RM.matches?0:360)}
+  el.querySelector('.tx').onclick=()=>close(false);el.querySelector('.tgo').onclick=()=>close(true);
+  el.onclick=e=>{if(e.target===el)close(false)};document.addEventListener('keydown',onKey);
+  try{el.querySelector('.tgo').focus({preventScroll:true})}catch(e){}}
 let letterStarted=false;
 function startLetter(){if(letterStarted)return;letterStarted=true;if(letter.on===false)return;
   const im=new Image();let go=false;
@@ -565,7 +629,7 @@ applyLang();renderContact();render();setTimeout(startLetter,2600);
   const g=async u=>{try{const r=await fetch(u+'?t='+Date.now(),{cache:'no-store'});return r.ok?await r.json():null}catch(e){return null}};
   const [ps,st]=await Promise.all([g('data/posts.json'),g('data/site.json')]);
   posts=Array.isArray(ps)?ps.slice().sort((a,b)=>(b.ts||0)-(a.ts||0)):[];
-  if(st){if(Array.isArray(st.contact)&&st.contact.length)contact=st.contact;if(st.about)about={vi:st.about.vi||'',fr:st.about.fr||''};if(st.design)dz={...DEF_DZ,...st.design};if(st.welcome)welcome={vi:st.welcome.vi||{},fr:st.welcome.fr||{}};if(st.iris)irisCfg=st.iris;if(st.quote&&typeof st.quote==='object')quote=st.quote;if(st.cv&&st.cv.edu&&st.cv.exp&&st.cv.awd)CV=st.cv;if(st.letter&&typeof st.letter==='object')letter={...DEF_LETTER,...st.letter,label:{...DEF_LETTER.label,...(st.letter.label||{})}}}
+  if(st){if(Array.isArray(st.contact)&&st.contact.length)contact=st.contact;if(st.about)about={vi:st.about.vi||'',fr:st.about.fr||''};if(st.design)dz={...DEF_DZ,...st.design};if(st.welcome)welcome={vi:st.welcome.vi||{},fr:st.welcome.fr||{}};if(st.iris)irisCfg=st.iris;if(st.quote&&typeof st.quote==='object')quote=st.quote;if(st.cv&&st.cv.edu&&st.cv.exp&&st.cv.awd)CV=st.cv;if(st.letter&&typeof st.letter==='object')letter={...DEF_LETTER,...st.letter,label:{...DEF_LETTER.label,...(st.letter.label||{})}};if(st.treats&&typeof st.treats==='object')treats={items:Array.isArray(st.treats.items)?st.treats.items:[],tpl:st.treats.tpl||{},go:st.treats.go||{}}}
   applyDesign();renderContact();loaded=true;swap(render);startLetter();
 })();
 </script>

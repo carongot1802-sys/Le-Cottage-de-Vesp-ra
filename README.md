@@ -2,7 +2,7 @@
 
 ## Cấu trúc
 - `index.html`: trang web cho khách quán đọc (ai cũng xem được, không cần đăng nhập). Khi mở web sẽ hiện tấm thiệp chào, gõ cửa xong mới vào mục Chào mừng, tiếp theo là Bài viết và À propos
-- `admin.html`: trang quản trị của cô chủ cottage (đăng bài, ảnh, video, câu hàng ngày, trang Chào mừng, thư chào, giao diện và bộ theme, liên hệ, À propos)
+- `admin.html`: trang quản trị của cô chủ cottage (đăng bài, ảnh, video, câu hàng ngày, trang Chào mừng, món mời trà, thư chào, giao diện và bộ theme, liên hệ, À propos)
 - `assets/`: hai hình hoa iris (`iris-to.png` ở đầu trang Chào mừng, `iris-be.png` cho mọi iris nhỏ còn lại). Nhớ upload cả thư mục này lên GitHub
 - `media/welcome.mp4`: video của trang Chào mừng (bạn tự thêm vào, xem phần bên dưới)
 - `data/posts.json`, `data/site.json`: nơi lưu bài viết và cài đặt (admin tự cập nhật, bạn không cần mở)
@@ -56,7 +56,7 @@
 - **Trang Giới thiệu (chữ)**: chọn phông chữ và màu chữ cho tiêu đề và cho nội dung.
 - Mỗi nhóm màu chữ có ô **Dùng các màu chữ này cả ở chế độ tối**. Để trống thì chế độ tối dùng màu chữ tối mặc định. Phông chữ thì áp dụng ở cả hai chế độ. Các phông có sẵn đều hỗ trợ tiếng Việt: Chantelli Antiqua, Playfair Display, Cormorant Garamond, Lora, Dancing Script, Montserrat, Be Vietnam Pro.
 - **Khóa chế độ sáng/tối** (mục cùng tên trong tab Giao diện): chọn **Luôn tối** hoặc **Luôn sáng** thì web hiện đúng một chế độ cho mọi khách và nút trăng/mặt trời ở header được ẩn đi. Khi khóa, các màu bạn chọn (màu nền trang, màu chữ trang Chào mừng và Giới thiệu) áp dụng thẳng cho chế độ đã khóa, không cần tích ô "Dùng các màu chữ này cả ở chế độ tối" và không cần chọn riêng màu nền chế độ tối (để trống ô đó thì web dùng Màu nền trang). Ví dụ theme Halloween: chọn Luôn tối, rồi chọn màu cam cháy, tím sáng cho tiêu đề và lời chào mà không phải lo màu có đọc được ở chế độ sáng hay không. Lựa chọn khóa được lưu cùng từng theme, nên Halloween luôn tối còn theme thường vẫn để khách tự chọn.
-- Tất cả các mục mới trên đều được lưu cùng **Bộ theme**, nên mỗi theme có thể có biểu tượng, phông và màu chữ riêng.
+- Tất cả các mục mới trên đều được lưu cùng **Bộ theme**, nên mỗi theme có thể có biểu tượng, phông, màu chữ và hiệu ứng icon rơi riêng.
 - **Bộ theme**: chỉnh Giao diện và Thư chào ưng ý rồi gõ tên (vd "Giáng sinh 2026"), bấm "Lưu cấu hình hiện tại thành theme". Khi có sự kiện, chỉ cần bấm **Áp dụng và đăng** ở theme tương ứng là cả header, chân trang, màu sắc và thư chào đổi cùng lúc. Theme chỉ lưu đường dẫn ảnh nên không làm nặng web.
 - Lưu ý: Áp dụng theme sẽ ghi đè Giao diện và Thư chào đang chạy. Nếu muốn giữ lại bộ hiện tại, hãy lưu nó thành một theme trước.
 
@@ -75,7 +75,20 @@
   - Tắt ô "Hiện thư chào" nếu muốn khách vào thẳng web.
 - Bấm vào chữ/nút, bấm vào thiệp hoặc phím Esc đều đóng thiệp. Nếu khách mở thẳng link một bài viết hoặc trang Giới thiệu, thiệp vẫn hiện nhưng đóng xong khách ở lại đúng trang họ cần.
 - Sửa xong bấm **Lưu thư chào**, web cập nhật sau khoảng 1 phút. Thiệp mặc định là file `assets/thu-chao.jpg`.
-- Dưới khung đếm iris ở trang Chào mừng có nút xanh lá **Mời thưởng trà**, bấm vào sẽ chuyển sang mục Bài viết. Chữ nút sửa trong `index.html`, khóa `tea` ở đối tượng `T`.
+- Dưới khung đếm iris ở trang Chào mừng có nút xanh lá **Mời thưởng trà**. Bấm vào thì hiện lời mời một món ngẫu nhiên (xem mục **Món mời thưởng trà** bên dưới). Chữ trên nút sửa trong `index.html`, khóa `tea` ở đối tượng `T`.
+
+## Món mời thưởng trà (tab Món mời trà trong admin)
+- Khi khách bấm nút **Mời thưởng trà**, web hiện một hộp nhỏ giữa màn hình có hình một món và câu "Cô chủ Cottage mời bạn một ... hôm nay". Món được bốc ngẫu nhiên trong danh sách của bạn. Mỗi lần khách ghé web (một phiên duyệt web) được bốc một món và giữ món đó cho tới khi họ đóng tab, lần ghé sau bốc món mới. Bấm nút "Cảm ơn cô chủ, cho tôi vào đọc bài" thì sang mục Bài viết. Bấm dấu ×, bấm ra ngoài hộp hoặc phím Esc thì chỉ đóng hộp.
+- Danh sách trống thì nút **Mời thưởng trà** vẫn đưa khách thẳng sang mục Bài viết như trước.
+- Thêm món: vào tab **Món mời trà**, bấm **＋ Thêm món từ ảnh**, chọn một hoặc nhiều ảnh cùng lúc (nên là PNG nền trong, web tự thu nhỏ về khoảng 600 px). Mỗi ảnh thành một dòng món, tên món điền sẵn theo tên file để bạn sửa lại. Điền tên tiếng Việt và tiếng Pháp (bỏ trống bên nào thì web dùng bên còn lại), rồi bấm **Lưu danh sách món**. Web cập nhật sau khoảng 1 phút.
+- Danh sách thêm bao nhiêu món cũng được. Mỗi món có nút **Đổi ảnh** và **Xóa món**. Mỗi ảnh tải lên được lưu vào thư mục `media/` của repo.
+- Vì tiếng Việt cần loại từ, hãy ghi tên món kèm loại từ cho tự nhiên (vd: "tách trà hoa cúc", "chiếc bánh madeleine"). Bản tiếng Pháp nên ghi kèm mạo từ (vd: "une tasse de thé"). Câu mời và chữ trên nút đổi được ngay trong tab, ghi `{item}` ở chỗ muốn hiện tên món. Bấm **Xem thử một lời mời** để xem câu ghép ra có tự nhiên không.
+
+## Hiệu ứng icon rơi ở nền (tab Giao diện trong admin)
+- Mục **Hiệu ứng icon rơi ở nền** cho icon nhẹ nhàng rơi trên toàn web, ví dụ tuyết cho Giáng sinh. Đổi được: bật/tắt, loại icon (bông tuyết, hạt tuyết tròn, hoa iris nhỏ, hoặc hình của bạn: PNG nền trong, vd cánh mai, lá phong, bí ngô, dơi), số lượng, cỡ, tốc độ rơi, độ đậm, và lớp hiển thị (phía sau chữ như nền, hoặc phía trước phủ lên cả nội dung).
+- Chỉnh xong bấm **Lưu thiết kế** rồi mở web để xem. Hiệu ứng được lưu cùng từng **Bộ theme**, nên theme Giáng sinh rơi tuyết, theme Halloween rơi bí ngô, theme thường không rơi gì.
+- Máy khách bật chế độ giảm chuyển động thì hiệu ứng tự tắt, màn hình điện thoại tự giảm bớt số lượng. Hình của bạn được thu nhỏ về khoảng 256 px khi tải lên nên rất nhẹ.
+- Đây là hiệu ứng riêng, không liên quan tới "Hình rơi quanh thiệp" trong tab Thư chào (cái đó chỉ rơi quanh tấm thiệp lúc khách vừa mở web).
 
 ## Câu hàng ngày
 - Ở đầu trang Bài viết, phía trên danh sách bài, có một khung hiện câu quote hoặc expression của hôm nay.

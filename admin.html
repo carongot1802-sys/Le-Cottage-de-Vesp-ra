@@ -152,6 +152,12 @@ button,.chip{transition:transform .3s cubic-bezier(.22,.61,.36,1),background-col
 .lpv .lpc.fr::after{content:"";position:absolute;inset:6px;border:1px solid #4b238666;border-radius:inherit;pointer-events:none}
 .lpv .lz{position:absolute;border:2px dashed #e0245e;background:#e0245e22;border-radius:10px;font-size:10px;color:#e0245e;display:flex;align-items:center;justify-content:center;font-weight:700}
 .lpv .lbtn{position:absolute;left:50%;bottom:6%;transform:translateX(-50%);padding:.35em 1.1em;border-radius:30px;font-size:12px;font-weight:600;white-space:nowrap}
+.trow{display:flex;gap:14px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--line)}
+.tth{flex:none;width:84px;height:84px;display:flex;align-items:center;justify-content:center;background:var(--bg);border:1px solid var(--line);font-size:12px;color:var(--muted);text-align:center}
+.tth img{max-width:100%;max-height:100%;object-fit:contain}
+.tfs{flex:1;min-width:0}.tfs .fi{margin:0 0 6px}
+.tsample{display:flex;align-items:center;gap:14px;margin-top:12px;padding:12px;background:var(--bg);border:1px solid var(--line)}
+.tsample img{height:70px;width:auto}
 </style>
 </head>
 <body>
@@ -182,7 +188,7 @@ button,.chip{transition:transform .3s cubic-bezier(.22,.61,.36,1),background-col
   <div class="row" style="margin-top:14px"><button id="go">Kết nối</button><span id="lerr"></span></div>
 </div>
 <div id="app" hidden>
-  <div class="chips tabs" style="margin-bottom:20px"><span class="chip on" data-t="posts">Bài viết</span><span class="chip" data-t="quote">Câu hàng ngày</span><span class="chip" data-t="welcome">Chào mừng</span><span class="chip" data-t="letter">Thư chào</span><span class="chip" data-t="design">Giao diện</span><span class="chip" data-t="contact">Liên hệ</span><span class="chip" data-t="about">Giới thiệu</span></div>
+  <div class="chips tabs" style="margin-bottom:20px"><span class="chip on" data-t="posts">Bài viết</span><span class="chip" data-t="quote">Câu hàng ngày</span><span class="chip" data-t="welcome">Chào mừng</span><span class="chip" data-t="treats">Món mời trà</span><span class="chip" data-t="letter">Thư chào</span><span class="chip" data-t="design">Giao diện</span><span class="chip" data-t="contact">Liên hệ</span><span class="chip" data-t="about">Giới thiệu</span></div>
   <section id="t-posts">
     <div class="bar"><button id="new"><svg class="fl" aria-hidden="true"><use href="#fdl"/></svg> Viết bài mới</button><span id="pst"></span></div>
     <div id="ed" class="panel" hidden>
@@ -245,6 +251,23 @@ button,.chip{transition:transform .3s cubic-bezier(.22,.61,.36,1),background-col
     </div>
     <div class="row" style="margin-top:16px"><button id="w-save">Lưu trang chào mừng</button><button class="ghost" id="w-reset">Về văn bản mẫu</button><span id="wst"></span></div>
   </section>
+  <section id="t-treats" class="panel" hidden>
+    <h3>Món mời thưởng trà</h3>
+    <p class="hint">Khi khách bấm nút “Mời thưởng trà” ở trang Chào mừng, web hiện một lời mời kèm hình một món ngẫu nhiên trong danh sách này, ví dụ “Cô chủ Cottage mời bạn một tách trà hoa cúc hôm nay”. Mỗi khách khi vào web được bốc ngẫu nhiên một món và giữ món đó trong suốt lần ghé thăm; lần ghé sau họ được bốc món mới. Danh sách trống thì nút vẫn đưa khách thẳng sang mục Bài viết như cũ.</p>
+    <h4 class="sh" style="margin-top:6px">Câu mời</h4>
+    <p class="hint">Ghi <b>{item}</b> ở chỗ muốn hiện tên món. Bỏ trống thì web dùng câu mặc định. Vì tiếng Việt cần loại từ, bạn ghi tên món kèm loại từ cho tự nhiên (vd: “tách trà hoa cúc”, “chiếc bánh madeleine”). Bản tiếng Pháp nên ghi kèm mạo từ (vd: “une tasse de thé”).</p>
+    <label>Câu mời, tiếng Việt</label><input type="text" id="tr-tpl-vi" class="fi" placeholder="Cô chủ Cottage mời bạn một {item} hôm nay">
+    <label>Câu mời, tiếng Pháp</label><input type="text" id="tr-tpl-fr" class="fi" placeholder="La maîtresse du Cottage vous offre {item} aujourd’hui">
+    <label>Chữ trên nút trong hộp lời mời, tiếng Việt</label><input type="text" id="tr-go-vi" class="fi" placeholder="Cảm ơn cô chủ, cho tôi vào đọc bài">
+    <label>Chữ trên nút trong hộp lời mời, tiếng Pháp</label><input type="text" id="tr-go-fr" class="fi" placeholder="Merci, je vais lire les articles">
+    <h4 class="sh">Danh sách món (<span id="tr-count">0</span>)</h4>
+    <p class="hint">Hình nên là PNG nền trong, web tự thu nhỏ về khoảng 600 px. Chọn nhiều ảnh một lúc được: mỗi ảnh thành một món, tên món điền sẵn theo tên file để bạn sửa lại.</p>
+    <div class="row"><button class="ghost" id="tr-add">＋ Thêm món từ ảnh (chọn nhiều ảnh)</button><button class="ghost" id="tr-add0">＋ Thêm món chưa có ảnh</button><button class="ghost" id="tr-test">Xem thử một lời mời</button></div>
+    <input type="file" id="tr-file" accept="image/*" multiple hidden><input type="file" id="tr-rep" accept="image/*" hidden>
+    <div id="tr-sample"></div>
+    <div id="tr-list"></div>
+    <div class="row" style="margin-top:20px"><button id="tr-save">Lưu danh sách món</button><span id="trst"></span></div>
+  </section>
   <section id="t-letter" class="panel" hidden>
     <h3>Thư chào</h3>
     <p class="hint">Đây là tấm thiệp hiện ra giữa màn hình khi khách vừa mở web. Bạn đổi hình, nút bấm, màu nền phủ và hoa rơi ở đây. Muốn đổi cả bộ theo sự kiện, dùng mục “Bộ theme” trong tab Giao diện.</p>
@@ -301,6 +324,17 @@ button,.chip{transition:transform .3s cubic-bezier(.22,.61,.36,1),background-col
     <label>Màu nền trang</label><div class="row"><input type="color" data-dz="bg"><button class="ghost" data-dzx="bg">Về mặc định</button></div>
     <label>Hình nền trang</label><div class="row"><button class="ghost" data-up="pImg">Chọn hình</button><button class="ghost" data-dzx="pImg">Gỡ hình</button></div>
     <label>Độ đậm hình nền: <b data-lab="pOp"></b>%</label><input type="range" min="3" max="80" data-dz="pOp" data-num="1">
+    <h4 class="sh">Hiệu ứng icon rơi ở nền</h4>
+    <p class="hint">Icon nhẹ nhàng rơi trên toàn web (vd: tuyết cho Giáng sinh, cánh hoa cho mùa xuân, bí ngô và dơi cho Halloween). Chỉnh xong bấm “Lưu thiết kế” rồi mở web để xem. Hiệu ứng được lưu cùng từng theme trong “Bộ theme”, nên mỗi theme có hiệu ứng riêng. Máy khách bật chế độ giảm chuyển động thì hiệu ứng tự tắt, màn hình nhỏ tự giảm số lượng.</p>
+    <label class="chk"><input type="checkbox" data-dz="fxOn"> Bật hiệu ứng icon rơi</label>
+    <label>Loại icon</label><select class="fi" data-dz="fxKind"><option value="snow">Bông tuyết</option><option value="dot">Hạt tuyết tròn</option><option value="iris">Hoa iris nhỏ</option><option value="custom">Hình của bạn (tải ở bên dưới)</option></select>
+    <label>Hình của bạn (PNG nền trong, càng đơn giản càng đẹp khi rơi: cánh mai, lá phong, bí ngô…)</label>
+    <div class="row"><button class="ghost" data-up="fxImg">Chọn hình</button><button class="ghost" data-dzx="fxImg">Gỡ hình</button><img id="pv-fximg" alt="" style="height:48px;width:auto;display:none"></div>
+    <label>Số lượng: <b data-lab="fxN"></b></label><input type="range" min="5" max="80" data-dz="fxN" data-num="1">
+    <label>Cỡ lớn nhất: <b data-lab="fxSz"></b>px (mỗi icon có cỡ ngẫu nhiên từ một nửa tới mức này)</label><input type="range" min="10" max="80" data-dz="fxSz" data-num="1">
+    <label>Tốc độ rơi: <b data-lab="fxSpd"></b> (1 chậm, 10 nhanh)</label><input type="range" min="1" max="10" data-dz="fxSpd" data-num="1">
+    <label>Độ đậm: <b data-lab="fxOp"></b>%</label><input type="range" min="15" max="100" data-dz="fxOp" data-num="1">
+    <label>Lớp hiển thị</label><select class="fi" data-dz="fxPos"><option value="back">Phía sau chữ và hình (như nền)</option><option value="front">Phía trước chữ (rơi phủ lên cả nội dung)</option></select>
     <h4 class="sh">Màu nhấn</h4>
     <p class="hint">Màu nhấn đổi tiêu đề bài, nút, chữ chủ đề… Màu phụ đổi các dòng chữ xanh (lời chào, tên chủ đề). Màu này áp dụng cả khi khách dùng chế độ tối, nên chọn màu đủ đậm hoặc đủ sáng cho dễ đọc.</p>
     <label>Màu nhấn chính</label><div class="row"><input type="color" data-dz="ac"><button class="ghost" data-dzx="ac">Về mặc định</button></div>
@@ -347,8 +381,9 @@ const WK=['title','hello','msg','counter','ask','thanks'];
 const DEF_WELCOME={
 vi:{title:"Chào mừng đến với Cottage của Vespéra",hello:"Bonjour, khách quán thân mến !",msg:"Cô chủ cottage đã pha sẵn một ấm trà và để cửa mở cho bạn.\n\nCứ thong thả đọc vài fun fact tiếng Pháp. Nếu bài nào làm bạn thấy vui hay hữu ích, hãy để lại một bông iris tím ở cuối bài nhé.",counter:"Cottage đã nhận được {n} bông iris từ khách quán",ask:"Bài này có ích với bạn? Tặng cô chủ cottage một bông iris nhé.",thanks:"Cảm ơn khách quán, cô chủ cottage đã nhận được bông iris của bạn."},
 fr:{title:"Bienvenue au Cottage de Vespéra",hello:"Bonjour, chers hôtes !",msg:"La maîtresse du cottage a préparé le thé et laissé la porte ouverte.\n\nLisez tranquillement quelques fun facts sur le français. Si un article vous a plu ou aidé, déposez un iris violet au bas de la page.",counter:"Le cottage a reçu {n} iris de ses hôtes",ask:"Cet article vous a aidé ? Offrez un iris à la maîtresse du cottage.",thanks:"Merci, cher hôte. La maîtresse du cottage a bien reçu votre iris."}};
-const DEF_DZ={hImg:'',blur:10,ov:70,hc:'#1f3a2e',bg:'',pImg:'',pOp:15,hText:'#f3ead8',hLine:'',fc:'#6d1a2c',fText:'#f3ead8',fImg:'',fOv:80,ac:'',ac2:'',bgD:'',wIcon:'',wIconSz:150,wTc:'',wHc:'',wMc:'',wTf:'',wMf:'',wDark:false,lock:'',aTc:'',aMc:'',aTf:'',aMf:'',aDark:false};
+const DEF_DZ={hImg:'',blur:10,ov:70,hc:'#1f3a2e',bg:'',pImg:'',pOp:15,hText:'#f3ead8',hLine:'',fc:'#6d1a2c',fText:'#f3ead8',fImg:'',fOv:80,ac:'',ac2:'',bgD:'',wIcon:'',wIconSz:150,wTc:'',wHc:'',wMc:'',wTf:'',wMf:'',wDark:false,lock:'',aTc:'',aMc:'',aTf:'',aMf:'',aDark:false,fxOn:false,fxKind:'snow',fxImg:'',fxN:35,fxSz:22,fxSpd:4,fxOp:80,fxPos:'back'};
 const DEF_LETTER={on:true,img:'',mode:'hotspot',zx:25,zy:66,zw:50,zh:15,label:{vi:'Mời gõ cửa',fr:'Frapper à la porte'},ac:'#4b2386',tx:'#ffffff',veil:'#180e0c',veilOp:58,radius:22,frame:true,drift:'default',driftImg:''};
+const mkTreats=t=>({items:Array.isArray((t||{}).items)?t.items.map(x=>({...x})):[],tpl:{...((t||{}).tpl||{})},go:{...((t||{}).go||{})}});
 const mkLetter=l=>({...DEF_LETTER,...(l||{}),label:{...DEF_LETTER.label,...((l||{}).label||{})}});
 const CFB={hc:'#1f3a2e',hText:'#f3ead8',hLine:'#6d1a2c',fc:'#6d1a2c',fText:'#f3ead8',bg:'#f3ead8',ac:'#6d1a2c',ac2:'#1f3a2e',bgD:'#1b1412',wTc:'#6d1a2c',wHc:'#1f3a2e',wMc:'#2b1a1a',aTc:'#6d1a2c',aMc:'#2b1a1a'};
 const DEF_CONTACT=[{label:'Email',url:'thiminhngocnguyen22@gmail.com'},{label:'LinkedIn',url:'https://www.linkedin.com/in/margot-nguyen-n1802'},{label:'Portfolio',url:'https://carongot1802-sys.github.io/portfolio/'}];
@@ -362,7 +397,7 @@ awd:[
 {vi:"Top 20 chung cuộc - cuộc thi « Jeunes Reporters Francophones 2026 » với bài thi « La jeunesse est l’avenir »",fr:"Top 20 final - concours « Jeunes Reporters Francophones 2026 », article « La jeunesse est l’avenir »",url:"https://lecourrier.vn/la-jeunesse-est-lavenir/1357370.html"},
 {vi:"Giải Khuyến khích - cuộc thi « Jeunes Reporters Francophones 2025 » với bài thi « Nous nous éduquons, donc nous préservons : la jeunesse au service d’un patrimoine vivant »",fr:"Prix d’encouragement - concours « Jeunes Reporters Francophones 2025 », article « Nous nous éduquons, donc nous préservons : la jeunesse au service d’un patrimoine vivant »",url:"https://lecourrier.vn/nous-nous-eduquons-donc-nous-preservons-la-jeunesse-au-service-dun-patrimoine-vivant/1292561.html"},
 {vi:"Giải Đại sứ quán Romania - cuộc thi « Jeunes Reporters Francophones 2023 » với bài thi « Comment la gastronomie francophone exprime l’excellence sur la table de la culture »",fr:"Prix de l’Ambassade de Roumanie - concours « Jeunes Reporters Francophones 2023 », article « Comment la gastronomie francophone exprime l’excellence sur la table de la culture »",url:"https://lecourrier.vn/comment-la-gastronomie-francophone-exprime-lexcellence-sur-la-table-de-la-culture/1219351.html"}]};
-let cfg={repo:'',token:''},posts=[],site={welcome:{vi:{},fr:{}},iris:{},design:{...DEF_DZ},letter:mkLetter(),themes:[],contact:DEF_CONTACT.map(x=>({...x})),about:{vi:'',fr:''},cv:JSON.parse(JSON.stringify(CV)),quote:{}},prev={},editId=null,med=[];
+let cfg={repo:'',token:''},posts=[],site={welcome:{vi:{},fr:{}},iris:{},design:{...DEF_DZ},letter:mkLetter(),themes:[],contact:DEF_CONTACT.map(x=>({...x})),about:{vi:'',fr:''},cv:JSON.parse(JSON.stringify(CV)),quote:{},treats:{items:[],tpl:{},go:{}}},prev={},editId=null,med=[];
 const U=p=>prev[p]||p,hex=x=>/^#[0-9a-f]{6}$/i.test(x||'');
 const lsGet=k=>{try{return localStorage.getItem(k)||''}catch(e){return ''}},lsSet=(k,v)=>{try{v?localStorage.setItem(k,v):localStorage.removeItem(k)}catch(e){}};
 function b64(u8){let s='';for(let i=0;i<u8.length;i+=0x8000)s+=String.fromCharCode.apply(null,u8.subarray(i,i+0x8000));return btoa(s)}
@@ -389,15 +424,41 @@ async function connect(){
     if(r.status===401)throw new Error('Token sai hoặc đã hết hạn');if(!r.ok)throw new Error('Không tìm thấy repo "'+cfg.repo+'"');
     const j=await r.json();if(!j.permissions||!j.permissions.push)throw new Error('Token này chưa có quyền ghi (Contents: Read and write)');
     const a=await getFile('data/posts.json');posts=a?JSON.parse(a.text):[];
-    const b=await getFile('data/site.json');if(b){const s=JSON.parse(b.text);site={design:{...DEF_DZ,...(s.design||{})},contact:s.contact&&s.contact.length?s.contact:site.contact,about:{vi:(s.about||{}).vi||'',fr:(s.about||{}).fr||''},welcome:{vi:(s.welcome||{}).vi||{},fr:(s.welcome||{}).fr||{}},iris:s.iris||{},letter:mkLetter(s.letter),themes:Array.isArray(s.themes)?s.themes:[],quote:(s.quote&&typeof s.quote==='object')?s.quote:{},cv:(s.cv&&s.cv.edu&&s.cv.exp&&s.cv.awd)?s.cv:JSON.parse(JSON.stringify(CV))}}
+    const b=await getFile('data/site.json');if(b){const s=JSON.parse(b.text);site={design:{...DEF_DZ,...(s.design||{})},contact:s.contact&&s.contact.length?s.contact:site.contact,about:{vi:(s.about||{}).vi||'',fr:(s.about||{}).fr||''},welcome:{vi:(s.welcome||{}).vi||{},fr:(s.welcome||{}).fr||{}},iris:s.iris||{},letter:mkLetter(s.letter),themes:Array.isArray(s.themes)?s.themes:[],quote:(s.quote&&typeof s.quote==='object')?s.quote:{},treats:mkTreats(s.treats),cv:(s.cv&&s.cv.edu&&s.cv.exp&&s.cv.awd)?s.cv:JSON.parse(JSON.stringify(CV))}}
     lsSet('cv_repo',cfg.repo);lsSet('cv_tok',cfg.token);
     $('#login').hidden=true;$('#app').hidden=false;$('#out').hidden=false;drawAll();
   }catch(e){say('#lerr',e.message)}
 }
-function drawAll(){drawWelcome();drawQuote();drawPosts();syncDesign();applyDesign();syncLetter();drawThemes();drawContact();drawCV();$('#a-vi').value=site.about.vi||DEF_ABOUT.vi;$('#a-fr').value=site.about.fr||DEF_ABOUT.fr}
+function drawAll(){drawWelcome();drawQuote();drawPosts();drawTreats();syncDesign();applyDesign();syncLetter();drawThemes();drawContact();drawCV();$('#a-vi').value=site.about.vi||DEF_ABOUT.vi;$('#a-fr').value=site.about.fr||DEF_ABOUT.fr}
+
+/* treats */
+let trRep=-1;
+function trSentence(t,lang){const nm=String((lang==='fr'?(t.fr||t.vi):(t.vi||t.fr))||'').trim(),def={vi:'Cô chủ Cottage mời bạn một {item} hôm nay',fr:'La maîtresse du Cottage vous offre {item} aujourd’hui'},tpl=String((site.treats.tpl||{})[lang]||'').trim()||def[lang],i=tpl.indexOf('{item}');
+  return i<0?tpl+' '+nm:tpl.slice(0,i)+nm+tpl.slice(i+6)}
+function drawTreats(){const t=site.treats=mkTreats(site.treats);
+  $('#tr-tpl-vi').value=t.tpl.vi||'';$('#tr-tpl-fr').value=t.tpl.fr||'';$('#tr-go-vi').value=t.go.vi||'';$('#tr-go-fr').value=t.go.fr||'';
+  $('#tr-count').textContent=t.items.length;
+  $('#tr-list').innerHTML=t.items.length?t.items.map((x,i)=>'<div class="trow" data-i="'+i+'"><div class="tth">'+(x.img?'<img src="'+esc(U(x.img))+'" alt="">':'Chưa có ảnh')+'</div><div class="tfs"><input type="text" class="fi" data-f="vi" placeholder="Tên món, tiếng Việt (vd: tách trà hoa cúc)" value="'+esc(x.vi||'')+'"><input type="text" class="fi" data-f="fr" placeholder="Nom en français (vd: une tasse de thé)" value="'+esc(x.fr||'')+'"><div class="row"><button class="ghost" data-img="'+i+'">'+(x.img?'Đổi ảnh':'Chọn ảnh')+'</button><button class="ghost" data-del="'+i+'">Xóa món</button></div></div></div>').join(''):'<p class="hint">Chưa có món nào. Bấm “＋ Thêm món từ ảnh” để bắt đầu.</p>';
+  $$('#tr-list .trow').forEach(r=>{const i=+r.dataset.i;r.querySelectorAll('input[data-f]').forEach(inp=>inp.oninput=()=>{site.treats.items[i][inp.dataset.f]=inp.value})});
+  $$('#tr-list [data-del]').forEach(b=>b.onclick=()=>{const x=site.treats.items[+b.dataset.del];if(!confirm('Xóa món “'+(x.vi||x.fr||'chưa đặt tên')+'” khỏi danh sách?'))return;site.treats.items.splice(+b.dataset.del,1);drawTreats();say('#trst','Đã xóa, nhớ bấm “Lưu danh sách món”.')});
+  $$('#tr-list [data-img]').forEach(b=>b.onclick=()=>{trRep=+b.dataset.img;$('#tr-rep').click()})}
+[['#tr-tpl-vi','tpl','vi'],['#tr-tpl-fr','tpl','fr'],['#tr-go-vi','go','vi'],['#tr-go-fr','go','fr']].forEach(([id,k,l])=>{$(id).oninput=e=>{site.treats[k][l]=e.target.value}});
+$('#tr-add').onclick=()=>$('#tr-file').click();
+$('#tr-add0').onclick=()=>{site.treats.items.push({id:'t'+Date.now().toString(36),img:'',vi:'',fr:''});drawTreats()};
+$('#tr-file').onchange=async e=>{const fs=[...e.target.files];e.target.value='';if(!fs.length)return;
+  for(let k=0;k<fs.length;k++){say('#trst','Đang tải ảnh '+(k+1)+'/'+fs.length+'…');
+    try{const p=await upload(await fitImage(fs[k],600));site.treats.items.push({id:'t'+Date.now().toString(36)+k,img:p,vi:fs[k].name.replace(/\.[^.]+$/,'').replace(/[-_]+/g,' ').trim(),fr:''});drawTreats()}catch(err){say('#trst',err.message);return}}
+  say('#trst','Đã tải xong '+fs.length+' ảnh. Sửa tên món rồi bấm “Lưu danh sách món”.')};
+$('#tr-rep').onchange=async e=>{const f=e.target.files[0];e.target.value='';if(!f||trRep<0)return;say('#trst','Đang tải ảnh…');
+  try{site.treats.items[trRep].img=await upload(await fitImage(f,600));drawTreats();say('#trst','Đã đổi ảnh, nhớ bấm “Lưu danh sách món”.')}catch(err){say('#trst',err.message)}};
+$('#tr-test').onclick=()=>{const it=site.treats.items.filter(x=>(x.vi||x.fr||'').trim());
+  if(!it.length){$('#tr-sample').innerHTML='<p class="hint">Chưa có món nào có tên để xem thử.</p>';return}
+  const t=it[Math.floor(Math.random()*it.length)];
+  $('#tr-sample').innerHTML='<div class="tsample">'+(t.img?'<img src="'+esc(U(t.img))+'" alt="">':'')+'<div><div>'+esc(trSentence(t,'vi'))+'</div><div class="hint" style="margin:4px 0 0">'+esc(trSentence(t,'fr'))+'</div></div></div>'};
+$('#tr-save').onclick=()=>{site.treats.items=site.treats.items.filter(x=>x.img||String(x.vi||'').trim()||String(x.fr||'').trim());drawTreats();saveSite('#trst')};
 
 /* tabs */
-$$('.tabs .chip').forEach(c=>c.onclick=()=>{$$('.tabs .chip').forEach(x=>x.classList.toggle('on',x===c));['posts','quote','welcome','letter','design','contact','about'].forEach(t=>$('#t-'+t).hidden=t!==c.dataset.t)});
+$$('.tabs .chip').forEach(c=>c.onclick=()=>{$$('.tabs .chip').forEach(x=>x.classList.toggle('on',x===c));['posts','quote','welcome','treats','letter','design','contact','about'].forEach(t=>$('#t-'+t).hidden=t!==c.dataset.t)});
 
 /* posts */
 const fmtd=d=>d||'';
@@ -500,7 +561,7 @@ function applyDesign(){const d=site.design,r=document.documentElement.style,h=$(
   r.setProperty('--hblur',(+d.blur||0)+'px');r.setProperty('--hov',d.hImg?(+d.ov||70)/100:1);r.setProperty('--hc',hex(d.hc)?d.hc:'#1f3a2e');
   r.setProperty('--htx',hex(d.hText)?d.hText:'#f3ead8');if(hex(d.hLine))r.setProperty('--hline',d.hLine);else r.removeProperty('--hline');
   drawPreview()}
-function syncDesign(){const d=site.design;
+function syncDesign(){const d=site.design;const fxi=$('#pv-fximg');if(fxi){if(d.fxImg){fxi.src=U(d.fxImg);fxi.style.display='inline-block'}else fxi.style.display='none'}
   $$('[data-dz]').forEach(el=>{const k=el.dataset.dz,v=d[k];if(el.type==='checkbox')el.checked=!!v;else el.value=el.type==='color'?(hex(v)?v:(CFB[k]||'#000000')):(v??'')});
   $$('#t-design [data-lab]').forEach(el=>el.textContent=d[el.dataset.lab])}
 $$('[data-dz]').forEach(el=>el.oninput=()=>{site.design[el.dataset.dz]=el.type==='checkbox'?el.checked:(el.dataset.num?+el.value:el.value);applyDesign();syncDesign()});
@@ -508,7 +569,7 @@ $$('[data-dzx]').forEach(b=>b.onclick=()=>{site.design[b.dataset.dzx]=DEF_DZ[b.d
 let upKey='';
 $$('[data-up]').forEach(b=>b.onclick=()=>{upKey=b.dataset.up;$('#d-file').click()});
 $('#d-file').onchange=async e=>{const f=e.target.files[0];e.target.value='';if(!f||!upKey)return;say('#dst','Đang tải hình…');
-  try{site.design[upKey]=await upload(await fitImage(f,2400));applyDesign();say('#dst','Xong, nhớ bấm “Lưu thiết kế”')}catch(err){say('#dst',err.message)}};
+  try{site.design[upKey]=await upload(await fitImage(f,upKey==='fxImg'?256:2400));applyDesign();say('#dst','Xong, nhớ bấm “Lưu thiết kế”')}catch(err){say('#dst',err.message)}};
 async function saveSite(st){say(st,'Đang lưu…');try{await saveJSON('data/site.json',site,'Update site');say(st,'Đã lưu ✓ Web cập nhật sau ~1 phút.')}catch(e){say(st,e.message)}}
 $('#d-save').onclick=()=>saveSite('#dst');
 $('#d-reset').onclick=()=>{if(confirm('Đặt lại thiết kế về mặc định?')){site.design={...DEF_DZ};syncDesign();applyDesign();saveSite('#dst')}};
