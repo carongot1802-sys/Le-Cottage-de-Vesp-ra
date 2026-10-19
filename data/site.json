@@ -75,7 +75,65 @@
   "drift": "custom",
   "driftImg": "media/1792407638391-hoa_r_i_c_a_ph_t.png"
  },
- "themes": [],
+ "themes": [
+  {
+   "name": "Halloween is coming",
+   "design": {
+    "hImg": "media/1792407709150-header.png",
+    "blur": 0,
+    "ov": 33,
+    "hc": "#1f3a2e",
+    "bg": "",
+    "pImg": "media/1792407731601-n_n_chung_kh_c.png",
+    "pOp": 80,
+    "hText": "#f3ead8",
+    "hLine": "",
+    "fc": "#6d1a2c",
+    "fText": "#f3ead8",
+    "fImg": "media/1792407714663-foot.png",
+    "fOv": 48,
+    "ac": "",
+    "ac2": "",
+    "bgD": "",
+    "wIcon": "media/1792407372403-icon_pumpkin_to.png",
+    "wIconSz": 144,
+    "wTc": "",
+    "wHc": "",
+    "wMc": "#faf4e6",
+    "wTf": "",
+    "wMf": "",
+    "wDark": true,
+    "lock": "dark",
+    "aTc": "",
+    "aMc": "#faf4e6",
+    "aTf": "",
+    "aMf": "",
+    "aDark": true
+   },
+   "letter": {
+    "on": true,
+    "img": "media/1792407622165-th__ch_o.png",
+    "mode": "hotspot",
+    "zx": 25,
+    "zy": 66,
+    "zw": 50,
+    "zh": 15,
+    "label": {
+     "vi": "Mời gõ cửa",
+     "fr": "Frapper à la porte"
+    },
+    "ac": "#4b2386",
+    "tx": "#ffffff",
+    "veil": "#180e0c",
+    "veilOp": 58,
+    "radius": 22,
+    "frame": true,
+    "drift": "custom",
+    "driftImg": "media/1792407638391-hoa_r_i_c_a_ph_t.png"
+   },
+   "ts": 1792413738693
+  }
+ ],
  "quote": {
   "date": "2026-10-19",
   "vi": {
