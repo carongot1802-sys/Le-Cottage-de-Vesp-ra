@@ -305,8 +305,11 @@ button,.chip{transition:transform .3s cubic-bezier(.22,.61,.36,1),background-col
     <p class="hint">Màu nhấn đổi tiêu đề bài, nút, chữ chủ đề… Màu phụ đổi các dòng chữ xanh (lời chào, tên chủ đề). Màu này áp dụng cả khi khách dùng chế độ tối, nên chọn màu đủ đậm hoặc đủ sáng cho dễ đọc.</p>
     <label>Màu nhấn chính</label><div class="row"><input type="color" data-dz="ac"><button class="ghost" data-dzx="ac">Về mặc định</button></div>
     <label>Màu phụ</label><div class="row"><input type="color" data-dz="ac2"><button class="ghost" data-dzx="ac2">Về mặc định</button></div>
+    <h4 class="sh">Khóa chế độ sáng/tối</h4>
+    <p class="hint">Dành cho theme có không khí rõ ràng như Halloween (luôn tối) hay Giáng sinh. Khi khóa, web luôn hiện đúng một chế độ cho mọi khách và nút trăng/mặt trời ở header được ẩn đi. Lúc này các màu bạn chọn (màu nền trang, màu chữ trang Chào mừng và Giới thiệu) áp dụng thẳng cho chế độ đã khóa, không cần chọn riêng cho chế độ tối. Mỗi theme nhớ riêng lựa chọn này.</p>
+    <label>Chế độ</label><select class="fi" data-dz="lock"><option value="">Để khách tự chọn (mặc định)</option><option value="dark">Luôn tối</option><option value="light">Luôn sáng</option></select>
     <h4 class="sh">Màu nền chế độ tối</h4>
-    <p class="hint">Web có nút chuyển sáng/tối ở góc phải header. Màu nền và màu chữ bạn chọn bên trên mặc định chỉ dùng ở chế độ sáng, để chế độ tối luôn dễ đọc. Màu nền cho chế độ tối chọn ở đây (bỏ trống thì dùng nền tối mặc định).</p>
+    <p class="hint">Web có nút chuyển sáng/tối ở góc phải header. Màu nền và màu chữ bạn chọn bên trên mặc định chỉ dùng ở chế độ sáng, để chế độ tối luôn dễ đọc. Màu nền cho chế độ tối chọn ở đây (bỏ trống thì dùng nền tối mặc định). Nếu bạn đã khóa “Luôn tối” ở trên mà để trống ô này, web dùng Màu nền trang ở phần Nền trang.</p>
     <label>Màu nền trang ở chế độ tối</label><div class="row"><input type="color" data-dz="bgD"><button class="ghost" data-dzx="bgD">Về mặc định</button></div>
     <h4 class="sh">Trang Chào mừng (chữ và biểu tượng)</h4>
     <label>Biểu tượng lớn ở đầu trang (thay hoa iris tím, nên là PNG nền trong, vd: bông tuyết cho theme Giáng sinh)</label>
@@ -344,7 +347,7 @@ const WK=['title','hello','msg','counter','ask','thanks'];
 const DEF_WELCOME={
 vi:{title:"Chào mừng đến với Cottage của Vespéra",hello:"Bonjour, khách quán thân mến !",msg:"Cô chủ cottage đã pha sẵn một ấm trà và để cửa mở cho bạn.\n\nCứ thong thả đọc vài fun fact tiếng Pháp. Nếu bài nào làm bạn thấy vui hay hữu ích, hãy để lại một bông iris tím ở cuối bài nhé.",counter:"Cottage đã nhận được {n} bông iris từ khách quán",ask:"Bài này có ích với bạn? Tặng cô chủ cottage một bông iris nhé.",thanks:"Cảm ơn khách quán, cô chủ cottage đã nhận được bông iris của bạn."},
 fr:{title:"Bienvenue au Cottage de Vespéra",hello:"Bonjour, chers hôtes !",msg:"La maîtresse du cottage a préparé le thé et laissé la porte ouverte.\n\nLisez tranquillement quelques fun facts sur le français. Si un article vous a plu ou aidé, déposez un iris violet au bas de la page.",counter:"Le cottage a reçu {n} iris de ses hôtes",ask:"Cet article vous a aidé ? Offrez un iris à la maîtresse du cottage.",thanks:"Merci, cher hôte. La maîtresse du cottage a bien reçu votre iris."}};
-const DEF_DZ={hImg:'',blur:10,ov:70,hc:'#1f3a2e',bg:'',pImg:'',pOp:15,hText:'#f3ead8',hLine:'',fc:'#6d1a2c',fText:'#f3ead8',fImg:'',fOv:80,ac:'',ac2:'',bgD:'',wIcon:'',wIconSz:150,wTc:'',wHc:'',wMc:'',wTf:'',wMf:'',wDark:false,aTc:'',aMc:'',aTf:'',aMf:'',aDark:false};
+const DEF_DZ={hImg:'',blur:10,ov:70,hc:'#1f3a2e',bg:'',pImg:'',pOp:15,hText:'#f3ead8',hLine:'',fc:'#6d1a2c',fText:'#f3ead8',fImg:'',fOv:80,ac:'',ac2:'',bgD:'',wIcon:'',wIconSz:150,wTc:'',wHc:'',wMc:'',wTf:'',wMf:'',wDark:false,lock:'',aTc:'',aMc:'',aTf:'',aMf:'',aDark:false};
 const DEF_LETTER={on:true,img:'',mode:'hotspot',zx:25,zy:66,zw:50,zh:15,label:{vi:'Mời gõ cửa',fr:'Frapper à la porte'},ac:'#4b2386',tx:'#ffffff',veil:'#180e0c',veilOp:58,radius:22,frame:true,drift:'default',driftImg:''};
 const mkLetter=l=>({...DEF_LETTER,...(l||{}),label:{...DEF_LETTER.label,...((l||{}).label||{})}});
 const CFB={hc:'#1f3a2e',hText:'#f3ead8',hLine:'#6d1a2c',fc:'#6d1a2c',fText:'#f3ead8',bg:'#f3ead8',ac:'#6d1a2c',ac2:'#1f3a2e',bgD:'#1b1412',wTc:'#6d1a2c',wHc:'#1f3a2e',wMc:'#2b1a1a',aTc:'#6d1a2c',aMc:'#2b1a1a'};
@@ -535,7 +538,7 @@ $('#l-reset').onclick=()=>{if(confirm('Đưa thư chào về mặc định?')){s
 
 /* themes */
 function drawThemes(){const l=site.themes||[];
-  $('#th-list').innerHTML=l.length?l.map((t,i)=>'<div class="prow"><div><b>'+esc(t.name)+'</b></div><div><button data-ta="'+i+'">Áp dụng và đăng</button> <button class="ghost" data-td="'+i+'">Xóa</button></div></div>').join(''):'<p class="hint">Chưa có theme nào.</p>';
+  $('#th-list').innerHTML=l.length?l.map((t,i)=>'<div class="prow"><div><b>'+esc(t.name)+'</b>'+((t.design&&t.design.lock==='dark')?' <span class="hint">· luôn tối</span>':(t.design&&t.design.lock==='light')?' <span class="hint">· luôn sáng</span>':'')+'</div><div><button data-ta="'+i+'">Áp dụng và đăng</button> <button class="ghost" data-td="'+i+'">Xóa</button></div></div>').join(''):'<p class="hint">Chưa có theme nào.</p>';
   $$('[data-ta]').forEach(b=>b.onclick=()=>{const t=site.themes[+b.dataset.ta];if(!confirm('Áp dụng theme “'+t.name+'” lên web ngay bây giờ?'))return;
     site.design={...DEF_DZ,...(t.design||{})};site.letter=mkLetter(t.letter);syncDesign();applyDesign();syncLetter();saveSite('#thst')});
   $$('[data-td]').forEach(b=>b.onclick=()=>{const t=site.themes[+b.dataset.td];if(!confirm('Xóa theme “'+t.name+'”? (Web đang chạy không bị đổi)'))return;site.themes.splice(+b.dataset.td,1);drawThemes();saveSite('#thst')})}
