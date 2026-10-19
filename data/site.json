@@ -56,10 +56,10 @@
  "iris": {},
  "letter": {
   "on": true,
-  "img": "media/1792407622165-th__ch_o.png",
+  "img": "media/1792413870764-x-mas_th__ch_o.png",
   "mode": "hotspot",
   "zx": 25,
-  "zy": 66,
+  "zy": 59,
   "zw": 50,
   "zh": 15,
   "label": {
@@ -73,7 +73,7 @@
   "radius": 22,
   "frame": true,
   "drift": "custom",
-  "driftImg": "media/1792407638391-hoa_r_i_c_a_ph_t.png"
+  "driftImg": "media/1792413897656-x-mas_tuy_t_r_i.png"
  },
  "themes": [
   {
