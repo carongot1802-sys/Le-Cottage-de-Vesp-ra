@@ -29,7 +29,15 @@
   "aMc": "#faf4e6",
   "aTf": "",
   "aMf": "",
-  "aDark": true
+  "aDark": true,
+  "fxOn": true,
+  "fxKind": "snow",
+  "fxImg": "",
+  "fxN": 35,
+  "fxSz": 22,
+  "fxSpd": 4,
+  "fxOp": 80,
+  "fxPos": "back"
  },
  "contact": [
   {
@@ -201,6 +209,11 @@
    "text": "Quoi de neuf?",
    "note": ""
   }
+ },
+ "treats": {
+  "items": [],
+  "tpl": {},
+  "go": {}
  },
  "cv": {
   "edu": [
