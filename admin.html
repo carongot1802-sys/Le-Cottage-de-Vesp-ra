@@ -300,11 +300,23 @@ button,.chip{transition:transform .3s cubic-bezier(.22,.61,.36,1),background-col
     <h4 class="sh">Nền trang</h4>
     <label>Màu nền trang</label><div class="row"><input type="color" data-dz="bg"><button class="ghost" data-dzx="bg">Về mặc định</button></div>
     <label>Hình nền trang</label><div class="row"><button class="ghost" data-up="pImg">Chọn hình</button><button class="ghost" data-dzx="pImg">Gỡ hình</button></div>
-    <label>Độ đậm hình nền: <b data-lab="pOp"></b>%</label><input type="range" min="3" max="60" data-dz="pOp" data-num="1">
+    <label>Độ đậm hình nền: <b data-lab="pOp"></b>%</label><input type="range" min="3" max="80" data-dz="pOp" data-num="1">
     <h4 class="sh">Màu nhấn</h4>
     <p class="hint">Màu nhấn đổi tiêu đề bài, nút, chữ chủ đề… Màu phụ đổi các dòng chữ xanh (lời chào, tên chủ đề). Màu này áp dụng cả khi khách dùng chế độ tối, nên chọn màu đủ đậm hoặc đủ sáng cho dễ đọc.</p>
     <label>Màu nhấn chính</label><div class="row"><input type="color" data-dz="ac"><button class="ghost" data-dzx="ac">Về mặc định</button></div>
     <label>Màu phụ</label><div class="row"><input type="color" data-dz="ac2"><button class="ghost" data-dzx="ac2">Về mặc định</button></div>
+    <h4 class="sh">Màu nền chế độ tối</h4>
+    <p class="hint">Web có nút chuyển sáng/tối ở góc phải header. Màu nền và màu chữ bạn chọn bên trên mặc định chỉ dùng ở chế độ sáng, để chế độ tối luôn dễ đọc. Màu nền cho chế độ tối chọn ở đây (bỏ trống thì dùng nền tối mặc định).</p>
+    <label>Màu nền trang ở chế độ tối</label><div class="row"><input type="color" data-dz="bgD"><button class="ghost" data-dzx="bgD">Về mặc định</button></div>
+    <h4 class="sh">Trang Chào mừng (chữ và biểu tượng)</h4>
+    <label>Biểu tượng lớn ở đầu trang (thay hoa iris tím, nên là PNG nền trong, vd: bông tuyết cho theme Giáng sinh)</label>
+    <div class="row"><button class="ghost" data-up="wIcon">Chọn hình</button><button class="ghost" data-dzx="wIcon">Về hoa iris mặc định</button><img id="pv-wicon" alt="" style="height:56px;width:auto;display:none"></div>
+    <label>Cỡ biểu tượng: <b data-lab="wIconSz"></b>px</label><input type="range" min="60" max="320" data-dz="wIconSz" data-num="1">
+    <label>Phông chữ tiêu đề</label><select class="fi" data-dz="wTf"><option value="">Mặc định</option><option value="chantelli">Chantelli Antiqua (chữ tiêu đề của web)</option><option value="playfair">Playfair Display</option><option value="cormorant">Cormorant Garamond</option><option value="lora">Lora</option><option value="dancing">Dancing Script (chữ viết tay)</option><option value="montserrat">Montserrat</option><option value="bevn">Be Vietnam Pro</option></select><label>Phông chữ lời chào và lời nhắn</label><select class="fi" data-dz="wMf"><option value="">Mặc định</option><option value="chantelli">Chantelli Antiqua (chữ tiêu đề của web)</option><option value="playfair">Playfair Display</option><option value="cormorant">Cormorant Garamond</option><option value="lora">Lora</option><option value="dancing">Dancing Script (chữ viết tay)</option><option value="montserrat">Montserrat</option><option value="bevn">Be Vietnam Pro</option></select><label>Màu chữ tiêu đề</label><div class="row"><input type="color" data-dz="wTc"><button class="ghost" data-dzx="wTc">Về mặc định</button></div><label>Màu chữ lời chào</label><div class="row"><input type="color" data-dz="wHc"><button class="ghost" data-dzx="wHc">Về mặc định</button></div><label>Màu chữ lời nhắn</label><div class="row"><input type="color" data-dz="wMc"><button class="ghost" data-dzx="wMc">Về mặc định</button></div>
+    <label class="chk"><input type="checkbox" data-dz="wDark"> Dùng các màu chữ này cả ở chế độ tối</label>
+    <h4 class="sh">Trang Giới thiệu (chữ)</h4>
+    <label>Phông chữ tiêu đề</label><select class="fi" data-dz="aTf"><option value="">Mặc định</option><option value="chantelli">Chantelli Antiqua (chữ tiêu đề của web)</option><option value="playfair">Playfair Display</option><option value="cormorant">Cormorant Garamond</option><option value="lora">Lora</option><option value="dancing">Dancing Script (chữ viết tay)</option><option value="montserrat">Montserrat</option><option value="bevn">Be Vietnam Pro</option></select><label>Phông chữ nội dung</label><select class="fi" data-dz="aMf"><option value="">Mặc định</option><option value="chantelli">Chantelli Antiqua (chữ tiêu đề của web)</option><option value="playfair">Playfair Display</option><option value="cormorant">Cormorant Garamond</option><option value="lora">Lora</option><option value="dancing">Dancing Script (chữ viết tay)</option><option value="montserrat">Montserrat</option><option value="bevn">Be Vietnam Pro</option></select><label>Màu chữ tiêu đề</label><div class="row"><input type="color" data-dz="aTc"><button class="ghost" data-dzx="aTc">Về mặc định</button></div><label>Màu chữ nội dung</label><div class="row"><input type="color" data-dz="aMc"><button class="ghost" data-dzx="aMc">Về mặc định</button></div>
+    <label class="chk"><input type="checkbox" data-dz="aDark"> Dùng các màu chữ này cả ở chế độ tối</label>
     <input type="file" id="d-file" accept="image/*" hidden>
     <div class="row" style="margin-top:20px"><button id="d-save">Lưu thiết kế</button><button class="ghost" id="d-reset">Đặt lại mặc định</button><span id="dst"></span></div>
   </section>
@@ -332,10 +344,10 @@ const WK=['title','hello','msg','counter','ask','thanks'];
 const DEF_WELCOME={
 vi:{title:"Chào mừng đến với Cottage của Vespéra",hello:"Bonjour, khách quán thân mến !",msg:"Cô chủ cottage đã pha sẵn một ấm trà và để cửa mở cho bạn.\n\nCứ thong thả đọc vài fun fact tiếng Pháp. Nếu bài nào làm bạn thấy vui hay hữu ích, hãy để lại một bông iris tím ở cuối bài nhé.",counter:"Cottage đã nhận được {n} bông iris từ khách quán",ask:"Bài này có ích với bạn? Tặng cô chủ cottage một bông iris nhé.",thanks:"Cảm ơn khách quán, cô chủ cottage đã nhận được bông iris của bạn."},
 fr:{title:"Bienvenue au Cottage de Vespéra",hello:"Bonjour, chers hôtes !",msg:"La maîtresse du cottage a préparé le thé et laissé la porte ouverte.\n\nLisez tranquillement quelques fun facts sur le français. Si un article vous a plu ou aidé, déposez un iris violet au bas de la page.",counter:"Le cottage a reçu {n} iris de ses hôtes",ask:"Cet article vous a aidé ? Offrez un iris à la maîtresse du cottage.",thanks:"Merci, cher hôte. La maîtresse du cottage a bien reçu votre iris."}};
-const DEF_DZ={hImg:'',blur:10,ov:70,hc:'#1f3a2e',bg:'',pImg:'',pOp:15,hText:'#f3ead8',hLine:'',fc:'#6d1a2c',fText:'#f3ead8',fImg:'',fOv:80,ac:'',ac2:''};
+const DEF_DZ={hImg:'',blur:10,ov:70,hc:'#1f3a2e',bg:'',pImg:'',pOp:15,hText:'#f3ead8',hLine:'',fc:'#6d1a2c',fText:'#f3ead8',fImg:'',fOv:80,ac:'',ac2:'',bgD:'',wIcon:'',wIconSz:150,wTc:'',wHc:'',wMc:'',wTf:'',wMf:'',wDark:false,aTc:'',aMc:'',aTf:'',aMf:'',aDark:false};
 const DEF_LETTER={on:true,img:'',mode:'hotspot',zx:25,zy:66,zw:50,zh:15,label:{vi:'Mời gõ cửa',fr:'Frapper à la porte'},ac:'#4b2386',tx:'#ffffff',veil:'#180e0c',veilOp:58,radius:22,frame:true,drift:'default',driftImg:''};
 const mkLetter=l=>({...DEF_LETTER,...(l||{}),label:{...DEF_LETTER.label,...((l||{}).label||{})}});
-const CFB={hc:'#1f3a2e',hText:'#f3ead8',hLine:'#6d1a2c',fc:'#6d1a2c',fText:'#f3ead8',bg:'#f3ead8',ac:'#6d1a2c',ac2:'#1f3a2e'};
+const CFB={hc:'#1f3a2e',hText:'#f3ead8',hLine:'#6d1a2c',fc:'#6d1a2c',fText:'#f3ead8',bg:'#f3ead8',ac:'#6d1a2c',ac2:'#1f3a2e',bgD:'#1b1412',wTc:'#6d1a2c',wHc:'#1f3a2e',wMc:'#2b1a1a',aTc:'#6d1a2c',aMc:'#2b1a1a'};
 const DEF_CONTACT=[{label:'Email',url:'thiminhngocnguyen22@gmail.com'},{label:'LinkedIn',url:'https://www.linkedin.com/in/margot-nguyen-n1802'},{label:'Portfolio',url:'https://carongot1802-sys.github.io/portfolio/'}];
 const CV={edu:[
 {vi:"Cử nhân ngành Truyền thông quốc tế - Khoa Truyền thông và Văn hóa đối ngoại - Học viện Ngoại giao Việt Nam (2023-2027)",fr:"Licence en Communication internationale - Faculté de Communication et de Culture extérieure - Académie diplomatique du Vietnam (2023-2027)"},
@@ -478,6 +490,7 @@ function drawPreview(){const d=site.design,p=$('#dprev'),st=p.style,H=(k,f)=>hex
   st.setProperty('--fc',H('fc','#6d1a2c'));st.setProperty('--ftx',H('fText','#f3ead8'));st.setProperty('--ac',H('ac','#6d1a2c'));st.setProperty('--ac2',H('ac2','#1f3a2e'));st.setProperty('--pb',H('bg','#f3ead8'));
   const hi=$('#pv-hbg'),fi=$('#pv-fbg');
   if(d.hImg){hi.src=U(d.hImg);hi.style.display='block'}else hi.style.display='none';hi.style.filter='blur('+((+d.blur||0)*.5)+'px)';$('#pv-hov').style.opacity=d.hImg?(+d.ov||70)/100:1;
+  const wi=$('#pv-wicon');if(d.wIcon){wi.src=U(d.wIcon);wi.style.display='inline-block'}else wi.style.display='none';
   if(d.fImg){fi.src=U(d.fImg);fi.style.display='block'}else fi.style.display='none';$('#pv-fov').style.opacity=d.fImg?(+d.fOv||80)/100:1}
 function applyDesign(){const d=site.design,r=document.documentElement.style,h=$('#hbg');
   if(d.hImg){h.src=U(d.hImg);h.style.display='block'}else{h.removeAttribute('src');h.style.display='none'}
@@ -485,9 +498,9 @@ function applyDesign(){const d=site.design,r=document.documentElement.style,h=$(
   r.setProperty('--htx',hex(d.hText)?d.hText:'#f3ead8');if(hex(d.hLine))r.setProperty('--hline',d.hLine);else r.removeProperty('--hline');
   drawPreview()}
 function syncDesign(){const d=site.design;
-  $$('[data-dz]').forEach(el=>{const k=el.dataset.dz,v=d[k];el.value=el.type==='color'?(hex(v)?v:(CFB[k]||'#000000')):v});
+  $$('[data-dz]').forEach(el=>{const k=el.dataset.dz,v=d[k];if(el.type==='checkbox')el.checked=!!v;else el.value=el.type==='color'?(hex(v)?v:(CFB[k]||'#000000')):(v??'')});
   $$('#t-design [data-lab]').forEach(el=>el.textContent=d[el.dataset.lab])}
-$$('[data-dz]').forEach(el=>el.oninput=()=>{site.design[el.dataset.dz]=el.dataset.num?+el.value:el.value;applyDesign();syncDesign()});
+$$('[data-dz]').forEach(el=>el.oninput=()=>{site.design[el.dataset.dz]=el.type==='checkbox'?el.checked:(el.dataset.num?+el.value:el.value);applyDesign();syncDesign()});
 $$('[data-dzx]').forEach(b=>b.onclick=()=>{site.design[b.dataset.dzx]=DEF_DZ[b.dataset.dzx];applyDesign();syncDesign()});
 let upKey='';
 $$('[data-up]').forEach(b=>b.onclick=()=>{upKey=b.dataset.up;$('#d-file').click()});

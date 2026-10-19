@@ -50,6 +50,12 @@
 ## Giao diện và Bộ theme (tab Giao diện trong admin)
 - Đổi được: hình, màu và độ phủ của **header** (kèm màu chữ và đường kẻ dưới header), hình và màu **chân trang** (khối Contact + dòng ©), màu và hình **nền trang**, **màu nhấn** (tiêu đề, nút, chữ chủ đề) và **màu phụ** (chữ xanh). Khung "Xem trước" ở đầu tab cho bạn thấy ngay kết quả.
 - Màu nhấn và màu phụ áp dụng cả khi khách dùng chế độ tối, nên chọn màu đủ đậm hoặc đủ sáng cho dễ đọc. Mục nào có nút "Về mặc định" thì bấm để quay lại màu gốc.
+- **Chế độ sáng và tối**: ở góc phải header có nút trăng/mặt trời để khách đổi giữa hai chế độ. Lần đầu vào web, chế độ theo máy của khách, sau đó web nhớ lựa chọn của họ. Màu nền và màu chữ bạn đặt trong Giao diện mặc định chỉ dùng ở chế độ sáng cho chế độ tối luôn dễ đọc. Màu nền riêng cho chế độ tối chọn ở mục **Màu nền chế độ tối**, bỏ trống thì dùng nền tối mặc định.
+- **Độ đậm hình nền trang** nay chỉnh được tới 80% (trước đây tối đa 60%). Ở chế độ tối, hình nền tự được làm dịu bớt để không chói.
+- **Trang Chào mừng (chữ và biểu tượng)**: đổi được biểu tượng lớn ở đầu trang (thay hoa iris tím bằng hình khác, nên là PNG nền trong, vd bông tuyết cho theme Giáng sinh) và chỉnh cỡ của nó, chọn phông chữ cho tiêu đề và cho lời chào, lời nhắn, chọn màu chữ riêng cho tiêu đề, lời chào, lời nhắn. Bấm "Về hoa iris mặc định" để quay lại hoa tím.
+- **Trang Giới thiệu (chữ)**: chọn phông chữ và màu chữ cho tiêu đề và cho nội dung.
+- Mỗi nhóm màu chữ có ô **Dùng các màu chữ này cả ở chế độ tối**. Để trống thì chế độ tối dùng màu chữ tối mặc định. Phông chữ thì áp dụng ở cả hai chế độ. Các phông có sẵn đều hỗ trợ tiếng Việt: Chantelli Antiqua, Playfair Display, Cormorant Garamond, Lora, Dancing Script, Montserrat, Be Vietnam Pro.
+- Tất cả các mục mới trên đều được lưu cùng **Bộ theme**, nên mỗi theme có thể có biểu tượng, phông và màu chữ riêng.
 - **Bộ theme**: chỉnh Giao diện và Thư chào ưng ý rồi gõ tên (vd "Giáng sinh 2026"), bấm "Lưu cấu hình hiện tại thành theme". Khi có sự kiện, chỉ cần bấm **Áp dụng và đăng** ở theme tương ứng là cả header, chân trang, màu sắc và thư chào đổi cùng lúc. Theme chỉ lưu đường dẫn ảnh nên không làm nặng web.
 - Lưu ý: Áp dụng theme sẽ ghi đè Giao diện và Thư chào đang chạy. Nếu muốn giữ lại bộ hiện tại, hãy lưu nó thành một theme trước.
 
