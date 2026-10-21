@@ -44,8 +44,8 @@
 - Nếu một ngày dịch vụ đếm ngừng hoạt động, web vẫn chạy bình thường, chỉ là khung đếm iris sẽ ẩn đi. Khi đó bạn có thể thêm khóa `"iris": {"api": "địa chỉ dịch vụ khác"}` vào `data/site.json`.
 - Số iris gắn với địa chỉ web. Nếu đổi tên repo hoặc đổi tên miền thì bộ đếm sẽ bắt đầu lại từ 0.
 
-## Menu 3 gạch
-- Bốn mục Chào mừng, Bài viết, Ngẫu nhiên, Giới thiệu nay ẩn trong biểu tượng 3 gạch ở góc trên bên trái. Bấm vào thì menu trượt ra, bấm mục nào, bấm ra ngoài vùng menu, bấm dấu ✕ hoặc phím Esc đều đóng lại.
+## Thanh menu ở header
+- Bốn mục **Chào mừng**, **Bài viết**, **Ngẫu nhiên**, **Giới thiệu** nằm ngay trên dòng "Le Cottage de Vespéra" trong header, bấm mục nào là chuyển tới mục đó. Mục đang xem được gạch chân. Trên điện thoại thanh này tự xuống thành hai dòng. Chữ và màu của thanh menu đi theo "Màu chữ header" trong tab Giao diện. Muốn đổi tên một mục, sửa các khóa `nvw`, `navp`, `nva` (và `RN.vi.nav`, `RN.fr.nav` cho mục Ngẫu nhiên) trong `index.html`.
 
 ## Giao diện và Bộ theme (tab Giao diện trong admin)
 - Đổi được: hình, màu và độ phủ của **header** (kèm màu chữ và đường kẻ dưới header), hình và màu **chân trang** (khối Contact + dòng ©), màu và hình **nền trang**, **màu nhấn** (tiêu đề, nút, chữ chủ đề) và **màu phụ** (chữ xanh). Khung "Xem trước" ở đầu tab cho bạn thấy ngay kết quả.
@@ -91,7 +91,7 @@
 - Đây là hiệu ứng riêng, không liên quan tới "Hình rơi quanh thiệp" trong tab Thư chào (cái đó chỉ rơi quanh tấm thiệp lúc khách vừa mở web).
 
 ## Mục Ngẫu nhiên: bộ 36 lá bài từ vựng (tab Ngẫu nhiên trong admin)
-- Mục **Ngẫu nhiên** trong menu 3 gạch hiện 36 lá bài úp, cùng một mặt sau. Khách bấm một lá thì lá đó lật ra (khách thấy từ tiếng Pháp hiện trên lá), rồi một lá bài lớn hiện giữa màn hình, lật ra mặt trước là một bức thư ghi: **từ tiếng Pháp**, **giống** (đực, cái, hoặc cả hai), **loại từ**, **nghĩa tiếng Việt**, **câu ví dụ tiếng Pháp** và **nghĩa của câu ví dụ**. Bấm dấu ×, ra ngoài lá bài hoặc phím Esc để đóng. Lá đã lật có chữ từ hiện trên lá, bấm lại để xem lại. Nút **Xáo lại bài** chia lại bài từ đầu.
+- Mục **Ngẫu nhiên** trên thanh menu hiện 36 lá bài úp, cùng một mặt sau. Khách bấm một lá thì lá đó lật ra (khách thấy từ tiếng Pháp hiện trên lá), rồi một lá bài lớn hiện giữa màn hình, lật ra mặt trước là một bức thư ghi: **từ tiếng Pháp**, **giống** (đực, cái, hoặc cả hai), **loại từ**, **nghĩa tiếng Việt**, **câu ví dụ tiếng Pháp** và **nghĩa của câu ví dụ**. Bấm dấu ×, ra ngoài lá bài hoặc phím Esc để đóng. Lá đã lật có chữ từ hiện trên lá, bấm lại để xem lại. Nút **Xáo lại bài** chia lại bài từ đầu.
 - **Thêm từ**: vào tab **Ngẫu nhiên**, mục **Thêm từ mới**, điền từ, chọn giống, chọn loại từ, gõ nghĩa và câu ví dụ, rồi bấm **Thêm và lưu lên web** (web cập nhật sau khoảng 1 phút). Chỉ bắt buộc có từ tiếng Pháp, các ô còn lại bỏ trống thì lá bài không hiện phần đó. Từ nào cần sửa, bấm **Sửa** ở danh sách bên dưới. Danh sách có ô tìm kiếm và nút **Xóa**. Từ mới thêm nằm trên cùng danh sách.
 - **Nhập nhiều từ một lúc**: mở mục "Dán danh sách từ", mỗi dòng một từ, các cột cách nhau bằng dấu `|` (hoặc dán thẳng từ Excel, Google Sheets). Thứ tự cột: `từ | giống | loại từ | nghĩa | câu ví dụ | nghĩa câu ví dụ`. Giống ghi `m`, `f`, `mf` hoặc để trống. Loại từ ghi tên tiếng Việt hoặc tiếng Pháp (danh từ/nom, động từ/verbe, tính từ/adjectif, trạng từ/adverbe, giới từ/préposition, liên từ/conjonction, đại từ/pronom, mạo từ/article, thán từ/interjection, cụm từ/locution, thành ngữ/expression). Ví dụ: `la maison | f | danh từ | ngôi nhà | Ma maison est petite. | Nhà của tôi nhỏ.` Các cột cuối có thể bỏ trống, dòng nào thiếu từ tiếng Pháp bị bỏ qua.
 - **Cách chia bài**: có từ 36 từ trở lên thì mỗi lá là một từ khác nhau, và mỗi lần khách vào web (hoặc bấm Xáo lại bài) web bốc ngẫu nhiên 36 từ trong danh sách của bạn. Dưới 36 từ thì web vẫn đủ 36 lá nhưng một số từ lặp lại ở nhiều lá. Chưa có từ nào thì trang hiện lời nhắn khách quay lại sau.

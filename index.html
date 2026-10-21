@@ -72,18 +72,6 @@ button.ghost{background:transparent;color:var(--wine);border:1px solid var(--win
 #lb .x,#lb .n{position:absolute;color:#fff;font-size:34px;background:none;padding:12px;opacity:.85}
 #lb .x{top:calc(env(safe-area-inset-top,0px) + 6px);right:10px}#lb .p{left:6px}#lb .nx{right:6px}#lb .n{top:50%;transform:translateY(-50%)}
 #lb .c{position:absolute;bottom:calc(env(safe-area-inset-bottom,0px) + 12px);color:#f3ead8;font-size:14px;max-width:88vw;text-align:center;line-height:1.4}
-header>.menubtn,#menu .mclose{position:absolute;z-index:2;top:12px;left:12px;width:46px;height:46px;padding:0;border:0;border-radius:50%;background:none;color:var(--htx,#f3ead8);cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px}
-.menubtn span{display:block;width:22px;height:2px;border-radius:2px;background:currentColor;transition:transform .3s ease,opacity .3s ease}
-.menubtn:hover,.menubtn:focus-visible,#menu .mclose:hover,#menu .mclose:focus-visible{background:#ffffff1f}
-.menubtn:focus-visible,#menu .mclose:focus-visible{outline:2px solid #d9a7b1}
-#scrim{position:fixed;inset:0;z-index:70;background:rgba(24,14,12,.5);opacity:0;visibility:hidden;transition:opacity .35s ease,visibility 0s linear .35s}
-#menu{position:fixed;top:0;left:0;bottom:0;z-index:71;width:min(300px,84vw);display:flex;flex-direction:column;align-items:stretch;gap:0;padding:calc(env(safe-area-inset-top,0px) + 76px) 28px 28px;background:var(--hc,#1f3a2e);border-right:4px double var(--wine);box-shadow:8px 0 30px #0006;transform:translateX(-104%);visibility:hidden;transition:transform .45s cubic-bezier(.22,.61,.36,1),visibility 0s linear .45s}
-#menu .mclose{top:calc(env(safe-area-inset-top,0px) + 12px);font-size:24px;line-height:1;gap:0}
-#menu a{color:var(--htx,#f3ead8);text-decoration:none;font-size:15px;letter-spacing:.14em;text-transform:uppercase;padding:15px 4px;border-bottom:1px solid #f3ead833;opacity:.78}
-#menu a.on,#menu a:hover,#menu a:focus-visible{opacity:1;color:#fff;border-bottom-color:#d9a7b1}
-body.menu-open #scrim{opacity:1;visibility:visible;transition:opacity .35s ease,visibility 0s}
-body.menu-open #menu{transform:none;visibility:visible;transition:transform .45s cubic-bezier(.22,.61,.36,1),visibility 0s}
-@media (prefers-reduced-motion:reduce){#menu,#scrim{transition:none!important}}
 .filters{margin-bottom:26px}
 .filters input{width:100%;font:inherit;padding:11px 16px;border:1px solid var(--line);border-radius:30px;background:var(--card);color:var(--ink);margin-bottom:14px}
 .chips{display:flex;gap:8px;flex-wrap:wrap}
@@ -162,7 +150,7 @@ a.ext{color:var(--wine);white-space:nowrap;text-underline-offset:3px;font-size:.
 
 /* ===== build 6 ===== */
 @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
-button,.btn,.chip,#menu a,.back,.gsw span,.card,.sbtn,.pn a{transition:transform .4s cubic-bezier(.22,.61,.36,1),box-shadow .4s ease,background-color .3s ease,color .3s ease,border-color .3s ease,opacity .3s ease}
+button,.btn,.chip,.topnav a,.back,.gsw span,.card,.sbtn,.pn a{transition:transform .4s cubic-bezier(.22,.61,.36,1),box-shadow .4s ease,background-color .3s ease,color .3s ease,border-color .3s ease,opacity .3s ease}
 button:not(.sbtn):not(.irisbtn):not(.n):not(.x):active{transform:scale(.97)}
 .card:hover{transform:translateY(-5px);box-shadow:0 14px 30px #0002}
 .card .cover img,.card .cover video{transition:transform .8s cubic-bezier(.22,.61,.36,1)}
@@ -328,6 +316,14 @@ html.f-am main article.about :is(p,.cv li){font-family:var(--amf)}
 .cev{margin-top:3px;font-size:calc(var(--cw)*.043);line-height:1.4;opacity:.85}
 @keyframes cpop{from{opacity:0;transform:translateY(24px) scale(.88)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){#cardm,.cscene,.deck .cd{animation:none!important}.cflip,.cdi{transition:none!important}}
+
+/* ===== build 10: thanh menu 4 mục ở header (thay menu 3 gạch) ===== */
+header{padding-top:20px}
+.topnav{display:flex;justify-content:center;flex-wrap:wrap;gap:2px 28px;margin:0 0 24px;padding:0 56px}
+.topnav a{color:var(--htx,#f3ead8);text-decoration:none;font-size:13.5px;letter-spacing:.16em;text-transform:uppercase;padding:9px 2px;border-bottom:2px solid transparent;opacity:.78}
+.topnav a:hover,.topnav a:focus-visible,.topnav a.on{opacity:1;border-bottom-color:#d9a7b1}
+.topnav a:focus-visible{outline:2px solid #d9a7b1;outline-offset:3px;border-radius:2px}
+@media (max-width:600px){.topnav{gap:0 18px;padding:0 50px;margin-bottom:20px}.topnav a{font-size:12px;letter-spacing:.1em}}
 </style>
 </head>
 <body>
@@ -347,16 +343,14 @@ html.f-am main article.about :is(p,.cv li){font-family:var(--amf)}
 
 <img id="pgbg" alt="">
 <header>
-  <button type="button" class="menubtn" id="menubtn" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
   <button type="button" class="themebtn" id="themebtn" aria-label="Chế độ tối" aria-pressed="false"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M18.7 5.3l-1.6 1.6M6.9 17.1l-1.6 1.6"/></svg></button>
   <img id="hbg" alt=""><div id="hov"></div>
+  <nav class="topnav" id="topnav" aria-label="Menu"><a href="#" id="nv-welcome">Chào mừng</a><a href="#articles" id="nv-home">Bài viết</a><a href="#random" id="nv-random">Ngẫu nhiên</a><a href="#about" id="nv-about">À propos</a></nav>
   <h1 id="home" onclick="location.hash=''">Le Cottage de Vespéra</h1>
   <p id="tagline"></p>
   <div class="orn" aria-hidden="true"><svg class="fl" aria-hidden="true"><use href="#fdl"/></svg><svg class="fl" aria-hidden="true"><use href="#fdl"/></svg><svg class="fl" aria-hidden="true"><use href="#fdl"/></svg></div>
   <div class="gsw"><span data-l="vi">VI</span><span data-l="fr">FR</span></div>
 </header>
-<div id="scrim"></div>
-<nav id="menu" aria-label="Menu"><button type="button" class="mclose" id="mclose" aria-label="Fermer">✕</button><a href="#" id="nv-welcome">Chào mừng</a><a href="#articles" id="nv-home">Bài viết</a><a href="#random" id="nv-random">Ngẫu nhiên</a><a href="#about" id="nv-about">À propos</a></nav>
 <main>
   <div id="view"></div>
 </main>
@@ -463,7 +457,7 @@ function swap(fn){const v=$('#view'),id=++swapId;
 function setLang(l){lang=l;tagF='';applyLang();swap(render)}
 function render(){
   const v=$('#view'),id=route(),L=T[lang];
-  $('#nv-about').classList.toggle('on',location.hash==='#about');$('#nv-welcome').classList.toggle('on',isWelcome());$('#nv-random').classList.toggle('on',location.hash==='#random');$('#nv-home').classList.toggle('on',!isWelcome()&&location.hash!=='#about'&&location.hash!=='#random');
+  $('#nv-about').classList.toggle('on',location.hash==='#about');$('#nv-welcome').classList.toggle('on',isWelcome());$('#nv-random').classList.toggle('on',location.hash==='#random');$('#nv-home').classList.toggle('on',!isWelcome()&&location.hash!=='#about'&&location.hash!=='#random');document.querySelectorAll('.topnav a').forEach(a=>{if(a.classList.contains('on'))a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
   if(!loaded){v.innerHTML='<div class="empty">'+L.loading+'</div>';return}
   if(denied){v.innerHTML='<div class="empty">Bạn cần đăng nhập Claude để xem blog này.</div>';return}
   if(location.hash==='#about'){renderAbout();return}
@@ -510,11 +504,6 @@ function setupWelcomeVideo(){
     else if(e.intersectionRatio<.25&&!v.paused){sys=Date.now();v.pause()}
   },{threshold:[0,.25,.5]});
   vidIO.observe(box)}
-/* ---------- Menu 3 gạch ---------- */
-function setMenu(open){document.body.classList.toggle('menu-open',open);const b=$('#menubtn');b.setAttribute('aria-expanded',open);$('#menu').setAttribute('aria-hidden',!open);if(open)$('#mclose').focus({preventScroll:true});else if(document.activeElement&&$('#menu').contains(document.activeElement))b.focus({preventScroll:true})}
-$('#menubtn').onclick=()=>setMenu(true);$('#mclose').onclick=()=>setMenu(false);$('#scrim').onclick=()=>setMenu(false);
-document.querySelectorAll('#menu a').forEach(x=>x.addEventListener('click',()=>setMenu(false)));
-document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.body.classList.contains('menu-open'))setMenu(false)});
 function renderWelcome(){const v=$('#view');
   v.innerHTML='<section class="welcome"><img class="crest'+(dz.wIcon?' cu':'')+'" src="'+esc(dz.wIcon||'assets/iris-to.png')+'" alt="Hoa iris"><h1>'+esc(wf('title'))+'</h1><p class="hello">'+esc(wf('hello'))+'</p><div class="msg">'+wf('msg').split(/\n\s*\n/).map(x=>'<p>'+esc(x.trim())+'</p>').join('')+'</div>'+
   '<div class="vid" id="wvid" role="group" aria-label="'+esc(T[lang].vidAlt)+'"><video id="wv" src="media/welcome.mp4" muted playsinline preload="metadata" controls aria-label="'+esc(T[lang].vidAlt)+'"></video><div class="vph"><img src="assets/iris-be.png" alt=""><span>'+esc(T[lang].vidSoon)+'</span></div></div>'+
