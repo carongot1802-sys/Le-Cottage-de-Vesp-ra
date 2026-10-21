@@ -2,7 +2,7 @@
 
 ## Cấu trúc
 - `index.html`: trang web cho khách quán đọc (ai cũng xem được, không cần đăng nhập). Khi mở web sẽ hiện tấm thiệp chào, gõ cửa xong mới vào mục Chào mừng, tiếp theo là Bài viết và À propos
-- `admin.html`: trang quản trị của cô chủ cottage (đăng bài, ảnh, video, câu hàng ngày, trang Chào mừng, món mời trà, thư chào, giao diện và bộ theme, liên hệ, À propos)
+- `admin.html`: trang quản trị của cô chủ cottage (đăng bài, ảnh, video, câu hàng ngày, bộ bài từ vựng Ngẫu nhiên, trang Chào mừng, món mời trà, thư chào, giao diện và bộ theme, liên hệ, À propos)
 - `assets/`: hai hình hoa iris (`iris-to.png` ở đầu trang Chào mừng, `iris-be.png` cho mọi iris nhỏ còn lại). Nhớ upload cả thư mục này lên GitHub
 - `media/welcome.mp4`: video của trang Chào mừng (bạn tự thêm vào, xem phần bên dưới)
 - `data/posts.json`, `data/site.json`: nơi lưu bài viết và cài đặt (admin tự cập nhật, bạn không cần mở)
@@ -45,7 +45,7 @@
 - Số iris gắn với địa chỉ web. Nếu đổi tên repo hoặc đổi tên miền thì bộ đếm sẽ bắt đầu lại từ 0.
 
 ## Menu 3 gạch
-- Ba mục Chào mừng, Bài viết, Giới thiệu nay ẩn trong biểu tượng 3 gạch ở góc trên bên trái. Bấm vào thì menu trượt ra, bấm mục nào, bấm ra ngoài vùng menu, bấm dấu ✕ hoặc phím Esc đều đóng lại.
+- Bốn mục Chào mừng, Bài viết, Ngẫu nhiên, Giới thiệu nay ẩn trong biểu tượng 3 gạch ở góc trên bên trái. Bấm vào thì menu trượt ra, bấm mục nào, bấm ra ngoài vùng menu, bấm dấu ✕ hoặc phím Esc đều đóng lại.
 
 ## Giao diện và Bộ theme (tab Giao diện trong admin)
 - Đổi được: hình, màu và độ phủ của **header** (kèm màu chữ và đường kẻ dưới header), hình và màu **chân trang** (khối Contact + dòng ©), màu và hình **nền trang**, **màu nhấn** (tiêu đề, nút, chữ chủ đề) và **màu phụ** (chữ xanh). Khung "Xem trước" ở đầu tab cho bạn thấy ngay kết quả.
@@ -89,6 +89,15 @@
 - Chỉnh xong bấm **Lưu thiết kế** rồi mở web để xem. Hiệu ứng được lưu cùng từng **Bộ theme**, nên theme Giáng sinh rơi tuyết, theme Halloween rơi bí ngô, theme thường không rơi gì.
 - Máy khách bật chế độ giảm chuyển động thì hiệu ứng tự tắt, màn hình điện thoại tự giảm bớt số lượng. Hình của bạn được thu nhỏ về khoảng 256 px khi tải lên nên rất nhẹ.
 - Đây là hiệu ứng riêng, không liên quan tới "Hình rơi quanh thiệp" trong tab Thư chào (cái đó chỉ rơi quanh tấm thiệp lúc khách vừa mở web).
+
+## Mục Ngẫu nhiên: bộ 36 lá bài từ vựng (tab Ngẫu nhiên trong admin)
+- Mục **Ngẫu nhiên** trong menu 3 gạch hiện 36 lá bài úp, cùng một mặt sau. Khách bấm một lá thì lá đó lật ra (khách thấy từ tiếng Pháp hiện trên lá), rồi một lá bài lớn hiện giữa màn hình, lật ra mặt trước là một bức thư ghi: **từ tiếng Pháp**, **giống** (đực, cái, hoặc cả hai), **loại từ**, **nghĩa tiếng Việt**, **câu ví dụ tiếng Pháp** và **nghĩa của câu ví dụ**. Bấm dấu ×, ra ngoài lá bài hoặc phím Esc để đóng. Lá đã lật có chữ từ hiện trên lá, bấm lại để xem lại. Nút **Xáo lại bài** chia lại bài từ đầu.
+- **Thêm từ**: vào tab **Ngẫu nhiên**, mục **Thêm từ mới**, điền từ, chọn giống, chọn loại từ, gõ nghĩa và câu ví dụ, rồi bấm **Thêm và lưu lên web** (web cập nhật sau khoảng 1 phút). Chỉ bắt buộc có từ tiếng Pháp, các ô còn lại bỏ trống thì lá bài không hiện phần đó. Từ nào cần sửa, bấm **Sửa** ở danh sách bên dưới. Danh sách có ô tìm kiếm và nút **Xóa**. Từ mới thêm nằm trên cùng danh sách.
+- **Nhập nhiều từ một lúc**: mở mục "Dán danh sách từ", mỗi dòng một từ, các cột cách nhau bằng dấu `|` (hoặc dán thẳng từ Excel, Google Sheets). Thứ tự cột: `từ | giống | loại từ | nghĩa | câu ví dụ | nghĩa câu ví dụ`. Giống ghi `m`, `f`, `mf` hoặc để trống. Loại từ ghi tên tiếng Việt hoặc tiếng Pháp (danh từ/nom, động từ/verbe, tính từ/adjectif, trạng từ/adverbe, giới từ/préposition, liên từ/conjonction, đại từ/pronom, mạo từ/article, thán từ/interjection, cụm từ/locution, thành ngữ/expression). Ví dụ: `la maison | f | danh từ | ngôi nhà | Ma maison est petite. | Nhà của tôi nhỏ.` Các cột cuối có thể bỏ trống, dòng nào thiếu từ tiếng Pháp bị bỏ qua.
+- **Cách chia bài**: có từ 36 từ trở lên thì mỗi lá là một từ khác nhau, và mỗi lần khách vào web (hoặc bấm Xáo lại bài) web bốc ngẫu nhiên 36 từ trong danh sách của bạn. Dưới 36 từ thì web vẫn đủ 36 lá nhưng một số từ lặp lại ở nhiều lá. Chưa có từ nào thì trang hiện lời nhắn khách quay lại sau.
+- **Thiết kế lá bài** (cùng tab): bấm **Chọn hình** ở **Mặt sau** để tải thiết kế của bạn, cả 36 lá dùng chung mẫu này. Ảnh dọc tỉ lệ 5:8 (vd 750×1200 px) hiện trọn vẹn, tỉ lệ khác bị cắt vừa khung. Chưa tải thì dùng mẫu mặc định (nền màu header, họa tiết ô trám và hoa iris ở giữa). **Mặt trước** mặc định là một bức thư cũ có con tem hoa iris; nếu muốn thay bằng thiết kế riêng, tải ảnh ở mục mặt trước (cũng tỉ lệ 5:8), chữ từ vựng sẽ nằm đè lên ảnh, bạn chọn được màu chữ và bật **nền giấy mờ** sau chữ cho dễ đọc. Sửa xong bấm **Lưu bộ bài**.
+- Chữ trên lá bài đổi theo VI/FR của web: nhãn giống, loại từ, chữ "Ví dụ" và lời dẫn đầu trang (sửa được trong admin). Nội dung nghĩa và câu ví dụ là phần bạn nhập nên giữ nguyên ở cả hai ngôn ngữ.
+- Dữ liệu lưu trong `data/site.json`, khóa `cards`. Ảnh thiết kế lá bài lưu trong `media/`.
 
 ## Câu hàng ngày
 - Ở đầu trang Bài viết, phía trên danh sách bài, có một khung hiện câu quote hoặc expression của hôm nay.

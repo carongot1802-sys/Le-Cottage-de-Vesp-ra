@@ -277,6 +277,57 @@ html.f-am main article.about :is(p,.cv li){font-family:var(--amf)}
 @keyframes tout{to{opacity:0;transform:translateY(-16px) scale(.96)}}
 @keyframes tfloat{from{transform:translateY(-4px) rotate(-1.5deg)}to{transform:translateY(4px) rotate(1.5deg)}}
 @media (prefers-reduced-motion:reduce){#treat,.tcard,.tpic{animation:none!important}#fall{display:none}}
+
+/* ===== build 9: mục Ngẫu nhiên (36 lá bài từ vựng) ===== */
+.rn{text-align:center}
+.rnt{margin:0 0 6px;color:var(--wine);font-size:clamp(26px,5vw,36px);letter-spacing:.02em}
+.rni{max-width:560px;margin:0 auto 18px;color:var(--muted);font-size:16px;white-space:pre-wrap}
+.rnb{margin-bottom:24px}
+.rnbtn{padding:8px 22px;border-radius:30px;border:1px solid var(--green);background:transparent;color:var(--green);font-size:14px;letter-spacing:.08em;cursor:pointer}
+.rnbtn:hover,.rnbtn:focus-visible{background:var(--green);color:var(--bg)}
+.deck{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;max-width:760px;margin:0 auto}
+@media (max-width:700px){.deck{grid-template-columns:repeat(4,1fr);gap:10px}}
+.cd{position:relative;aspect-ratio:5/8;padding:0;border:0;border-radius:8px;background:none;cursor:pointer;perspective:700px;container-type:inline-size;animation:rise .6s cubic-bezier(.22,.61,.36,1) backwards;animation-delay:calc(var(--i,0)*22ms)}
+.cd:hover{transform:translateY(-6px) rotate(-1deg)}
+.cd:focus-visible{outline:2px solid var(--wine);outline-offset:3px}
+.cdi{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .7s cubic-bezier(.3,.1,.2,1)}
+.cd.drawn .cdi{transform:rotateY(180deg)}
+.cdb,.cbk,.cdf{position:absolute;inset:0;border-radius:8px;overflow:hidden;backface-visibility:hidden;-webkit-backface-visibility:hidden;box-shadow:0 6px 14px #0003}
+.cdb,.cbk{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2722%27%20height%3D%2722%27%3E%3Cpath%20d%3D%27M0%2011L11%200%2022%2011%2011%2022Z%27%20fill%3D%27none%27%20stroke%3D%27%23f3ead8%27%20stroke-opacity%3D%27.14%27/%3E%3Ccircle%20cx%3D%2711%27%20cy%3D%2711%27%20r%3D%271.3%27%20fill%3D%27%23d9a7b1%27%20fill-opacity%3D%27.4%27/%3E%3C/svg%3E"),var(--hc,#1f3a2e)}
+.cdb::before,.cbk::before{content:"";position:absolute;inset:5%;border:1.5px solid #d9a7b1b0;border-radius:5px;pointer-events:none}
+.cdb::after,.cbk::after{content:"";position:absolute;left:50%;top:50%;width:62%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;background:url(assets/iris-be.png) center/62% no-repeat,radial-gradient(circle,#f3ead8 0 58%,#d9a7b1 59% 63%,transparent 64%)}
+.cust .cdb,.cbk.cust{background:var(--cb) center/cover no-repeat}
+.cust .cdb::before,.cust .cdb::after,.cbk.cust::before,.cbk.cust::after{display:none}
+.cdf{transform:rotateY(180deg);display:flex;align-items:center;justify-content:center;padding:8%;background:radial-gradient(ellipse at 20% 10%,#fff6dc88,transparent 55%),linear-gradient(165deg,#f6e8c4,#e9d5a3 62%,#dfc48a);border:1px solid #6d1a2c66;color:#3a2814}
+.cdf b{font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:clamp(10px,2.2vw,15px);font-size:15cqw;line-height:1.15;overflow-wrap:anywhere;max-height:100%;overflow:hidden}
+#cardm{position:fixed;inset:0;z-index:90;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(24,14,12,.62);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);animation:lfade .4s ease both;--cw:min(340px,86vw,calc((100vh - 70px)*.625))}
+#cardm.bye{animation:lfadeout .35s ease forwards;pointer-events:none}
+.cclose{position:absolute;top:calc(env(safe-area-inset-top,0px) + 12px);right:14px;width:44px;height:44px;padding:0;border:0;border-radius:50%;background:#ffffff1f;color:#fff;font-size:26px;line-height:1;cursor:pointer}
+.cclose:hover,.cclose:focus-visible{background:#ffffff40}
+.cscene{position:relative;width:var(--cw);aspect-ratio:5/8;perspective:1400px;animation:cpop .6s cubic-bezier(.2,1.2,.3,1) both}
+.cflip{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .95s cubic-bezier(.3,.1,.15,1)}
+.cflip.on{transform:rotateY(180deg)}
+.cface{position:absolute;inset:0;border-radius:12px;overflow:hidden;backface-visibility:hidden;-webkit-backface-visibility:hidden;box-shadow:0 24px 60px #0008}
+.cbk{border-radius:12px}
+.cfr{transform:rotateY(180deg);color:var(--cft,#3a2814)}
+.cfr.dflt{background:radial-gradient(ellipse at 20% 10%,#fff6dc88,transparent 55%),linear-gradient(165deg,#f6e8c4,#e9d5a3 62%,#dfc48a)}
+.cfr.dflt::before{content:"";position:absolute;inset:3.5%;border:1.5px solid #6d1a2c99;border-radius:6px;box-shadow:inset 0 0 0 4px #f6e8c466,inset 0 0 0 5px #6d1a2c44;pointer-events:none}
+.cfr.dflt::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(to bottom,transparent 32.5%,#6b4a1a22 33%,#fff4 33.4%,transparent 34%,transparent 65.5%,#6b4a1a1c 66%,#fff3 66.4%,transparent 67%)}
+.cfr.img{background:var(--cf) center/cover no-repeat}
+.cstamp{position:absolute;top:6%;right:8%;width:15%;aspect-ratio:3/4;object-fit:contain;padding:2%;background:#fbf3df;border:1.5px dashed #6d1a2c88;transform:rotate(4deg);z-index:1}
+.ct{position:absolute;inset:0;z-index:2;padding:11% 10%;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:calc(var(--cw)*.03);overflow-y:auto;scrollbar-width:none}
+.ct::-webkit-scrollbar{display:none}
+.cfr.dflt .ct{padding-top:20%}
+.ct.pan{inset:10% 6%;padding:6%;background:rgba(250,244,230,.86);border-radius:10px}
+.cw{font-family:'Playfair Display','Chantelli Antiqua',Georgia,serif;font-weight:500;font-size:calc(var(--cw)*.12);line-height:1.1;overflow-wrap:anywhere}
+.cg span{display:inline-block;margin:2px 3px;padding:2px 10px;border:1px solid currentColor;border-radius:20px;font-size:calc(var(--cw)*.036);letter-spacing:.08em;text-transform:uppercase;opacity:.85}
+.cv{font-size:calc(var(--cw)*.056);font-weight:600;line-height:1.35}
+.cex{width:100%;padding-top:calc(var(--cw)*.03);border-top:1px solid #6d1a2c44}
+.cex small{display:block;margin-bottom:3px;font-size:calc(var(--cw)*.032);letter-spacing:.16em;text-transform:uppercase;opacity:.7}
+.ce{font-family:'Playfair Display','Chantelli Antiqua',Georgia,serif;font-style:italic;font-size:calc(var(--cw)*.05);line-height:1.4}
+.cev{margin-top:3px;font-size:calc(var(--cw)*.043);line-height:1.4;opacity:.85}
+@keyframes cpop{from{opacity:0;transform:translateY(24px) scale(.88)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){#cardm,.cscene,.deck .cd{animation:none!important}.cflip,.cdi{transition:none!important}}
 </style>
 </head>
 <body>
@@ -305,7 +356,7 @@ html.f-am main article.about :is(p,.cv li){font-family:var(--amf)}
   <div class="gsw"><span data-l="vi">VI</span><span data-l="fr">FR</span></div>
 </header>
 <div id="scrim"></div>
-<nav id="menu" aria-label="Menu"><button type="button" class="mclose" id="mclose" aria-label="Fermer">✕</button><a href="#" id="nv-welcome">Chào mừng</a><a href="#articles" id="nv-home">Bài viết</a><a href="#about" id="nv-about">À propos</a></nav>
+<nav id="menu" aria-label="Menu"><button type="button" class="mclose" id="mclose" aria-label="Fermer">✕</button><a href="#" id="nv-welcome">Chào mừng</a><a href="#articles" id="nv-home">Bài viết</a><a href="#random" id="nv-random">Ngẫu nhiên</a><a href="#about" id="nv-about">À propos</a></nav>
 <main>
   <div id="view"></div>
 </main>
@@ -401,7 +452,7 @@ const excerpt=b=>{const t=(b||'').replace(/\s+/g,' ').trim();return t.length>130
 function route(){const h=location.hash.slice(1);return h.startsWith('post=')?h.slice(5):null}
 const isWelcome=()=>{const h=location.hash.slice(1);return h===''||h==='welcome'};
 const pf=(p,f)=>{const a=p[f]||'',b=p[f+'_fr']||'';return lang==='fr'?(b||a):(a||b)};
-function applyLang(){document.documentElement.lang=lang;document.querySelectorAll('.gsw span').forEach(e=>e.classList.toggle('on',e.dataset.l===lang));$('#nv-home').textContent=T[lang].navp;$('#nv-welcome').textContent=T[lang].nvw;$('#nv-about').textContent=T[lang].nva;$('#tagline').textContent=T[lang].tl;paintThemeBtn()}
+function applyLang(){document.documentElement.lang=lang;document.querySelectorAll('.gsw span').forEach(e=>e.classList.toggle('on',e.dataset.l===lang));$('#nv-home').textContent=T[lang].navp;$('#nv-welcome').textContent=T[lang].nvw;$('#nv-random').textContent=RN[lang].nav;$('#nv-about').textContent=T[lang].nva;$('#tagline').textContent=T[lang].tl;paintThemeBtn()}
 let swapId=0;
 function swap(fn){const v=$('#view'),id=++swapId;
   if(!v.animate||RM.matches||!v.firstElementChild){fn();return}
@@ -412,10 +463,11 @@ function swap(fn){const v=$('#view'),id=++swapId;
 function setLang(l){lang=l;tagF='';applyLang();swap(render)}
 function render(){
   const v=$('#view'),id=route(),L=T[lang];
-  $('#nv-about').classList.toggle('on',location.hash==='#about');$('#nv-welcome').classList.toggle('on',isWelcome());$('#nv-home').classList.toggle('on',!isWelcome()&&location.hash!=='#about');
+  $('#nv-about').classList.toggle('on',location.hash==='#about');$('#nv-welcome').classList.toggle('on',isWelcome());$('#nv-random').classList.toggle('on',location.hash==='#random');$('#nv-home').classList.toggle('on',!isWelcome()&&location.hash!=='#about'&&location.hash!=='#random');
   if(!loaded){v.innerHTML='<div class="empty">'+L.loading+'</div>';return}
   if(denied){v.innerHTML='<div class="empty">Bạn cần đăng nhập Claude để xem blog này.</div>';return}
   if(location.hash==='#about'){renderAbout();return}
+  if(location.hash==='#random'){renderRandom();return}
   if(isWelcome()){renderWelcome();return}
   if(id){
     const p=posts.find(x=>x.id===id);
@@ -494,6 +546,38 @@ function bindFilters(){const i=$('#q');if(!i)return;
   i.onkeydown=e=>{if(e.key==='Enter'){q=i.value;drawResults();i.blur()}};
   $('#qb').onclick=()=>{q=i.value;drawResults();if(q.trim()){const r=$('#results');if(r)r.scrollIntoView({behavior:'smooth',block:'start'})}else i.focus()};
   document.querySelectorAll('.chip').forEach(c=>c.onclick=()=>{tagF=c.dataset.t;document.querySelectorAll('.chip').forEach(x=>x.classList.toggle('on',x===c));drawResults(true)})}
+const RN={vi:{nav:'Ngẫu nhiên',title:'Rút một lá bài',intro:'Chọn một trong 36 lá bài, lật ra một từ tiếng Pháp dành cho bạn hôm nay.',shuf:'Xáo lại bài',empty:'Cô chủ chưa đặt từ nào vào bộ bài. Mời bạn quay lại sau nhé.',card:'Lá bài số {n}',close:'Đóng',ex:'Ví dụ',gm:'Giống đực',gf:'Giống cái',gmf:'Giống đực và cái'},
+ fr:{nav:'Au hasard',title:'Tirez une carte',intro:'Choisissez une carte parmi les 36 et découvrez un mot français pour aujourd’hui.',shuf:'Mélanger les cartes',empty:'La maîtresse du cottage n’a pas encore glissé de mots dans le jeu. Revenez bientôt !',card:'Carte n°{n}',close:'Fermer',ex:'Exemple',gm:'Masculin',gf:'Féminin',gmf:'Masculin et féminin'}};
+const POS={n:['danh từ','nom'],v:['động từ','verbe'],adj:['tính từ','adjectif'],adv:['trạng từ','adverbe'],prep:['giới từ','préposition'],conj:['liên từ','conjonction'],pron:['đại từ','pronom'],art:['mạo từ','article'],interj:['thán từ','interjection'],loc:['cụm từ','locution'],expr:['thành ngữ','expression']};
+const posLabel=k=>POS[k]?POS[k][lang==='fr'?1:0]:String(k||'');
+let cards={words:[],back:'',front:'',ftx:'',fpanel:false,intro:{}},deal=null,dealSig='',drawnSet=new Set();
+const shuffleArr=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+function dealCards(force){const w=(cards.words||[]).filter(x=>String(x.fr||'').trim()),sig=w.map(x=>x.id||x.fr).join('|');
+  if(!force&&deal&&sig===dealSig)return;dealSig=sig;drawnSet=new Set();
+  if(!w.length){deal=[];return}
+  let pool=[];while(pool.length<36)pool=pool.concat(shuffleArr(w));deal=shuffleArr(pool.slice(0,36))}
+function cardText(w){const L=RN[lang],g=w.gender?L['g'+w.gender]:'',p=posLabel(w.pos),tags=[g,p].filter(Boolean).map(x=>'<span>'+esc(x)+'</span>').join('');
+  return '<div class="ct'+(cards.fpanel?' pan':'')+'"><div class="cw">'+esc(w.fr)+'</div>'+(tags?'<div class="cg">'+tags+'</div>':'')+(w.vi?'<div class="cv">'+esc(w.vi)+'</div>':'')+((w.ex||w.exvi)?'<div class="cex"><small>'+esc(L.ex)+'</small>'+(w.ex?'<div class="ce">'+esc(w.ex)+'</div>':'')+(w.exvi?'<div class="cev">'+esc(w.exvi)+'</div>':'')+'</div>':'')+'</div>'}
+function openCard(i){if(document.getElementById('cardm')||!deal||!deal[i])return;
+  const w=deal[i],L=RN[lang],el=document.createElement('div');el.id='cardm';el.setAttribute('role','dialog');el.setAttribute('aria-modal','true');el.setAttribute('aria-label',w.fr);
+  el.innerHTML='<button type="button" class="cclose" aria-label="'+esc(L.close)+'">×</button><div class="cscene"><div class="cflip" id="cflip"><div class="cface cbk"></div><div class="cface cfr '+(cards.front?'img':'dflt')+'">'+(cards.front?'':'<img class="cstamp" src="assets/iris-be.png" alt="">')+cardText(w)+'</div></div></div>';
+  const bk=el.querySelector('.cbk'),fr=el.querySelector('.cfr');
+  if(cards.back){bk.classList.add('cust');bk.style.setProperty('--cb','url('+JSON.stringify(cards.back)+')')}
+  if(cards.front)fr.style.setProperty('--cf','url('+JSON.stringify(cards.front)+')');
+  fr.style.setProperty('--cft',hex(cards.ftx)?cards.ftx:'#3a2814');
+  document.body.appendChild(el);document.body.style.overflow='hidden';
+  const fl=el.querySelector('#cflip');setTimeout(()=>fl.classList.add('on'),RM.matches?0:380);
+  let done=false;const onKey=e=>{if(e.key==='Escape')close()};
+  function close(){if(done)return;done=true;document.removeEventListener('keydown',onKey);el.classList.add('bye');setTimeout(()=>{el.remove();document.body.style.overflow=''},RM.matches?0:360)}
+  el.querySelector('.cclose').onclick=close;el.onclick=e=>{if(e.target===el||e.target.classList.contains('cscene'))close()};document.addEventListener('keydown',onKey)}
+function renderRandom(){const v=$('#view'),L=RN[lang];dealCards(false);
+  const intro=String((cards.intro||{})[lang]||'').trim()||L.intro;
+  if(!deal.length){v.innerHTML='<section class="rn"><h2 class="rnt">'+esc(L.title)+'</h2><p class="rni">'+esc(L.empty)+'</p></section>';toTop();return}
+  v.innerHTML='<section class="rn"><h2 class="rnt">'+esc(L.title)+'</h2><p class="rni">'+esc(intro)+'</p><div class="rnb"><button type="button" class="rnbtn" id="rnshuf">'+esc(L.shuf)+'</button></div><div class="deck'+(cards.back?' cust':'')+'" id="deck">'+deal.map((w,i)=>'<button type="button" class="cd'+(drawnSet.has(i)?' drawn':'')+'" data-i="'+i+'" style="--i:'+i+'" aria-label="'+esc(L.card.replace('{n}',i+1))+'"><span class="cdi"><span class="cdb"></span><span class="cdf"><b>'+esc(w.fr)+'</b></span></span></button>').join('')+'</div></section>';
+  if(cards.back)$('#deck').style.setProperty('--cb','url('+JSON.stringify(cards.back)+')');
+  toTop();
+  $('#rnshuf').onclick=()=>{dealCards(true);swap(renderRandom)};
+  document.querySelectorAll('.cd').forEach(b=>b.onclick=()=>{const i=+b.dataset.i;if(drawnSet.has(i)){openCard(i);return}drawnSet.add(i);b.classList.add('drawn');setTimeout(()=>openCard(i),RM.matches?0:650)})}
 function renderAbout(){const v=$('#view'),L=T[lang],t=about[lang]||DEF_ABOUT[lang];
   const sec=(h,a)=>'<h2 class="sec">'+h+'</h2><ul class="cv">'+a.map(i=>'<li>'+esc(i[lang]||i.vi||i.fr||'')+(/^https?:\/\//i.test(i.url||'')?' <a class="ext" href="'+esc(i.url)+'" target="_blank" rel="noopener">'+L.rd+'</a>':'')+'</li>').join('')+'</ul>';
   v.innerHTML='<article class="about"><span class="tag">'+L.nva+'</span><h1>'+L.h+'</h1><div id="ab">'+t.split(/\n\s*\n/).map(x=>'<p>'+esc(x.trim())+'</p>').join('')+'</div>'+(admin?'<div class="bar"><button class="ghost" id="ea">'+L.edit+'</button></div>':'')+sec(L.edu,CV.edu)+sec(L.exp,CV.exp)+sec(L.awd,CV.awd)+'</article>';
@@ -603,7 +687,7 @@ function startLetter(){if(letterStarted)return;letterStarted=true;if(letter.on==
   const im=new Image();let go=false;
   const fire=()=>{if(go)return;go=true;showLetter(im.naturalWidth&&im.naturalHeight?im.naturalWidth/im.naturalHeight:1)};
   im.onload=im.onerror=fire;im.src=letter.img||DEF_LETTER.img;setTimeout(fire,1800)}
-function showLetter(ratio){const L=T[lang],C=letter,entry=location.hash.slice(1),deep=entry.startsWith('post=')||entry==='about'||entry==='articles';
+function showLetter(ratio){const L=T[lang],C=letter,entry=location.hash.slice(1),deep=entry.startsWith('post=')||entry==='about'||entry==='articles'||entry==='random';
   ratio=nz(ratio,1,.4,2.5);
   const el=document.createElement('div');el.id='letter';el.setAttribute('role','dialog');el.setAttribute('aria-modal','true');el.setAttribute('aria-label',L.lw);
   el.style.background=rgba(C.veil,nz(C.veilOp,58,0,95)/100);
@@ -629,7 +713,7 @@ applyLang();renderContact();render();setTimeout(startLetter,2600);
   const g=async u=>{try{const r=await fetch(u+'?t='+Date.now(),{cache:'no-store'});return r.ok?await r.json():null}catch(e){return null}};
   const [ps,st]=await Promise.all([g('data/posts.json'),g('data/site.json')]);
   posts=Array.isArray(ps)?ps.slice().sort((a,b)=>(b.ts||0)-(a.ts||0)):[];
-  if(st){if(Array.isArray(st.contact)&&st.contact.length)contact=st.contact;if(st.about)about={vi:st.about.vi||'',fr:st.about.fr||''};if(st.design)dz={...DEF_DZ,...st.design};if(st.welcome)welcome={vi:st.welcome.vi||{},fr:st.welcome.fr||{}};if(st.iris)irisCfg=st.iris;if(st.quote&&typeof st.quote==='object')quote=st.quote;if(st.cv&&st.cv.edu&&st.cv.exp&&st.cv.awd)CV=st.cv;if(st.letter&&typeof st.letter==='object')letter={...DEF_LETTER,...st.letter,label:{...DEF_LETTER.label,...(st.letter.label||{})}};if(st.treats&&typeof st.treats==='object')treats={items:Array.isArray(st.treats.items)?st.treats.items:[],tpl:st.treats.tpl||{},go:st.treats.go||{}}}
+  if(st){if(Array.isArray(st.contact)&&st.contact.length)contact=st.contact;if(st.about)about={vi:st.about.vi||'',fr:st.about.fr||''};if(st.design)dz={...DEF_DZ,...st.design};if(st.welcome)welcome={vi:st.welcome.vi||{},fr:st.welcome.fr||{}};if(st.iris)irisCfg=st.iris;if(st.quote&&typeof st.quote==='object')quote=st.quote;if(st.cv&&st.cv.edu&&st.cv.exp&&st.cv.awd)CV=st.cv;if(st.letter&&typeof st.letter==='object')letter={...DEF_LETTER,...st.letter,label:{...DEF_LETTER.label,...(st.letter.label||{})}};if(st.treats&&typeof st.treats==='object')treats={items:Array.isArray(st.treats.items)?st.treats.items:[],tpl:st.treats.tpl||{},go:st.treats.go||{}};if(st.cards&&typeof st.cards==='object')cards={words:Array.isArray(st.cards.words)?st.cards.words:[],back:st.cards.back||'',front:st.cards.front||'',ftx:st.cards.ftx||'',fpanel:!!st.cards.fpanel,intro:st.cards.intro||{}}}
   applyDesign();renderContact();loaded=true;swap(render);startLetter();
 })();
 </script>
