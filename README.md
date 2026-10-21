@@ -99,6 +99,11 @@
 - Chữ trên lá bài đổi theo VI/FR của web: nhãn giống, loại từ, chữ "Ví dụ" và lời dẫn đầu trang (sửa được trong admin). Nội dung nghĩa và câu ví dụ là phần bạn nhập nên giữ nguyên ở cả hai ngôn ngữ.
 - Dữ liệu lưu trong `data/site.json`, khóa `cards`. Ảnh thiết kế lá bài lưu trong `media/`.
 
+## Lá bài bí ẩn ở mục Bài viết
+- Ở khu vực **Bài viết** (cả danh sách bài lẫn trang đọc từng bài), một lá bài tím có dấu hỏi chấm vàng lơ lửng ở lề phải màn hình, đung đưa nhẹ và lấp lánh. Rê chuột vào thì hiện dòng "Rút một lá bài" (hoặc "Tirez une carte" khi chọn FR), bấm vào sẽ chuyển sang mục **Ngẫu nhiên** để khách rút bài.
+- Lá bài chỉ hiện ở mục Bài viết, không hiện ở Chào mừng, Ngẫu nhiên và Giới thiệu. Trên điện thoại lá bài nhỏ hơn và nằm góc dưới bên phải. Khách bật chế độ giảm chuyển động thì lá bài đứng yên.
+- Muốn đổi dòng chữ hiện ra khi rê chuột, sửa `RN.vi.title` và `RN.fr.title` trong `index.html` (cũng là tiêu đề của mục Ngẫu nhiên).
+
 ## Câu hàng ngày
 - Ở đầu trang Bài viết, phía trên danh sách bài, có một khung hiện câu quote hoặc expression của hôm nay.
 - Mỗi ngày vào admin, tab **Câu hàng ngày**, gõ câu (có ô giải nghĩa, có cả bản tiếng Việt và tiếng Pháp), chọn ngày rồi bấm **Lưu câu hôm nay**. Web cập nhật sau khoảng 1 phút.
