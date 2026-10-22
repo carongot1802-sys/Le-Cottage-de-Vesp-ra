@@ -5,7 +5,7 @@
   "ov": 33,
   "hc": "#1f3a2e",
   "bg": "",
-  "pImg": "media/1792407731601-n_n_chung_kh_c.png",
+  "pImg": "media/1792649493582-Orange_and_Black_Illustrative_Halloween_Party_Instagram_Post.png",
   "pOp": 80,
   "hText": "#f3ead8",
   "hLine": "",
@@ -214,6 +214,14 @@
   "items": [],
   "tpl": {},
   "go": {}
+ },
+ "cards": {
+  "words": [],
+  "back": "",
+  "front": "",
+  "ftx": "",
+  "fpanel": false,
+  "intro": {}
  },
  "cv": {
   "edu": [
