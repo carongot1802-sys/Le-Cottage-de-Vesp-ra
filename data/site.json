@@ -454,7 +454,7 @@
    },
    {
     "id": "tmvjq77kb39",
-    "img": "media/1792684722154-43.png",
+    "img": "media/1792693785965-57.png",
     "vi": "đĩa gà hầm rượu vang",
     "fr": "une assiette de coq au vin"
    },
@@ -538,6 +538,10 @@
    "vi": "Cảm ơn nhiều nhé",
    "fr": "Merci mille fois"
   }
+ },
+ "menu": {
+  "title": {},
+  "intro": {}
  },
  "cards": {
   "words": [],
