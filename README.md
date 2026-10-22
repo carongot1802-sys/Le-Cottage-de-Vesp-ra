@@ -2,7 +2,7 @@
 
 ## Cấu trúc
 - `index.html`: trang web cho khách quán đọc (ai cũng xem được, không cần đăng nhập). Khi mở web sẽ hiện tấm thiệp chào, gõ cửa xong mới vào mục Chào mừng, tiếp theo là Bài viết và À propos
-- `admin.html`: trang quản trị của cô chủ cottage (đăng bài, ảnh, video, câu hàng ngày, bộ bài từ vựng Ngẫu nhiên, trang Chào mừng, món mời trà, thư chào, giao diện và bộ theme, liên hệ, À propos)
+- `admin.html`: trang quản trị của cô chủ cottage (đăng bài, ảnh, video, câu hàng ngày, bộ bài từ vựng Ngẫu nhiên, trang Chào mừng, món mời trà, gọi món, thư chào, giao diện và bộ theme, liên hệ, À propos)
 - `assets/`: hai hình hoa iris (`iris-to.png` ở đầu trang Chào mừng, `iris-be.png` cho mọi iris nhỏ còn lại). Nhớ upload cả thư mục này lên GitHub
 - `media/welcome.mp4`: video của trang Chào mừng (bạn tự thêm vào, xem phần bên dưới)
 - `data/posts.json`, `data/site.json`: nơi lưu bài viết và cài đặt (admin tự cập nhật, bạn không cần mở)
@@ -45,7 +45,7 @@
 - Số iris gắn với địa chỉ web. Nếu đổi tên repo hoặc đổi tên miền thì bộ đếm sẽ bắt đầu lại từ 0.
 
 ## Thanh menu ở header
-- Bốn mục **Chào mừng**, **Bài viết**, **Ngẫu nhiên**, **Giới thiệu** nằm ngay trên dòng "Le Cottage de Vespéra" trong header, bấm mục nào là chuyển tới mục đó. Mục đang xem được gạch chân. Trên điện thoại thanh này tự xuống thành hai dòng. Chữ và màu của thanh menu đi theo "Màu chữ header" trong tab Giao diện. Muốn đổi tên một mục, sửa các khóa `nvw`, `navp`, `nva` (và `RN.vi.nav`, `RN.fr.nav` cho mục Ngẫu nhiên) trong `index.html`.
+- Năm mục **Chào mừng**, **Bài viết**, **Ngẫu nhiên**, **Gọi món**, **Giới thiệu** nằm ngay trên dòng "Le Cottage de Vespéra" trong header, bấm mục nào là chuyển tới mục đó. Mục đang xem được gạch chân. Trên điện thoại thanh này tự xuống thành hai dòng. Chữ và màu của thanh menu đi theo "Màu chữ header" trong tab Giao diện. Muốn đổi tên một mục, sửa các khóa `nvw`, `navp`, `nva` (và `RN.vi.nav`, `RN.fr.nav` cho mục Ngẫu nhiên, `MN.vi.nav`, `MN.fr.nav` cho mục Gọi món) trong `index.html`.
 
 ## Giao diện và Bộ theme (tab Giao diện trong admin)
 - Đổi được: hình, màu và độ phủ của **header** (kèm màu chữ và đường kẻ dưới header), hình và màu **chân trang** (khối Contact + dòng ©), màu và hình **nền trang**, **màu nhấn** (tiêu đề, nút, chữ chủ đề) và **màu phụ** (chữ xanh). Khung "Xem trước" ở đầu tab cho bạn thấy ngay kết quả.
@@ -83,6 +83,14 @@
 - Thêm món: vào tab **Món mời trà**, bấm **＋ Thêm món từ ảnh**, chọn một hoặc nhiều ảnh cùng lúc (nên là PNG nền trong, web tự thu nhỏ về khoảng 600 px). Mỗi ảnh thành một dòng món, tên món điền sẵn theo tên file để bạn sửa lại. Điền tên tiếng Việt và tiếng Pháp (bỏ trống bên nào thì web dùng bên còn lại), rồi bấm **Lưu danh sách món**. Web cập nhật sau khoảng 1 phút.
 - Danh sách thêm bao nhiêu món cũng được. Mỗi món có nút **Đổi ảnh** và **Xóa món**. Mỗi ảnh tải lên được lưu vào thư mục `media/` của repo.
 - Vì tiếng Việt cần loại từ, hãy ghi tên món kèm loại từ cho tự nhiên (vd: "tách trà hoa cúc", "chiếc bánh madeleine"). Bản tiếng Pháp nên ghi kèm mạo từ (vd: "une tasse de thé"). Câu mời và chữ trên nút đổi được ngay trong tab, ghi `{item}` ở chỗ muốn hiện tên món. Bấm **Xem thử một lời mời** để xem câu ghép ra có tự nhiên không.
+
+## Mục Gọi món / À la carte (tab Gọi món trong admin)
+- Mục **Gọi món** trên thanh menu là một tờ thực đơn gồm 3 phần: **Khai vị**, **Món chính**, **Tráng miệng** (bản tiếng Pháp: Entrées, Plats, Desserts). Mỗi món hiện hình và tên theo ngôn ngữ khách chọn. Phần nào chưa có món thì tự ẩn.
+- **Danh sách món dùng chung với "Mời thưởng trà".** Món nào có trong tab **Món mời trà** thì có trong trang Gọi món, và ngược lại. Thêm hay xóa món ở tab nào cũng được, món xuất hiện hoặc biến mất ở cả hai nơi (trang Chào mừng và trang Gọi món) sau khi bấm lưu và chờ khoảng 1 phút.
+- **Phân loại**: mỗi món có ô chọn Khai vị / Món chính / Tráng miệng. Tab **Gọi món** chia sẵn 3 khu, mỗi khu có nút **＋ Thêm món từ ảnh** (chọn nhiều ảnh một lúc, món mới tự vào đúng phần) và **＋ Thêm món chưa có ảnh**. Ở tab **Món mời trà** có ô "Phân loại cho các món sắp thêm". Đổi ô phân loại của một món thì món tự chuyển sang phần mới.
+- Món cũ chưa được phân loại sẽ tạm hiện ở **Món chính**, ô phân loại của nó ghi "Chưa phân loại". Bạn chọn lại cho đúng rồi bấm lưu.
+- Tab Gọi món còn cho sửa **tiêu đề** và **lời dẫn** đầu trang thực đơn (VI/FR, bỏ trống thì dùng câu mặc định). Bấm **Lưu thực đơn** để lưu cả món lẫn chữ.
+- Dữ liệu lưu trong `data/site.json`: món nằm ở `treats.items` (thêm trường `cat` là `starter`, `main` hoặc `dessert`), chữ trang thực đơn ở khóa `menu`.
 
 ## Hiệu ứng icon rơi ở nền (tab Giao diện trong admin)
 - Mục **Hiệu ứng icon rơi ở nền** cho icon nhẹ nhàng rơi trên toàn web, ví dụ tuyết cho Giáng sinh. Đổi được: bật/tắt, loại icon (bông tuyết, hạt tuyết tròn, hoa iris nhỏ, hoặc hình của bạn: PNG nền trong, vd cánh mai, lá phong, bí ngô, dơi), số lượng, cỡ, tốc độ rơi, độ đậm, và lớp hiển thị (phía sau chữ như nền, hoặc phía trước phủ lên cả nội dung).

@@ -188,7 +188,8 @@ button,.chip{transition:transform .3s cubic-bezier(.22,.61,.36,1),background-col
   <div class="row" style="margin-top:14px"><button id="go">Kết nối</button><span id="lerr"></span></div>
 </div>
 <div id="app" hidden>
-  <div class="chips tabs" style="margin-bottom:20px"><span class="chip on" data-t="posts">Bài viết</span><span class="chip" data-t="quote">Câu hàng ngày</span><span class="chip" data-t="random">Ngẫu nhiên</span><span class="chip" data-t="welcome">Chào mừng</span><span class="chip" data-t="treats">Món mời trà</span><span class="chip" data-t="letter">Thư chào</span><span class="chip" data-t="design">Giao diện</span><span class="chip" data-t="contact">Liên hệ</span><span class="chip" data-t="about">Giới thiệu</span></div>
+  <div class="chips tabs" style="margin-bottom:20px"><span class="chip on" data-t="posts">Bài viết</span><span class="chip" data-t="quote">Câu hàng ngày</span><span class="chip" data-t="random">Ngẫu nhiên</span><span class="chip" data-t="welcome">Chào mừng</span><span class="chip" data-t="treats">Món mời trà</span><span class="chip" data-t="menu">Gọi món</span><span class="chip" data-t="letter">Thư chào</span><span class="chip" data-t="design">Giao diện</span><span class="chip" data-t="contact">Liên hệ</span><span class="chip" data-t="about">Giới thiệu</span></div>
+  <input type="file" id="tr-file" accept="image/*" multiple hidden><input type="file" id="tr-rep" accept="image/*" hidden>
   <section id="t-posts">
     <div class="bar"><button id="new"><svg class="fl" aria-hidden="true"><use href="#fdl"/></svg> Viết bài mới</button><span id="pst"></span></div>
     <div id="ed" class="panel" hidden>
@@ -262,11 +263,32 @@ button,.chip{transition:transform .3s cubic-bezier(.22,.61,.36,1),background-col
     <label>Chữ trên nút trong hộp lời mời, tiếng Pháp</label><input type="text" id="tr-go-fr" class="fi" placeholder="Merci, je vais lire les articles">
     <h4 class="sh">Danh sách món (<span id="tr-count">0</span>)</h4>
     <p class="hint">Hình nên là PNG nền trong, web tự thu nhỏ về khoảng 600 px. Chọn nhiều ảnh một lúc được: mỗi ảnh thành một món, tên món điền sẵn theo tên file để bạn sửa lại.</p>
+    <p class="hint"><b>Danh sách này dùng chung với mục “Gọi món”.</b> Thêm, sửa hay xóa món ở đây thì món cũng thay đổi ở trang Gọi món, và ngược lại. Mỗi món có một ô <b>phân loại</b> (Khai vị, Món chính, Tráng miệng) để trang Gọi món biết xếp món vào phần nào.</p>
+    <label>Phân loại cho các món sắp thêm</label><select id="tr-newcat" class="fi"><option value="starter">Khai vị</option><option value="main" selected>Món chính</option><option value="dessert">Tráng miệng</option></select>
     <div class="row"><button class="ghost" id="tr-add">＋ Thêm món từ ảnh (chọn nhiều ảnh)</button><button class="ghost" id="tr-add0">＋ Thêm món chưa có ảnh</button><button class="ghost" id="tr-test">Xem thử một lời mời</button></div>
-    <input type="file" id="tr-file" accept="image/*" multiple hidden><input type="file" id="tr-rep" accept="image/*" hidden>
     <div id="tr-sample"></div>
     <div id="tr-list"></div>
     <div class="row" style="margin-top:20px"><button id="tr-save">Lưu danh sách món</button><span id="trst"></span></div>
+  </section>
+  <section id="t-menu" class="panel" hidden>
+    <h3>Gọi món (À la carte)</h3>
+    <p class="hint">Trang “Gọi món” trên web là một tờ thực đơn gồm 3 phần: Khai vị, Món chính, Tráng miệng. Các món ở đây chính là các món của “Mời thưởng trà”: <b>thêm hoặc xóa món ở đâu thì món cũng xuất hiện hoặc biến mất ở cả hai nơi</b> (trang Chào mừng và trang Gọi món). Món chưa chọn phân loại sẽ tạm hiện ở phần Món chính.</p>
+    <h4 class="sh" style="margin-top:6px">Chữ đầu trang thực đơn</h4>
+    <p class="hint">Bỏ trống thì web dùng câu mặc định.</p>
+    <label>Tiêu đề, tiếng Việt</label><input type="text" id="mn-title-vi" class="fi" placeholder="Thực đơn của Cottage">
+    <label>Tiêu đề, tiếng Pháp</label><input type="text" id="mn-title-fr" class="fi" placeholder="À la carte">
+    <label>Lời dẫn, tiếng Việt</label><input type="text" id="mn-intro-vi" class="fi" placeholder="Mời bạn xem qua những món cô chủ cottage đã chuẩn bị.">
+    <label>Lời dẫn, tiếng Pháp</label><input type="text" id="mn-intro-fr" class="fi" placeholder="Découvrez les douceurs préparées par la maîtresse du cottage.">
+    <h4 class="sh">Khai vị (<span id="mn-c-starter">0</span>)</h4>
+    <div class="row"><button class="ghost" data-madd="starter">＋ Thêm món từ ảnh (chọn nhiều ảnh)</button><button class="ghost" data-madd0="starter">＋ Thêm món chưa có ảnh</button></div>
+    <div id="mn-l-starter"></div>
+    <h4 class="sh">Món chính (<span id="mn-c-main">0</span>)</h4>
+    <div class="row"><button class="ghost" data-madd="main">＋ Thêm món từ ảnh (chọn nhiều ảnh)</button><button class="ghost" data-madd0="main">＋ Thêm món chưa có ảnh</button></div>
+    <div id="mn-l-main"></div>
+    <h4 class="sh">Tráng miệng (<span id="mn-c-dessert">0</span>)</h4>
+    <div class="row"><button class="ghost" data-madd="dessert">＋ Thêm món từ ảnh (chọn nhiều ảnh)</button><button class="ghost" data-madd0="dessert">＋ Thêm món chưa có ảnh</button></div>
+    <div id="mn-l-dessert"></div>
+    <div class="row" style="margin-top:20px"><button id="mn-save">Lưu thực đơn</button><span id="mnst"></span></div>
   </section>
   <section id="t-random" class="panel" hidden>
     <h3>Ngẫu nhiên: bộ bài từ vựng</h3>
@@ -421,6 +443,7 @@ fr:{title:"Bienvenue au Cottage de Vespéra",hello:"Bonjour, chers hôtes !",msg
 const DEF_DZ={hImg:'',blur:10,ov:70,hc:'#1f3a2e',bg:'',pImg:'',pOp:15,hText:'#f3ead8',hLine:'',fc:'#6d1a2c',fText:'#f3ead8',fImg:'',fOv:80,ac:'',ac2:'',bgD:'',wIcon:'',wIconSz:150,wTc:'',wHc:'',wMc:'',wTf:'',wMf:'',wDark:false,lock:'',aTc:'',aMc:'',aTf:'',aMf:'',aDark:false,fxOn:false,fxKind:'snow',fxImg:'',fxN:35,fxSz:22,fxSpd:4,fxOp:80,fxPos:'back'};
 const DEF_LETTER={on:true,img:'',mode:'hotspot',zx:25,zy:66,zw:50,zh:15,label:{vi:'Mời gõ cửa',fr:'Frapper à la porte'},ac:'#4b2386',tx:'#ffffff',veil:'#180e0c',veilOp:58,radius:22,frame:true,drift:'default',driftImg:''};
 const mkCards=c=>({words:Array.isArray((c||{}).words)?c.words.map(x=>({...x})):[],back:(c||{}).back||'',front:(c||{}).front||'',ftx:(c||{}).ftx||'',fpanel:!!(c||{}).fpanel,intro:{...(((c||{}).intro)||{})}});
+const mkMenu=m=>({title:{...((m||{}).title||{})},intro:{...((m||{}).intro||{})}});
 const mkTreats=t=>({items:Array.isArray((t||{}).items)?t.items.map(x=>({...x})):[],tpl:{...((t||{}).tpl||{})},go:{...((t||{}).go||{})}});
 const mkLetter=l=>({...DEF_LETTER,...(l||{}),label:{...DEF_LETTER.label,...((l||{}).label||{})}});
 const CFB={hc:'#1f3a2e',hText:'#f3ead8',hLine:'#6d1a2c',fc:'#6d1a2c',fText:'#f3ead8',bg:'#f3ead8',ac:'#6d1a2c',ac2:'#1f3a2e',bgD:'#1b1412',wTc:'#6d1a2c',wHc:'#1f3a2e',wMc:'#2b1a1a',aTc:'#6d1a2c',aMc:'#2b1a1a'};
@@ -435,7 +458,7 @@ awd:[
 {vi:"Top 20 chung cuộc - cuộc thi « Jeunes Reporters Francophones 2026 » với bài thi « La jeunesse est l’avenir »",fr:"Top 20 final - concours « Jeunes Reporters Francophones 2026 », article « La jeunesse est l’avenir »",url:"https://lecourrier.vn/la-jeunesse-est-lavenir/1357370.html"},
 {vi:"Giải Khuyến khích - cuộc thi « Jeunes Reporters Francophones 2025 » với bài thi « Nous nous éduquons, donc nous préservons : la jeunesse au service d’un patrimoine vivant »",fr:"Prix d’encouragement - concours « Jeunes Reporters Francophones 2025 », article « Nous nous éduquons, donc nous préservons : la jeunesse au service d’un patrimoine vivant »",url:"https://lecourrier.vn/nous-nous-eduquons-donc-nous-preservons-la-jeunesse-au-service-dun-patrimoine-vivant/1292561.html"},
 {vi:"Giải Đại sứ quán Romania - cuộc thi « Jeunes Reporters Francophones 2023 » với bài thi « Comment la gastronomie francophone exprime l’excellence sur la table de la culture »",fr:"Prix de l’Ambassade de Roumanie - concours « Jeunes Reporters Francophones 2023 », article « Comment la gastronomie francophone exprime l’excellence sur la table de la culture »",url:"https://lecourrier.vn/comment-la-gastronomie-francophone-exprime-lexcellence-sur-la-table-de-la-culture/1219351.html"}]};
-let cfg={repo:'',token:''},posts=[],site={welcome:{vi:{},fr:{}},iris:{},design:{...DEF_DZ},letter:mkLetter(),themes:[],contact:DEF_CONTACT.map(x=>({...x})),about:{vi:'',fr:''},cv:JSON.parse(JSON.stringify(CV)),quote:{},treats:{items:[],tpl:{},go:{}},cards:{words:[],back:'',front:'',ftx:'',fpanel:false,intro:{}}},prev={},editId=null,med=[];
+let cfg={repo:'',token:''},posts=[],site={welcome:{vi:{},fr:{}},iris:{},design:{...DEF_DZ},letter:mkLetter(),themes:[],contact:DEF_CONTACT.map(x=>({...x})),about:{vi:'',fr:''},cv:JSON.parse(JSON.stringify(CV)),quote:{},menu:{title:{},intro:{}},treats:{items:[],tpl:{},go:{}},cards:{words:[],back:'',front:'',ftx:'',fpanel:false,intro:{}}},prev={},editId=null,med=[];
 const U=p=>prev[p]||p,hex=x=>/^#[0-9a-f]{6}$/i.test(x||'');
 const lsGet=k=>{try{return localStorage.getItem(k)||''}catch(e){return ''}},lsSet=(k,v)=>{try{v?localStorage.setItem(k,v):localStorage.removeItem(k)}catch(e){}};
 function b64(u8){let s='';for(let i=0;i<u8.length;i+=0x8000)s+=String.fromCharCode.apply(null,u8.subarray(i,i+0x8000));return btoa(s)}
@@ -462,38 +485,58 @@ async function connect(){
     if(r.status===401)throw new Error('Token sai hoặc đã hết hạn');if(!r.ok)throw new Error('Không tìm thấy repo "'+cfg.repo+'"');
     const j=await r.json();if(!j.permissions||!j.permissions.push)throw new Error('Token này chưa có quyền ghi (Contents: Read and write)');
     const a=await getFile('data/posts.json');posts=a?JSON.parse(a.text):[];
-    const b=await getFile('data/site.json');if(b){const s=JSON.parse(b.text);site={design:{...DEF_DZ,...(s.design||{})},contact:s.contact&&s.contact.length?s.contact:site.contact,about:{vi:(s.about||{}).vi||'',fr:(s.about||{}).fr||''},welcome:{vi:(s.welcome||{}).vi||{},fr:(s.welcome||{}).fr||{}},iris:s.iris||{},letter:mkLetter(s.letter),themes:Array.isArray(s.themes)?s.themes:[],quote:(s.quote&&typeof s.quote==='object')?s.quote:{},treats:mkTreats(s.treats),cards:mkCards(s.cards),cv:(s.cv&&s.cv.edu&&s.cv.exp&&s.cv.awd)?s.cv:JSON.parse(JSON.stringify(CV))}}
+    const b=await getFile('data/site.json');if(b){const s=JSON.parse(b.text);site={design:{...DEF_DZ,...(s.design||{})},contact:s.contact&&s.contact.length?s.contact:site.contact,about:{vi:(s.about||{}).vi||'',fr:(s.about||{}).fr||''},welcome:{vi:(s.welcome||{}).vi||{},fr:(s.welcome||{}).fr||{}},iris:s.iris||{},letter:mkLetter(s.letter),themes:Array.isArray(s.themes)?s.themes:[],quote:(s.quote&&typeof s.quote==='object')?s.quote:{},treats:mkTreats(s.treats),menu:mkMenu(s.menu),cards:mkCards(s.cards),cv:(s.cv&&s.cv.edu&&s.cv.exp&&s.cv.awd)?s.cv:JSON.parse(JSON.stringify(CV))}}
     lsSet('cv_repo',cfg.repo);lsSet('cv_tok',cfg.token);
     $('#login').hidden=true;$('#app').hidden=false;$('#out').hidden=false;drawAll();
   }catch(e){say('#lerr',e.message)}
 }
 function drawAll(){drawWelcome();drawQuote();drawPosts();drawTreats();drawRandom();syncDesign();applyDesign();syncLetter();drawThemes();drawContact();drawCV();$('#a-vi').value=site.about.vi||DEF_ABOUT.vi;$('#a-fr').value=site.about.fr||DEF_ABOUT.fr}
 
-/* treats */
-let trRep=-1;
+/* treats + menu: dùng chung MỘT danh sách site.treats.items, mỗi món có cat (starter | main | dessert) */
+const MCATS=[['starter','Khai vị'],['main','Món chính'],['dessert','Tráng miệng']];
+const catOf=x=>x&&(x.cat==='starter'||x.cat==='dessert')?x.cat:'main';
+let trRep=-1,mnCat='main';
+const stAll=t=>{say('#trst',t);say('#mnst',t)};
 function trSentence(t,lang){const nm=String((lang==='fr'?(t.fr||t.vi):(t.vi||t.fr))||'').trim(),def={vi:'Cô chủ Cottage mời bạn một {item} hôm nay',fr:'La maîtresse du Cottage vous offre {item} aujourd’hui'},tpl=String((site.treats.tpl||{})[lang]||'').trim()||def[lang],i=tpl.indexOf('{item}');
   return i<0?tpl+' '+nm:tpl.slice(0,i)+nm+tpl.slice(i+6)}
+function itemRow(x,i){
+  const known=MCATS.some(c=>c[0]===x.cat);
+  const opts=(known?'':'<option value="" selected>Chưa phân loại (đang hiện ở Món chính)</option>')+MCATS.map(c=>'<option value="'+c[0]+'"'+(x.cat===c[0]?' selected':'')+'>'+c[1]+'</option>').join('');
+  return '<div class="trow" data-i="'+i+'"><div class="tth">'+(x.img?'<img src="'+esc(U(x.img))+'" alt="">':'Chưa có ảnh')+'</div><div class="tfs"><input type="text" class="fi" data-f="vi" placeholder="Tên món, tiếng Việt (vd: tách trà hoa cúc)" value="'+esc(x.vi||'')+'"><input type="text" class="fi" data-f="fr" placeholder="Nom en français (vd: une tasse de thé)" value="'+esc(x.fr||'')+'"><select class="fi" data-f="cat" aria-label="Phân loại món">'+opts+'</select><div class="row"><button class="ghost" data-img="'+i+'">'+(x.img?'Đổi ảnh':'Chọn ảnh')+'</button><button class="ghost" data-del="'+i+'">Xóa món</button></div></div></div>'}
+function bindItems(box){
+  box.oninput=e=>{const r=e.target.closest('.trow'),f=e.target.dataset.f;if(!r||!f||f==='cat')return;site.treats.items[+r.dataset.i][f]=e.target.value};
+  box.onchange=e=>{const r=e.target.closest('.trow');if(!r||e.target.dataset.f!=='cat')return;site.treats.items[+r.dataset.i].cat=e.target.value;drawTreats();stAll('Đã đổi phân loại, nhớ bấm Lưu.')};
+  box.onclick=e=>{const d=e.target.closest('[data-del]'),m=e.target.closest('[data-img]');
+    if(d){const x=site.treats.items[+d.dataset.del];if(!x||!confirm('Xóa món “'+(x.vi||x.fr||'chưa đặt tên')+'”? Món sẽ biến mất ở cả trang Chào mừng (Mời thưởng trà) lẫn trang Gọi món.'))return;site.treats.items.splice(+d.dataset.del,1);drawTreats();stAll('Đã xóa, nhớ bấm Lưu để cập nhật lên web.')}
+    else if(m){trRep=+m.dataset.img;$('#tr-rep').click()}}}
+function drawMenu(){const m=site.menu=mkMenu(site.menu),items=site.treats.items;
+  ['title','intro'].forEach(k=>['vi','fr'].forEach(l=>{const el=$('#mn-'+k+'-'+l);if(el)el.value=m[k][l]||''}));
+  MCATS.forEach(([k])=>{const rows=items.map((x,i)=>[x,i]).filter(([x])=>catOf(x)===k);$('#mn-c-'+k).textContent=rows.length;
+    const box=$('#mn-l-'+k);box.innerHTML=rows.length?rows.map(([x,i])=>itemRow(x,i)).join(''):'<p class="hint">Phần này chưa có món nào.</p>';bindItems(box)})}
 function drawTreats(){const t=site.treats=mkTreats(site.treats);
   $('#tr-tpl-vi').value=t.tpl.vi||'';$('#tr-tpl-fr').value=t.tpl.fr||'';$('#tr-go-vi').value=t.go.vi||'';$('#tr-go-fr').value=t.go.fr||'';
   $('#tr-count').textContent=t.items.length;
-  $('#tr-list').innerHTML=t.items.length?t.items.map((x,i)=>'<div class="trow" data-i="'+i+'"><div class="tth">'+(x.img?'<img src="'+esc(U(x.img))+'" alt="">':'Chưa có ảnh')+'</div><div class="tfs"><input type="text" class="fi" data-f="vi" placeholder="Tên món, tiếng Việt (vd: tách trà hoa cúc)" value="'+esc(x.vi||'')+'"><input type="text" class="fi" data-f="fr" placeholder="Nom en français (vd: une tasse de thé)" value="'+esc(x.fr||'')+'"><div class="row"><button class="ghost" data-img="'+i+'">'+(x.img?'Đổi ảnh':'Chọn ảnh')+'</button><button class="ghost" data-del="'+i+'">Xóa món</button></div></div></div>').join(''):'<p class="hint">Chưa có món nào. Bấm “＋ Thêm món từ ảnh” để bắt đầu.</p>';
-  $$('#tr-list .trow').forEach(r=>{const i=+r.dataset.i;r.querySelectorAll('input[data-f]').forEach(inp=>inp.oninput=()=>{site.treats.items[i][inp.dataset.f]=inp.value})});
-  $$('#tr-list [data-del]').forEach(b=>b.onclick=()=>{const x=site.treats.items[+b.dataset.del];if(!confirm('Xóa món “'+(x.vi||x.fr||'chưa đặt tên')+'” khỏi danh sách?'))return;site.treats.items.splice(+b.dataset.del,1);drawTreats();say('#trst','Đã xóa, nhớ bấm “Lưu danh sách món”.')});
-  $$('#tr-list [data-img]').forEach(b=>b.onclick=()=>{trRep=+b.dataset.img;$('#tr-rep').click()})}
+  const box=$('#tr-list');box.innerHTML=t.items.length?t.items.map((x,i)=>itemRow(x,i)).join(''):'<p class="hint">Chưa có món nào. Bấm “＋ Thêm món từ ảnh” để bắt đầu.</p>';bindItems(box);
+  drawMenu()}
 [['#tr-tpl-vi','tpl','vi'],['#tr-tpl-fr','tpl','fr'],['#tr-go-vi','go','vi'],['#tr-go-fr','go','fr']].forEach(([id,k,l])=>{$(id).oninput=e=>{site.treats[k][l]=e.target.value}});
-$('#tr-add').onclick=()=>$('#tr-file').click();
-$('#tr-add0').onclick=()=>{site.treats.items.push({id:'t'+Date.now().toString(36),img:'',vi:'',fr:''});drawTreats()};
-$('#tr-file').onchange=async e=>{const fs=[...e.target.files];e.target.value='';if(!fs.length)return;
-  for(let k=0;k<fs.length;k++){say('#trst','Đang tải ảnh '+(k+1)+'/'+fs.length+'…');
-    try{const p=await upload(await fitImage(fs[k],600));site.treats.items.push({id:'t'+Date.now().toString(36)+k,img:p,vi:fs[k].name.replace(/\.[^.]+$/,'').replace(/[-_]+/g,' ').trim(),fr:''});drawTreats()}catch(err){say('#trst',err.message);return}}
-  say('#trst','Đã tải xong '+fs.length+' ảnh. Sửa tên món rồi bấm “Lưu danh sách món”.')};
-$('#tr-rep').onchange=async e=>{const f=e.target.files[0];e.target.value='';if(!f||trRep<0)return;say('#trst','Đang tải ảnh…');
-  try{site.treats.items[trRep].img=await upload(await fitImage(f,600));drawTreats();say('#trst','Đã đổi ảnh, nhớ bấm “Lưu danh sách món”.')}catch(err){say('#trst',err.message)}};
+[['#mn-title-vi','title','vi'],['#mn-title-fr','title','fr'],['#mn-intro-vi','intro','vi'],['#mn-intro-fr','intro','fr']].forEach(([id,k,l])=>{$(id).oninput=e=>{site.menu[k][l]=e.target.value}});
+$('#tr-add').onclick=()=>{mnCat=$('#tr-newcat').value;$('#tr-file').click()};
+$('#tr-add0').onclick=()=>{site.treats.items.push({id:'t'+Date.now().toString(36),img:'',vi:'',fr:'',cat:$('#tr-newcat').value});drawTreats()};
+$$('[data-madd]').forEach(b=>b.onclick=()=>{mnCat=b.dataset.madd;$('#tr-file').click()});
+$$('[data-madd0]').forEach(b=>b.onclick=()=>{site.treats.items.push({id:'t'+Date.now().toString(36),img:'',vi:'',fr:'',cat:b.dataset.madd0});drawTreats()});
+$('#tr-file').onchange=async e=>{const fs=[...e.target.files];e.target.value='';if(!fs.length)return;const cat=mnCat;
+  for(let k=0;k<fs.length;k++){stAll('Đang tải ảnh '+(k+1)+'/'+fs.length+'…');
+    try{const p=await upload(await fitImage(fs[k],600));site.treats.items.push({id:'t'+Date.now().toString(36)+k,img:p,vi:fs[k].name.replace(/\.[^.]+$/,'').replace(/[-_]+/g,' ').trim(),fr:'',cat});drawTreats()}catch(err){stAll(err.message);return}}
+  stAll('Đã tải xong '+fs.length+' ảnh. Sửa tên món rồi bấm Lưu.')};
+$('#tr-rep').onchange=async e=>{const f=e.target.files[0];e.target.value='';if(!f||trRep<0)return;stAll('Đang tải ảnh…');
+  try{site.treats.items[trRep].img=await upload(await fitImage(f,600));drawTreats();stAll('Đã đổi ảnh, nhớ bấm Lưu.')}catch(err){stAll(err.message)}};
 $('#tr-test').onclick=()=>{const it=site.treats.items.filter(x=>(x.vi||x.fr||'').trim());
   if(!it.length){$('#tr-sample').innerHTML='<p class="hint">Chưa có món nào có tên để xem thử.</p>';return}
   const t=it[Math.floor(Math.random()*it.length)];
   $('#tr-sample').innerHTML='<div class="tsample">'+(t.img?'<img src="'+esc(U(t.img))+'" alt="">':'')+'<div><div>'+esc(trSentence(t,'vi'))+'</div><div class="hint" style="margin:4px 0 0">'+esc(trSentence(t,'fr'))+'</div></div></div>'};
-$('#tr-save').onclick=()=>{site.treats.items=site.treats.items.filter(x=>x.img||String(x.vi||'').trim()||String(x.fr||'').trim());drawTreats();saveSite('#trst')};
+const saveItems=st=>{site.treats.items=site.treats.items.filter(x=>x.img||String(x.vi||'').trim()||String(x.fr||'').trim());drawTreats();saveSite(st)};
+$('#tr-save').onclick=()=>saveItems('#trst');
+$('#mn-save').onclick=()=>saveItems('#mnst');
 
 /* random cards */
 const RN_POS=[['n','danh từ','nom'],['v','động từ','verbe'],['adj','tính từ','adjectif'],['adv','trạng từ','adverbe'],['prep','giới từ','préposition'],['conj','liên từ','conjonction'],['pron','đại từ','pronom'],['art','mạo từ','article'],['interj','thán từ','interjection'],['loc','cụm từ','locution'],['expr','thành ngữ','expression']];
@@ -536,7 +579,7 @@ $('#rn-bulkgo').onclick=()=>{const lines=$('#rn-bulk').value.split(/\r?\n/).map(
 $('#rn-save').onclick=()=>saveSite('#rnst');
 
 /* tabs */
-$$('.tabs .chip').forEach(c=>c.onclick=()=>{$$('.tabs .chip').forEach(x=>x.classList.toggle('on',x===c));['posts','quote','random','welcome','treats','letter','design','contact','about'].forEach(t=>$('#t-'+t).hidden=t!==c.dataset.t)});
+$$('.tabs .chip').forEach(c=>c.onclick=()=>{$$('.tabs .chip').forEach(x=>x.classList.toggle('on',x===c));['posts','quote','random','welcome','treats','menu','letter','design','contact','about'].forEach(t=>$('#t-'+t).hidden=t!==c.dataset.t);if(c.dataset.t==='treats'||c.dataset.t==='menu')drawTreats()});
 
 /* posts */
 const fmtd=d=>d||'';
