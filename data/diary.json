@@ -16,5 +16,19 @@
   "img": "media/1792749851009-Green_Yellow_Simple_Vintage__Cover_Diary_Book_A4_Document_.png",
   "bg": "media/1792749659933-b_a_th__trong.png"
  },
- "entries": []
+ "entries": [
+  {
+   "id": "dmvktcf1m",
+   "ts": 1792750440000,
+   "date": "2026-10-23",
+   "vi": "Hôm nay, cô chủ Cottage đã hoàn thành xong menu món ăn đón khách. Hân hạnh được phục vụ các khách quán!",
+   "fr": "Aujourd’hui, la maîtresse du Cottage vient de terminer la carte d’accueil. J’ai hâte de recevoir mes chers hôtes !",
+   "media": [
+    {
+     "t": "img",
+     "src": "media/1792750467322-Capture_d__cran_2026-10-23_171412.png"
+    }
+   ]
+  }
+ ]
 }
