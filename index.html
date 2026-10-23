@@ -487,6 +487,15 @@ html[lang="vi"] .menu .fl,html[lang="vi"] #dish .fl{font-family:inherit}
 .backbtn{background:transparent;color:var(--green);border:1px solid var(--green);border-radius:40px;font-size:15.5px;padding:11px 28px;letter-spacing:.02em}
 .backbtn:hover,.backbtn:focus-visible{background:var(--green);color:var(--bg)}
 #ttoast{position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 28px);transform:translateX(-50%);z-index:1200;max-width:min(92vw,440px);padding:12px 20px;border-radius:30px;background:var(--green);color:var(--bg);font-size:15px;text-align:center;box-shadow:0 10px 26px #0004;animation:rise .35s ease backwards}
+
+/* nút nổi "Về bài viết" ở lề trái (Gọi món, Nhật ký, Ngẫu nhiên) */
+#backfab{position:fixed;left:0;top:22%;z-index:31;display:inline-flex;align-items:center;gap:6px;padding:11px 16px 11px 10px;border:0;border-radius:0 30px 30px 0;background:var(--green);color:var(--bg);font-size:14px;font-weight:500;letter-spacing:.02em;line-height:1.2;box-shadow:0 6px 18px #0004;cursor:pointer;animation:bfin .45s cubic-bezier(.22,.61,.36,1) backwards}
+#backfab[hidden]{display:none}
+#backfab svg{width:18px;height:18px;flex:none}
+#backfab:hover,#backfab:focus-visible{padding-left:14px;outline:none;box-shadow:0 8px 22px #0006}
+@keyframes bfin{from{transform:translateX(-100%);opacity:0}to{transform:none;opacity:1}}
+@media (max-width:640px){#backfab{top:18%;padding:9px 13px 9px 8px;font-size:13px}}
+@media (prefers-reduced-motion:reduce){#backfab{animation:none}}
 </style>
 </head>
 <body>
@@ -610,7 +619,7 @@ const excerpt=b=>{const t=(b||'').replace(/\s+/g,' ').trim();return t.length>130
 function route(){const h=location.hash.slice(1);return h.startsWith('post=')?h.slice(5):null}
 const isWelcome=()=>{const h=location.hash.slice(1);return h===''||h==='welcome'};
 const pf=(p,f)=>{const a=p[f]||'',b=p[f+'_fr']||'';return lang==='fr'?(b||a):(a||b)};
-function applyLang(){try{paintComp()}catch(e){}document.documentElement.lang=lang;document.querySelectorAll('.gsw span').forEach(e=>e.classList.toggle('on',e.dataset.l===lang));$('#nv-home').textContent=T[lang].navp;$('#nv-welcome').textContent=T[lang].nvw;$('#nv-random').textContent=RN[lang].nav;$('#nv-menu').textContent=MN[lang].nav;$('#nv-diary').textContent=DY[lang].nav;$('#rdcard').setAttribute('aria-label',RN[lang].title);$('#rdtip').textContent=RN[lang].title;$('#nv-about').textContent=T[lang].nva;$('#tagline').textContent=T[lang].tl;paintThemeBtn()}
+function applyLang(){try{paintComp()}catch(e){}try{paintBack()}catch(e){}document.documentElement.lang=lang;document.querySelectorAll('.gsw span').forEach(e=>e.classList.toggle('on',e.dataset.l===lang));$('#nv-home').textContent=T[lang].navp;$('#nv-welcome').textContent=T[lang].nvw;$('#nv-random').textContent=RN[lang].nav;$('#nv-menu').textContent=MN[lang].nav;$('#nv-diary').textContent=DY[lang].nav;$('#rdcard').setAttribute('aria-label',RN[lang].title);$('#rdtip').textContent=RN[lang].title;$('#nv-about').textContent=T[lang].nva;$('#tagline').textContent=T[lang].tl;paintThemeBtn()}
 let swapId=0;
 function swap(fn){const v=$('#view'),id=++swapId;
   if(!v.animate||RM.matches||!v.firstElementChild){fn();return}
@@ -621,7 +630,7 @@ function swap(fn){const v=$('#view'),id=++swapId;
 function setLang(l){lang=l;tagF='';applyLang();swap(render)}
 function render(){
   const v=$('#view'),id=route(),L=T[lang];
-  $('#nv-about').classList.toggle('on',location.hash==='#about');$('#nv-welcome').classList.toggle('on',isWelcome());$('#nv-random').classList.toggle('on',location.hash==='#random');$('#nv-menu').classList.toggle('on',location.hash==='#menu');$('#nv-diary').classList.toggle('on',location.hash==='#diary');$('#nv-home').classList.toggle('on',!isWelcome()&&location.hash!=='#about'&&location.hash!=='#random'&&location.hash!=='#menu'&&location.hash!=='#diary');document.querySelectorAll('.topnav a').forEach(a=>{if(a.classList.contains('on'))a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});$('#rdcard').classList.toggle('show',loaded&&!denied&&!isWelcome()&&location.hash!=='#about'&&location.hash!=='#random'&&location.hash!=='#menu'&&location.hash!=='#diary');try{paintComp()}catch(e){}
+  $('#nv-about').classList.toggle('on',location.hash==='#about');$('#nv-welcome').classList.toggle('on',isWelcome());$('#nv-random').classList.toggle('on',location.hash==='#random');$('#nv-menu').classList.toggle('on',location.hash==='#menu');$('#nv-diary').classList.toggle('on',location.hash==='#diary');$('#nv-home').classList.toggle('on',!isWelcome()&&location.hash!=='#about'&&location.hash!=='#random'&&location.hash!=='#menu'&&location.hash!=='#diary');document.querySelectorAll('.topnav a').forEach(a=>{if(a.classList.contains('on'))a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});$('#rdcard').classList.toggle('show',loaded&&!denied&&!isWelcome()&&location.hash!=='#about'&&location.hash!=='#random'&&location.hash!=='#menu'&&location.hash!=='#diary');try{paintComp()}catch(e){}try{paintBack()}catch(e){}
   if(location.hash!=='#diary'){dyOpen=false;dyPage=0}
   if(!loaded){v.innerHTML='<div class="empty">'+L.loading+'</div>';return}
   if(denied){v.innerHTML='<div class="empty">Bạn cần đăng nhập Claude để xem blog này.</div>';return}
@@ -736,6 +745,12 @@ function renderRandom(){const v=$('#view'),L=RN[lang];dealCards(false);
   document.querySelectorAll('.cd').forEach(b=>b.onclick=()=>{const i=+b.dataset.i;if(drawnSet.has(i)){openCard(i);return}drawnSet.add(i);b.classList.add('drawn');setTimeout(()=>openCard(i),RM.matches?0:650)})}
 const BK={vi:'Quay trở lại trang bài viết',fr:'Retour aux articles'};
 const backRow=()=>'<div class="bkrow"><button type="button" class="backbtn" data-back>'+esc(BK[lang])+'</button></div>';
+const BKS={vi:'Về bài viết',fr:'Aux articles'};
+function paintBack(){let el=document.getElementById('backfab');const h=location.hash,on=loaded&&(h==='#menu'||h==='#diary'||h==='#random');
+  if(!on){if(el)el.hidden=true;return}
+  if(!el){el=document.createElement('button');el.type='button';el.id='backfab';el.onclick=()=>{location.hash='articles'};document.body.appendChild(el)}
+  el.hidden=false;el.setAttribute('aria-label',BK[lang]);
+  if(el.dataset.l!==lang){el.dataset.l=lang;el.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg><span>'+esc(BKS[lang])+'</span>'}}
 const bindBack=r=>r.querySelectorAll('[data-back]').forEach(b=>b.onclick=()=>{location.hash='articles'});
 const MN={vi:{nav:'Gọi món',title:'Thực đơn của Cottage',intro:'Mời bạn xem qua những món cô chủ cottage đã chuẩn bị.',cats:{starter:'Khai vị',main:'Món chính',dessert:'Tráng miệng'},empty:'Thực đơn đang được cô chủ chuẩn bị. Mời bạn quay lại sau nhé.',hint:'Bấm vào từng ô cửa sổ để nghe câu chuyện của món.',story:'Câu chuyện đằng sau món',nostory:'Cô chủ cottage đang viết thêm câu chuyện cho món này. Mời bạn quay lại sau nhé.',close:'Đóng',swap:'Đổi món này',swapped:'Món này đang đi cùng bạn ✓',done:'Đã đổi món. Món này sẽ đi cùng bạn ở trang Bài viết.'},
  fr:{nav:'À la carte',title:'À la carte',intro:'Découvrez les douceurs préparées par la maîtresse du cottage.',cats:{starter:'Entrées',main:'Plats',dessert:'Desserts'},empty:'La maîtresse du cottage prépare encore la carte. Revenez bientôt !',hint:'Touchez une vitrine pour découvrir l’histoire du plat.',story:'L’histoire derrière le plat',nostory:'La maîtresse du cottage écrit encore l’histoire de ce plat. Revenez bientôt !',close:'Fermer',swap:'Choisir ce plat',swapped:'Ce plat vous accompagne ✓',done:'Plat changé. Il vous accompagnera dans la page Articles.'}};
