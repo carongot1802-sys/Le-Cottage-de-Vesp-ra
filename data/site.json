@@ -892,9 +892,334 @@
   "intro": {}
  },
  "cards": {
-  "words": [],
-  "back": "",
-  "front": "",
+  "words": [
+   {
+    "id": "wmvktx3choi4h",
+    "fr": "l’épouvante",
+    "gender": "f",
+    "pos": "n",
+    "vi": "nỗi kinh hoàng",
+    "ex": "Le film plonge les spectateurs dans l’épouvante.",
+    "exvi": "Bộ phim đẩy khán giả vào nỗi kinh hoàng."
+   },
+   {
+    "id": "wmvktx3chug0v",
+    "fr": "un présage",
+    "gender": "m",
+    "pos": "n",
+    "vi": "điềm báo",
+    "ex": "Le corbeau était considéré comme un présage funeste.",
+    "exvi": "Con quạ được xem là một điềm báo chẳng lành."
+   },
+   {
+    "id": "wmvktx3chn5yg",
+    "fr": "lugubre",
+    "gender": "",
+    "pos": "adj",
+    "vi": "u ám, tang tóc",
+    "ex": "Une mélodie lugubre résonnait dans le manoir.",
+    "exvi": "Một giai điệu u ám vang lên trong dinh thự."
+   },
+   {
+    "id": "wmvktx3cht4zu",
+    "fr": "hanter",
+    "gender": "",
+    "pos": "v",
+    "vi": "ám ảnh, ám theo",
+    "ex": "On raconte que le fantôme hante cette demeure.",
+    "exvi": "Người ta kể rằng hồn ma ám ngôi nhà này."
+   },
+   {
+    "id": "wmvktx3chje2n",
+    "fr": "une apparition",
+    "gender": "f",
+    "pos": "n",
+    "vi": "sự hiện hình",
+    "ex": "Une apparition étrange surgit au fond du couloir.",
+    "exvi": "Một bóng hình kỳ lạ xuất hiện ở cuối hành lang."
+   },
+   {
+    "id": "wmvktx3chwc1p",
+    "fr": "macabre",
+    "gender": "",
+    "pos": "adj",
+    "vi": "rùng rợn, ghê rợn",
+    "ex": "Ils découvrirent une mise en scène macabre dans la cave.",
+    "exvi": "Họ phát hiện một cảnh tượng ghê rợn trong hầm."
+   },
+   {
+    "id": "wmvktx3ch49w8",
+    "fr": "un revenant",
+    "gender": "m",
+    "pos": "n",
+    "vi": "hồn ma người chết trở về",
+    "ex": "Dans la légende, le revenant revient réclamer justice.",
+    "exvi": "Trong truyền thuyết, hồn ma trở về để đòi công lý."
+   },
+   {
+    "id": "wmvktx3chieg7",
+    "fr": "frissonner",
+    "gender": "",
+    "pos": "v",
+    "vi": "run rẩy, rùng mình",
+    "ex": "Elle frissonna en entendant des pas derrière elle.",
+    "exvi": "Cô rùng mình khi nghe tiếng bước chân phía sau."
+   },
+   {
+    "id": "wmvktx3chuuye",
+    "fr": "sinistre",
+    "gender": "",
+    "pos": "adj",
+    "vi": "đáng sợ, u ám",
+    "ex": "Une silhouette sinistre se dessinait dans le brouillard.",
+    "exvi": "Một bóng người đáng sợ hiện lên trong màn sương."
+   },
+   {
+    "id": "wmvktx3chj4hi",
+    "fr": "un sortilège",
+    "gender": "m",
+    "pos": "n",
+    "vi": "bùa phép",
+    "ex": "La sorcière lança un sortilège contre ses ennemis.",
+    "exvi": "Phù thủy tung bùa phép lên kẻ thù."
+   },
+   {
+    "id": "wmvktx3chwwsl",
+    "fr": "ensorceler",
+    "gender": "",
+    "pos": "v",
+    "vi": "mê hoặc, bỏ bùa",
+    "ex": "Selon la légende, la forêt pouvait ensorceler les voyageurs.",
+    "exvi": "Theo truyền thuyết, khu rừng có thể bỏ bùa những lữ khách."
+   },
+   {
+    "id": "wmvktx3chodr8",
+    "fr": "une malédiction",
+    "gender": "f",
+    "pos": "n",
+    "vi": "lời nguyền",
+    "ex": "Une ancienne malédiction pèserait sur le château.",
+    "exvi": "Một lời nguyền cổ xưa được cho là đè nặng lên tòa lâu đài."
+   },
+   {
+    "id": "wmvktx3ch3oqw",
+    "fr": "funeste",
+    "gender": "",
+    "pos": "adj",
+    "vi": "tai họa, chẳng lành",
+    "ex": "Leur expédition connut une issue funeste.",
+    "exvi": "Chuyến thám hiểm của họ kết thúc trong tai họa."
+   },
+   {
+    "id": "wmvktx3ch6big",
+    "fr": "surnaturel",
+    "gender": "",
+    "pos": "adj",
+    "vi": "siêu nhiên",
+    "ex": "Les témoins affirmaient avoir assisté à un phénomène surnaturel.",
+    "exvi": "Các nhân chứng khẳng định đã chứng kiến một hiện tượng siêu nhiên."
+   },
+   {
+    "id": "wmvktx3chkkw4",
+    "fr": "une sépulture",
+    "gender": "f",
+    "pos": "n",
+    "vi": "mộ phần, nơi an táng",
+    "ex": "La sépulture fut découverte sous les ruines.",
+    "exvi": "Ngôi mộ được phát hiện bên dưới đống tàn tích."
+   },
+   {
+    "id": "wmvktx3chn1o8",
+    "fr": "un présumé coupable",
+    "gender": "m",
+    "pos": "n",
+    "vi": "người bị tình nghi là thủ phạm",
+    "ex": "Le présumé coupable aurait disparu avant minuit.",
+    "exvi": "Người bị tình nghi là thủ phạm được cho là đã biến mất trước nửa đêm."
+   },
+   {
+    "id": "wmvktx3chuda8",
+    "fr": "se tapir",
+    "gender": "",
+    "pos": "",
+    "vi": "ẩn mình, nấp kín",
+    "ex": "Une créature semblait se tapir dans les buissons.",
+    "exvi": "Một sinh vật dường như đang ẩn mình trong bụi cây."
+   },
+   {
+    "id": "wmvktx3cheyan",
+    "fr": "épouvantable",
+    "gender": "",
+    "pos": "adj",
+    "vi": "kinh khủng, khủng khiếp",
+    "ex": "Un cri épouvantable déchira le silence.",
+    "exvi": "Một tiếng hét kinh hoàng xé toạc màn im lặng."
+   },
+   {
+    "id": "wmvktx3chle88",
+    "fr": "un hurlement",
+    "gender": "m",
+    "pos": "n",
+    "vi": "tiếng tru, tiếng thét",
+    "ex": "Un hurlement lugubre retentit dans la nuit.",
+    "exvi": "Một tiếng tru ai oán vang lên trong đêm."
+   },
+   {
+    "id": "wmvktx3chi4hq",
+    "fr": "une hantise",
+    "gender": "f",
+    "pos": "n",
+    "vi": "nỗi ám ảnh dai dẳng",
+    "ex": "La peur du noir était devenue une véritable hantise.",
+    "exvi": "Nỗi sợ bóng tối đã trở thành một nỗi ám ảnh thực sự."
+   },
+   {
+    "id": "wmvktx3chr5vt",
+    "fr": "décrép it",
+    "gender": "",
+    "pos": "adj",
+    "vi": "xuống cấp, mục nát",
+    "ex": "Ils pénétrèrent dans une demeure décrépite.",
+    "exvi": "Họ bước vào một ngôi nhà xuống cấp."
+   },
+   {
+    "id": "wmvktx3chzkzf",
+    "fr": "un présage funeste",
+    "gender": "m",
+    "pos": "n",
+    "vi": "điềm báo tai họa",
+    "ex": "L’éclipse fut interprétée comme un présage funeste.",
+    "exvi": "Nhật thực được diễn giải như một điềm báo tai họa."
+   },
+   {
+    "id": "wmvktx3chamd3",
+    "fr": "une incantation",
+    "gender": "f",
+    "pos": "n",
+    "vi": "câu thần chú",
+    "ex": "La vieille femme murmura une incantation incompréhensible.",
+    "exvi": "Bà lão thì thầm một câu thần chú khó hiểu."
+   },
+   {
+    "id": "wmvktx3chievj",
+    "fr": "prof an er",
+    "gender": "",
+    "pos": "v",
+    "vi": "xúc phạm, làm ô uế nơi thiêng",
+    "ex": "Des inconnus auraient profané l’ancien cimetière.",
+    "exvi": "Những người lạ được cho là đã làm ô uế nghĩa trang cổ."
+   },
+   {
+    "id": "wmvktx3chzerm",
+    "fr": "une créature difforme",
+    "gender": "f",
+    "pos": "n",
+    "vi": "sinh vật dị dạng",
+    "ex": "Une créature difforme apparut dans l’embrasure de la porte.",
+    "exvi": "Một sinh vật dị dạng xuất hiện ở khung cửa."
+   },
+   {
+    "id": "wmvktx3chwv1r",
+    "fr": "funèbre",
+    "gender": "",
+    "pos": "adj",
+    "vi": "tang tóc, thuộc về tang lễ",
+    "ex": "Une procession funèbre traversait le village.",
+    "exvi": "Một đoàn rước tang đi qua ngôi làng."
+   },
+   {
+    "id": "wmvktx3chmpeo",
+    "fr": "un cauchemar éveillé",
+    "gender": "m",
+    "pos": "n",
+    "vi": "cơn ác mộng giữa lúc tỉnh",
+    "ex": "Cette nuit-là, il eut l’impression de vivre un cauchemar éveillé.",
+    "exvi": "Đêm ấy, anh có cảm giác mình đang trải qua một cơn ác mộng khi tỉnh."
+   },
+   {
+    "id": "wmvktx3chmnhw",
+    "fr": "se volatiliser",
+    "gender": "",
+    "pos": "",
+    "vi": "biến mất không dấu vết",
+    "ex": "Le mystérieux visiteur se volatilisa avant l’aube.",
+    "exvi": "Vị khách bí ẩn biến mất không dấu vết trước bình minh."
+   },
+   {
+    "id": "wmvktx3chisqp",
+    "fr": "une crypte",
+    "gender": "f",
+    "pos": "n",
+    "vi": "hầm mộ",
+    "ex": "Une crypte oubliée s’étendait sous la chapelle.",
+    "exvi": "Một hầm mộ bị lãng quên nằm bên dưới nhà nguyện."
+   },
+   {
+    "id": "wmvktx3chin27",
+    "fr": "sinistrement",
+    "gender": "",
+    "pos": "adv",
+    "vi": "một cách rùng rợn, u ám",
+    "ex": "La porte grinça sinistrement dans l’obscurité.",
+    "exvi": "Cánh cửa kêu cót két đầy rùng rợn trong bóng tối."
+   },
+   {
+    "id": "wmvktx3chtq6s",
+    "fr": "une prémonition",
+    "gender": "f",
+    "pos": "n",
+    "vi": "linh cảm về điều sắp xảy ra",
+    "ex": "Elle eut la prémonition qu’un malheur allait survenir.",
+    "exvi": "Cô có linh cảm rằng một tai họa sắp xảy ra."
+   },
+   {
+    "id": "wmvktx3ch4nr8",
+    "fr": "déambuler",
+    "gender": "",
+    "pos": "v",
+    "vi": "đi lang thang",
+    "ex": "Des silhouettes masquées déambulaient dans les ruelles.",
+    "exvi": "Những bóng người đeo mặt nạ đi lang thang trong các con ngõ."
+   },
+   {
+    "id": "wmvktx3chau3s",
+    "fr": "une ombre fugitive",
+    "gender": "f",
+    "pos": "n",
+    "vi": "bóng đen thoáng qua",
+    "ex": "Il crut apercevoir une ombre fugitive derrière le rideau.",
+    "exvi": "Anh tưởng mình thoáng thấy một bóng đen phía sau rèm."
+   },
+   {
+    "id": "wmvktx3chb8qs",
+    "fr": "ténébreux",
+    "gender": "",
+    "pos": "adj",
+    "vi": "tối tăm, u ám, bí hiểm",
+    "ex": "Le personnage ténébreux semblait dissimuler un lourd secret.",
+    "exvi": "Nhân vật bí hiểm dường như đang che giấu một bí mật lớn."
+   },
+   {
+    "id": "wmvktx3chqjtl",
+    "fr": "se décomposer",
+    "gender": "",
+    "pos": "",
+    "vi": "phân hủy",
+    "ex": "Les feuilles mortes se décomposaient sur les pierres tombales.",
+    "exvi": "Những chiếc lá chết phân hủy trên các phiến đá mộ."
+   },
+   {
+    "id": "wmvktx3ch4qg9",
+    "fr": "un pacte avec le diable",
+    "gender": "m",
+    "pos": "n",
+    "vi": "giao kèo với quỷ dữ",
+    "ex": "La légende raconte qu’il aurait conclu un pacte avec le diable.",
+    "exvi": "Truyền thuyết kể rằng ông đã giao kèo với quỷ dữ."
+   }
+  ],
+  "back": "media/1792751207866-Navy_Blue_and_Gold_Illustrated_Moon_Instagram_Post.png",
+  "front": "media/1792751320164-Black_And_Beige_Illustrative_Tarot_Card_Reading_Instagram_Post.png",
   "ftx": "",
   "fpanel": false,
   "intro": {}
