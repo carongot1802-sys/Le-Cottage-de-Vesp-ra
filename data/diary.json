@@ -1,0 +1,20 @@
+{
+ "title": {},
+ "sub": {},
+ "cover": {
+  "show": true,
+  "tf": "cormorant",
+  "sf": "montserrat",
+  "color": "#f2c590",
+  "tsz": 11,
+  "ssz": 3.6,
+  "x": 50,
+  "y": 40,
+  "w": 70,
+  "align": "center",
+  "shadow": true,
+  "img": "media/1792749644937-b_a_nh_t_k_.png",
+  "bg": "media/1792749659933-b_a_th__trong.png"
+ },
+ "entries": []
+}
