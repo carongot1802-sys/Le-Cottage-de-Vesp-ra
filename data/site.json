@@ -217,518 +217,666 @@
     "img": "media/1792685013713-Beige_Orange_Retro_Illustrated_Happy_Halloween_Instagram_Post.png",
     "vi": "đĩa khoai tây chiên với phô mai tươi",
     "fr": "une assiette de poutine",
-    "cat": "main"
+    "cat": "main",
+    "storyVi": "Ở Québec, nguồn gốc poutine vẫn là chủ đề tranh luận. Năm 1957, một vị khách yêu cầu trộn phô mai tươi vào khoai tây chiên tại Warwick; một câu chuyện khác lại gắn nó với nhà hàng Le Roy Jucep ở Drummondville. Hai địa phương đều có lý do để nhận công, khiến món khoai tây phủ phô mai và sốt nâu có một lịch sử thú vị không kém hương vị.",
+    "storyFr": "Au Québec, l’origine de la poutine fait encore débat. Selon une version, le plat serait apparu à Warwick en 1957, lorsqu’un client aurait demandé de mélanger du fromage en grains avec des frites. Une autre version attribue son invention au restaurant Le Roy Jucep, à Drummondville. Ces deux récits font de la poutine, composée de frites, de fromage en grains et de sauce brune, un plat à l’histoire aussi savoureuse que son goût."
    },
    {
     "id": "tmvjq4byr0",
     "img": "media/1792684588112-4.png",
     "vi": "bát súp bí đỏ",
     "fr": "un bol de soupe de potiron",
-    "cat": "starter"
+    "cat": "starter",
+    "storyVi": "Trong tiếng Pháp, courge là tên gọi chung cho nhiều loại bí, còn potiron, citrouille và potimarron chỉ những loại bí khác nhau. Potiron thường có quả lớn, thịt màu vàng cam; citrouille thường tròn, màu cam sáng và gắn liền với hình ảnh Halloween; còn potimarron nhỏ hơn, có hình dáng giống quả lê và vị bùi gợi nhớ đến hạt dẻ. Vì vậy, dù đều có thể dùng để chế biến súp, những loại bí này không hoàn toàn giống nhau!",
+    "storyFr": "En français, le mot courge désigne une grande famille de légumes, tandis que potiron, citrouille et potimarron désignent différentes variétés. Le potiron est généralement gros, avec une chair jaune orangé ; la citrouille est souvent ronde, d’un orange vif, et associée à Halloween ; le potimarron, plus petit et en forme de poire, possède une saveur qui rappelle celle de la châtaigne. Bien qu’ils puissent tous être utilisés pour préparer une soupe, ces légumes présentent des différences de forme et de goût !"
    },
    {
     "id": "tmvjq4etv1",
     "img": "media/1792684592083-5.png",
     "vi": "bánh mì hoa cúc",
     "fr": "une brioche",
-    "cat": "starter"
+    "cat": "starter",
+    "storyVi": "Bạn có biết câu nói nổi tiếng “Qu’ils mangent de la brioche” thường được dịch là “Hãy để họ ăn bánh ngọt” và gắn với hoàng hậu Marie-Antoinette? Dù rằng các nhà sử học không tìm thấy bằng chứng bà từng nói câu đó, nhưng câu chuyện đã xuất hiện trước khi bà trở thành hoàng hậu, rồi dần biến thành biểu tượng cho hình ảnh tầng lớp quý tộc xa rời dân chúng.",
+    "storyFr": "Connaissez-vous la phrase « Qu’ils mangent de la brioche », souvent attribuée à Marie-Antoinette ? Pourtant, les historiens n’ont trouvé aucune preuve qu’elle ait réellement prononcé ces mots. Cette formule circulait déjà avant qu’elle ne devienne reine de France. Au fil du temps, elle est devenue un symbole de l’image d’une aristocratie déconnectée des difficultés du peuple."
    },
    {
     "id": "tmvjq4hkc2",
     "img": "media/1792684595789-6.png",
     "vi": "quả táo bọc đường caramel",
     "fr": "une pomme d’amour",
-    "cat": "dessert"
+    "cat": "dessert",
+    "storyVi": "Trong tiếng Pháp, pomme d’amour có nghĩa đen là “quả táo tình yêu”. Thế nhưng, món này thực chất lại là một quả táo được phủ lớp đường caramel đỏ óng. Có nhiều cách giải thích về tên gọi của nó, thường gắn với màu đỏ quyến rũ và hình ảnh lãng mạn của tình yêu. Tuy nhiên, nguồn gốc chính xác của tên gọi vẫn chưa được xác nhận chắc chắn. Một cái tên ngọt ngào, khiến món táo caramel trở thành biểu tượng quen thuộc của những hội chợ và lễ hội ở Pháp!",
+    "storyFr": "En français, pomme d’amour signifie littéralement « pomme de l’amour ». Pourtant, cette friandise est en réalité une pomme enrobée d’une couche de sucre rouge brillant. Plusieurs explications associent son nom à sa couleur séduisante et à l’imaginaire romantique de l’amour, même si son origine exacte reste incertaine. Avec son nom poétique et sa couleur éclatante, elle est devenue une gourmandise emblématique des fêtes foraines en France !"
    },
    {
     "id": "tmvjq4kds3",
     "img": "media/1792684599320-7.png",
     "vi": "bánh táo",
     "fr": "un gâteau aux pommes",
-    "cat": "dessert"
+    "cat": "dessert",
+    "storyVi": "Ở Normandy, vùng đất nổi tiếng với những vườn táo, táo không chỉ được dùng để làm bánh mà còn để sản xuất rượu cidre và calvados. Nhờ khí hậu phù hợp với việc trồng táo, loại quả này đã trở thành một phần quan trọng trong văn hóa ẩm thực địa phương. Vì vậy, những chiếc bánh táo giản dị cũng gợi nhắc đến truyền thống vườn cây và ẩm thực gia đình của vùng Normandy.",
+    "storyFr": "En Normandie, région célèbre pour ses vergers, la pomme ne sert pas seulement à préparer des gâteaux : elle est également utilisée pour produire du cidre et du calvados. Grâce à un climat favorable à la culture des pommiers, ce fruit occupe une place importante dans la gastronomie locale. Ainsi, un simple gâteau aux pommes évoque aussi les traditions des vergers et de la cuisine familiale normande."
    },
    {
     "id": "tmvjq4moy4",
     "img": "media/1792684602988-8.png",
     "vi": "bánh crêpe chocolate",
     "fr": "une crêpe au chocolat",
-    "cat": "dessert"
+    "cat": "dessert",
+    "storyVi": "Crêpe gắn liền với Bretagne, vùng phía tây bắc nước Pháp. Tại Pháp, ngày Chandeleur 2/2 là dịp truyền thống để làm crêpe; phong tục dân gian còn gắn việc tung bánh bằng chảo với may mắn.",
+    "storyFr": "La crêpe est étroitement liée à la Bretagne. En France, la Chandeleur, célébrée le 2 février, est traditionnellement l’occasion de préparer des crêpes ; selon une croyance populaire, les faire sauter dans la poêle porterait bonheur."
    },
    {
     "id": "tmvjq4one5",
     "img": "media/1792684605949-9.png",
     "vi": "gói hạt dẻ nướng",
     "fr": "un paquet de châtaignes grillées",
-    "cat": "starter"
+    "cat": "starter",
+    "storyVi": "Trước khi khoai tây phổ biến ở châu Âu, hạt dẻ từng đóng vai trò quan trọng trong chế độ ăn của cư dân ở những vùng núi, nơi việc trồng lúa mì gặp nhiều khó khăn. Hạt dẻ có thể được sấy khô, nghiền thành bột để làm bánh mì hoặc nấu thành nhiều món ăn khác nhau. Vì vậy, loại hạt ngày nay thường gắn với món ăn vặt mùa đông này từng là nguồn lương thực thiết yếu của nhiều cộng đồng châu Âu.",
+    "storyFr": "Avant la diffusion de la pomme de terre en Europe, la châtaigne jouait un rôle important dans l’alimentation des habitants de certaines régions montagneuses, où la culture du blé était difficile. Elle pouvait être séchée, moulue pour produire de la farine ou utilisée dans différentes préparations. Ainsi, ce fruit aujourd’hui associé aux plaisirs de l’hiver a autrefois constitué une ressource alimentaire essentielle pour de nombreuses communautés européennes."
    },
    {
     "id": "tmvjq4rgm6",
     "img": "media/1792684608527-10.png",
     "vi": "cốc chocolate nóng",
     "fr": "une tasse de chocolat chaud",
-    "cat": "dessert"
+    "cat": "dessert",
+    "storyVi": "Khi cacao từ châu Mỹ du nhập vào châu Âu trong thế kỷ XVI, chocolate ban đầu là thức uống đắt đỏ, chủ yếu dành cho giới thượng lưu. Người châu Âu dần điều chỉnh công thức bằng cách thêm đường và gia vị như quế để làm dịu vị đắng của cacao. Đến thế kỷ XVII, chocolate nóng đã chinh phục triều đình Pháp; tại Versailles, thức uống này trở thành một phần của đời sống cung đình và những buổi gặp gỡ xã hội. Phải mất nhiều thế kỷ, chocolate mới dần trở nên phổ biến với đông đảo công chúng.",
+    "storyFr": "Lorsque le cacao arrive des Amériques en Europe au XVIe siècle, le chocolat est une boisson coûteuse, réservée principalement aux élites. Les Européens adaptent progressivement sa préparation en ajoutant du sucre et des épices comme la cannelle pour adoucir l’amertume du cacao. Au XVIIe siècle, le chocolat chaud séduit la cour de France. À Versailles, il devient un élément de la vie de cour et des rencontres mondaines. Il faudra encore plusieurs siècles pour que le chocolat se démocratise et devienne accessible au grand public."
    },
    {
     "id": "tmvjq4uah7",
     "img": "media/1792684612143-11.png",
     "vi": "cốc nước táo nóng với quế",
     "fr": "une tasse de jus de pomme chaud à la cannelle",
-    "cat": "starter"
+    "cat": "starter",
+    "storyVi": "Bạn có biết ở Anh từng tồn tại một truyền thống chúc phúc cho những vườn táo không? Được gọi là wassailing, nghi lễ này gắn với việc nâng chén chúc cây táo khỏe mạnh và cho mùa màng bội thu, bởi những quả táo ấy sẽ được dùng để làm rượu cidre. Tục lệ được ghi nhận ít nhất từ thế kỷ XVII. Ngày nay, nước táo nóng với quế có thể gợi nhắc đến truyền thống lâu đời của văn hóa táo châu Âu, dù không có bằng chứng cho thấy chính thức uống này bắt nguồn từ nghi lễ ấy.",
+    "storyFr": "Saviez-vous qu’en Angleterre, il existait une tradition consistant à bénir les vergers de pommiers ? Appelée wassailing, cette coutume consistait notamment à porter un toast à la santé des pommiers et à l’abondance de la récolte, dont les fruits serviraient à produire du cidre. Cette tradition est attestée au moins depuis le XVIIe siècle. Aujourd’hui, le jus de pomme chaud à la cannelle peut évoquer cet ancien héritage lié à la culture de la pomme en Europe, même si rien ne prouve que cette boisson soit directement issue de ce rituel."
    },
    {
     "id": "tmvjq4woq8",
     "img": "media/1792684615826-12.png",
     "vi": "bánh mì baguette",
     "fr": "des baguettes",
-    "cat": "starter"
+    "cat": "starter",
+    "storyVi": "Dù đã trở thành biểu tượng của nước Pháp, nguồn gốc chính xác của chiếc baguette dài và mảnh vẫn chưa được xác định hoàn toàn. Những loại bánh mì dài đã xuất hiện từ thế kỷ XVII, nhưng baguette chỉ trở nên phổ biến rộng rãi trong đời sống Pháp vào thế kỷ XX. Điều đặc biệt là baguette truyền thống chỉ gồm bốn nguyên liệu cơ bản: bột mì, nước, muối và men hoặc bột chua; chính kỹ thuật nhào bột, lên men, tạo hình và nướng đã tạo nên lớp vỏ giòn cùng phần ruột dai đặc trưng. Ngày 30 tháng 11 năm 2022, UNESCO ghi danh nghệ thuật làm bánh và văn hóa baguette vào Danh sách Di sản văn hóa phi vật thể của nhân loại.",
+    "storyFr": "Bien qu’elle soit devenue un symbole de la France, l’origine exacte de la baguette, avec sa forme longue et fine, n’est pas entièrement établie. Des pains longs existaient déjà au XVIIe siècle, mais la baguette s’est largement répandue dans la vie quotidienne française au XXe siècle. Fait remarquable, la baguette traditionnelle ne nécessite que quatre ingrédients de base : farine de blé, eau, sel et levure et/ou levain. Ce sont surtout les gestes du boulanger - pétrissage, fermentation, façonnage et cuisson - qui lui donnent sa croûte croustillante et sa mie moelleuse. Le 30 novembre 2022, l’UNESCO a inscrit les savoir-faire artisanaux et la culture de la baguette de pain sur la Liste représentative du patrimoine culturel immatériel de l’humanité"
    },
    {
     "id": "tmvjq4zcf9",
     "img": "media/1792684618917-13.png",
     "vi": "bánh sừng bò",
     "fr": "un croissant",
-    "cat": "starter"
+    "cat": "starter",
+    "storyFr": "Bien qu’il soit aujourd’hui un symbole du petit-déjeuner français, le croissant serait apparenté au kipferl autrichien, une pâtisserie en forme de croissant de lune. Une légende raconte que cette forme aurait célébré une victoire contre les Ottomans à Vienne, mais cette histoire manque de preuves historiques solides. Les traces les plus concrètes de son arrivée en France sont liées à l’ouverture d’une boulangerie viennoise à Paris en 1838-1839. En outre, le croissant français et le cornetto italien sont souvent confondus en raison de leur forme similaire. Pourtant, le croissant est généralement plus feuilleté et beurré, tandis que le cornetto est plus moelleux et souvent plus sucré, parfois fourré à la crème ou à la confiture. Deux viennoiseries qui se ressemblent, mais qui reflètent chacune une tradition du petit-déjeuner différente !",
+    "storyVi": "Dù là biểu tượng của bữa sáng Pháp, croissant có họ hàng với bánh kipferl hình lưỡi liềm của Áo. Truyền thuyết cho rằng hình dáng này ăn mừng chiến thắng trước quân Ottoman tại Vienna, nhưng các nhà nghiên cứu xem câu chuyện ấy là thiếu bằng chứng. Dấu vết lịch sử rõ hơn gắn với một tiệm bánh Vienna mở ở Paris vào năm 1838-1839. Ngoài ra, bánh croissant của Pháp và cornetto của Ý thường dễ bị nhầm lẫn vì có hình dáng tương tự nhau. Tuy nhiên, croissant thường có nhiều lớp bánh giòn, vị bơ đậm đà, trong khi cornetto mềm hơn, ngọt hơn và đôi khi có nhân kem hoặc mứt. Hai loại bánh trông giống nhau nhưng lại mang nét đặc trưng riêng của văn hóa ăn sáng mỗi nước!"
    },
    {
     "id": "tmvjq527s10",
     "img": "media/1792684622392-14.png",
     "vi": "bánh mì chocolate",
     "fr": "un pain au chocolat",
-    "cat": "dessert"
+    "cat": "dessert",
+    "storyVi": "Tên gọi pain au chocolat được dùng phổ biến ở nhiều vùng, trong khi một số vùng miền Nam nước Pháp gọi món này là chocolatine. Cùng một chiếc bánh, hai cách gọi có thể khơi lên cuộc tranh luận vui vẻ giữa người Pháp.",
+    "storyFr": "Le pain au chocolat est aussi appelé chocolatine dans certaines régions du sud-ouest de la France. Une même viennoiserie peut ainsi déclencher des débats amusants sur son nom."
    },
    {
     "id": "tmvjq54ia11",
     "img": "media/1792684626086-15.png",
     "vi": "bánh mặn Lorraine",
     "fr": "une quiche lorraine",
-    "cat": "starter"
+    "cat": "starter",
+    "storyVi": "Trước khi trở thành món bánh nổi tiếng của ẩm thực Pháp, quiche Lorraine vốn là món ăn giản dị ở vùng Lorraine. Vào những ngày nướng bánh mì, người dân tận dụng phần bột bánh còn dư, cán mỏng rồi phủ lên trên hỗn hợp trứng và kem tươi, được gọi là migaine trong phương ngữ địa phương. Tên gọi quiche có liên hệ với từ Kuchen trong tiếng Đức, nghĩa là “bánh”, phản ánh di sản ngôn ngữ của vùng đất nằm gần biên giới Đức. Công thức dần thay đổi qua nhiều thế kỷ: thịt xông khói được bổ sung về sau, còn phô mai trong nhiều phiên bản hiện đại không thuộc công thức Lorraine truyền thống. Từ một cách tận dụng nguyên liệu sẵn có trong đời sống nông thôn, quiche Lorraine đã trở thành biểu tượng ẩm thực của cả một vùng.",
+    "storyFr": "Avant de devenir une spécialité célèbre de la gastronomie française, la quiche lorraine était un plat simple des campagnes de Lorraine. Les jours de cuisson du pain, les habitants réutilisaient les restes de pâte, les étalaient finement et les garnissaient d’un mélange d’œufs et de crème fraîche, appelé migaine dans le parler local. Le mot quiche est apparenté à l’allemand Kuchen, qui signifie « gâteau », témoignant de l’héritage linguistique de cette région proche de la frontière allemande. La recette a évolué au fil des siècles : le lard fumé a été ajouté plus tard, tandis que le fromage, présent dans de nombreuses versions modernes, ne fait pas partie de la recette traditionnelle lorraine. D’une manière ingénieuse d’utiliser les ingrédients disponibles à la campagne, la quiche lorraine est devenue un emblème culinaire de toute une région."
    },
    {
     "id": "tmvjq57iq12",
     "img": "media/1792684629089-16.png",
     "vi": "đĩa ốc sên kiểu Bourgogne",
     "fr": "une assiette d’escargots de bourgogne",
-    "cat": "starter"
+    "cat": "starter",
+    "storyVi": "Ít ai ngờ rằng món ốc sên nổi tiếng của Pháp từng được gắn với một bữa tiệc ngoại giao năm 1814. Theo một giai thoại ẩm thực, nhà ngoại giao Talleyrand đã nhờ đầu bếp Antonin Carême chuẩn bị món ốc sên để chiêu đãi Sa hoàng Nga Alexandre I, góp phần đưa món ăn này trở thành đặc sản được giới thượng lưu yêu thích. Nhưng câu chuyện thú vị chưa dừng lại ở đó: ngày nay, dù ốc sên là biểu tượng của ẩm thực Pháp, hơn 90% lượng tiêu thụ tại nước này lại đến từ ốc được thu gom ở nước ngoài. Thậm chí, escargot de Bourgogne không nhất thiết có nguồn gốc từ Burgundy!",
+    "storyFr": "Peu de gens savent que la popularité des escargots en France est associée à une anecdote diplomatique datant de 1814. Selon un récit culinaire, le diplomate Talleyrand aurait demandé au chef Antonin Carême de préparer des escargots pour un dîner en l’honneur du tsar Alexandre Ier, contribuant ainsi à faire connaître ce mets auprès de l’élite. Mais l’histoire réserve une autre surprise : aujourd’hui, bien que l’escargot soit un emblème de la gastronomie française, plus de 90 % des escargots consommés en France sont ramassés à l’étranger. Et contrairement à ce que son nom suggère, l’escargot de Bourgogne ne provient pas nécessairement de Bourgogne !"
    },
    {
     "id": "tmvjq5a6s13",
     "img": "media/1792684632983-17.png",
     "vi": "bát bò hầm rượu vang ",
     "fr": "un bol de bœuf bourguignon",
-    "cat": "main"
+    "cat": "main",
+    "storyVi": "Bœuf bourguignon và bò sốt vang Việt Nam có điểm chung là thịt bò được hầm chậm trong nước sốt đậm đà, nhưng mỗi món lại mang dấu ấn văn hóa riêng. Ở vùng Bourgogne của Pháp, thịt bò được hầm cùng rượu vang đỏ, thường kết hợp với thịt xông khói, nấm và hành củ. Điều thú vị là tên gọi bœuf bourguignon chỉ thực sự xuất hiện trong tư liệu ẩm thực vào thế kỷ XIX, còn món ăn chỉ dần được công nhận rộng rãi như một đặc sản vùng Bourgogne trong thế kỷ XX. Tại Việt Nam, bò sốt vang thường được ăn cùng bánh mì hoặc phở, với cách nêm nếm được điều chỉnh theo khẩu vị địa phương. Hai món ăn gợi mở cách một ý tưởng ẩm thực có thể vượt qua biên giới và phát triển thành những phiên bản mang bản sắc riêng.",
+    "storyFr": "Le bœuf bourguignon et le bò sốt vang vietnamien ont un point commun : le bœuf mijote lentement dans une sauce riche en saveurs. Pourtant, chaque plat reflète une culture culinaire différente. En Bourgogne, le bœuf est braisé au vin rouge, souvent accompagné de lardons, de champignons et de petits oignons. Fait intéressant, le nom bœuf bourguignon n’apparaît dans les sources culinaires qu’au XIXe siècle, et le plat n’est devenu une spécialité régionale largement reconnue qu’au XXe siècle. Au Vietnam, le bò sốt vang se déguste souvent avec du pain ou des nouilles de riz, dans une version adaptée aux goûts locaux. Ces deux plats illustrent la façon dont une idée culinaire peut franchir les frontières et évoluer pour acquérir une identité propre."
    },
    {
     "id": "tmvjq5cja14",
     "img": "media/1792684636451-18.png",
     "vi": "nồi rau củ hầm kiểu Provence",
     "fr": "une marmite de ratatouille",
-    "cat": "starter"
+    "cat": "starter",
+    "storyVi": "Ngày nay, ratatouille thường gợi hình ảnh những lát rau củ xếp đẹp mắt, nhưng tên gọi của món ăn có liên quan đến các từ tiếng Pháp cổ mang nghĩa khuấy, đảo hoặc trộn. Đây vốn là món rau hầm dân dã của miền Nam nước Pháp, đặc biệt gắn với Nice; hình ảnh thanh lịch của nó ngày nay khác khá xa tinh thần món ăn bình dị thuở ban đầu.",
+    "storyFr": "Aujourd’hui, la ratatouille évoque parfois des assiettes élégantes où les légumes sont soigneusement disposés. Pourtant, son nom serait lié à des termes anciens évoquant l’action de remuer ou de mélanger. À l’origine, il s’agissait d’un ragoût de légumes simple et populaire du sud de la France, notamment associé à la Provence. L’image raffinée que l’on en a aujourd’hui contraste donc avec ses origines modestes."
    },
    {
     "id": "tmvjq5f6v15",
     "img": "media/1792684639461-19.png",
     "vi": "đĩa đùi vịt confit",
     "fr": "une assiette de confit de canard",
-    "cat": "starter"
+    "cat": "starter",
+    "storyVi": "Trước khi tủ lạnh trở nên phổ biến, người dân vùng Tây Nam nước Pháp đã phát triển một cách bảo quản thịt rất khéo léo: ướp muối thịt ngỗng hoặc vịt, nấu chậm trong chính lớp mỡ của chúng rồi cất trong những chiếc chum đất, phủ kín bằng mỡ để hạn chế tiếp xúc với không khí. Kỹ thuật confit phát triển tại các trang trại trong vùng từ thế kỷ XVII, ban đầu nhằm dự trữ thức ăn cho những tháng mùa đông. Ngô được đưa vào canh tác ở khu vực này trong thế kỷ XVII cũng góp phần thúc đẩy việc nuôi vịt, ngỗng béo để lấy thịt và mỡ. Điều thú vị là phương pháp bảo quản dân dã ấy vẫn được gìn giữ đến ngày nay, biến đùi vịt confit từ món ăn dự trữ của nhà nông thành một đặc sản tiêu biểu của ẩm thực Tây Nam nước Pháp.",
+    "storyFr": "Avant la généralisation des réfrigérateurs, les habitants du Sud-Ouest de la France avaient développé une méthode ingénieuse pour conserver la viande : les morceaux d’oie ou de canard étaient salés, cuits lentement dans leur propre graisse, puis placés dans des pots en terre cuite et recouverts de graisse afin de limiter leur contact avec l’air. Cette technique, appelée confit, s’est développée dans les fermes de la région à partir du XVIIe siècle, notamment pour constituer des réserves alimentaires pour l’hiver. L’introduction du maïs dans la région au cours de ce même siècle a également favorisé l’élevage de canards et d’oies gras, fournissant à la fois la viande et la graisse nécessaires. Fait remarquable, cette méthode paysanne est toujours pratiquée aujourd’hui : le confit de canard, autrefois destiné à la conservation des aliments, est devenu une spécialité emblématique de la gastronomie du Sud-Ouest français."
    },
    {
     "id": "tmvjq5hvx16",
     "img": "media/1792684642948-20.png",
     "vi": "đĩa bít tết ăn kèm khoai tây chiên",
     "fr": "une assiette de steak-frites",
-    "cat": "main"
+    "cat": "main",
+    "storyVi": "Steak-frites là một ví dụ thú vị về cách một món ăn bình dân có thể trở thành biểu tượng văn hóa. Món ăn kết hợp thịt bò kiểu steak, chịu ảnh hưởng từ ẩm thực Anh, với khoai tây chiên có lịch sử gắn liền với cả Pháp lẫn Bỉ. Tại Paris, khoai tây chiên đã xuất hiện trên những gánh hàng rong từ cuối thế kỷ XVIII và trở thành món ăn quen thuộc của tầng lớp lao động trong thế kỷ XIX. Trong khi đó, người Bỉ phát triển văn hóa khoai tây chiên riêng với những quầy friterie và cách chiên hai lần để tạo lớp vỏ giòn. Vì vậy, đĩa steak-frites tưởng chừng giản dị lại kể câu chuyện về giao thoa văn hóa, ẩm thực đường phố và cách mỗi quốc gia biến những món ăn chung thành một phần bản sắc của mình.",
+    "storyFr": "Le steak-frites illustre la manière dont un plat populaire peut devenir un symbole culturel. Il associe le steak, influencé par la tradition culinaire britannique, aux frites, dont l’histoire est liée à la fois à la France et à la Belgique. À Paris, les pommes de terre frites étaient déjà vendues par des marchands ambulants à la fin du XVIIIe siècle et sont devenues un aliment populaire au XIXe siècle. En Belgique, une culture spécifique de la frite s’est développée autour des friteries et de la double cuisson, qui permet d’obtenir une texture croustillante. Derrière cette assiette en apparence simple se cache ainsi une histoire d’échanges culinaires, de cuisine de rue et de construction des identités nationales."
    },
    {
     "id": "tmvjq5kcx17",
     "img": "media/1792684646404-21.png",
     "vi": "bánh galette kiều mạch",
     "fr": "une galette bretonne",
-    "cat": "starter"
+    "cat": "starter",
+    "storyVi": "Ngày nay, galette bretonne thường được phục vụ với trứng, giăm bông và phô mai, nhưng trong quá khứ, món bánh này có vai trò thiết thực hơn nhiều: nó từng thay thế bánh mì trong bữa ăn của người dân Bretagne. Từ khoảng thế kỷ XV-XVI, kiều mạch (sarrasin hay blé noir) được trồng tại vùng này và trở thành nguyên liệu thiết yếu trong đời sống nông thôn. Galette khi ấy thường được ăn cùng súp hoặc các món hầm, còn những loại nhân phong phú chỉ phổ biến về sau. Thú vị hơn, ngay cả người Bretagne cũng có cách gọi khác nhau: ở phía đông vùng này, bánh kiều mạch thường được gọi là galette, trong khi phía tây lại chuộng tên gọi \"crêpe de blé noir\".",
+    "storyFr": "Aujourd’hui, la galette bretonne est souvent garnie d’œufs, de jambon et de fromage, mais autrefois, elle avait un rôle bien plus pratique : elle remplaçait le pain dans l’alimentation quotidienne des Bretons. À partir des XVe et XVIe siècles environ, le sarrasin, aussi appelé blé noir, s’est développé dans la région et est devenu un ingrédient essentiel de la vie rurale. À l’époque, la galette se mangeait souvent avec de la soupe ou des plats mijotés ; les garnitures variées ne se sont popularisées que plus tard. Fait amusant, les Bretons eux-mêmes ne s’accordent pas toujours sur son nom : à l’est de la Bretagne, on parle généralement de galette, tandis qu’à l’ouest, l’expression crêpe de blé noir est également courante."
    },
    {
     "id": "tmvjq5n0s18",
     "img": "media/1792684649635-22.png",
     "vi": "đĩa vẹm ăn kèm khoai tây chiên",
     "fr": "une assiette de moules-frites",
-    "cat": "main"
+    "cat": "main",
+    "storyVi": "Moules-frites – từ món ăn hội chợ đến biểu tượng của nước Bỉ. Người ta thường kể rằng món moules-frites xuất hiện tại hội chợ Liège năm 1875, gắn với quầy khoai tây chiên của gia đình Fritz. Tuy nhiên, nguồn gốc chính xác vẫn còn gây tranh cãi. Điều thú vị là khoai tây chiên từng được một người nhập cư gốc Bavaria mang từ Paris sang Bỉ vào năm 1844; sau đó, người Bỉ phát triển văn hóa chiên khoai riêng, nổi bật với kỹ thuật chiên hai lần. Đến năm 1958, Triển lãm Thế giới tại Bruxelles góp phần đưa moules-frites đến với đông đảo khách quốc tế. Món ăn bình dân này từ đó trở thành niềm tự hào ẩm thực của Bỉ, đồng thời là biểu tượng thân thuộc của vùng Lille và miền Bắc nước Pháp.",
+    "storyFr": "Moules-frites – de la foire populaire à l’emblème belge. Selon un récit souvent cité, les moules-frites seraient apparues à la foire de Liège en 1875, autour de l’activité de la famille Fritz, connue pour ses frites. Leur origine exacte reste toutefois débattue. Fait moins connu : en 1844, un immigré bavarois aurait introduit en Belgique des pommes de terre frites à la manière de Paris. Les Belges ont ensuite développé leur propre culture de la frite, notamment grâce à la double cuisson. L’Exposition universelle de Bruxelles, en 1958, a contribué à faire découvrir les moules-frites à un public international. D’un plat populaire à une véritable fierté culinaire belge, elles sont aussi devenues un incontournable de Lille et du nord de la France."
    },
    {
     "id": "tmvjq5pl919",
     "img": "media/1792684653097-23.png",
     "vi": "đĩa salad vùng Nice",
     "fr": "une assiette de salade niçoise",
-    "cat": "starter"
+    "cat": "starter",
+    "storyVi": "Salade niçoise - món salad khiến người Pháp tranh luận không hồi kết. Đầu thế kỷ XX, công thức salade niçoise được ghi lại với những nguyên liệu giản dị như cà chua, cá cơm, ô liu đen, ớt và dầu ô liu. Nhưng khi món ăn lan rộng, khoai tây luộc và đậu que cũng xuất hiện trong nhiều phiên bản. Đến mức Auguste Escoffier, một trong những đầu bếp có ảnh hưởng nhất lịch sử ẩm thực Pháp, cũng bị những người bảo vệ công thức truyền thống phản đối vì thêm rau củ luộc! Tại Nice, những người theo trường phái truyền thống vẫn bảo vệ món salad với rau củ tươi sống, cá cơm hoặc cá ngừ, trứng luộc và ô liu địa phương. Vì thế, với họ, salade niçoise không đơn thuần là một công thức, mà đó còn là cách gìn giữ bản sắc ẩm thực của quê hương.",
+    "storyFr": "Salade niçoise - la salade qui divise les Français. Au début du XXᵉ siècle, les premières recettes publiées de salade niçoise mettent à l’honneur des ingrédients simples : tomates, anchois, olives noires, poivrons et huile d’olive. Mais à mesure que le plat se diffuse, les pommes de terre bouillies et les haricots verts s’invitent dans certaines versions. Même Auguste Escoffier, l’un des chefs les plus influents de l’histoire culinaire française, est critiqué par les défenseurs de la tradition pour avoir intégré des légumes cuits ! À Nice, les puristes privilégient les légumes crus, les anchois ou le thon, les œufs durs et les olives locales. Pour eux, la salade niçoise n’est pas qu’une recette : c’est aussi une manière de préserver l’identité culinaire de leur région."
    },
    {
     "id": "tmvjq5s3320",
     "img": "media/1792684656388-24.png",
     "vi": "đĩa gan ngỗng hoặc gan vịt béo",
     "fr": "une assiette de foie gras ",
-    "cat": "main"
+    "cat": "main",
+    "storyVi": "Từ thời Ai Cập cổ đại, hình ảnh người ta vỗ béo ngỗng đã xuất hiện trên những bức phù điêu, nhưng bằng chứng về việc người Ai Cập ăn gan ngỗng béo vẫn chưa rõ ràng. Tập quán này được ghi nhận rõ hơn ở La Mã cổ đại, nơi người ta cho ngỗng ăn sung để làm gan béo lên. Tại Pháp, foie gras phát triển mạnh ở Alsace và miền Tây Nam từ thế kỷ XVII-XVIII, rồi trở thành món ăn biểu tượng của những bữa tiệc cuối năm. Năm 2006, Pháp chính thức ghi nhận foie gras trong luật là một phần di sản văn hóa và ẩm thực được bảo vệ. Nhưng chính kỹ thuật gavage (dùng ống để ép vịt hoặc ngỗng ăn) đã khiến món ăn này trở thành tâm điểm tranh luận quốc tế về phúc lợi động vật. Với người bảo vệ truyền thống, đó là di sản và sinh kế của cả một ngành nghề; với các tổ chức bảo vệ động vật, câu hỏi đặt ra là liệu truyền thống có thể biện minh cho phương thức sản xuất gây tranh cãi hay không.",
+    "storyFr": "Dès l’Égypte ancienne, des bas-reliefs datant d’environ 2 500 av. J.-C. représentent des oies engraissées, même si rien ne prouve que les Égyptiens consommaient déjà leur foie comme nous le faisons aujourd’hui. La pratique est mieux documentée dans la Rome antique, où les oies étaient nourries aux figues pour obtenir un foie plus gras. En France, le foie gras s’est développé en Alsace et dans le Sud-Ouest aux XVIIᵉ et XVIIIᵉ siècles, avant de devenir un incontournable des repas de fête. En 2006, la France l’a officiellement reconnu par la loi comme faisant partie de son patrimoine culturel et gastronomique protégé. Pourtant, le gavage — le fait de nourrir les canards ou les oies à l’aide d’un tube — suscite une controverse internationale sur le bien-être animal. Pour ses défenseurs, le foie gras représente un héritage culinaire et le moyen de subsistance de toute une filière ; pour ses opposants, la tradition ne suffit pas à justifier une méthode de production contestée."
    },
    {
     "id": "tmvjq5utt21",
     "img": "media/1792684659615-25.png",
     "vi": "bát súp cá kiểu Marseille",
     "fr": "un bol de bouillabaisse",
-    "cat": "starter"
+    "cat": "starter",
+    "storyVi": "Trước khi trở thành đặc sản đắt giá của Marseille, bouillabaisse vốn là món ăn của ngư dân. Sau khi phân loại cá để bán, họ giữ lại những phần cá phù hợp để nấu cho gia đình. Tên món thường được giải thích qua cách nấu: khi nước sôi, người nấu hạ lửa để cá chín từ từ.",
+    "storyFr": "Avant de devenir une spécialité emblématique de Marseille, la bouillabaisse était un plat de pêcheurs. Après avoir vendu les poissons les plus recherchés, ils conservaient ceux qui convenaient à la préparation d’une soupe pour leur famille. Le nom du plat est souvent associé à une expression provençale décrivant la cuisson : lorsque le bouillon bout, on baisse le feu pour laisser cuire les poissons doucement."
    },
    {
     "id": "tmvjq5xxy22",
     "img": "media/1792684663212-26.png",
     "vi": "bánh táo úp ngược",
     "fr": "une tarte tatin",
-    "cat": "dessert"
+    "cat": "dessert",
+    "storyFr": "Selon la légende, Stéphanie Tatin, qui tenait l’hôtel Maison Tatin avec sa sœur, aurait laissé cuire les pommes trop longtemps dans le beurre et le sucre. Pour sauver son dessert, elle aurait recouvert les pommes de pâte avant de poursuivre la cuisson, puis retourné la tarte au moment de la servir. Une erreur en cuisine serait ainsi devenue une spécialité célèbre de la Sologne. Cette histoire reste toutefois une anecdote sur l’origine de la tarte.",
+    "storyVi": "Người ta kể rằng Stéphanie Tatin, một trong hai chị em điều hành khách sạn Maison Tatin, đã để táo nấu với bơ và đường quá lâu khi chuẩn bị bánh. Để cứu món tráng miệng, bà đặt lớp bột lên trên rồi tiếp tục nướng, sau đó lật ngược chiếc bánh khi dọn ra. Một sai sót trong căn bếp đã trở thành món bánh nổi tiếng của vùng Sologne, dù câu chuyện này được lưu truyền như giai thoại về nguồn gốc của bánh."
    },
    {
     "id": "tmvjq60u823",
     "img": "media/1792684667233-27.png",
     "vi": "bánh éclair chocolate",
     "fr": "un éclair au chocolat",
-    "cat": "dessert"
+    "cat": "dessert",
+    "storyVi": "Trong tiếng Pháp, éclair có nghĩa là “tia chớp”, nhưng vì sao chiếc bánh kem dài này lại mang cái tên ấy vẫn là một bí ẩn nhỏ của lịch sử ẩm thực. Có người cho rằng bánh được đặt tên vì ngon đến mức người ta ăn hết trong nháy mắt; người khác liên tưởng đến lớp phủ đường bóng loáng như ánh chớp. Điều chắc chắn hơn là vào thế kỷ XIX, loại bánh này từng được gọi là pain à la duchesse trước khi tên éclair trở nên phổ biến. Đến nay, cái tên ấy vẫn khiến người ta vừa tò mò vừa mỉm cười mỗi khi thưởng thức chiếc bánh.",
+    "storyFr": "En français, éclair signifie « éclair lumineux », mais l’origine exacte du nom de cette pâtisserie allongée reste mystérieuse. Selon une explication populaire, elle se mangerait si vite qu’elle disparaîtrait en un éclair ; selon une autre, son glaçage brillant évoquerait un éclair dans le ciel. Ce que l’on sait mieux, c’est qu’au XIXᵉ siècle, cette pâtisserie était notamment connue sous le nom de pain à la duchesse, avant que celui d’éclair ne s’impose. Aujourd’hui encore, son nom entretient le charme et le mystère de ce grand classique de la pâtisserie française."
    },
    {
     "id": "tmvjq63xz24",
     "img": "media/1792684670964-28.png",
     "vi": "miếng bánh ngàn lớp nhân kem",
     "fr": "une part de mille-feuille",
-    "cat": "dessert"
+    "cat": "dessert",
+    "storyVi": "Công thức mille-feuille đã xuất hiện trong sách nấu ăn Pháp từ thế kỷ XVII, nhưng phải đến năm 1867, chiếc bánh mới gây tiếng vang lớn tại Paris nhờ người thợ bánh Adolphe Seugnot. Điều kỳ diệu nằm ở kỹ thuật pâte feuilletée: bột được cán, gấp cùng bơ nhiều lần để tạo ra những lớp mỏng tách biệt khi nướng. Với phương pháp truyền thống, một tấm bột có thể tạo thành khoảng 729 lớp; ba tầng bánh xen kẽ kem tạo nên kết cấu giòn tan đối lập với phần nhân mềm mượt. Vì vậy, cái tên “nghìn lớp” không đơn thuần là lời quảng cáo, mà còn gợi nhắc đến kỹ thuật công phu đứng sau một biểu tượng của nghệ thuật làm bánh Pháp.",
+    "storyFr": "La recette du mille-feuille apparaît dans les livres de cuisine français dès le XVIIᵉ siècle, mais c’est en 1867 que cette pâtisserie connaît un grand succès à Paris, grâce au pâtissier Adolphe Seugnot. Son secret réside dans la pâte feuilletée : la pâte est étalée et pliée plusieurs fois avec du beurre afin de former de fines couches distinctes à la cuisson. Selon la méthode traditionnelle, une abaisse peut compter environ 729 couches ; trois étages de pâte alternent ensuite avec une crème onctueuse. Le nom « mille-feuille » n’est donc pas qu’une image poétique : il évoque aussi la précision et le savoir-faire qui se cachent derrière ce classique de la pâtisserie française."
    },
    {
     "id": "tmvjq668625",
     "img": "media/1792684675010-29.png",
     "vi": "phần kem trứng phủ đường caramel",
     "fr": "une crème brûlée",
-    "cat": "dessert"
+    "cat": "dessert",
+    "storyVi": "Pháp, Anh và vùng Catalonia của Tây Ban Nha đều có những phiên bản kem trứng phủ đường caramel, nên nguồn gốc thực sự của crème brûlée vẫn gây tranh luận. Công thức mang tên crème brûlée được ghi lại trong sách nấu ăn của François Massialot năm 1691, khi ông phục vụ giới quý tộc Pháp. Nhưng một món kem tương tự, crema catalana, đã xuất hiện trong sách nấu ăn Catalonia từ thời Trung cổ. Người Anh cũng có phiên bản riêng mang tên Trinity cream, gắn với trường Trinity ở Cambridge. Vậy ai phát minh ra món bánh này? Chưa có câu trả lời chắc chắn, và đó chính là điều thú vị: lớp caramel vàng giòn ngày nay đã trở thành biểu tượng của ẩm thực Pháp, dù lịch sử của nó vượt qua cả biên giới quốc gia.",
+    "storyFr": "La France, l’Angleterre et la Catalogne revendiquent chacune une tradition de crème aux œufs recouverte de sucre caramélisé, ce qui rend l’origine exacte de la crème brûlée difficile à établir. La recette française sous ce nom apparaît dans le livre de cuisine de François Massialot en 1691, destiné aux tables de l’élite. Pourtant, une préparation proche, la crema catalana, figure dans des ouvrages culinaires catalans du Moyen Âge. En Angleterre, la Trinity cream, associée au Trinity College de Cambridge, possède également sa propre histoire. Qui a donc inventé ce dessert ? Impossible de trancher avec certitude. C’est tout le paradoxe de la crème brûlée : devenue une icône de la gastronomie française, elle s’inscrit dans une histoire culinaire qui dépasse les frontières."
    },
    {
     "id": "tmvjq68p526",
     "img": "media/1792684677939-30.png",
     "vi": "phần mousse chocolate",
     "fr": "une mousse au chocolat",
-    "cat": "dessert"
+    "cat": "dessert",
+    "storyVi": "Vào thế kỷ XVIII, chocolate vẫn là thức uống xa xỉ trên bàn tiệc của giới thượng lưu châu Âu. Trong sách nấu ăn xuất bản năm 1755, tác giả Menon đã ghi lại món mousse de chocolat, một hỗn hợp chocolate, lòng đỏ trứng, kem và đường, được đánh bông rồi giữ lạnh. Điều thú vị là từ mousse vốn có nghĩa là “bọt”, cũng dùng để chỉ lớp bọt hình thành trên bề mặt đồ uống chocolate. Đến năm 1820, André Viard tiếp tục đưa công thức vào sách Le Cuisinier royal, góp phần phổ biến món ăn này. Từ lớp bọt trên thức uống sang món tráng miệng mịn nhẹ ngày nay, mousse au chocolat cho thấy cách các đầu bếp Pháp biến một nguyên liệu xa xỉ thành nghệ thuật ẩm thực.",
+    "storyFr": "Au XVIIIᵉ siècle, le chocolat reste une boisson luxueuse servie aux tables des élites européennes. Dans un ouvrage culinaire publié en 1755, Menon décrit une mousse de chocolat composée de chocolat, de jaunes d’œufs, de crème et de sucre, fouettée puis maintenue au frais. Le détail amusant se cache dans le mot mousse lui-même : il désigne une préparation aérienne, mais aussi l’écume qui se forme à la surface d’une boisson chocolatée. En 1820, André Viard reprend une recette dans Le Cuisinier royal, contribuant à faire connaître ce dessert. De la simple écume d’une boisson à la douceur légère que nous connaissons aujourd’hui, la mousse au chocolat illustre l’art des cuisiniers français de transformer un ingrédient de luxe en création gastronomique."
    },
    {
     "id": "tmvjq6aws27",
     "img": "media/1792684681181-31.png",
     "vi": "bánh madeleine",
     "fr": "une madeleine",
-    "cat": "dessert"
+    "cat": "dessert",
+    "storyVi": "Trong tiểu thuyết \"À la recherche du temps perdu\", nhà văn Marcel Proust kể về khoảnh khắc hương vị chiếc madeleine nhúng trà bất ngờ đưa ông trở về những ký ức tuổi thơ. Từ đó, “madeleine de Proust” trở thành cách nói về một mùi vị, âm thanh hay cảm giác có thể đánh thức ký ức tưởng đã ngủ quên.",
+    "storyFr": "Dans son roman « À la recherche du temps perdu », Marcel Proust raconte comment le goût d’une madeleine trempée dans du thé le ramène soudainement à ses souvenirs d’enfance. Depuis, l’expression « madeleine de Proust » désigne une saveur, une odeur, un son ou une sensation capable de faire resurgir des souvenirs que l’on croyait oubliés."
    },
    {
     "id": "tmvjq6doz28",
     "img": "media/1792684684011-32.png",
     "vi": "bánh canelé Bordeaux",
     "fr": "un canelé de bordeaux",
-    "cat": "dessert"
+    "cat": "dessert",
+    "storyVi": "Có truyền thuyết cho rằng bánh canelé được các nữ tu ở Bordeaux sáng tạo từ thế kỷ XVII bằng cách tận dụng nguyên liệu còn lại quanh bến cảng. Nhưng cơ quan văn hóa vùng Nouvelle-Aquitaine lưu ý rằng câu chuyện này không có chứng cứ khảo cổ tại tu viện thường được nhắc đến. Một chiếc bánh có nguồn gốc tưởng như rõ ràng hóa ra vẫn còn bí ẩn.",
+    "storyFr": "Selon une légende, les canelés auraient été inventés par des religieuses bordelaises au XVIIe siècle, qui auraient utilisé des ingrédients récupérés dans les environs du port. Pourtant, cette histoire ne repose pas sur des preuves archéologiques établies dans le couvent souvent mentionné. Malgré sa réputation et son histoire locale, l’origine exacte de cette petite pâtisserie reste donc mystérieuse."
    },
    {
     "id": "tmvjq6g9d29",
     "img": "media/1792684687631-33.png",
     "vi": "bánh bơ đường Bretagne",
     "fr": "un kouign-amann",
-    "cat": "dessert"
+    "cat": "dessert",
+    "storyVi": "Khoảng năm 1860, tại thị trấn cảng Douarnenez ở Bretagne, thợ bánh Yves-René Scordia được cho là đã sáng tạo ra món bánh này trong một ngày tiệm đông khách nhưng không còn đủ bánh để bán. Ông ứng biến với bột bánh mì, bơ và đường sẵn có, rồi gấp bột nhiều lần để tạo lớp. Khi nướng, đường caramel hóa, bơ thấm vào từng lớp bánh, tạo nên lớp vỏ giòn vàng và phần ruột mềm béo. Tên gọi kouign-amann trong tiếng Breton nghĩa là “bánh bơ”. Câu chuyện ra đời tình cờ này được lưu truyền rộng rãi, dù chưa có tư liệu đương thời xác nhận chắc chắn; một số giả thuyết khác cho rằng món bánh có thể bắt nguồn từ nơi khác ở Bretagne. Từ một công thức ứng biến của tiệm bánh địa phương, kouign-amann đã trở thành niềm tự hào của Douarnenez.",
+    "storyFr": "Vers 1860, dans la ville portuaire de Douarnenez, en Bretagne, le boulanger Yves-René Scordia aurait créé cette pâtisserie un jour de grande affluence, alors que sa boutique n’avait plus assez de gâteaux à vendre. Il aurait improvisé avec de la pâte à pain, du beurre et du sucre, avant de plier la pâte à plusieurs reprises pour former un feuilletage. À la cuisson, le sucre caramélise et le beurre imprègne les couches, donnant une croûte dorée et croustillante ainsi qu’un cœur fondant. En breton, kouign-amann signifie littéralement « gâteau au beurre ». Cette histoire est largement racontée, même si aucun document contemporain ne permet de la confirmer avec certitude ; d’autres hypothèses situent l’origine du gâteau ailleurs en Bretagne. D’une improvisation de boulangerie, le kouign-amann est devenu une véritable fierté de Douarnenez."
    },
    {
     "id": "tmvjq6iuo30",
     "img": "media/1792684690934-34.png",
     "vi": "bánh nướng anh đào",
     "fr": "un clafoutis aux cerises",
-    "cat": "dessert"
+    "cat": "dessert",
+    "storyVi": "Có nguồn kể rằng khi Viện Hàn lâm Pháp định nghĩa clafoutis đơn thuần là một loại bánh flan trái cây, người dân Limoges đã phản đối, bởi với họ, clafoutis đích thực phải được làm từ anh đào đen của vùng Limousin. Không giống bánh tart có lớp vỏ riêng, món bánh đồng quê này được làm bằng cách đổ hỗn hợp bột, trứng và sữa trực tiếp lên quả anh đào rồi đem nướng. Người theo truyền thống còn giữ nguyên hạt: hạt được cho là tạo hương thơm thoang thoảng như hạnh nhân, đồng thời giúp quả ít tiết nước làm nhão bánh. Với người Limousin, thay anh đào bằng loại quả khác không chỉ là đổi công thức, đó còn là lý do để gọi món bánh bằng một cái tên khác: flaugnarde.",
+    "storyFr": "Selon un récit souvent rapporté, lorsque l’Académie française a défini le clafoutis comme une simple sorte de flan aux fruits, les habitants de Limoges ont protesté : pour eux, le véritable clafoutis doit être préparé avec les cerises noires du Limousin. Contrairement à une tarte classique, cette pâtisserie rustique se prépare en versant directement une pâte aux œufs, au lait et à la farine sur les cerises avant de la faire cuire. Les puristes conservent même les noyaux, auxquels on attribue un léger parfum d’amande et la capacité de limiter l’excès de jus. Dans la tradition régionale, remplacer les cerises par d’autres fruits change aussi le nom du dessert : on parle alors de flaugnarde."
    },
    {
     "id": "tmvjq6ls831",
     "img": "media/1792684694337-35.png",
     "vi": "bánh flan caramel",
     "fr": "un flan au caramel",
-    "cat": "dessert"
+    "cat": "dessert",
+    "storyVi": "ổ tiên của flan đã xuất hiện từ thời La Mã cổ đại, khi người ta dùng trứng để làm đông các hỗn hợp thực phẩm. Đến thế kỷ XVIII, sách nấu ăn Pháp đã ghi lại công thức crème au caramel; phiên bản quen thuộc ngày nay, với lớp caramel nằm dưới khuôn rồi chảy phủ lên bánh khi úp ngược, được ghi nhận trong sách La Cuisinière provençale năm 1897. Điều thú vị là món bánh này không cần kỹ thuật trang trí cầu kỳ: chỉ bằng trứng, sữa, đường và cách nấu khéo léo, người làm bánh tạo ra sự kết hợp giữa custard mềm mịn và caramel đắng ngọt. Từ những kỹ thuật nấu ăn cổ đại đến bàn ăn hiện đại, flan au caramel chứng minh rằng đôi khi những món tráng miệng giản dị nhất lại có lịch sử phong phú nhất.",
+    "storyFr": "Les ancêtres du flan remontent à la Rome antique, où l’on utilisait déjà les œufs pour faire prendre différentes préparations culinaires. Au XVIIIᵉ siècle, les livres de cuisine français mentionnent des recettes de crème au caramel. La version familière d’aujourd’hui, cuite dans un moule tapissé de caramel puis démoulée pour laisser couler la sauce ambrée sur le flan, est documentée dans La Cuisinière provençale en 1897. Ce qui rend ce dessert remarquable, c’est sa simplicité : avec des œufs, du lait, du sucre et une cuisson maîtrisée, on obtient un contraste entre une crème délicate et un caramel aux notes douces-amères. Des techniques culinaires anciennes aux tables d’aujourd’hui, le flan au caramel rappelle que les desserts les plus modestes peuvent avoir une histoire particulièrement riche."
    },
    {
     "id": "tmvjq6o4832",
     "img": "media/1792684698125-36.png",
     "vi": "bánh su kem",
     "fr": "un profiterole (chou à la crème)",
-    "cat": "dessert"
+    "cat": "dessert",
+    "storyVi": "Ít ai biết rằng tổ tiên của bánh profiterole đã xuất hiện trong các sách nấu ăn Pháp từ thế kỷ XVI. Sang thế kỷ XIX, đầu bếp Antonin Carême góp phần hoàn thiện và nâng tầm nghệ thuật làm pâte à choux, loại bột nở phồng nhờ hơi nước, tạo nên lớp vỏ rỗng đặc trưng của bánh su. Từ nền bột ấy, người Pháp sáng tạo ra nhiều loại bánh nổi tiếng, trong đó có profiterole, thường được nhồi kem và đôi khi phủ sốt chocolate nóng. Ban đầu, từ profiterole từng được dùng cho những món bánh nhỏ với hình thức và nhân khác nhau; phiên bản su kem ngày nay là kết quả của quá trình phát triển lâu dài của nghệ thuật làm bánh Pháp.",
+    "storyFr": "Peu de gens savent que des ancêtres du profiterole apparaissent dans les livres de cuisine français dès le XVIᵉ siècle. Au XIXᵉ siècle, le célèbre chef Antonin Carême contribue à perfectionner l’art de la pâte à choux, une pâte qui gonfle grâce à la vapeur et forme une cavité à l’intérieur après cuisson. Cette technique donne naissance à de nombreuses pâtisseries françaises, dont le profiterole, généralement garni de crème et parfois nappé de chocolat chaud. À l’origine, le mot profiterole désignait différentes petites préparations ; la version au chou garnie de crème que nous connaissons aujourd’hui est le fruit d’une longue évolution de la pâtisserie française."
    },
    {
     "id": "tmvjq6r1933",
     "img": "media/1792684701161-37.png",
     "vi": "miếng phô mai",
     "fr": "un morceau de fromage",
-    "cat": "starter"
+    "cat": "starter",
+    "storyVi": "“Làm sao có thể điều hành một đất nước có 246 loại phô mai?” Câu nói nổi tiếng này thường được gán cho Charles de Gaulle, nhưng nguồn gốc chính xác vẫn còn gây tranh luận: con số thay đổi tùy phiên bản, và chưa có bằng chứng chắc chắn xác nhận ông đã nói nguyên văn câu ấy. Dù vậy, giai thoại vẫn chạm đến một nét đặc trưng của nước Pháp: mỗi vùng gìn giữ loại phô mai, kỹ thuật làm và hương vị riêng, từ Brie mềm phủ mốc trắng đến Comté cứng được ủ lâu. Sự đa dạng ấy không chỉ nằm trên bàn ăn; nó phản ánh lịch sử, địa lý và bản sắc của từng vùng. Có lẽ điều khó “quản lý” nhất không phải là hàng trăm loại phô mai, mà là thuyết phục người Pháp rằng chỉ có một loại mới là ngon nhất!",
+    "storyFr": "« Comment voulez-vous gouverner un pays qui compte 246 variétés de fromages ? » Cette phrase célèbre est souvent attribuée à Charles de Gaulle, mais son origine exacte reste incertaine : le nombre varie selon les versions et rien ne prouve définitivement qu’il ait prononcé ces mots. L’anecdote n’en évoque pas moins une caractéristique de la France : chaque région cultive ses propres fromages, ses techniques et ses saveurs, du Brie à croûte fleurie au Comté à pâte pressée, longuement affiné. Cette diversité ne se limite pas à la table ; elle reflète l’histoire, la géographie et l’identité des territoires. Après tout, le plus difficile n’est peut-être pas de gouverner des centaines de fromages, mais de convaincre les Français qu’un seul puisse être le meilleur !"
    },
    {
     "id": "tmvjq6u0t34",
     "img": "media/1792684704913-38.png",
     "vi": "cốc cà phê sữa",
     "fr": "une tasse de café au lait",
-    "cat": "dessert"
+    "cat": "dessert",
+    "storyVi": "Trong nhiều gia đình Pháp, nhất là ở thế hệ trước, cà phê pha cùng sữa nóng được uống bằng bol - chiếc bát rộng thay vì tách nhỏ. Lý do rất thực tế: miệng bát rộng giúp dễ nhúng những lát tartine hoặc bánh mì baguette vào cà phê sữa. Thói quen này gắn với petit-déjeuner kiểu Pháp, vốn thường gồm bánh mì hoặc bánh ngọt, bơ, mứt và đồ uống nóng. Còn café crème thường được phục vụ trong tách hoặc ly tại quán cà phê, với espresso pha thêm sữa nóng và đôi khi có lớp bọt mỏng. Một chiếc bát cà phê vì thế không chỉ là vật dụng trên bàn ăn, mà còn gợi lên nhịp sống chậm rãi của bữa sáng gia đình Pháp.",
+    "storyFr": "Dans de nombreuses familles françaises, notamment chez les générations plus anciennes, le café mélangé à du lait chaud se boit dans un bol plutôt que dans une petite tasse. La raison est toute simple : son ouverture large permet d’y tremper facilement des tartines ou des morceaux de baguette. Cette habitude appartient au petit-déjeuner traditionnel français, souvent composé de pain ou de viennoiseries, de beurre, de confiture et d’une boisson chaude. Au café, le café crème est généralement servi dans une tasse ou un verre ; il est préparé à partir d’un espresso allongé de lait chaud, parfois surmonté d’une fine mousse. Le grand bol raconte ainsi bien plus qu’une façon de boire son café : il évoque un rituel familier du matin en France."
    },
    {
     "id": "tmvjq6wjk35",
     "img": "media/1792684708784-39.png",
     "vi": "chai sâm-panh",
     "fr": "une bouteille de champagne",
-    "cat": "starter"
+    "cat": "starter",
+    "storyVi": "Không phải mọi loại vang sủi đều là Champagne. Từ năm 1843, các nhà sản xuất vùng Champagne đã bắt đầu đấu tranh pháp lý để ngăn những nơi khác sử dụng tên gọi danh giá này. Năm 1936, Champagne chính thức được công nhận là tên gọi xuất xứ có kiểm soát (AOC). Vì vậy, mỗi chai Champagne không chỉ đại diện cho những bọt khí tinh tế, mà còn mang theo dấu ấn của một vùng đất và truyền thống làm rượu được bảo vệ qua nhiều thế hệ.",
+    "storyFr": "Tous les vins effervescents ne sont pas des Champagnes. Dès 1843, les producteurs champenois ont engagé des actions en justice pour empêcher d’autres régions d’usurper ce nom prestigieux. En 1936, l’appellation Champagne a été officiellement reconnue comme une Appellation d’Origine Contrôlée (AOC). Chaque bouteille incarne ainsi bien plus que la finesse de ses bulles : elle porte l’identité d’un terroir et un savoir-faire protégé au fil des générations."
    },
    {
     "id": "tmvjq6zaf36",
     "img": "media/1792684712067-40.png",
     "vi": "chai vang đỏ",
     "fr": "une bouteille de vin rouge",
-    "cat": "starter"
+    "cat": "starter",
+    "storyVi": "Nước ép của nhiều giống nho vốn gần như không màu; chính sắc tố trong vỏ tạo nên màu đỏ tím quyến rũ của vang. Khi ngâm vỏ cùng nước nho, nhà làm rượu đồng thời chiết xuất tannin — hợp chất tạo cảm giác se khô đặc trưng nơi đầu lưỡi. Thú vị hơn, nếu ép nho vỏ sẫm màu và tách vỏ đủ sớm, người ta vẫn có thể làm ra vang trắng. Bởi vậy, màu rượu không chỉ nằm ở giống nho, mà còn ở cách người làm rượu lựa chọn xử lý từng quả nho.",
+    "storyFr": "Le jus de nombreux cépages est presque incolore : ce sont les pigments de la peau qui donnent au vin ses séduisantes nuances rouges et violacées. La macération des peaux avec le jus permet également d’extraire les tanins, responsables de cette sensation d’assèchement en bouche. Plus surprenant encore, des raisins à peau noire peuvent produire du vin blanc si leurs peaux sont séparées rapidement après le pressurage. La couleur du vin dépend donc non seulement du cépage, mais aussi des choix du vigneron."
    },
    {
     "id": "tmvjq71kg37",
     "img": "media/1792684715618-41.png",
     "vi": "chai vang trắng",
     "fr": "une bouteille de vin blanc",
-    "cat": "starter"
+    "cat": "starter",
+    "storyVi": "Ít ai biết rằng vang trắng có thể được làm từ cả nho vỏ xanh lẫn nho vỏ sẫm màu. Bí quyết nằm ở cách ép nho và kiểm soát thời gian tiếp xúc với vỏ, nơi chứa phần lớn sắc tố đỏ. Một ví dụ nổi bật là Blanc de Noirs của vùng Champagne: vang trắng được làm từ nho đen như Pinot Noir hoặc Pinot Meunier. Trong thế giới rượu vang, màu sắc không chỉ do thiên nhiên quyết định, mà còn là kết quả của kỹ thuật và lựa chọn của người làm rượu.",
+    "storyFr": "Le vin blanc peut être élaboré à partir de raisins à peau claire comme de raisins à peau noire. Tout dépend notamment du pressurage et du temps de contact avec les peaux, qui contiennent la majeure partie des pigments rouges. Un exemple emblématique est le Blanc de Noirs de Champagne, un vin blanc élaboré à partir de cépages noirs comme le Pinot Noir ou le Pinot Meunier. Dans l’univers du vin, la couleur ne dépend donc pas uniquement de la nature, mais aussi du savoir-faire et des choix du vigneron."
    },
    {
     "id": "tmvjq74be38",
     "img": "media/1792684718557-42.png",
     "vi": "bữa ăn nhẹ đặc biệt",
     "fr": "un apéro spécial",
-    "cat": "starter"
+    "cat": "starter",
+    "storyVi": "Bắt nguồn từ apéritif, từ có gốc Latin aperire, nghĩa là “mở ra”. Apéro ban đầu gắn với thức uống dùng trước bữa ăn để khơi gợi vị giác. Theo thời gian, nó trở thành một nghi thức xã hội đặc trưng của đời sống Pháp: bạn bè quây quần bên ly vang, ô liu, phô mai hay vài món nhắm nhỏ, trò chuyện mà chẳng cần vội vàng vào bữa chính. Bởi đôi khi, điều đáng nhớ nhất không phải món ăn trên bàn, mà là khoảng thời gian mọi người dành cho nhau trước khi bữa ăn bắt đầu.",
+    "storyFr": "Le mot apéritif vient du latin aperire, qui signifie « ouvrir », et désignait à l’origine ce qui était censé ouvrir l’appétit. Au fil du temps, l’apéro est devenu un véritable rituel social en France : on se retrouve autour d’un verre, de quelques olives, de fromage ou de petites bouchées, pour discuter sans se presser avant de passer à table. Car parfois, le plus précieux n’est pas ce qu’il y a dans l’assiette, mais le temps que l’on prend pour être ensemble avant le repas."
    },
    {
     "id": "tmvjq77kb39",
     "img": "media/1792693785965-57.png",
     "vi": "đĩa gà hầm rượu vang",
     "fr": "une assiette de coq au vin",
-    "cat": "main"
+    "cat": "main",
+    "storyVi": "Một giai thoại kể rằng thủ lĩnh người Gaulois Vercingétorix gửi cho Julius Caesar một con gà trống như lời thách thức. Caesar được cho là đã đáp trả bằng cách đem con gà ấy hầm rượu vang rồi dọn lên bàn tiệc. Nghe cũng khá hợp với tinh thần bất khuất của người Gaulois đấy chứ!",
+    "storyFr": "Une légende raconte que Vercingétorix, chef gaulois, aurait envoyé un coq à Jules César pour le provoquer. César aurait alors répondu à ce défi en faisant cuire le coq dans du vin avant de le servir à table. Cette histoire correspond bien à l’image de résistance des Gaulois !"
    },
    {
     "id": "tmvjq7alm40",
     "img": "media/1792684726335-44.png",
     "vi": "bát phở Việt",
     "fr": "un bol de phở vietnamien",
-    "cat": "main"
+    "cat": "main",
+    "storyVi": "Nguồn gốc của phở vẫn còn được tranh luận, nhưng món ăn này thường được xem là minh chứng cho sự giao thoa văn hóa trong lịch sử ẩm thực Việt Nam. Một số giả thuyết cho rằng phở có thể chịu ảnh hưởng từ ẩm thực Pháp, đặc biệt là món pot-au-feu, thịt bò hầm cùng rau củ. Tuy nhiên, qua quá trình phát triển tại Việt Nam, phở đã hình thành hương vị riêng với nước dùng thanh ngọt, bánh phở và các loại gia vị như quế, hồi, gừng, trở thành một biểu tượng của ẩm thực Việt Nam.",
+    "storyFr": "L’origine du phở fait encore débat, mais ce plat est souvent considéré comme un témoignage des échanges culturels dans l’histoire culinaire du Vietnam. Selon certaines hypothèses, le phở aurait pu être influencé par la cuisine française, notamment par le pot-au-feu, un plat de bœuf mijoté avec des légumes. Toutefois, au fil de son évolution au Vietnam, le phở a développé sa propre identité, avec son bouillon parfumé, ses nouilles de riz et des épices comme la cannelle, l’anis étoilé et le gingembre. Il est aujourd’hui devenu un symbole de la gastronomie vietnamienne."
    },
    {
     "id": "tmvjq7cst41",
     "img": "media/1792684730296-45.png",
     "vi": "bánh mì Việt ",
     "fr": "un bánh mì vietnamien",
-    "cat": "main"
+    "cat": "main",
+    "storyVi": "Bánh mì có nguồn gốc từ bánh mì kiểu Pháp du nhập vào Việt Nam trong thời kỳ thuộc địa. Tuy vậy, ổ bánh được biến đổi để có lớp vỏ giòn, ruột nhẹ, rồi kết hợp với pa-tê, thịt, đồ chua, rau thơm và ớt. Từ một loại bánh ngoại nhập, nó trở thành một món ăn đường phố mang bản sắc Việt Nam riêng.",
+    "storyFr": "Le bánh mì trouve une partie de ses origines dans le pain de tradition française introduit au Vietnam pendant la période coloniale. Pourtant, les Vietnamiens ne se sont pas contentés de reproduire la baguette : ils l’ont adaptée pour obtenir une croûte croustillante et une mie légère, avant de la garnir de pâté, de viande, de légumes marinés, d’herbes fraîches et de piment. Un pain importé est ainsi devenu un emblème de la cuisine de rue vietnamienne."
    },
    {
     "id": "tmvjq7fkm42",
     "img": "media/1792684733137-46.png",
     "vi": "đĩa nem",
     "fr": "une assiette de nems",
-    "cat": "main"
+    "cat": "main",
+    "storyVi": "Giòn rụm bên ngoài, đậm đà bên trong, nem rán từng gắn với những dịp đặc biệt như Tết, giỗ chạp và cưới hỏi trong văn hóa Việt. Khi đến Pháp, món ăn này còn mang một cái tên nghe đầy quý phái: pâté impérial - “chả giò hoàng gia”. Dấu vết thú vị là nem đã xuất hiện trên thực đơn tại Dijon từ năm 1949, trước khi được giới thiệu trong một cuốn cẩm nang ẩm thực Pháp năm 1952. Từ món ăn mang hương vị quê nhà đến món khai vị quen thuộc tại Pháp, nem đã vượt xa hành trình của một cuốn bánh chiên, dù rằng cũng như bao món ăn khác, câu chuyện chính xác về nguồn gốc của nó vẫn chưa hoàn toàn sáng tỏ.",
+    "storyFr": "Croustillants à l’extérieur et savoureux à l’intérieur, les nems étaient traditionnellement associés aux grandes occasions au Vietnam, notamment au Têt, aux mariages et aux repas commémoratifs. En France, ils ont aussi reçu un nom aux accents nobles : pâtés impériaux. Un détail historique surprenant : on en trouve déjà sur un menu à Dijon en 1949, avant leur présentation dans un guide gastronomique français en 1952. Du plat chargé de souvenirs familiaux à l’entrée incontournable de nombreux restaurants asiatiques en France, les nems ont parcouru un long chemin, même si leurs origines exactes restent débattues."
    },
    {
     "id": "tmvjq7ia143",
     "img": "media/1792684736721-47.png",
     "vi": "nồi lẩu phô mai",
     "fr": "un caquelon de fondue au fromage",
-    "cat": "main"
+    "cat": "main",
+    "storyVi": "Phô mai tan chảy có lịch sử lâu đời ở vùng núi châu Âu, nhưng fondue không phải lúc nào cũng phổ biến khắp Thụy Sĩ. Vào thập niên 1930, Liên đoàn Phô mai Thụy Sĩ quảng bá món này để khuyến khích tiêu thụ phô mai trong nước. Vì vậy, một món ăn gắn với sự quây quần bên nồi chung cũng là ví dụ thú vị về cách quảng bá đã góp phần định hình bản sắc ẩm thực quốc gia.",
+    "storyFr": "Le fromage fondu est consommé depuis longtemps dans les régions montagneuses d’Europe, mais la fondue n’a pas toujours été populaire dans toute la Suisse. Dans les années 1930, l’Union suisse du commerce de fromage a mené des campagnes pour encourager sa consommation. Ce plat convivial, partagé autour d’un caquelon, illustre ainsi la manière dont la promotion alimentaire a contribué à façonner l’identité culinaire d’un pays."
    },
    {
     "id": "tmvjq7kp744",
     "img": "media/1792684740209-48.png",
     "vi": "bánh mì kẹp giăm bông và phô mai nướng",
     "fr": "un croque-monsieur",
-    "cat": "starter"
+    "cat": "starter",
+    "storyVi": "Xuất hiện trong đời sống quán cà phê Paris từ cuối thế kỷ XIX, croque-monsieur trở nên nổi tiếng vào đầu thế kỷ XX. Tên gọi kết hợp croquer (cắn giòn) và monsieur (quý ông), nhưng nguồn gốc chính xác vẫn chưa rõ. Một giai thoại kể rằng chủ quán Michel Lunarca, người bị đồn có tiếng là “kẻ ăn thịt người”, từng đùa với khách rằng phần thịt trong sandwich là “thịt quý ông”. Câu chuyện hài hước một cách đen tối ấy chưa được xác minh; nhưng có điều chắc chắn hơn là món bánh mì kẹp giăm bông và phô mai nướng này đã trở thành biểu tượng của những bữa ăn nhanh kiểu quán cà phê Pháp!",
+    "storyFr": "Présent dans la vie des cafés parisiens dès la fin du XIXe siècle, le croque-monsieur gagne en popularité au début du XXe siècle. Son nom associe croquer, qui évoque une bouchée croustillante, et monsieur, mais son origine exacte reste inconnue. Une anecdote raconte que Michel Lunarca, cafetier auquel on prêtait une réputation de cannibale, aurait plaisanté avec un client en affirmant que la viande du sandwich était de la « viande de monsieur ». Cette histoire à l’humour noir n’est pas confirmée. Ce qui est certain, en revanche, c’est que ce sandwich chaud au jambon et au fromage est devenu un classique des cafés français."
    },
    {
     "id": "tmvjq7nwv45",
     "img": "media/1792684743365-49.png",
     "vi": "tách trà",
     "fr": "une tasse de thé",
-    "cat": "starter"
+    "cat": "starter",
+    "storyVi": "Có nguồn gốc từ châu Á, trà đến Pháp vào khoảng năm 1640 thông qua những mạng lưới thương mại đường biển nối châu Âu với phương Đông. Thuở ban đầu, người ta còn uống trà vì tin rằng nó có tác dụng chữa bệnh. Do giá thành đắt đỏ, trà dần xuất hiện trong những salon quý tộc, nơi giới thượng lưu thưởng thức thức uống mới lạ cùng những bộ ấm chén tinh xảo. Thế nhưng, trà không bao giờ chiếm vị trí áp đảo trong văn hóa Pháp như tại Anh: cà phê và sô-cô-la mới là những thức uống định hình rõ nét hơn đời sống quán xá và giao tiếp xã hội của người Pháp.",
+    "storyFr": "Originaire d’Asie, le thé arrive en France vers 1640, porté par les réseaux commerciaux maritimes reliant l’Europe à l’Orient. À ses débuts, on lui prête également des vertus médicinales. Son prix élevé en fait progressivement un produit de luxe, dégusté dans les salons aristocratiques et accompagné de délicats services à thé. Pourtant, contrairement à la Grande-Bretagne, où le thé s’impose peu à peu dans la vie quotidienne, la France reste davantage attachée au café et au chocolat, qui marquent plus profondément sa culture des cafés et ses habitudes de sociabilité."
    },
    {
     "id": "tmvjq7r0y46",
     "img": "media/1792684747523-50.png",
     "vi": "cốc matcha latte",
     "fr": "un matcha latte",
-    "cat": "dessert"
+    "cat": "dessert",
+    "storyVi": "Matcha có nguồn gốc từ truyền thống trà bột ở Trung Quốc, rồi được Nhật Bản phát triển thành một phần tinh tế của văn hóa trà đạo từ nhiều thế kỷ trước. Trong nghi thức trà đạo, bột trà được đánh với nước nóng bằng chổi tre, tạo nên lớp bọt mịn và hương vị đậm đà. Matcha latte là biến thể hiện đại: vị trà xanh hơi chát, giàu hương umami, hòa cùng độ béo dịu của sữa. Từ một thức uống gắn với sự tĩnh tại và tập trung, matcha ngày nay đã bước ra khỏi phòng trà để trở thành nguồn cảm hứng cho văn hóa cà phê trên toàn thế giới.",
+    "storyFr": "Le matcha trouve ses origines dans la tradition du thé en poudre en Chine, avant de devenir, au Japon, un élément raffiné de la cérémonie du thé il y a plusieurs siècles. Dans cette pratique, la poudre est fouettée avec de l’eau chaude à l’aide d’un fouet en bambou, pour obtenir une mousse fine et une saveur intense. Le matcha latte en est une déclinaison moderne : les notes végétales et légèrement amères du thé, riches en umami, s’accordent à la douceur crémeuse du lait. D’une boisson associée au calme et à la concentration, le matcha est devenu une source d’inspiration pour la culture du café dans le monde entier."
    },
    {
     "id": "tmvjq7tqi47",
     "img": "media/1792684751559-51.png",
     "vi": "cốc matcha latte dâu",
     "fr": "un matcha latte à la fraise",
-    "cat": "dessert"
+    "cat": "dessert",
+    "storyVi": "Nếu matcha gắn liền với truyền thống trà lâu đời của Nhật Bản, thì phiên bản kết hợp cùng dâu tây lại là sáng tạo của văn hóa đồ uống hiện đại. Vị dâu ngọt dịu, hơi chua hòa quyện với vị trà xanh đậm đà, thoảng chút chát và lớp sữa béo mịn. Khi được rót thành từng tầng hồng, trắng và xanh, thức uống trở thành một bức tranh nhỏ trong chiếc ly, đẹp mắt trước khi được khuấy đều để các hương vị hòa vào nhau. Sự kết hợp này được các quán cà phê hiện đại và mạng xã hội đưa đến gần hơn với những người yêu matcha trên khắp thế giới.",
+    "storyFr": "Si le matcha est profondément lié à la longue tradition du thé au Japon, sa rencontre avec la fraise est une création de la culture contemporaine des boissons. La douceur fruitée et légèrement acidulée de la fraise s’accorde avec les notes végétales, intenses et subtilement amères du thé vert, adoucies par le lait onctueux. Superposées en couches roses, blanches et vertes, les couleurs composent un petit tableau dans le verre, avant que l’on mélange le tout pour réunir les saveurs. Popularisée par les cafés modernes et les réseaux sociaux, cette alliance séduit aujourd’hui les amateurs de matcha dans le monde entier."
    },
    {
     "id": "tmvjq7wtt48",
     "img": "media/1792684755100-52.png",
     "vi": "cốc sữa chua hoa quả",
     "fr": "un yaourt aux fruits",
-    "cat": "dessert"
+    "cat": "dessert",
+    "storyVi": "Trước khi trở thành món tráng miệng quen thuộc, sữa chua đã được con người làm ra từ hàng nghìn năm trước nhờ quá trình lên men tự nhiên của sữa. Đầu thế kỷ XX, nhà khoa học Élie Metchnikoff còn góp phần khơi dậy sự quan tâm của châu Âu đối với sữa lên men khi nghiên cứu chế độ ăn của người dân vùng Balkan. Ngày nay, khi kết hợp cùng trái cây tươi, vị chua dịu và độ béo mịn của sữa chua hòa quyện với vị ngọt tự nhiên, tạo nên món ăn vừa thanh mát vừa dễ thưởng thức.",
+    "storyFr": "Bien avant de devenir un dessert du quotidien, le yaourt était déjà fabriqué par fermentation du lait il y a plusieurs millénaires. Au début du XXe siècle, le scientifique Élie Metchnikoff contribua à susciter l’intérêt du public européen pour les laits fermentés en étudiant notamment l’alimentation des populations des Balkans. Aujourd’hui, associé aux fruits frais, le yaourt révèle un équilibre gourmand entre son acidité délicate, son onctuosité et la douceur naturelle des fruits, pour un dessert aussi frais que savoureux."
    },
    {
     "id": "tmvjq7zh749",
     "img": "media/1792684759067-53.png",
     "vi": "nồi couscous Bắc Phi ăn kèm thịt và rau củ",
     "fr": "une marmite de couscous",
-    "cat": "main"
+    "cat": "main",
+    "storyVi": "Năm 2020, Algeria, Mauritania, Maroc và Tunisia cùng ghi danh tri thức, kỹ năng chế biến và tập quán thưởng thức couscous vào Danh sách Di sản văn hóa phi vật thể của UNESCO. Đây không chỉ là một công thức nấu ăn: cách làm couscous còn truyền từ thế hệ này sang thế hệ khác, gắn với sự sẻ chia, sum họp và tinh thần cộng đồng.",
+    "storyFr": "En 2020, l’Algérie, la Mauritanie, le Maroc et la Tunisie ont fait inscrire ensemble les savoir-faire et les pratiques liés au couscous sur la Liste du patrimoine culturel immatériel de l’UNESCO. Le couscous ne se résume pas à une recette : sa préparation et sa dégustation transmettent des connaissances entre générations et symbolisent le partage, les retrouvailles et la convivialité."
    },
    {
     "id": "tmvjqrt920",
     "img": "media/1792685683872-b_nh.png",
     "vi": "đĩa bánh macarons",
     "fr": "une assiette de macarons",
-    "cat": "dessert"
+    "cat": "dessert",
+    "storyVi": "Macaron ngày nay thường được liên tưởng đến những chiếc bánh nhiều màu sắc của Paris, nhưng lịch sử của nó gắn với truyền thống bánh hạnh nhân ở Ý. Một câu chuyện phổ biến cho rằng bánh được mang đến Pháp trong thời kỳ Catherine de’ Medici kết hôn với Henri II vào năm 1533. Tuy nhiên, macaron đã phát triển thành nhiều dòng bánh địa phương khác nhau, chứ không chỉ có phiên bản hai vỏ kẹp nhân nổi tiếng ngày nay.",
+    "storyFr": "Les macarons colorés que l’on associe aujourd’hui à Paris auraient des racines dans la tradition italienne des biscuits aux amandes. Selon un récit populaire, ils auraient été introduits en France à l’occasion du mariage de Catherine de Médicis avec Henri II, en 1533. Au fil du temps, plusieurs traditions régionales ont développé leurs propres versions du macaron : le célèbre biscuit parisien fourré n’est donc qu’une variante parmi d’autres."
    },
    {
     "id": "tmvjqrwye1",
     "img": "media/1792685688593-c_m.png",
     "vi": "đĩa cơm tấm Sài Gòn",
     "fr": "une assiette de riz brisé à la saïgonnaise ",
-    "cat": "main"
+    "cat": "main",
+    "storyVi": "Thuở đầu thế kỷ XX, tại những vùng sản xuất và buôn bán gạo ở Nam Bộ, gạo tấm (những hạt gãy trong quá trình xay xát) là lựa chọn tiết kiệm của người lao động. Khi món ăn lan rộng ở Sài Gòn, những hàng cơm bình dân dần biến đĩa cơm giản dị thành một bữa ăn đủ đầy với sườn nướng, bì trộn thính, chả trứng và nước mắm chua ngọt. Những hồi ức về Sài Gòn khoảng năm 1946 đã nhắc đến đúng tổ hợp quen thuộc ấy. Không ai biết chính xác ai đã tạo ra đĩa cơm tấm sườn bì chả đầu tiên; điều đặc biệt là một nguyên liệu từng bị xem là thứ phẩm đã trở thành món ăn được người Sài Gòn nhận diện như một phần bản sắc thành phố.",
+    "storyFr": "Au début du XXᵉ siècle, dans les régions rizicoles du Sud du Vietnam, le riz brisé, les grains cassés lors du décorticage, constituait une option économique pour les travailleurs. À Saïgon, les petites échoppes ont progressivement transformé ce repas modeste en une assiette généreuse, accompagnée de porc grillé, de peau de porc mélangée à de la poudre de riz grillé, de pâté aux œufs et de sauce de poisson aigre-douce. Des souvenirs de Saïgon datant d’environ 1946 mentionnent déjà cette combinaison devenue emblématique. On ignore qui a préparé le premier « cơm tấm sườn bì chả » ; son histoire raconte surtout comment un ingrédient autrefois dévalorisé est devenu l’un des symboles culinaires de Saïgon."
    },
    {
     "id": "tmvkkrs2h0",
     "img": "media/1792736071165-58.png",
     "vi": "một cốc trà chanh đá",
     "fr": "un verre de thé glacé au citron",
-    "cat": "dessert"
+    "cat": "dessert",
+    "storyVi": "Cuối những năm 2000, những quán trà chanh vỉa hè quanh Nhà thờ Lớn và phố Đào Duy Từ trở thành điểm hẹn quen thuộc của giới trẻ Hà Nội. Với vài chiếc ghế nhựa thấp, đĩa hướng dương và ly trà chanh mát lạnh, người ta có thể ngồi hàng giờ để kể chuyện, bàn đủ thứ trên đời và ngắm nhịp phố trôi qua. Trà chanh vì thế không chỉ là sự kết hợp giản dị giữa trà, chanh, đường và đá, mà còn đại diện cho một nét văn hóa đường phố Việt Nam: gặp nhau chẳng cần dịp đặc biệt, cũng chẳng cần một không gian sang trọng, chỉ cần một góc vỉa hè và câu chuyện chưa kể hết.",
+    "storyFr": "À la fin des années 2000, les petits stands de thé au citron autour de la cathédrale Saint-Joseph et de la rue Đào Duy Từ sont devenus des lieux de rendez-vous prisés par la jeunesse hanoïenne. Quelques petits tabourets en plastique, des graines de tournesol à grignoter et un verre de thé glacé suffisent pour passer des heures à discuter de tout et de rien, tout en observant la vie de la rue. Bien plus qu’un simple mélange de thé, de citron, de sucre et de glace, le trà chanh incarne une facette de la culture urbaine vietnamienne : se retrouver sans occasion particulière, sans décor sophistiqué, juste pour partager un moment ensemble."
    },
    {
     "id": "tmvkkrunc1",
     "img": "media/1792736074555-59.png",
     "vi": "một cốc trà sữa",
     "fr": "un verre de thé au lait",
-    "cat": "dessert"
+    "cat": "dessert",
+    "storyVi": "Xuất hiện tại Đài Loan vào những năm 1980, trà sữa trân châu gắn với câu chuyện cạnh tranh giữa hai quán trà: Chun Shui Tang ở Đài Trung và Hanlin Tea Room ở Đài Nam, cả hai đều nhận mình là nơi khai sinh món uống nổi tiếng này. Tranh chấp kéo dài nhiều năm, nhưng không bên nào giành được quyền độc quyền đối với công thức. Có lẽ chính sự kết hợp giản dị giữa trà, sữa và những viên trân châu dai mềm đã giúp thức uống vượt khỏi mọi ranh giới: từ các tiệm trà Đài Loan đến đường phố châu Á rồi lan rộng khắp thế giới. Một sáng tạo nhỏ, nay đã trở thành hiện tượng văn hóa đại chúng toàn cầu.",
+    "storyFr": "Apparu à Taïwan dans les années 1980, le bubble tea est au cœur d’une rivalité entre deux maisons de thé : Chun Shui Tang, à Taichung, et Hanlin Tea Room, à Tainan, qui revendiquent toutes deux son invention. La controverse a duré des années, sans qu’aucune des deux enseignes obtienne l’exclusivité de la recette. Pourtant, l’alliance toute simple du thé, du lait et des perles de tapioca moelleuses a largement dépassé les frontières de l’île : des salons de thé taïwanais aux rues d’Asie, puis aux quatre coins du monde. Une petite invention devenue un phénomène de la culture populaire mondiale."
    },
    {
     "id": "tmvkkrx7n2",
     "img": "media/1792736077877-60.png",
     "vi": "một bát bún bò Huế",
     "fr": "un bol de bún bò Huế",
-    "cat": "main"
+    "cat": "main",
+    "storyVi": "Theo lời kể được lưu truyền ở Huế, món ăn có thể bắt nguồn từ những dịp tế lễ làng xưa, khi thịt và xương được nấu thành món xáo ăn cùng xôi. Về sau, bún dần thay thế xôi, rồi qua bàn tay của nhiều thế hệ người Huế, món ăn được hoàn thiện với sả thơm nồng, mắm ruốc đậm đà và vị cay đặc trưng. Mỗi người nấu lại có bí quyết riêng, từ cách nêm nước dùng đến lựa chọn thịt bò, giò heo hay chả cua. Năm 2025, tri thức dân gian về bún bò Huế được ghi danh là di sản văn hóa phi vật thể quốc gia. Sự ghi nhận này không chỉ dành cho một món ăn, mà còn cả kỹ năng và ký ức ẩm thực được truyền qua nhiều thế hệ.",
+    "storyFr": "Selon une tradition orale rapportée à Huế, ce plat pourrait trouver ses origines dans les cérémonies villageoises d’autrefois, lorsque la viande et les os étaient mijotés pour préparer un ragoût servi avec du riz gluant. Avec le temps, les vermicelles de riz ont remplacé celui-ci. De génération en génération, les cuisiniers de Huế ont façonné une recette reconnaissable à son parfum de citronnelle, à la profondeur du mắm ruốc, une pâte de crevettes fermentées, et à son piquant caractéristique. Chaque cuisinier conserve ses propres secrets, dans le bouillon comme dans le choix des viandes et des garnitures. En 2025, les savoirs populaires liés au bún bò Huế ont été inscrits au patrimoine culturel immatériel national du Vietnam : une reconnaissance qui célèbre autant un plat que les gestes et les souvenirs transmis avec lui."
    },
    {
     "id": "tmvkkrzys3",
     "img": "media/1792736081189-61.png",
     "vi": "một mẹt bún chả",
     "fr": "un plateau de bún chả",
-    "cat": "main"
+    "cat": "main",
+    "storyVi": "Bún chả không chỉ là món ăn quen thuộc của người Hà Nội mà còn đi vào ký ức văn chương. Trong tác phẩm Miếng ngon Hà Nội, xuất bản vào cuối thập niên 1950, nhà văn Vũ Bằng đã nhắc đến sức hấp dẫn của ẩm thực thủ đô, trong đó có bún chả. Từ những hàng nướng bình dị trên phố đến trang viết về Hà Nội xưa, món ăn này đã trở thành một phần của bản sắc ẩm thực thành phố.",
+    "storyFr": "Le bún chả ne se limite pas à un plat emblématique de Hanoï : il fait aussi partie de la mémoire littéraire de la ville. Dans son ouvrage « Miếng ngon Hà Nội », publié à la fin des années 1950, l’écrivain Vũ Bằng évoque les plaisirs de la gastronomie hanoïenne, dont le bún chả. Des petits stands de rue aux récits sur le vieux Hanoï, ce plat est devenu une véritable expression de l’identité culinaire de la capitale."
    },
    {
     "id": "tmvkks2ke4",
     "img": "media/1792736084760-62.png",
     "vi": "một đĩa bánh xèo",
     "fr": "une assiette de bánh xèo",
-    "cat": "main"
+    "cat": "main",
+    "storyVi": "Chỉ cần đổ một vá bột gạo lên chảo nóng, tiếng “xèo” vang lên cũng chính là nguồn gốc tên gọi của món ăn dân dã này. Bánh xèo được cho là bắt nguồn từ miền Trung, rồi theo dòng giao lưu ẩm thực lan rộng khắp Việt Nam. Mỗi vùng lại tạo nên một phiên bản riêng: bánh miền Trung thường nhỏ hơn, còn bánh miền Tây có thể lớn gần bằng chiếc đĩa, với lớp vỏ vàng giòn thơm nghệ, đôi khi béo nhẹ vị nước cốt dừa. Ăn bánh xèo cũng là một trải nghiệm đầy cảm giác: bẻ miếng bánh còn nóng, cuốn cùng rau thơm và chấm nước mắm chua ngọt. Một món ăn giản dị, nhưng đủ để kể câu chuyện về sự phong phú của ẩm thực Việt.",
+    "storyFr": "Il suffit de verser une louche de pâte de riz dans une poêle brûlante pour entendre le fameux « xèo », ce grésillement qui a donné son nom à ce plat populaire. Le bánh xèo serait originaire du Centre du Vietnam avant de se répandre dans le pays au fil des échanges culinaires. Chaque région en propose sa propre version : dans le Centre, les crêpes sont souvent plus petites, tandis que celles du delta du Mékong peuvent atteindre la taille d’une grande assiette, avec une croûte dorée au curcuma et parfois une touche de lait de coco. Le déguster est tout un rituel sensoriel : casser la crêpe encore chaude, l’envelopper de feuilles et d’herbes fraîches, puis la tremper dans une sauce de poisson aigre-douce. Un plat simple qui raconte toute la richesse de la cuisine vietnamienne."
    },
    {
     "id": "tmvkks5qc5",
     "img": "media/1792736088141-63.png",
     "vi": "một mẹt bún đậu mắm tôm",
     "fr": "un plateau de bún đậu au mắm tôm",
-    "cat": "main"
+    "cat": "main",
+    "storyVi": "Từng xuất hiện trên những gánh hàng rong và trong các khu chợ Hà Nội, bún đậu mắm tôm khởi đầu là bữa ăn giản dị của người lao động: vài miếng bún lá, đậu phụ rán vàng và một bát mắm tôm pha quất, ớt. Theo thời gian, món ăn được bổ sung thêm chả cốm, thịt chân giò và dồi rán, nhưng linh hồn vẫn là thứ mắm tôm tím sẫm có mùi nồng đặc trưng. Với người chưa quen, đó có thể là thử thách đầu tiên; với người đã mê, chỉ cần thiếu mắm tôm là mẹt bún dường như mất đi một nửa sức hấp dẫn. Từ món ăn vỉa hè đến biểu tượng ẩm thực Hà Nội, bún đậu chứng minh rằng đôi khi chính hương vị gây tranh cãi nhất lại là thứ khiến người ta nhớ lâu nhất.",
+    "storyFr": "Autrefois vendu sur les étals ambulants et dans les marchés de Hanoï, le bún đậu mắm tôm était un repas simple des travailleurs : quelques morceaux de vermicelles de riz, du tofu doré et une sauce de crevettes fermentées, assaisonnée de jus de kumquat et de piment. Au fil du temps, on y a ajouté du porc, des galettes de riz gluant jeune et des abats frits, mais son âme reste cette pâte de crevettes à la couleur sombre et à l’arôme puissant. Pour les novices, elle peut représenter un véritable défi ; pour les amateurs, impossible d’imaginer le plat sans elle. Des étals de rue aux tables des restaurants, le bún đậu est devenu un emblème culinaire de Hanoï, rappelant que les saveurs les plus clivantes sont parfois celles dont on se souvient le plus longtemps."
    },
    {
     "id": "tmvkks8196",
     "img": "media/1792736092305-64.png",
     "vi": "một đĩa miến xào hải sản",
     "fr": "une assiette de vermicelles sautés aux fruits de mer",
-    "cat": "main"
+    "cat": "main",
+    "storyVi": "Khác với bún hay phở làm từ gạo, miến dong được chế biến từ tinh bột củ dong riềng, tạo nên những sợi miến trong, dai và nhẹ. Khi xào cùng tôm, mực và rau củ, miến hấp thụ nước sốt thơm đậm nhưng vẫn giữ được độ tơi nếu được chế biến đúng cách. Bí quyết nằm ở việc làm mềm miến vừa đủ, xào hải sản riêng để giữ độ ngọt tự nhiên rồi mới đảo nhanh tất cả trên chảo nóng. Một món ăn dung hòa kết cấu mềm dai của sợi miến với vị ngọt thanh của hải sản trong từng đũa gắp.",
+    "storyFr": "Contrairement aux nouilles de riz, les vermicelles de verre vietnamiens peuvent être fabriqués à partir d’amidon de canna, qui leur donne leur transparence et leur texture élastique. Sautés avec des crevettes, des calamars et des légumes, ils absorbent les saveurs de la sauce tout en restant légers et bien séparés lorsqu’ils sont préparés avec soin. Le secret consiste à les réhydrater juste assez, à saisir séparément les fruits de mer pour préserver leur tendreté, puis à réunir le tout rapidement dans un wok bien chaud. Un plat où la texture délicatement ferme des vermicelles rencontre la douceur naturelle des produits de la mer."
    },
    {
     "id": "tmvkksat07",
     "img": "media/1792736095282-65.png",
     "vi": "một hộp gà rán",
     "fr": "une boîte de poulet frit",
-    "cat": "main"
+    "cat": "main",
+    "storyVi": "Gà rán có mặt trong nhiều nền ẩm thực, nhưng phiên bản kiểu miền Nam nước Mỹ mang theo một lịch sử giao thoa phức tạp: kỹ thuật chiên của châu Âu hòa quyện với cách tẩm ướp và kinh nghiệm nấu nướng của người châu Phi và người Mỹ gốc Phi. Trong thế kỷ XIX, nhiều phụ nữ Mỹ gốc Phi đã bán gà rán tại chợ và sân ga, biến món ăn thành nguồn thu nhập và sinh kế. Sang thế kỷ XX, sự phát triển của ngành chăn nuôi và các chuỗi thức ăn nhanh đưa gà rán đến với thực khách khắp thế giới. Ngày nay, dù mang lớp áo gia vị nào, sức hấp dẫn của món ăn vẫn nằm ở sự tương phản khó cưỡng giữa lớp vỏ giòn rụm và phần thịt mềm mọng bên trong.",
+    "storyFr": "Le poulet frit existe dans de nombreuses traditions culinaires, mais la version du Sud des États-Unis porte une histoire complexe de rencontres culturelles : des techniques de friture européennes se sont mêlées aux assaisonnements et au savoir-faire culinaire des populations africaines et afro-américaines. Au XIXe siècle, de nombreuses femmes afro-américaines vendaient du poulet frit sur les marchés et dans les gares, faisant de ce plat une source de revenus et d’indépendance économique. Au XXe siècle, l’industrialisation de l’élevage et l’essor des chaînes de restauration rapide l’ont popularisé dans le monde entier. Aujourd’hui, quelles que soient les épices ou les sauces qui l’accompagnent, son attrait repose toujours sur ce contraste irrésistible entre une croûte croustillante et une chair tendre et juteuse."
    },
    {
     "id": "tmvkksdru8",
     "img": "media/1792736098909-66.png",
     "vi": "một đĩa spaghetti",
     "fr": "une assiette de spaghetti",
-    "cat": "main"
+    "cat": "main",
+    "storyVi": "Tương truyền, nhà thám hiểm Marco Polo đã mang mì từ Trung Quốc về Ý vào cuối thế kỷ XIII. Nhưng câu chuyện nổi tiếng này thực chất bắt nguồn từ một mẩu chuyện mang tính hài hước đăng trên tạp chí Macaroni Journal của Mỹ năm 1929. Trên thực tế, người Ý đã biết đến mì từ trước khi Marco Polo trở về; tại Sicily, việc sản xuất mì đã được ghi nhận từ thế kỷ XII. Qua nhiều thế kỷ, spaghetti dần trở thành biểu tượng của ẩm thực Ý, không phải nhờ một nhà thám hiểm duy nhất, mà nhờ lịch sử lâu dài của kỹ thuật làm mì, nguyên liệu địa phương và văn hóa ẩm thực vùng miền.",
+    "storyFr": "Selon une histoire célèbre, l’explorateur Marco Polo aurait rapporté les pâtes de Chine en Italie à la fin du XIIIe siècle. Pourtant, cette légende provient en réalité d’un récit humoristique publié en 1929 dans le Macaroni Journal, une revue américaine consacrée aux pâtes. Les Italiens connaissaient déjà les pâtes avant le retour de Marco Polo ; leur fabrication en Sicile est attestée dès le XIIe siècle. Au fil des siècles, les spaghetti sont devenus un symbole de la cuisine italienne, non grâce à un seul explorateur, mais grâce à une longue histoire de techniques artisanales, de produits locaux et de traditions culinaires régionales. "
    },
    {
     "id": "tmvkksguw9",
     "img": "media/1792736102690-67.png",
     "vi": "một bánh sandwich",
     "fr": "un sandwich",
-    "cat": "main"
+    "cat": "main",
+    "storyVi": "Bạn có biết từ sandwich được cho là bắt nguồn từ John Montagu, Bá tước thứ tư xứ Sandwich của nước Anh thế kỷ XVIII? Theo giai thoại, ông yêu cầu kẹp thịt giữa hai lát bánh mì để có thể vừa ăn vừa tiếp tục chơi bài mà không phải rời bàn. Dù câu chuyện này chưa được xác minh hoàn toàn, cái tên sandwich đã xuất hiện trong nhật ký của nhà sử học Edward Gibbon từ năm 1762. Từ một bữa ăn tiện lợi, sandwich dần trở thành món ăn phổ biến trên khắp thế giới, với vô số biến tấu từ bánh mì, nhân thịt đến rau củ và phô mai.",
+    "storyFr": "Saviez-vous que le mot sandwich serait lié à John Montagu, quatrième comte de Sandwich, en Angleterre au XVIIIe siècle ? Selon une anecdote célèbre, il aurait demandé à faire servir de la viande entre deux tranches de pain afin de continuer à jouer aux cartes sans quitter la table. Bien que cette histoire ne soit pas entièrement vérifiée, le mot sandwich apparaît déjà dans le journal de l’historien Edward Gibbon en 1762. D’un repas pratique, le sandwich est devenu un incontournable dans le monde entier, décliné en une multitude de versions à base de viande, de légumes et de fromage."
    },
    {
     "id": "tmvkksjtt10",
     "img": "media/1792736106683-68.png",
     "vi": "một phần bánh crêpe mật ong",
     "fr": "une portion de crêpe au miel",
-    "cat": "dessert"
+    "cat": "dessert",
+    "storyVi": "Từ hàng nghìn năm trước khi đường trở nên phổ biến, mật ong đã là một trong những chất tạo ngọt quý giá trong đời sống con người. Khi kết hợp với crêpe, món bánh mỏng gắn liền với vùng Bretagne của Pháp, mật ong mang đến vị ngọt dịu, làm nổi bật hương bơ thơm béo và lớp bánh mềm mỏng. Sự kết hợp giản dị ấy hòa quyện giữa nét mộc mạc của truyền thống và niềm vui thưởng thức một món bánh ngọt vượt thời gian.",
+    "storyFr": "Bien avant que le sucre ne devienne courant, le miel était déjà utilisé par les civilisations anciennes pour adoucir les aliments. Associé à la crêpe, spécialité emblématique de la Bretagne, il apporte une douceur délicate qui révèle les notes de beurre et le parfum de la pâte finement dorée. Une alliance simple et intemporelle, entre tradition gourmande et plaisir authentique."
    },
    {
     "id": "tmvkksms811",
     "img": "media/1792736110555-69.png",
     "vi": "một bánh hamburger",
     "fr": "un hamburger",
-    "cat": "main"
+    "cat": "main",
+    "storyVi": "Dù mang tên thành phố Hamburg của Đức, hamburger hiện đại lại gắn liền với văn hóa ẩm thực Hoa Kỳ. Món ăn này có nguồn gốc từ Hamburg steak - thịt bò băm hoặc xay, được biết đến tại Mỹ từ thế kỷ XIX. Khi phần thịt được kẹp vào bánh mì để tiện mang theo và thưởng thức, một món ăn mới dần hình thành. Điều thú vị là nhiều địa phương ở Mỹ cùng nhận mình là nơi khai sinh hamburger, nhưng chưa có câu trả lời chắc chắn. Từ những quầy hàng bình dân đến các chuỗi thức ăn nhanh toàn cầu, hamburger cho thấy cách một món ăn có thể vượt biên giới, biến đổi và trở thành biểu tượng của một nền văn hóa khác.",
+    "storyFr": "Bien qu’il porte le nom de la ville allemande de Hambourg, le hamburger moderne est devenu un symbole de la culture culinaire américaine. Son histoire est liée au Hamburg steak, une préparation de bœuf haché connue aux États-Unis dès le XIXe siècle. Lorsque la viande a été glissée dans du pain pour être consommée plus facilement, une nouvelle forme de sandwich a progressivement vu le jour. Fait intéressant, plusieurs villes américaines revendiquent l’invention du hamburger, sans qu’aucune origine ne puisse être confirmée avec certitude. Des petits stands aux chaînes de restauration rapide internationales, son parcours illustre la façon dont un plat traverse les frontières, se transforme et acquiert une nouvelle identité culturelle."
    },
    {
     "id": "tmvkkspb312",
     "img": "media/1792736114357-70.png",
     "vi": "một bánh pizza",
     "fr": "une pizza",
-    "cat": "main"
+    "cat": "main",
+    "storyVi": "Bắt nguồn từ truyền thống bánh mì dẹt lâu đời của vùng Địa Trung Hải, pizza đã phát triển thành một biểu tượng ẩm thực gắn liền với Napoli, miền Nam nước Ý. Trong số những phiên bản nổi tiếng nhất, Pizza Margherita gây ấn tượng với ba nguyên liệu mang màu sắc quốc kỳ Ý: cà chua đỏ, phô mai mozzarella trắng và húng quế xanh. Theo giai thoại, chiếc bánh được đặt theo tên Nữ hoàng Margherita sau khi bà thưởng thức nó tại Napoli năm 1889. Tuy nhiên, câu chuyện này vẫn gây tranh luận, bởi những công thức pizza tương tự đã xuất hiện trước đó. Dù huyền thoại có chính xác hay không, sự kết hợp giản dị ấy đã trở thành một trong những hình ảnh tiêu biểu nhất của ẩm thực Ý trên toàn thế giới.",
+    "storyFr": "Issue d’une longue tradition de pains plats du bassin méditerranéen, la pizza est devenue un emblème culinaire de Naples, dans le sud de l’Italie. Parmi ses versions les plus célèbres, la pizza Margherita se distingue par trois ingrédients évoquant les couleurs du drapeau italien : la tomate rouge, la mozzarella blanche et le basilic vert. Selon la légende, cette pizza aurait été baptisée en l’honneur de la reine Margherita après sa dégustation à Naples en 1889. Cette histoire reste toutefois controversée, car des recettes similaires existaient déjà auparavant. Vraie ou non, cette légende accompagne désormais l’une des associations de saveurs les plus emblématiques de la cuisine italienne à travers le monde."
    },
    {
     "id": "tmvkkss6t13",
     "img": "media/1792736117606-71.png",
     "vi": "một chai coke",
     "fr": "une bouteille de coca-cola",
-    "cat": "dessert"
+    "cat": "dessert",
+    "storyVi": "Năm 1886, dược sĩ John Pemberton tạo ra Coca-Cola tại Atlanta, Hoa Kỳ. Thức uống ban đầu được bán tại hiệu thuốc Jacobs’ Pharmacy với giá 5 xu một ly, sau khi si-rô được pha cùng nước có ga. Ít ai ngờ rằng trong năm đầu tiên, Coca-Cola chỉ bán được trung bình khoảng 9 ly mỗi ngày. Tên gọi và kiểu chữ logo đặc trưng do Frank M. Robinson, cộng sự của Pemberton, đề xuất và thiết kế. Sau đó, doanh nhân Asa Candler đã đưa thương hiệu phát triển nhờ quảng cáo sáng tạo và mở rộng hệ thống phân phối. Từ một thức uống phục vụ tại quầy nước ở hiệu thuốc, Coca-Cola dần trở thành một biểu tượng của văn hóa đại chúng trên toàn thế giới.",
+    "storyFr": "En 1886, le pharmacien John Pemberton crée Coca-Cola à Atlanta, aux États-Unis. La boisson est d’abord vendue à la pharmacie Jacobs’ Pharmacy, au prix de cinq cents le verre, après mélange du sirop avec de l’eau gazeuse. Pourtant, durant sa première année, elle ne se vend qu’à environ neuf verres par jour en moyenne. Le nom et le célèbre lettrage du logo sont proposés et dessinés par Frank M. Robinson, le comptable associé de Pemberton. Par la suite, l’entrepreneur Asa Candler développe la marque grâce à des campagnes publicitaires innovantes et à l’élargissement de son réseau de distribution. D’une boisson servie au comptoir d’une pharmacie, Coca-Cola devient peu à peu une icône de la culture populaire mondiale."
    },
    {
     "id": "tmvkkynul0",
     "img": "media/1792736392397-56.png",
     "vi": "một cốc cà phê trứng",
     "fr": "un verre de café aux œufs",
-    "cat": "dessert"
+    "cat": "dessert",
+    "storyVi": "Cà phê trứng được cho là do ông Nguyễn Văn Giảng sáng tạo tại Hà Nội vào khoảng năm 1946, khi ông làm việc tại khách sạn Metropole. Trong bối cảnh sữa khan hiếm, lòng đỏ trứng được đánh bông dùng thay cho lớp sữa trong đồ uống cà phê. Sự ứng biến ấy đã tạo nên lớp kem béo mịn nổi tiếng, nay gắn liền với văn hóa cà phê Hà Nội.",
+    "storyFr": "Le café aux œufs aurait été créé à Hanoï vers 1946 par Nguyễn Văn Giảng, alors qu’il travaillait à l’hôtel Métropole. À une époque où le lait était difficile à trouver, il aurait utilisé des jaunes d’œufs fouettés pour remplacer la couche crémeuse habituellement apportée par le lait. Cette improvisation aurait donné naissance à une mousse onctueuse devenue emblématique de la culture du café à Hanoï."
    },
    {
     "id": "tmvkltc460",
     "img": "media/1792737823029-4.png",
     "vi": "một phần khoai tây chiên",
     "fr": "une portion de frites",
-    "cat": "main"
+    "cat": "main",
+    "storyVi": "Giòn rụm bên ngoài, mềm bùi bên trong, khoai tây chiên là món ăn quen thuộc tại nhiều quốc gia châu Âu, đặc biệt là Pháp và Bỉ. Nhưng bạn có biết hai nước láng giềng này đã tranh luận từ lâu về nơi khai sinh món ăn? Một giai thoại của Bỉ kể rằng người dân vùng sông Meuse từng chiên khoai tây thay cá vào những mùa đông giá rét. Dù câu chuyện chưa được chứng minh chắc chắn, tư liệu lịch sử ghi nhận khoai tây chiên được bán trên cầu Pont-Neuf ở Paris từ cuối thế kỷ XVIII. Sau đó, Bỉ phát triển văn hóa khoai tây chiên riêng, nổi bật với kỹ thuật chiên hai lần và cách thưởng thức cùng mayonnaise. Có lẽ, điều làm nên sức hấp dẫn của khoai tây chiên không chỉ nằm ở độ giòn, mà còn ở hành trình món ăn vượt qua biên giới và trở thành niềm tự hào ẩm thực của nhiều nơi.",
+    "storyFr": "Croustillantes à l’extérieur et fondantes à l’intérieur, les frites sont appréciées dans de nombreux pays, notamment en France et en Belgique. Mais saviez-vous que ces deux voisins se disputent depuis longtemps l’origine de cette spécialité ? Selon une légende belge, les habitants de la vallée de la Meuse auraient remplacé les petits poissons par des pommes de terre frites lorsque la rivière gelait en hiver. Cette histoire reste toutefois incertaine. Des documents historiques attestent la vente de pommes de terre frites sur le Pont-Neuf, à Paris, dès la fin du XVIIIe siècle. La Belgique a ensuite développé sa propre culture de la frite, réputée notamment pour la double cuisson et l’accompagnement à la mayonnaise. Au-delà de leur texture irrésistible, les frites racontent ainsi une histoire de traditions partagées, de frontières et de fierté culinaire."
    },
    {
     "id": "tmvkltepr1",
     "img": "media/1792737826899-5.png",
     "vi": "một phần bánh lưỡi mèo",
     "fr": "une portion de langues de chat",
-    "cat": "dessert"
+    "cat": "dessert",
+    "storyVi": "Với hình dáng thuôn dài, mảnh mai, langues de chat mang cái tên độc đáo có nghĩa là “lưỡi mèo” trong tiếng Pháp. Những chiếc bánh quy mỏng nhẹ này thường có hương bơ dịu dàng, phần rìa vàng giòn và kết cấu tan nhẹ khi thưởng thức. Nhờ hình dáng thanh mảnh và vị ngọt tinh tế, bánh thường được dùng cùng trà, cà phê hoặc ăn kèm kem. Một món bánh nhỏ nhắn nhưng đủ làm cho giờ thưởng thức trở nên thi vị hơn.",
+    "storyFr": "Avec leur forme longue et étroite, les langues de chat portent un nom évocateur qui signifie littéralement « langues de chat ». Ces biscuits fins et légers offrent généralement une délicate saveur beurrée, des bords légèrement dorés et une texture croustillante qui fond en bouche. Leur finesse et leur douceur subtile en font un accompagnement idéal pour le thé, le café ou une glace. Une petite gourmandise qui apporte une touche d’élégance à chaque pause sucrée."
    },
    {
     "id": "tmvklth8r2",
     "img": "media/1792737830167-6.png",
     "vi": "một phần bánh quy bơ Bretagne",
     "fr": "une portion de palets bretons",
-    "cat": "dessert"
+    "cat": "dessert",
+    "storyVi": "Đến từ vùng Bretagne ở miền Tây nước Pháp, bánh quy bơ (palets bretons) là những chiếc bánh quy dày, giòn vụn, nổi bật với vị bơ đậm đà và chút mặn tinh tế. Tên bánh bắt nguồn từ trò chơi truyền thống palet, trong đó người chơi ném những chiếc đĩa kim loại về phía mục tiêu. Hình dáng tròn, dẹt và chắc của bánh gợi nhớ đến những chiếc đĩa ấy. Được làm giàu bằng bơ mặn, nguyên liệu đặc trưng trong nhiều món bánh Bretagne, bánh quy bơ mang đến hương vị mộc mạc mà đầy cuốn hút.",
+    "storyFr": "Originaires de Bretagne, dans l’ouest de la France, les palets bretons sont de petits biscuits épais et friables, au goût généreux de beurre et à la délicate pointe salée. Leur nom vient du jeu traditionnel du palet, dans lequel les joueurs lancent des disques métalliques vers une cible. La forme ronde, plate et compacte des biscuits rappelle ces petits disques. Préparés avec du beurre demi-sel, ingrédient emblématique de nombreuses spécialités bretonnes, ils offrent une gourmandise simple et authentique."
    },
    {
     "id": "tmvkltj6d3",
     "img": "media/1792737833418-7.png",
     "vi": "một phần bánh quy bơ",
     "fr": "une portion de petits-beurre",
-    "cat": "dessert"
+    "cat": "dessert",
+    "storyVi": "Ra đời tại Nantes, Pháp, năm 1886, chiếc bánh quy bơ nổi tiếng của thương hiệu LU gây ấn tượng với hình chữ nhật, viền răng cưa và những chấm nhỏ trên mặt bánh. Điều thú vị là thiết kế ấy thường được ví như một cuốn lịch thu nhỏ: bốn góc bánh tượng trưng cho bốn mùa, 52 đường răng cưa gợi 52 tuần trong năm, còn 24 chấm nhỏ đại diện cho 24 giờ mỗi ngày. Dù ý nghĩa biểu tượng này chưa được xác nhận hoàn toàn bằng tư liệu đương thời, nó đã góp phần tạo nên sức hấp dẫn của chiếc bánh quy giản dị. Giòn nhẹ, thơm bơ và dễ thưởng thức, bánh quy bơ là món bánh gắn liền với những giờ trà và ký ức tuổi thơ của nhiều thế hệ người Pháp.",
+    "storyFr": "Créé à Nantes, en France, en 1886, le célèbre petit-beurre de la marque LU se reconnaît à sa forme rectangulaire, à ses bords dentelés et à ses petits points en surface. Son dessin est souvent interprété comme un calendrier miniature : les quatre coins évoqueraient les saisons, les 52 dents du contour les semaines de l’année et les 24 petits points les heures de la journée. Même si cette symbolique n’est pas entièrement confirmée par les documents de l’époque, elle contribue au charme de ce biscuit emblématique. Léger, croquant et délicatement beurré, le petit-beurre accompagne les pauses thé et les souvenirs d’enfance de générations de Français."
    },
    {
     "id": "tmvkltmfc4",
     "img": "media/1792737837012-8.png",
     "vi": "một phần bánh quy hồng Reims",
     "fr": "une portion de biscuits roses de Reims",
-    "cat": "dessert"
+    "cat": "dessert",
+    "storyVi": "Bánh quy hồng Reims ra đời vào khoảng thập niên 1690. Ban đầu, thợ bánh tận dụng nhiệt còn sót lại trong lò sau khi nướng bánh mì để sấy khô bánh quy qua lần nướng thứ hai. Một giai thoại khác còn kể rằng các vị vua Pháp từng nhúng bánh quy này vào champagne trước khi ngủ đêm trước lễ đăng quang, cùng với niềm tin rằng chiếc bánh còn nguyên vẹn sẽ báo hiệu một triều đại bình an.",
+    "storyFr": "Les biscuits roses de Reims seraient apparus vers les années 1690. À l’origine, les boulangers auraient profité de la chaleur résiduelle du four après la cuisson du pain pour faire sécher les biscuits lors d’une seconde cuisson. Une tradition raconte également que les rois de France trempaient ces biscuits dans le champagne la veille de leur sacre, en croyant qu’un biscuit resté intact annoncerait un règne paisible."
    },
    {
     "id": "tmvkltorj5",
     "img": "media/1792737840166-9.png",
     "vi": "một cốc nước có ga pha si-rô grenadine",
     "fr": "un diabolo grenadine",
-    "cat": "dessert"
+    "cat": "dessert",
+    "storyVi": "Xuất hiện tại Pháp từ đầu thế kỷ XX, diabolo là thức uống đơn giản kết hợp limonade có ga với si-rô trái cây. Phiên bản grenadine nổi bật với sắc đỏ hồng bắt mắt, vị ngọt dịu và những bọt khí sủi tăm vui mắt. Thú vị hơn, cái tên diabolo còn được dùng cho một trò chơi tung hứng phổ biến ở Pháp cùng thời kỳ. Dù nguồn gốc chính xác của tên gọi vẫn còn là điều bí ẩn, diabolo đã trở thành hình ảnh thân thuộc của những buổi chiều hè và những giờ phút thư giãn tại quán cà phê Pháp.",
+    "storyFr": "Apparu en France au début du XXe siècle, le diabolo est une boisson simple qui associe de la limonade pétillante à un sirop fruité. Dans sa version grenadine, sa jolie teinte rose-rouge, sa douceur fruitée et ses fines bulles évoquent instantanément les beaux jours. Fait amusant : le mot diabolo désigne aussi un jeu de jonglerie qui était très en vogue en France à la même époque. Si le lien exact entre le jeu et la boisson reste incertain, le diabolo est devenu un classique rafraîchissant des cafés français et des après-midi d’été."
    }
   ],
   "tpl": {
