@@ -156,6 +156,9 @@ button,.chip{transition:transform .3s cubic-bezier(.22,.61,.36,1),background-col
 .tth{flex:none;width:84px;height:84px;display:flex;align-items:center;justify-content:center;background:var(--bg);border:1px solid var(--line);font-size:12px;color:var(--muted);text-align:center}
 .tth img{max-width:100%;max-height:100%;object-fit:contain}
 .tfs{flex:1;min-width:0}.tfs .fi{margin:0 0 6px}
+.tfs details{margin:2px 0 8px;border:1px dashed var(--line);padding:6px 10px;background:var(--bg)}
+.tfs summary{cursor:pointer;font-size:14px;color:var(--wine);font-weight:600}
+.tfs textarea.fi{min-height:88px;resize:vertical;line-height:1.5}
 .tsample{display:flex;align-items:center;gap:14px;margin-top:12px;padding:12px;background:var(--bg);border:1px solid var(--line)}
 .tsample img{height:70px;width:auto}
 </style>
@@ -272,7 +275,7 @@ button,.chip{transition:transform .3s cubic-bezier(.22,.61,.36,1),background-col
   </section>
   <section id="t-menu" class="panel" hidden>
     <h3>Gọi món (À la carte)</h3>
-    <p class="hint">Trang “Gọi món” trên web là một tờ thực đơn gồm 3 phần: Khai vị, Món chính, Tráng miệng. Các món ở đây chính là các món của “Mời thưởng trà”: <b>thêm hoặc xóa món ở đâu thì món cũng xuất hiện hoặc biến mất ở cả hai nơi</b> (trang Chào mừng và trang Gọi món). Món chưa chọn phân loại sẽ tạm hiện ở phần Món chính.</p>
+    <p class="hint">Trang “Gọi món” trên web là một tờ thực đơn gồm 3 phần: Khai vị, Món chính, Tráng miệng. Các món ở đây chính là các món của “Mời thưởng trà”: <b>thêm hoặc xóa món ở đâu thì món cũng xuất hiện hoặc biến mất ở cả hai nơi</b> (trang Chào mừng và trang Gọi món). Món chưa chọn phân loại sẽ tạm hiện ở phần Món chính. Mỗi món hiện thành một <b>ô cửa sổ vòm trưng bày</b>; khách bấm vào ô nào thì hiện hộp giới thiệu món đó. Nội dung hộp là ô <b>Câu chuyện hoặc fact về món này</b> ở từng món bên dưới (bỏ trống thì hộp báo cô chủ đang viết thêm).</p>
     <h4 class="sh" style="margin-top:6px">Chữ đầu trang thực đơn</h4>
     <p class="hint">Bỏ trống thì web dùng câu mặc định.</p>
     <label>Tiêu đề, tiếng Việt</label><input type="text" id="mn-title-vi" class="fi" placeholder="Thực đơn của Cottage">
@@ -502,7 +505,7 @@ function trSentence(t,lang){const nm=String((lang==='fr'?(t.fr||t.vi):(t.vi||t.f
 function itemRow(x,i){
   const known=MCATS.some(c=>c[0]===x.cat);
   const opts=(known?'':'<option value="" selected>Chưa phân loại (đang hiện ở Món chính)</option>')+MCATS.map(c=>'<option value="'+c[0]+'"'+(x.cat===c[0]?' selected':'')+'>'+c[1]+'</option>').join('');
-  return '<div class="trow" data-i="'+i+'"><div class="tth">'+(x.img?'<img src="'+esc(U(x.img))+'" alt="">':'Chưa có ảnh')+'</div><div class="tfs"><input type="text" class="fi" data-f="vi" placeholder="Tên món, tiếng Việt (vd: tách trà hoa cúc)" value="'+esc(x.vi||'')+'"><input type="text" class="fi" data-f="fr" placeholder="Nom en français (vd: une tasse de thé)" value="'+esc(x.fr||'')+'"><select class="fi" data-f="cat" aria-label="Phân loại món">'+opts+'</select><div class="row"><button class="ghost" data-img="'+i+'">'+(x.img?'Đổi ảnh':'Chọn ảnh')+'</button><button class="ghost" data-del="'+i+'">Xóa món</button></div></div></div>'}
+  return '<div class="trow" data-i="'+i+'"><div class="tth">'+(x.img?'<img src="'+esc(U(x.img))+'" alt="">':'Chưa có ảnh')+'</div><div class="tfs"><input type="text" class="fi" data-f="vi" placeholder="Tên món, tiếng Việt (vd: tách trà hoa cúc)" value="'+esc(x.vi||'')+'"><input type="text" class="fi" data-f="fr" placeholder="Nom en français (vd: une tasse de thé)" value="'+esc(x.fr||'')+'"><select class="fi" data-f="cat" aria-label="Phân loại món">'+opts+'</select><details'+((x.storyVi||x.storyFr)?' open':'')+'><summary>Câu chuyện hoặc fact về món này'+((x.storyVi||x.storyFr)?' (đã có)':'')+'</summary><textarea class="fi" data-f="storyVi" placeholder="Tiếng Việt. Khách bấm vào ô cửa sổ của món sẽ đọc đoạn này. Cách 1 dòng trống để sang đoạn mới.">'+esc(x.storyVi||'')+'</textarea><textarea class="fi" data-f="storyFr" placeholder="En français. Laissez vide pour utiliser la version vietnamienne.">'+esc(x.storyFr||'')+'</textarea></details><div class="row"><button class="ghost" data-img="'+i+'">'+(x.img?'Đổi ảnh':'Chọn ảnh')+'</button><button class="ghost" data-del="'+i+'">Xóa món</button></div></div></div>'}
 function bindItems(box){
   box.oninput=e=>{const r=e.target.closest('.trow'),f=e.target.dataset.f;if(!r||!f||f==='cat')return;site.treats.items[+r.dataset.i][f]=e.target.value};
   box.onchange=e=>{const r=e.target.closest('.trow');if(!r||e.target.dataset.f!=='cat')return;site.treats.items[+r.dataset.i].cat=e.target.value;drawTreats();stAll('Đã đổi phân loại, nhớ bấm Lưu.')};

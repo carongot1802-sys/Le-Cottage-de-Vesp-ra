@@ -84,13 +84,20 @@
 - Danh sách thêm bao nhiêu món cũng được. Mỗi món có nút **Đổi ảnh** và **Xóa món**. Mỗi ảnh tải lên được lưu vào thư mục `media/` của repo.
 - Vì tiếng Việt cần loại từ, hãy ghi tên món kèm loại từ cho tự nhiên (vd: "tách trà hoa cúc", "chiếc bánh madeleine"). Bản tiếng Pháp nên ghi kèm mạo từ (vd: "une tasse de thé"). Câu mời và chữ trên nút đổi được ngay trong tab, ghi `{item}` ở chỗ muốn hiện tên món. Bấm **Xem thử một lời mời** để xem câu ghép ra có tự nhiên không.
 
+## Món đi cùng khách (nút "Gọi món khác")
+- Sau khi khách đã nhận lời mời thưởng trà (đóng hộp lời mời bằng bất kỳ cách nào), hình món được mời ở lại bên mép trái, giữa chiều cao màn hình, và nhẹ nhàng nhấp nhô lên xuống trong suốt lúc khách đọc. Ngay dưới hình có dòng chữ gạch chân **Gọi món khác**. Bấm vào hình hoặc dòng chữ thì sang trang Gọi món.
+- Món này là món đã bốc cho khách trong lần ghé đó, đổi qua lại giữa các trang hay đổi ngôn ngữ vẫn giữ nguyên, tới lần ghé sau mới bốc món mới. Khi khách đang ở trang Gọi món thì ô này tự ẩn. Món chưa có ảnh thì hiện hình tách trà thay thế.
+- Hình lấy từ ảnh của món trong tab **Món mời trà** hoặc **Gọi món**, nên bạn không cần cài đặt thêm gì. Chữ "Gọi món khác" (tiếng Pháp: "Un autre plat") nằm trong `index.html`, ở hằng số `CMP`.
+
 ## Mục Gọi món / À la carte (tab Gọi món trong admin)
 - Mục **Gọi món** trên thanh menu là một tờ thực đơn gồm 3 phần: **Khai vị**, **Món chính**, **Tráng miệng** (bản tiếng Pháp: Entrées, Plats, Desserts). Mỗi món hiện hình và tên theo ngôn ngữ khách chọn. Phần nào chưa có món thì tự ẩn.
 - **Danh sách món dùng chung với "Mời thưởng trà".** Món nào có trong tab **Món mời trà** thì có trong trang Gọi món, và ngược lại. Thêm hay xóa món ở tab nào cũng được, món xuất hiện hoặc biến mất ở cả hai nơi (trang Chào mừng và trang Gọi món) sau khi bấm lưu và chờ khoảng 1 phút.
 - **Phân loại**: mỗi món có ô chọn Khai vị / Món chính / Tráng miệng. Tab **Gọi món** chia sẵn 3 khu, mỗi khu có nút **＋ Thêm món từ ảnh** (chọn nhiều ảnh một lúc, món mới tự vào đúng phần) và **＋ Thêm món chưa có ảnh**. Ở tab **Món mời trà** có ô "Phân loại cho các món sắp thêm". Đổi ô phân loại của một món thì món tự chuyển sang phần mới.
 - Món cũ chưa được phân loại sẽ tạm hiện ở **Món chính**, ô phân loại của nó ghi "Chưa phân loại". Bạn chọn lại cho đúng rồi bấm lưu.
 - Tab Gọi món còn cho sửa **tiêu đề** và **lời dẫn** đầu trang thực đơn (VI/FR, bỏ trống thì dùng câu mặc định). Bấm **Lưu thực đơn** để lưu cả món lẫn chữ.
-- Dữ liệu lưu trong `data/site.json`: món nằm ở `treats.items` (thêm trường `cat` là `starter`, `main` hoặc `dessert`), chữ trang thực đơn ở khóa `menu`.
+- **Ô cửa sổ vòm trưng bày**: mỗi món trên trang Gọi món nằm trong một ô cửa sổ vòm viền vàng, có kệ gỗ phía dưới và bảng tên món bên dưới ô. Rê chuột vào (hoặc bấm trên điện thoại) thì ô nhấc nhẹ lên và có vệt sáng lướt qua kính.
+- **Câu chuyện hoặc fact của từng món**: khách bấm vào ô nào thì hiện một hộp vòm có hình món, phân loại, tên món và phần **Câu chuyện đằng sau món** (bấm ×, bấm ra ngoài hoặc phím Esc để đóng). Bạn viết nội dung này ở ô **Câu chuyện hoặc fact về món này** của từng món, trong tab **Gọi món** hoặc tab **Món mời trà** (bấm vào dòng chữ đó để mở rộng ô). Có hai ô tiếng Việt và tiếng Pháp (bỏ trống bên nào thì web dùng bên còn lại), cách 1 dòng trống để sang đoạn mới. Món chưa có câu chuyện thì hộp hiện một dòng báo cô chủ cottage đang viết thêm. Nhớ bấm **Lưu thực đơn** (hoặc **Lưu danh sách món**) sau khi viết.
+- Dữ liệu lưu trong `data/site.json`: món nằm ở `treats.items` (thêm trường `cat` là `starter`, `main` hoặc `dessert`, và `storyVi`, `storyFr` cho câu chuyện), chữ trang thực đơn ở khóa `menu`.
 
 ## Hiệu ứng icon rơi ở nền (tab Giao diện trong admin)
 - Mục **Hiệu ứng icon rơi ở nền** cho icon nhẹ nhàng rơi trên toàn web, ví dụ tuyết cho Giáng sinh. Đổi được: bật/tắt, loại icon (bông tuyết, hạt tuyết tròn, hoa iris nhỏ, hoặc hình của bạn: PNG nền trong, vd cánh mai, lá phong, bí ngô, dơi), số lượng, cỡ, tốc độ rơi, độ đậm, và lớp hiển thị (phía sau chữ như nền, hoặc phía trước phủ lên cả nội dung).
