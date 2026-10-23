@@ -191,7 +191,7 @@ button,.chip{transition:transform .3s cubic-bezier(.22,.61,.36,1),background-col
   <div class="row" style="margin-top:14px"><button id="go">Kết nối</button><span id="lerr"></span></div>
 </div>
 <div id="app" hidden>
-  <div class="chips tabs" style="margin-bottom:20px"><span class="chip on" data-t="posts">Bài viết</span><span class="chip" data-t="quote">Câu hàng ngày</span><span class="chip" data-t="random">Ngẫu nhiên</span><span class="chip" data-t="welcome">Chào mừng</span><span class="chip" data-t="treats">Món mời trà</span><span class="chip" data-t="menu">Gọi món</span><span class="chip" data-t="letter">Thư chào</span><span class="chip" data-t="design">Giao diện</span><span class="chip" data-t="contact">Liên hệ</span><span class="chip" data-t="about">Giới thiệu</span></div>
+  <div class="chips tabs" style="margin-bottom:20px"><span class="chip on" data-t="posts">Bài viết</span><span class="chip" data-t="quote">Câu hàng ngày</span><span class="chip" data-t="random">Ngẫu nhiên</span><span class="chip" data-t="welcome">Chào mừng</span><span class="chip" data-t="treats">Món mời trà</span><span class="chip" data-t="menu">Gọi món</span><span class="chip" data-t="diary">Nhật ký</span><span class="chip" data-t="letter">Thư chào</span><span class="chip" data-t="design">Giao diện</span><span class="chip" data-t="contact">Liên hệ</span><span class="chip" data-t="about">Giới thiệu</span></div>
   <input type="file" id="tr-file" accept="image/*" multiple hidden><input type="file" id="tr-rep" accept="image/*" hidden>
   <section id="t-posts">
     <div class="bar"><button id="new"><svg class="fl" aria-hidden="true"><use href="#fdl"/></svg> Viết bài mới</button><span id="pst"></span></div>
@@ -292,6 +292,27 @@ button,.chip{transition:transform .3s cubic-bezier(.22,.61,.36,1),background-col
     <div class="row"><button class="ghost" data-madd="dessert">＋ Thêm món từ ảnh (chọn nhiều ảnh)</button><button class="ghost" data-madd0="dessert">＋ Thêm món chưa có ảnh</button></div>
     <div id="mn-l-dessert"></div>
     <div class="row" style="margin-top:20px"><button id="mn-save">Lưu thực đơn</button><span id="mnst"></span></div>
+  </section>
+  <section id="t-diary" class="panel" hidden>
+    <h3>Nhật ký</h3>
+    <p class="hint">Mục “Nhật ký” trên web là một cuốn sổ cổ lơ lửng. Khách bấm vào thì sổ mở ra, mỗi trang có 3 ô bài đăng (mới nhất ở trang đầu) và có nút lật sang trang khác. Mỗi bài đăng gồm ngày, lời viết (VI/FR, bỏ trống bên nào thì web dùng bên còn lại), cùng ảnh, video hoặc link YouTube/Vimeo nếu bạn muốn. Bấm <b>Đăng vào nhật ký</b> là bài lên web sau khoảng 1 phút.</p>
+    <h4 class="sh" style="margin-top:6px" id="dy-ft">Viết bài mới</h4>
+    <label>Ngày</label><div class="row"><input type="date" id="dy-date" class="fi" style="width:auto"><button class="ghost" id="dy-today">Hôm nay</button></div>
+    <label>Lời viết, tiếng Việt (cách 1 dòng trống để sang đoạn mới; dùng được **đậm**, *nghiêng*, [chữ](link))</label><textarea id="dy-vi" class="ta" style="min-height:130px"></textarea>
+    <label>Lời viết, tiếng Pháp</label><textarea id="dy-fr" class="ta" style="min-height:100px"></textarea>
+    <div class="row"><button class="ghost" id="dy-img">＋ Ảnh (chọn nhiều)</button><button class="ghost" id="dy-vid">＋ Video</button><button class="ghost" id="dy-yt">＋ Link YouTube/Vimeo</button></div>
+    <input type="file" id="dy-fimg" accept="image/*" multiple hidden><input type="file" id="dy-fvid" accept="video/*" hidden>
+    <div id="dy-media"></div>
+    <div class="row" style="margin-top:14px"><button id="dy-post">Đăng vào nhật ký</button><button class="ghost" id="dy-cancel" hidden>Hủy sửa</button><span id="dyst"></span></div>
+    <h4 class="sh" style="margin-top:28px">Các bài đã đăng (<span id="dy-count">0</span>)</h4>
+    <div id="dy-list"></div>
+    <h4 class="sh" style="margin-top:28px">Bìa cuốn sổ</h4>
+    <p class="hint">Chữ in trên bìa sổ. Bỏ trống thì web dùng “Nhật ký” và “Le Cottage de Vespéra” (tiếng Pháp: “Journal”).</p>
+    <label>Tên trên bìa, tiếng Việt</label><input type="text" id="dy-t-vi" class="fi" placeholder="Nhật ký">
+    <label>Tên trên bìa, tiếng Pháp</label><input type="text" id="dy-t-fr" class="fi" placeholder="Journal">
+    <label>Dòng nhỏ dưới tên, tiếng Việt</label><input type="text" id="dy-s-vi" class="fi" placeholder="Le Cottage de Vespéra">
+    <label>Dòng nhỏ dưới tên, tiếng Pháp</label><input type="text" id="dy-s-fr" class="fi" placeholder="Le Cottage de Vespéra">
+    <div class="row" style="margin-top:14px"><button id="dy-savecv">Lưu bìa sổ</button><span id="dycst"></span></div>
   </section>
   <section id="t-random" class="panel" hidden>
     <h3>Ngẫu nhiên: bộ bài từ vựng</h3>
@@ -461,7 +482,7 @@ awd:[
 {vi:"Top 20 chung cuộc - cuộc thi « Jeunes Reporters Francophones 2026 » với bài thi « La jeunesse est l’avenir »",fr:"Top 20 final - concours « Jeunes Reporters Francophones 2026 », article « La jeunesse est l’avenir »",url:"https://lecourrier.vn/la-jeunesse-est-lavenir/1357370.html"},
 {vi:"Giải Khuyến khích - cuộc thi « Jeunes Reporters Francophones 2025 » với bài thi « Nous nous éduquons, donc nous préservons : la jeunesse au service d’un patrimoine vivant »",fr:"Prix d’encouragement - concours « Jeunes Reporters Francophones 2025 », article « Nous nous éduquons, donc nous préservons : la jeunesse au service d’un patrimoine vivant »",url:"https://lecourrier.vn/nous-nous-eduquons-donc-nous-preservons-la-jeunesse-au-service-dun-patrimoine-vivant/1292561.html"},
 {vi:"Giải Đại sứ quán Romania - cuộc thi « Jeunes Reporters Francophones 2023 » với bài thi « Comment la gastronomie francophone exprime l’excellence sur la table de la culture »",fr:"Prix de l’Ambassade de Roumanie - concours « Jeunes Reporters Francophones 2023 », article « Comment la gastronomie francophone exprime l’excellence sur la table de la culture »",url:"https://lecourrier.vn/comment-la-gastronomie-francophone-exprime-lexcellence-sur-la-table-de-la-culture/1219351.html"}]};
-let cfg={repo:'',token:''},posts=[],site={welcome:{vi:{},fr:{}},iris:{},design:{...DEF_DZ},letter:mkLetter(),themes:[],contact:DEF_CONTACT.map(x=>({...x})),about:{vi:'',fr:''},cv:JSON.parse(JSON.stringify(CV)),quote:{},menu:{title:{},intro:{}},treats:{items:[],tpl:{},go:{}},cards:{words:[],back:'',front:'',ftx:'',fpanel:false,intro:{}}},prev={},editId=null,med=[];
+let diary={title:{},sub:{},entries:[]},dyDraft=null,cfg={repo:'',token:''},posts=[],site={welcome:{vi:{},fr:{}},iris:{},design:{...DEF_DZ},letter:mkLetter(),themes:[],contact:DEF_CONTACT.map(x=>({...x})),about:{vi:'',fr:''},cv:JSON.parse(JSON.stringify(CV)),quote:{},menu:{title:{},intro:{}},treats:{items:[],tpl:{},go:{}},cards:{words:[],back:'',front:'',ftx:'',fpanel:false,intro:{}}},prev={},editId=null,med=[];
 const U=p=>prev[p]||p,hex=x=>/^#[0-9a-f]{6}$/i.test(x||'');
 const lsGet=k=>{try{return localStorage.getItem(k)||''}catch(e){return ''}},lsSet=(k,v)=>{try{v?localStorage.setItem(k,v):localStorage.removeItem(k)}catch(e){}};
 function b64(u8){let s='';for(let i=0;i<u8.length;i+=0x8000)s+=String.fromCharCode.apply(null,u8.subarray(i,i+0x8000));return btoa(s)}
@@ -489,11 +510,12 @@ async function connect(){
     const j=await r.json();if(!j.permissions||!j.permissions.push)throw new Error('Token này chưa có quyền ghi (Contents: Read and write)');
     const a=await getFile('data/posts.json');posts=a?JSON.parse(a.text):[];
     const b=await getFile('data/site.json');if(b){const s=JSON.parse(b.text);site={design:{...DEF_DZ,...(s.design||{})},contact:s.contact&&s.contact.length?s.contact:site.contact,about:{vi:(s.about||{}).vi||'',fr:(s.about||{}).fr||''},welcome:{vi:(s.welcome||{}).vi||{},fr:(s.welcome||{}).fr||{}},iris:s.iris||{},letter:mkLetter(s.letter),themes:Array.isArray(s.themes)?s.themes:[],quote:(s.quote&&typeof s.quote==='object')?s.quote:{},treats:mkTreats(s.treats),menu:mkMenu(s.menu),cards:mkCards(s.cards),cv:(s.cv&&s.cv.edu&&s.cv.exp&&s.cv.awd)?s.cv:JSON.parse(JSON.stringify(CV))}}
+    const dd=await getFile('data/diary.json').catch(()=>null);diary=mkDiary(dd?JSON.parse(dd.text):null);
     lsSet('cv_repo',cfg.repo);lsSet('cv_tok',cfg.token);
     $('#login').hidden=true;$('#app').hidden=false;$('#out').hidden=false;drawAll();
   }catch(e){say('#lerr',e.message)}
 }
-function drawAll(){drawWelcome();drawQuote();drawPosts();drawTreats();drawRandom();syncDesign();applyDesign();syncLetter();drawThemes();drawContact();drawCV();$('#a-vi').value=site.about.vi||DEF_ABOUT.vi;$('#a-fr').value=site.about.fr||DEF_ABOUT.fr}
+function drawAll(){drawDiary();drawWelcome();drawQuote();drawPosts();drawTreats();drawRandom();syncDesign();applyDesign();syncLetter();drawThemes();drawContact();drawCV();$('#a-vi').value=site.about.vi||DEF_ABOUT.vi;$('#a-fr').value=site.about.fr||DEF_ABOUT.fr}
 
 /* treats + menu: dùng chung MỘT danh sách site.treats.items, mỗi món có cat (starter | main | dessert) */
 const MCATS=[['starter','Khai vị'],['main','Món chính'],['dessert','Tráng miệng']];
@@ -541,6 +563,45 @@ const saveItems=st=>{site.treats.items=site.treats.items.filter(x=>x.img||String
 $('#tr-save').onclick=()=>saveItems('#trst');
 $('#mn-save').onclick=()=>saveItems('#mnst');
 
+/* ---------- Nhật ký (data/diary.json: {title,sub,entries:[{id,ts,date,vi,fr,media:[{t:'img'|'video'|'yt',src|url}]}]}) ---------- */
+function mkDiary(d){d=d&&typeof d==='object'&&!Array.isArray(d)?d:{};return{title:{...(d.title||{})},sub:{...(d.sub||{})},entries:Array.isArray(d.entries)?d.entries:[]}}
+const dyToday=()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
+const dyNew=()=>({id:null,ts:0,date:dyToday(),vi:'',fr:'',media:[]});
+const dyFmt=e=>{const d=e.date?new Date(e.date+'T12:00:00'):new Date(e.ts||0);return isNaN(d)?'':d.toLocaleDateString('vi-VN',{day:'numeric',month:'long',year:'numeric'})};
+function drawDyDraft(){if(!dyDraft)dyDraft=dyNew();const d=dyDraft;
+  $('#dy-date').value=d.date||'';$('#dy-vi').value=d.vi||'';$('#dy-fr').value=d.fr||'';
+  $('#dy-ft').textContent=d.id?'Đang sửa bài ngày '+dyFmt(d):'Viết bài mới';$('#dy-post').textContent=d.id?'Lưu chỉnh sửa':'Đăng vào nhật ký';$('#dy-cancel').hidden=!d.id;
+  $('#dy-media').innerHTML=d.media.length?'<div class="thumbs">'+d.media.map((m,i)=>'<div title="'+esc(m.t==='yt'?m.url:m.src)+'">'+(m.t==='img'?'<img src="'+esc(U(m.src))+'" alt="" style="width:100%;height:100%;object-fit:cover">':m.t==='video'?'<video src="'+esc(U(m.src))+'#t=0.1" preload="metadata" style="width:100%;height:100%;object-fit:cover"></video>':'<span style="display:flex;height:100%;align-items:center;justify-content:center;font-size:13px;text-align:center;padding:4px">▶ YouTube/ Vimeo</span>')+'<b data-dm="'+i+'" title="Bỏ">×</b></div>').join('')+'</div>':'<p class="hint">Chưa có ảnh hoặc video. Bài chỉ có chữ vẫn đăng được.</p>'}
+function drawDiary(){const ents=diary.entries.slice().sort((a,b)=>(b.ts||0)-(a.ts||0));
+  $('#dy-count').textContent=ents.length;
+  $('#dy-list').innerHTML=ents.length?ents.map(e=>{const t=String(e.vi||e.fr||'').replace(/\s+/g,' ').trim(),n=(e.media||[]).length;
+    return '<div class="trow" style="align-items:center"><div class="tfs"><b>'+esc(dyFmt(e))+'</b><div class="hint" style="margin:2px 0 6px">'+esc(t.length>140?t.slice(0,140)+'…':t||'(chỉ có ảnh/video)')+(n?' · '+n+' ảnh/video':'')+'</div><div class="row"><button class="ghost" data-dye="'+esc(e.id)+'">Sửa</button><button class="ghost" data-dyd="'+esc(e.id)+'">Xóa</button></div></div></div>'}).join(''):'<p class="hint">Chưa có bài nào.</p>';
+  ['t','s'].forEach(k=>['vi','fr'].forEach(l=>{const el=$('#dy-'+k+'-'+l),o=k==='t'?diary.title:diary.sub;if(el)el.value=o[l]||''}));
+  drawDyDraft()}
+const dyStatus=t=>say('#dyst',t);
+async function saveDiary(st,msg){say(st,'Đang lưu…');try{await saveJSON('data/diary.json',diary,msg||'Update diary');say(st,'Đã lưu ✓ Web cập nhật sau ~1 phút.');return true}catch(e){say(st,e.message);return false}}
+$('#dy-date').oninput=e=>{dyDraft.date=e.target.value};
+$('#dy-today').onclick=()=>{dyDraft.date=dyToday();$('#dy-date').value=dyDraft.date};
+$('#dy-vi').oninput=e=>{dyDraft.vi=e.target.value};$('#dy-fr').oninput=e=>{dyDraft.fr=e.target.value};
+['title','sub'].forEach(k=>['vi','fr'].forEach(l=>{$('#dy-'+k[0]+'-'+l).oninput=e=>{diary[k][l]=e.target.value}}));
+$('#dy-img').onclick=()=>$('#dy-fimg').click();$('#dy-vid').onclick=()=>$('#dy-fvid').click();
+$('#dy-yt').onclick=()=>{const u=(prompt('Dán link YouTube hoặc Vimeo:')||'').trim();if(!u)return;if(!/youtu|vimeo/i.test(u)){dyStatus('Link này không phải YouTube hoặc Vimeo.');return}dyDraft.media.push({t:'yt',url:u});drawDyDraft()};
+$('#dy-fimg').onchange=async e=>{const fs=[...e.target.files];e.target.value='';for(let k=0;k<fs.length;k++){dyStatus('Đang tải ảnh '+(k+1)+'/'+fs.length+'…');try{dyDraft.media.push({t:'img',src:await upload(await fitImage(fs[k],1600))});drawDyDraft()}catch(err){dyStatus(err.message);return}}dyStatus('Đã thêm ảnh ✓ nhớ bấm Đăng.')};
+$('#dy-fvid').onchange=async e=>{const f=e.target.files[0];e.target.value='';if(!f)return;dyStatus('Đang tải video '+f.name+'…');try{dyDraft.media.push({t:'video',src:await upload(f)});drawDyDraft();dyStatus('Đã thêm video ✓ nhớ bấm Đăng.')}catch(err){dyStatus(err.message)}};
+$('#dy-media').onclick=e=>{const b=e.target.closest('[data-dm]');if(!b)return;dyDraft.media.splice(+b.dataset.dm,1);drawDyDraft()};
+$('#dy-cancel').onclick=()=>{dyDraft=dyNew();drawDyDraft();dyStatus('')};
+$('#dy-post').onclick=async()=>{const d=dyDraft;if(!String(d.vi).trim()&&!String(d.fr).trim()&&!d.media.length){dyStatus('Bài còn trống, hãy viết vài dòng hoặc thêm ảnh/video.');return}
+  const date=d.date||dyToday(),old=d.id?diary.entries.find(x=>x.id===d.id):null,now=new Date(),hm='T'+String(now.getHours()).padStart(2,'0')+':'+String(now.getMinutes()).padStart(2,'0')+':00';
+  const ts=old&&old.date===date?old.ts:new Date(date+hm).getTime();
+  const ent={id:d.id||'d'+Date.now().toString(36),ts,date,vi:d.vi,fr:d.fr,media:d.media};
+  const prev0=diary.entries;diary.entries=d.id?prev0.map(x=>x.id===d.id?ent:x):[ent,...prev0];
+  if(await saveDiary('#dyst','Save diary entry')){dyDraft=dyNew();drawDiary();dyStatus('Đã đăng ✓ Web cập nhật sau ~1 phút.')}else diary.entries=prev0};
+$('#dy-list').onclick=async e=>{const ed=e.target.closest('[data-dye]'),de=e.target.closest('[data-dyd]');
+  if(ed){const x=diary.entries.find(y=>y.id===ed.dataset.dye);if(!x)return;dyDraft={id:x.id,ts:x.ts,date:x.date||dyToday(),vi:x.vi||'',fr:x.fr||'',media:(x.media||[]).map(m=>({...m}))};drawDyDraft();$('#dy-ft').scrollIntoView({behavior:'smooth',block:'start'})}
+  else if(de){if(!confirm('Xóa bài này khỏi nhật ký?'))return;const prev0=diary.entries;diary.entries=prev0.filter(y=>y.id!==de.dataset.dyd);
+    if(await saveDiary('#dyst','Delete diary entry')){if(dyDraft&&dyDraft.id===de.dataset.dyd)dyDraft=dyNew();drawDiary()}else diary.entries=prev0}};
+$('#dy-savecv').onclick=()=>saveDiary('#dycst','Update diary cover');
+
 /* random cards */
 const RN_POS=[['n','danh từ','nom'],['v','động từ','verbe'],['adj','tính từ','adjectif'],['adv','trạng từ','adverbe'],['prep','giới từ','préposition'],['conj','liên từ','conjonction'],['pron','đại từ','pronom'],['art','mạo từ','article'],['interj','thán từ','interjection'],['loc','cụm từ','locution'],['expr','thành ngữ','expression']];
 const posKey=t=>{t=String(t||'').trim().toLowerCase();if(!t)return'';const f=RN_POS.find(p=>p[0]===t||p[1]===t||p[2]===t);return f?f[0]:''};
@@ -582,7 +643,7 @@ $('#rn-bulkgo').onclick=()=>{const lines=$('#rn-bulk').value.split(/\r?\n/).map(
 $('#rn-save').onclick=()=>saveSite('#rnst');
 
 /* tabs */
-$$('.tabs .chip').forEach(c=>c.onclick=()=>{$$('.tabs .chip').forEach(x=>x.classList.toggle('on',x===c));['posts','quote','random','welcome','treats','menu','letter','design','contact','about'].forEach(t=>$('#t-'+t).hidden=t!==c.dataset.t);if(c.dataset.t==='treats'||c.dataset.t==='menu')drawTreats()});
+$$('.tabs .chip').forEach(c=>c.onclick=()=>{$$('.tabs .chip').forEach(x=>x.classList.toggle('on',x===c));['posts','quote','random','welcome','treats','menu','diary','letter','design','contact','about'].forEach(t=>$('#t-'+t).hidden=t!==c.dataset.t);if(c.dataset.t==='treats'||c.dataset.t==='menu')drawTreats()});
 
 /* posts */
 const fmtd=d=>d||'';

@@ -2,10 +2,10 @@
 
 ## Cấu trúc
 - `index.html`: trang web cho khách quán đọc (ai cũng xem được, không cần đăng nhập). Khi mở web sẽ hiện tấm thiệp chào, gõ cửa xong mới vào mục Chào mừng, tiếp theo là Bài viết và À propos
-- `admin.html`: trang quản trị của cô chủ cottage (đăng bài, ảnh, video, câu hàng ngày, bộ bài từ vựng Ngẫu nhiên, trang Chào mừng, món mời trà, gọi món, thư chào, giao diện và bộ theme, liên hệ, À propos)
+- `admin.html`: trang quản trị của cô chủ cottage (đăng bài, ảnh, video, câu hàng ngày, bộ bài từ vựng Ngẫu nhiên, trang Chào mừng, món mời trà, gọi món, nhật ký, thư chào, giao diện và bộ theme, liên hệ, À propos)
 - `assets/`: hai hình hoa iris (`iris-to.png` ở đầu trang Chào mừng, `iris-be.png` cho mọi iris nhỏ còn lại). Nhớ upload cả thư mục này lên GitHub
 - `media/welcome.mp4`: video của trang Chào mừng (bạn tự thêm vào, xem phần bên dưới)
-- `data/posts.json`, `data/site.json`: nơi lưu bài viết và cài đặt (admin tự cập nhật, bạn không cần mở)
+- `data/posts.json`, `data/site.json`, `data/diary.json`: nơi lưu bài viết, cài đặt và nhật ký (admin tự cập nhật, bạn không cần mở)
 - `media/`: thư mục ảnh/video, tự tạo khi bạn upload lần đầu
 
 ## Cài đặt (làm 1 lần)
@@ -45,7 +45,7 @@
 - Số iris gắn với địa chỉ web. Nếu đổi tên repo hoặc đổi tên miền thì bộ đếm sẽ bắt đầu lại từ 0.
 
 ## Thanh menu ở header
-- Năm mục **Chào mừng**, **Bài viết**, **Ngẫu nhiên**, **Gọi món**, **Giới thiệu** nằm ngay trên dòng "Le Cottage de Vespéra" trong header, bấm mục nào là chuyển tới mục đó. Mục đang xem được gạch chân. Trên điện thoại thanh này tự xuống thành hai dòng. Chữ và màu của thanh menu đi theo "Màu chữ header" trong tab Giao diện. Muốn đổi tên một mục, sửa các khóa `nvw`, `navp`, `nva` (và `RN.vi.nav`, `RN.fr.nav` cho mục Ngẫu nhiên, `MN.vi.nav`, `MN.fr.nav` cho mục Gọi món) trong `index.html`.
+- Sáu mục **Chào mừng**, **Bài viết**, **Ngẫu nhiên**, **Gọi món**, **Nhật ký**, **Giới thiệu** nằm ngay trên dòng "Le Cottage de Vespéra" trong header, bấm mục nào là chuyển tới mục đó. Mục đang xem được gạch chân. Trên điện thoại thanh này tự xuống thành hai dòng. Chữ và màu của thanh menu đi theo "Màu chữ header" trong tab Giao diện. Muốn đổi tên một mục, sửa các khóa `nvw`, `navp`, `nva` (và `RN.vi.nav`, `RN.fr.nav` cho mục Ngẫu nhiên, `MN.vi.nav`, `MN.fr.nav` cho mục Gọi món, `DY.vi.nav`, `DY.fr.nav` cho mục Nhật ký) trong `index.html`.
 
 ## Giao diện và Bộ theme (tab Giao diện trong admin)
 - Đổi được: hình, màu và độ phủ của **header** (kèm màu chữ và đường kẻ dưới header), hình và màu **chân trang** (khối Contact + dòng ©), màu và hình **nền trang**, **màu nhấn** (tiêu đề, nút, chữ chủ đề) và **màu phụ** (chữ xanh). Khung "Xem trước" ở đầu tab cho bạn thấy ngay kết quả.
@@ -86,6 +86,7 @@
 
 ## Món đi cùng khách (nút "Gọi món khác")
 - Sau khi khách đã nhận lời mời thưởng trà (đóng hộp lời mời bằng bất kỳ cách nào), hình món được mời ở lại bên mép trái, giữa chiều cao màn hình, và nhẹ nhàng nhấp nhô lên xuống trong suốt lúc khách đọc. Ngay dưới hình có dòng chữ gạch chân **Gọi món khác**. Bấm vào hình hoặc dòng chữ thì sang trang Gọi món.
+- **Đổi món**: trong trang Gọi món, khi khách bấm vào một ô cửa sổ để đọc câu chuyện, cuối hộp có nút **Đổi món này**. Bấm vào thì món đó thay thế món cô chủ tặng ban đầu, đi cùng khách ở mép trái các trang Bài viết (hiện thông báo nhỏ xác nhận). Nếu món đang xem đã là món đi cùng thì nút ghi "Món này đang đi cùng bạn ✓". Khách đổi bao nhiêu lần cũng được, và lựa chọn giữ nguyên tới khi họ đóng tab. Chữ trên nút và thông báo nằm ở `MN` (`swap`, `swapped`, `done`) trong `index.html`.
 - Món này là món đã bốc cho khách trong lần ghé đó, đổi qua lại giữa các trang hay đổi ngôn ngữ vẫn giữ nguyên, tới lần ghé sau mới bốc món mới. Khi khách đang ở trang Gọi món thì ô này tự ẩn. Món chưa có ảnh thì hiện hình tách trà thay thế.
 - Hình lấy từ ảnh của món trong tab **Món mời trà** hoặc **Gọi món**, nên bạn không cần cài đặt thêm gì. Chữ "Gọi món khác" (tiếng Pháp: "Un autre plat") nằm trong `index.html`, ở hằng số `CMP`.
 
@@ -96,8 +97,16 @@
 - Món cũ chưa được phân loại sẽ tạm hiện ở **Món chính**, ô phân loại của nó ghi "Chưa phân loại". Bạn chọn lại cho đúng rồi bấm lưu.
 - Tab Gọi món còn cho sửa **tiêu đề** và **lời dẫn** đầu trang thực đơn (VI/FR, bỏ trống thì dùng câu mặc định). Bấm **Lưu thực đơn** để lưu cả món lẫn chữ.
 - **Ô cửa sổ vòm trưng bày**: mỗi món trên trang Gọi món nằm trong một ô cửa sổ vòm viền vàng, có kệ gỗ phía dưới và bảng tên món bên dưới ô. Rê chuột vào (hoặc bấm trên điện thoại) thì ô nhấc nhẹ lên và có vệt sáng lướt qua kính.
-- **Câu chuyện hoặc fact của từng món**: khách bấm vào ô nào thì hiện một hộp vòm có hình món, phân loại, tên món và phần **Câu chuyện đằng sau món** (bấm ×, bấm ra ngoài hoặc phím Esc để đóng). Bạn viết nội dung này ở ô **Câu chuyện hoặc fact về món này** của từng món, trong tab **Gọi món** hoặc tab **Món mời trà** (bấm vào dòng chữ đó để mở rộng ô). Có hai ô tiếng Việt và tiếng Pháp (bỏ trống bên nào thì web dùng bên còn lại), cách 1 dòng trống để sang đoạn mới. Món chưa có câu chuyện thì hộp hiện một dòng báo cô chủ cottage đang viết thêm. Nhớ bấm **Lưu thực đơn** (hoặc **Lưu danh sách món**) sau khi viết.
+- **Câu chuyện hoặc fact của từng món**: khách bấm vào ô nào thì hiện một hộp vòm có hình món, phân loại, tên món và phần **Câu chuyện đằng sau món** (chữ căn giữa) (bấm ×, bấm ra ngoài hoặc phím Esc để đóng). Bạn viết nội dung này ở ô **Câu chuyện hoặc fact về món này** của từng món, trong tab **Gọi món** hoặc tab **Món mời trà** (bấm vào dòng chữ đó để mở rộng ô). Có hai ô tiếng Việt và tiếng Pháp (bỏ trống bên nào thì web dùng bên còn lại), cách 1 dòng trống để sang đoạn mới. Món chưa có câu chuyện thì hộp hiện một dòng báo cô chủ cottage đang viết thêm. Nhớ bấm **Lưu thực đơn** (hoặc **Lưu danh sách món**) sau khi viết.
 - Dữ liệu lưu trong `data/site.json`: món nằm ở `treats.items` (thêm trường `cat` là `starter`, `main` hoặc `dessert`, và `storyVi`, `storyFr` cho câu chuyện), chữ trang thực đơn ở khóa `menu`.
+
+## Mục Nhật ký (tab Nhật ký trong admin)
+- Mục **Nhật ký** trên thanh menu là nơi cô chủ cottage cập nhật tình hình theo kiểu mạng xã hội, trong một cuốn sổ cổ. Khách bấm vào mục này sẽ thấy một cuốn sổ bìa da lơ lửng nhẹ nhàng, bấm vào sổ thì bìa mở ra, hiện những ô bài đăng giống một dòng tin. Mỗi trang có đúng **3 ô bài đăng**, bài mới nhất ở trang đầu. Lật trang bằng nút **Trang trước / Trang sau**, phím ← →, hoặc vuốt ngang trên điện thoại. Nút **Gấp sổ lại** đưa về cuốn sổ đóng.
+- **Đăng bài**: vào admin, tab **Nhật ký**. Chọn ngày (mặc định hôm nay), viết lời bằng tiếng Việt và/hoặc tiếng Pháp (bỏ trống bên nào thì web dùng bên còn lại; cách 1 dòng trống để sang đoạn mới; dùng được `**đậm**`, `*nghiêng*`, `[chữ](link)`). Thêm **＋ Ảnh** (chọn nhiều ảnh một lúc, ảnh lớn tự thu nhỏ), **＋ Video** (tải file lên, tối đa 40 MB, nên dưới 25 MB) hoặc **＋ Link YouTube/Vimeo** (video dài). Bấm × trên hình nhỏ để bỏ một ảnh/video. Cuối cùng bấm **Đăng vào nhật ký**, web cập nhật sau khoảng 1 phút. Bài chỉ có chữ, hoặc chỉ có ảnh/video, đều đăng được.
+- Trên web, mỗi bài hiện tối đa 4 ảnh/video (nếu nhiều hơn thì ô cuối ghi +số còn lại). Khách bấm vào ảnh hoặc video để xem phóng to và lướt qua lại giữa các ảnh của bài đó. Video YouTube/Vimeo phát ngay trong ô bài đăng.
+- **Sửa hoặc xóa**: ở danh sách "Các bài đã đăng" bên dưới, bấm **Sửa** (bài hiện lên khung soạn phía trên, sửa xong bấm **Lưu chỉnh sửa**) hoặc **Xóa**. Xóa bài chỉ gỡ bài khỏi nhật ký, file ảnh vẫn nằm trong `media/`.
+- **Bìa cuốn sổ**: cuối tab có mục "Bìa cuốn sổ" để đổi tên và dòng nhỏ in trên bìa (VI/FR). Bỏ trống thì web dùng "Nhật ký" / "Journal" và "Le Cottage de Vespéra". Nhớ bấm **Lưu bìa sổ**.
+- Dữ liệu lưu trong `data/diary.json` (admin tự tạo khi đăng bài đầu tiên): `title`, `sub` cho bìa, `entries` cho các bài (mỗi bài có `date`, `vi`, `fr`, `media`). Chưa có file này thì sổ hiện trang trắng kèm lời nhắn. Mục này hợp với chế độ sáng/tối: bìa sổ giữ màu da, trang giấy tự đổi sang nâu tối ở chế độ tối. Khi khách đứng ở trang Nhật ký thì ô "Gọi món khác" ở mép trái tự ẩn.
 
 ## Hiệu ứng icon rơi ở nền (tab Giao diện trong admin)
 - Mục **Hiệu ứng icon rơi ở nền** cho icon nhẹ nhàng rơi trên toàn web, ví dụ tuyết cho Giáng sinh. Đổi được: bật/tắt, loại icon (bông tuyết, hạt tuyết tròn, hoa iris nhỏ, hoặc hình của bạn: PNG nền trong, vd cánh mai, lá phong, bí ngô, dơi), số lượng, cỡ, tốc độ rơi, độ đậm, và lớp hiển thị (phía sau chữ như nền, hoặc phía trước phủ lên cả nội dung).
@@ -134,3 +143,4 @@
 - Phần Học vấn, Kinh nghiệm, Giải thưởng sửa trong admin, tab **À propos**.
 - Biểu tượng của web dùng hình iris vẽ màu nước của bạn (trên tab trình duyệt, trang chào mừng, khung đếm iris và cuối mỗi bài).
 - Mở trực tiếp file bằng cách nhấp đúp trên máy sẽ không hiện bài vì trình duyệt chặn đọc dữ liệu. Hãy xem qua link GitHub Pages.
+- Cuối các trang **Gọi món**, **Nhật ký** và **Ngẫu nhiên** có nút **Quay trở lại trang bài viết** (tiếng Pháp: Retour aux articles) để khách về lại mục Bài viết. Chữ nút sửa ở hằng số `BK` trong `index.html`.
