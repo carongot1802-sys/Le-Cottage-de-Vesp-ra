@@ -161,6 +161,16 @@ button,.chip{transition:transform .3s cubic-bezier(.22,.61,.36,1),background-col
 .tfs textarea.fi{min-height:88px;resize:vertical;line-height:1.5}
 .tsample{display:flex;align-items:center;gap:14px;margin-top:12px;padding:12px;background:var(--bg);border:1px solid var(--line)}
 .tsample img{height:70px;width:auto}
+
+.dyprev-wrap{display:flex;gap:22px;align-items:flex-start;flex-wrap:wrap}
+.dyprev{width:230px;flex:none;position:sticky;top:10px}
+.dyp-cv{position:relative;width:100%;aspect-ratio:900/1272;background:#2d3a2e center/cover no-repeat;container-type:inline-size;border-radius:4px 8px 8px 4px;box-shadow:0 8px 20px #0004;overflow:hidden}
+.dyp-b{position:absolute;transform:translate(-50%,-50%)}
+.dyp-t{display:block;font-weight:600;line-height:1.15;overflow-wrap:anywhere}
+.dyp-s{display:block;margin-top:.7em;letter-spacing:.18em;text-transform:uppercase;overflow-wrap:anywhere}
+.dyp-cv.shd .dyp-b{text-shadow:0 1px 2px #000a}
+.dyprev-ctl{flex:1;min-width:260px}
+.dyprev-ctl input[type=range]{width:100%}
 </style>
 </head>
 <body>
@@ -306,12 +316,30 @@ button,.chip{transition:transform .3s cubic-bezier(.22,.61,.36,1),background-col
     <div class="row" style="margin-top:14px"><button id="dy-post">Đăng vào nhật ký</button><button class="ghost" id="dy-cancel" hidden>Hủy sửa</button><span id="dyst"></span></div>
     <h4 class="sh" style="margin-top:28px">Các bài đã đăng (<span id="dy-count">0</span>)</h4>
     <div id="dy-list"></div>
-    <h4 class="sh" style="margin-top:28px">Bìa cuốn sổ</h4>
-    <p class="hint">Chữ in trên bìa sổ. Bỏ trống thì web dùng “Nhật ký” và “Le Cottage de Vespéra” (tiếng Pháp: “Journal”).</p>
+    <h4 class="sh" style="margin-top:28px">Bìa và nền cuốn sổ</h4>
+    <p class="hint">Web đã có sẵn ảnh bìa (vải xanh, khung vàng) và ảnh nền trang. Bạn chỉ cần chỉnh <b>chữ trên bìa</b> cho nằm đúng trong khung. Kéo các thanh trượt bên dưới, khung xem trước bên cạnh đổi ngay.</p>
+    <div class="dyprev-wrap"><div class="dyprev" id="dyprev"><div class="dyp-cv" id="dyp-cv"><div class="dyp-b" id="dyp-b"><span class="dyp-t" id="dyp-t"></span><span class="dyp-s" id="dyp-s"></span></div></div></div>
+    <div class="dyprev-ctl">
+    <label><input type="checkbox" id="dc-show"> Hiện chữ trên bìa (tắt đi nếu ảnh bìa đã có sẵn chữ)</label>
     <label>Tên trên bìa, tiếng Việt</label><input type="text" id="dy-t-vi" class="fi" placeholder="Nhật ký">
     <label>Tên trên bìa, tiếng Pháp</label><input type="text" id="dy-t-fr" class="fi" placeholder="Journal">
     <label>Dòng nhỏ dưới tên, tiếng Việt</label><input type="text" id="dy-s-vi" class="fi" placeholder="Le Cottage de Vespéra">
     <label>Dòng nhỏ dưới tên, tiếng Pháp</label><input type="text" id="dy-s-fr" class="fi" placeholder="Le Cottage de Vespéra">
+    <label>Phông chữ của tên</label><select class="fi" id="dc-tf"><option value="chantelli">Chantelli Antiqua</option><option value="playfair">Playfair Display</option><option value="cormorant">Cormorant Garamond</option><option value="lora">Lora</option><option value="dancing">Dancing Script (chữ viết tay)</option><option value="montserrat">Montserrat</option><option value="bevn">Be Vietnam Pro</option></select>
+    <label>Phông chữ của dòng nhỏ</label><select class="fi" id="dc-sf"><option value="chantelli">Chantelli Antiqua</option><option value="playfair">Playfair Display</option><option value="cormorant">Cormorant Garamond</option><option value="lora">Lora</option><option value="dancing">Dancing Script (chữ viết tay)</option><option value="montserrat">Montserrat</option><option value="bevn">Be Vietnam Pro</option></select>
+    <label>Màu chữ</label><div class="row"><input type="color" id="dc-color"><button class="ghost sm" id="dc-colorreset" type="button">Về màu mặc định</button></div>
+    <label>Cỡ chữ của tên: <b id="dcv-tsz"></b></label><input type="range" id="dc-tsz" min="4" max="20" step="0.5">
+    <label>Cỡ chữ dòng nhỏ: <b id="dcv-ssz"></b></label><input type="range" id="dc-ssz" min="1.5" max="8" step="0.1">
+    <label>Vị trí ngang (tâm khung chữ): <b id="dcv-x"></b>%</label><input type="range" id="dc-x" min="10" max="90" step="1">
+    <label>Vị trí dọc (tâm khung chữ): <b id="dcv-y"></b>%</label><input type="range" id="dc-y" min="8" max="90" step="1">
+    <label>Độ rộng khung chữ: <b id="dcv-w"></b>%</label><input type="range" id="dc-w" min="30" max="95" step="1">
+    <label>Căn lề</label><select class="fi" id="dc-align"><option value="center">Giữa</option><option value="left">Trái</option><option value="right">Phải</option></select>
+    <label><input type="checkbox" id="dc-shadow"> Thêm bóng nhẹ cho chữ (dễ đọc hơn trên nền vải)</label>
+    </div></div>
+    <h4 class="sh" style="margin-top:22px">Thay ảnh (không bắt buộc)</h4>
+    <p class="hint">Muốn đổi ảnh bìa hoặc ảnh nền trang thì tải ảnh dọc (tỉ lệ khoảng 5:7, như ảnh hiện tại). Bấm “Về ảnh có sẵn” để quay lại.</p>
+    <div class="row"><button class="ghost" id="dc-pickcv" type="button">Chọn ảnh bìa</button><button class="ghost" id="dc-resetcv" type="button">Về ảnh có sẵn</button><button class="ghost" id="dc-pickbg" type="button">Chọn ảnh nền trang</button><button class="ghost" id="dc-resetbg" type="button">Về ảnh có sẵn</button></div>
+    <input type="file" id="dc-fcv" accept="image/*" hidden><input type="file" id="dc-fbg" accept="image/*" hidden>
     <div class="row" style="margin-top:14px"><button id="dy-savecv">Lưu bìa sổ</button><span id="dycst"></span></div>
   </section>
   <section id="t-random" class="panel" hidden>
@@ -482,7 +510,8 @@ awd:[
 {vi:"Top 20 chung cuộc - cuộc thi « Jeunes Reporters Francophones 2026 » với bài thi « La jeunesse est l’avenir »",fr:"Top 20 final - concours « Jeunes Reporters Francophones 2026 », article « La jeunesse est l’avenir »",url:"https://lecourrier.vn/la-jeunesse-est-lavenir/1357370.html"},
 {vi:"Giải Khuyến khích - cuộc thi « Jeunes Reporters Francophones 2025 » với bài thi « Nous nous éduquons, donc nous préservons : la jeunesse au service d’un patrimoine vivant »",fr:"Prix d’encouragement - concours « Jeunes Reporters Francophones 2025 », article « Nous nous éduquons, donc nous préservons : la jeunesse au service d’un patrimoine vivant »",url:"https://lecourrier.vn/nous-nous-eduquons-donc-nous-preservons-la-jeunesse-au-service-dun-patrimoine-vivant/1292561.html"},
 {vi:"Giải Đại sứ quán Romania - cuộc thi « Jeunes Reporters Francophones 2023 » với bài thi « Comment la gastronomie francophone exprime l’excellence sur la table de la culture »",fr:"Prix de l’Ambassade de Roumanie - concours « Jeunes Reporters Francophones 2023 », article « Comment la gastronomie francophone exprime l’excellence sur la table de la culture »",url:"https://lecourrier.vn/comment-la-gastronomie-francophone-exprime-lexcellence-sur-la-table-de-la-culture/1219351.html"}]};
-let diary={title:{},sub:{},entries:[]},dyDraft=null,cfg={repo:'',token:''},posts=[],site={welcome:{vi:{},fr:{}},iris:{},design:{...DEF_DZ},letter:mkLetter(),themes:[],contact:DEF_CONTACT.map(x=>({...x})),about:{vi:'',fr:''},cv:JSON.parse(JSON.stringify(CV)),quote:{},menu:{title:{},intro:{}},treats:{items:[],tpl:{},go:{}},cards:{words:[],back:'',front:'',ftx:'',fpanel:false,intro:{}}},prev={},editId=null,med=[];
+const DEF_DYC={show:true,tf:'playfair',sf:'montserrat',color:'#f2c590',tsz:11,ssz:3.6,x:50,y:40,w:70,align:'center',shadow:true,img:'',bg:''};
+let diary={title:{},sub:{},cover:{...DEF_DYC},entries:[]},dyDraft=null,cfg={repo:'',token:''},posts=[],site={welcome:{vi:{},fr:{}},iris:{},design:{...DEF_DZ},letter:mkLetter(),themes:[],contact:DEF_CONTACT.map(x=>({...x})),about:{vi:'',fr:''},cv:JSON.parse(JSON.stringify(CV)),quote:{},menu:{title:{},intro:{}},treats:{items:[],tpl:{},go:{}},cards:{words:[],back:'',front:'',ftx:'',fpanel:false,intro:{}}},prev={},editId=null,med=[];
 const U=p=>prev[p]||p,hex=x=>/^#[0-9a-f]{6}$/i.test(x||'');
 const lsGet=k=>{try{return localStorage.getItem(k)||''}catch(e){return ''}},lsSet=(k,v)=>{try{v?localStorage.setItem(k,v):localStorage.removeItem(k)}catch(e){}};
 function b64(u8){let s='';for(let i=0;i<u8.length;i+=0x8000)s+=String.fromCharCode.apply(null,u8.subarray(i,i+0x8000));return btoa(s)}
@@ -564,7 +593,7 @@ $('#tr-save').onclick=()=>saveItems('#trst');
 $('#mn-save').onclick=()=>saveItems('#mnst');
 
 /* ---------- Nhật ký (data/diary.json: {title,sub,entries:[{id,ts,date,vi,fr,media:[{t:'img'|'video'|'yt',src|url}]}]}) ---------- */
-function mkDiary(d){d=d&&typeof d==='object'&&!Array.isArray(d)?d:{};return{title:{...(d.title||{})},sub:{...(d.sub||{})},entries:Array.isArray(d.entries)?d.entries:[]}}
+function mkDiary(d){d=d&&typeof d==='object'&&!Array.isArray(d)?d:{};return{title:{...(d.title||{})},sub:{...(d.sub||{})},cover:{...DEF_DYC,...((d.cover&&typeof d.cover==='object')?d.cover:{})},entries:Array.isArray(d.entries)?d.entries:[]}}
 const dyToday=()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
 const dyNew=()=>({id:null,ts:0,date:dyToday(),vi:'',fr:'',media:[]});
 const dyFmt=e=>{const d=e.date?new Date(e.date+'T12:00:00'):new Date(e.ts||0);return isNaN(d)?'':d.toLocaleDateString('vi-VN',{day:'numeric',month:'long',year:'numeric'})};
@@ -577,7 +606,7 @@ function drawDiary(){const ents=diary.entries.slice().sort((a,b)=>(b.ts||0)-(a.t
   $('#dy-list').innerHTML=ents.length?ents.map(e=>{const t=String(e.vi||e.fr||'').replace(/\s+/g,' ').trim(),n=(e.media||[]).length;
     return '<div class="trow" style="align-items:center"><div class="tfs"><b>'+esc(dyFmt(e))+'</b><div class="hint" style="margin:2px 0 6px">'+esc(t.length>140?t.slice(0,140)+'…':t||'(chỉ có ảnh/video)')+(n?' · '+n+' ảnh/video':'')+'</div><div class="row"><button class="ghost" data-dye="'+esc(e.id)+'">Sửa</button><button class="ghost" data-dyd="'+esc(e.id)+'">Xóa</button></div></div></div>'}).join(''):'<p class="hint">Chưa có bài nào.</p>';
   ['t','s'].forEach(k=>['vi','fr'].forEach(l=>{const el=$('#dy-'+k+'-'+l),o=k==='t'?diary.title:diary.sub;if(el)el.value=o[l]||''}));
-  drawDyDraft()}
+  drawDyDraft();drawDyCover()}
 const dyStatus=t=>say('#dyst',t);
 async function saveDiary(st,msg){say(st,'Đang lưu…');try{await saveJSON('data/diary.json',diary,msg||'Update diary');say(st,'Đã lưu ✓ Web cập nhật sau ~1 phút.');return true}catch(e){say(st,e.message);return false}}
 $('#dy-date').oninput=e=>{dyDraft.date=e.target.value};
@@ -600,6 +629,28 @@ $('#dy-list').onclick=async e=>{const ed=e.target.closest('[data-dye]'),de=e.tar
   if(ed){const x=diary.entries.find(y=>y.id===ed.dataset.dye);if(!x)return;dyDraft={id:x.id,ts:x.ts,date:x.date||dyToday(),vi:x.vi||'',fr:x.fr||'',media:(x.media||[]).map(m=>({...m}))};drawDyDraft();$('#dy-ft').scrollIntoView({behavior:'smooth',block:'start'})}
   else if(de){if(!confirm('Xóa bài này khỏi nhật ký?'))return;const prev0=diary.entries;diary.entries=prev0.filter(y=>y.id!==de.dataset.dyd);
     if(await saveDiary('#dyst','Delete diary entry')){if(dyDraft&&dyDraft.id===de.dataset.dyd)dyDraft=dyNew();drawDiary()}else diary.entries=prev0}};
+const DYF={chantelli:"'Chantelli Antiqua',Georgia,serif",playfair:"'Playfair Display',Georgia,serif",cormorant:"'Cormorant Garamond',Georgia,serif",lora:"'Lora',Georgia,serif",dancing:"'Dancing Script','Segoe Script',cursive",montserrat:"'Montserrat',system-ui,sans-serif",bevn:"'Be Vietnam Pro',system-ui,sans-serif"};
+const dyQ=u=>"url('"+String(u).replace(/[^\w\/.\-:]/g,ch=>encodeURIComponent(ch))+"')";
+function drawDyCover(){const c=diary.cover=({...DEF_DYC,...(diary.cover||{})});
+  $('#dc-show').checked=!!c.show;$('#dc-tf').value=c.tf;$('#dc-sf').value=c.sf;$('#dc-color').value=hex(c.color)?c.color:DEF_DYC.color;
+  [['tsz'],['ssz'],['x'],['y'],['w']].forEach(([k])=>{$('#dc-'+k).value=c[k];$('#dcv-'+k).textContent=c[k]});
+  $('#dc-align').value=c.align;$('#dc-shadow').checked=!!c.shadow;
+  const cv=$('#dyp-cv'),b=$('#dyp-b');cv.style.backgroundImage=dyQ(c.img?U(c.img):'assets/nhat-ky-bia.jpg');cv.classList.toggle('shd',!!c.shadow);
+  b.style.display=c.show?'':'none';b.style.left=c.x+'%';b.style.top=c.y+'%';b.style.width=c.w+'%';b.style.textAlign=c.align;b.style.color=hex(c.color)?c.color:DEF_DYC.color;
+  const t=$('#dyp-t'),sb=$('#dyp-s');t.textContent=diary.title.vi||'Nhật ký';sb.textContent=diary.sub.vi||'Le Cottage de Vespéra';
+  t.style.fontFamily=DYF[c.tf]||DYF.playfair;t.style.fontSize=(c.tsz*2.3)+'px';sb.style.fontFamily=DYF[c.sf]||DYF.montserrat;sb.style.fontSize=(c.ssz*2.3)+'px'}
+[['tsz'],['ssz'],['x'],['y'],['w']].forEach(([k])=>{$('#dc-'+k).oninput=e=>{diary.cover[k]=+e.target.value;drawDyCover()}});
+$('#dc-show').onchange=e=>{diary.cover.show=e.target.checked;drawDyCover()};
+$('#dc-shadow').onchange=e=>{diary.cover.shadow=e.target.checked;drawDyCover()};
+$('#dc-tf').onchange=e=>{diary.cover.tf=e.target.value;drawDyCover()};$('#dc-sf').onchange=e=>{diary.cover.sf=e.target.value;drawDyCover()};
+$('#dc-align').onchange=e=>{diary.cover.align=e.target.value;drawDyCover()};
+$('#dc-color').oninput=e=>{diary.cover.color=e.target.value;drawDyCover()};
+$('#dc-colorreset').onclick=()=>{diary.cover.color=DEF_DYC.color;drawDyCover()};
+['t','s'].forEach(k=>['vi','fr'].forEach(l=>$('#dy-'+k+'-'+l).addEventListener('input',drawDyCover)));
+$('#dc-pickcv').onclick=()=>$('#dc-fcv').click();$('#dc-pickbg').onclick=()=>$('#dc-fbg').click();
+$('#dc-resetcv').onclick=()=>{diary.cover.img='';drawDyCover()};$('#dc-resetbg').onclick=()=>{diary.cover.bg='';drawDyCover();say('#dycst','Đã về ảnh nền có sẵn, nhớ bấm Lưu bìa sổ.')};
+$('#dc-fcv').onchange=async e=>{const f=e.target.files[0];e.target.value='';if(!f)return;say('#dycst','Đang tải ảnh bìa…');try{diary.cover.img=await upload(await fitImage(f,1400));drawDyCover();say('#dycst','Xong, nhớ bấm Lưu bìa sổ.')}catch(err){say('#dycst',err.message)}};
+$('#dc-fbg').onchange=async e=>{const f=e.target.files[0];e.target.value='';if(!f)return;say('#dycst','Đang tải ảnh nền…');try{diary.cover.bg=await upload(await fitImage(f,1400));say('#dycst','Đã tải ảnh nền trang, nhớ bấm Lưu bìa sổ.')}catch(err){say('#dycst',err.message)}};
 $('#dy-savecv').onclick=()=>saveDiary('#dycst','Update diary cover');
 
 /* random cards */
