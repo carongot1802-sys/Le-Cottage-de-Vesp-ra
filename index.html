@@ -266,6 +266,27 @@ html.f-am main article.about :is(p,.cv li){font-family:var(--amf)}
 .tgo{margin-top:0;padding:12px 26px;font-size:15px;line-height:1.35;text-align:center}
 .tx{position:absolute;top:8px;right:8px;width:38px;height:38px;padding:0;border:0;border-radius:50%;background:none;color:var(--muted);font-size:26px;line-height:1;cursor:pointer}
 .tx:hover,.tx:focus-visible{color:var(--wine);background:#00000010}
+.tcard.tflip{padding:0;perspective:1200px;overflow:visible}
+.tin{display:grid;transform-style:preserve-3d;transition:transform .8s cubic-bezier(.3,.7,.2,1)}
+.tcard.flipped .tin{transform:rotateY(180deg)}
+.tface{grid-area:1/1;-webkit-backface-visibility:hidden;backface-visibility:hidden;padding:30px 26px 26px;min-width:0;display:flex;flex-direction:column;align-items:center;border-radius:14px;background:var(--card)}
+.tface.tback{transform:rotateY(180deg);pointer-events:none;padding-top:26px}
+.tcard.flipped .tface.tfront{pointer-events:none}
+.tcard.flipped .tface.tback{pointer-events:auto}
+.tface .tpicw{min-height:0}
+.tback .tpic{max-height:96px}
+.tback .tname{margin:6px 0 4px;color:var(--wine);font-size:clamp(20px,5vw,24px);line-height:1.25;overflow-wrap:anywhere}
+.tback .tlab2{margin:0 0 8px;font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--green);font-weight:600}
+.tstory{width:100%;max-height:min(34vh,250px);overflow:auto;overscroll-behavior:contain;text-align:center;font-size:15.5px;line-height:1.65;padding:0 4px}
+.tstory p{margin:0 0 .8em;white-space:pre-line}
+.tstory p.none{color:var(--muted);font-style:italic}
+.tthx{margin-top:12px;min-height:50px;display:flex;align-items:center;justify-content:center}
+.tflip .tx{z-index:5}
+.tthx .tgo{opacity:0;visibility:hidden;transform:translateY(8px);pointer-events:none;transition:opacity .5s,transform .5s,visibility 0s .5s}
+.tthx.ready .tgo{opacity:1;visibility:visible;transform:none;pointer-events:auto;transition:opacity .5s,transform .5s,visibility 0s}
+.tscrollhint{margin:8px 0 0;font-size:12px;color:var(--muted);letter-spacing:.05em}
+.tthx.ready+.tscrollhint,.tscrollhint[hidden]{display:none}
+@media (prefers-reduced-motion:reduce){.tin,.tthx .tgo{transition:none!important}}
 @keyframes tpop{from{opacity:0;transform:translateY(26px) scale(.9)}to{opacity:1;transform:none}}
 @keyframes tout{to{opacity:0;transform:translateY(-16px) scale(.96)}}
 @keyframes tfloat{from{transform:translateY(-4px) rotate(-1.5deg)}to{transform:translateY(4px) rotate(1.5deg)}}
@@ -538,11 +559,11 @@ const toTop=()=>{const r=document.documentElement;r.style.scrollBehavior='auto';
 const RM=window.matchMedia('(prefers-reduced-motion:reduce)');
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 let db=null,assets=null,user=null,posts=[],admin=false,editId=null,media=[],loaded=false,denied=false,q='',tagF='',about={vi:'',fr:''};
-let lang='vi';
+let lang='fr';
 const DEF_ABOUT={vi:"Bonjour ! Mình là Vespéra, chủ nhân của cái cottage nhỏ xíu này.\n\nMình mê tiếng Pháp, từ những âm mũi khó nhằn, những quy tắc ngữ pháp “cho vui”, cho tới những câu lóng không có trong giáo trình. Blog này là nơi mình nhả (yap) mọi thứ hay ho mình học được: fun fact ngắn ngắn, đọc xong là muốn khoe với ai đó liền.\n\nGhé chơi nhé, pha một tách trà (hoặc một ly vang đỏ 🍷) và nhớ để lại lời chào. À bientôt !",
 fr:"Bonjour ! Je suis Vespéra, la maîtresse de ce petit cottage.\n\nJe suis passionnée de français : des sons nasaux capricieux aux règles de grammaire « pour le plaisir », jusqu’aux expressions d’argot qu’on ne trouve dans aucun manuel. Ce blog est l’endroit où je « yappe » sur tout ce que j’apprends : de courts fun facts qu’on a envie de partager aussitôt.\n\nEntrez, servez-vous une tasse de thé (ou un verre de vin rouge 🍷) et laissez-moi un petit mot. À bientôt !"};
-const T={vi:{nvw:'Chào mừng',nva:'Giới thiệu',h:'Về cô chủ cottage',rd:'Đọc bài báo',edu:'Học vấn',exp:'Kinh nghiệm làm việc',awd:'Giải thưởng',contact:'Liên hệ',pf:'Link Portfolio',edit:'Sửa phần giới thiệu',navp:'Bài viết',tea:'Mời thưởng trà',ttpl:'Cô chủ Cottage mời bạn một {item} hôm nay',tgo:'Cảm ơn cô chủ, cho tôi vào đọc bài',tclose:'Đóng',tlab:'Lời mời từ cô chủ cottage',prev:'Bài đăng trước',next:'Bài đăng kế tiếp',ql:'Câu của hôm nay',lw:'Chào mừng đến Cottage của tôi, chúc một ngày tốt lành',lk:'Mời gõ cửa',vidAlt:'Video chào mừng',vidSoon:'Video sắp được đặt ở đây',irisWord:'iris',tl:'Nơi Vespéra nhả fun fact về tiếng Pháp',all:'Tất cả',search:'Tìm bài viết…',searchBtn:'Tìm',back:'← Về mục bài viết',nf:'Không tìm thấy bài này.',loading:'Đang mở cửa cottage…',none:'Chưa có bài nào.',noneAdm:'Bấm “Viết bài mới” để đăng bài đầu tiên nhé!',noneUsr:'Vespéra sắp nhả fun fact đầu tiên…',nomatch:'Không có bài nào khớp',pedit:'Sửa bài',pdel:'Xóa bài',cdel:'Xóa bài này?',miss:'Bài này chưa có bản tiếng Việt, đang hiển thị bản tiếng Pháp.'},
-fr:{nvw:'Bienvenue',nva:'À propos',h:'La maîtresse du cottage',rd:'Lire l’article',edu:'Formation',exp:'Expérience professionnelle',awd:'Prix et distinctions',contact:'Contact',pf:'Portfolio',edit:'Modifier la présentation',navp:'Articles',tea:'Venez prendre le thé',ttpl:'La maîtresse du Cottage vous offre {item} aujourd’hui',tgo:'Merci, je vais lire les articles',tclose:'Fermer',tlab:'Invitation de la maîtresse du cottage',prev:'Article précédent',next:'Article suivant',ql:'Citation du jour',lw:'Bienvenue dans mon cottage, passez une très belle journée',lk:'Frappez à la porte',vidAlt:'Vidéo de bienvenue',vidSoon:'La vidéo arrive bientôt',irisWord:'iris',tl:'Le coin où Vespéra partage ses fun facts sur le français',all:'Tous',search:'Rechercher un article…',searchBtn:'Rechercher',back:'← Retour aux articles',nf:'Article introuvable.',loading:'Ouverture du cottage…',none:'Aucun article pour le moment.',noneAdm:'Utilisez le bouton « Viết bài mới » pour publier le premier !',noneUsr:'Vespéra prépare son premier fun fact…',nomatch:'Aucun article ne correspond',pedit:'Modifier',pdel:'Supprimer',cdel:'Supprimer cet article ?',miss:'Cet article n’existe pas encore en français : version vietnamienne affichée.'}};
+const T={vi:{nvw:'Chào mừng',nva:'Giới thiệu',h:'Về cô chủ cottage',rd:'Đọc bài báo',edu:'Học vấn',exp:'Kinh nghiệm làm việc',awd:'Giải thưởng',contact:'Liên hệ',pf:'Link Portfolio',edit:'Sửa phần giới thiệu',navp:'Bài viết',tea:'Mời thưởng trà',try:'Mời thử',ttpl:'Cô chủ Cottage mời bạn một {item} hôm nay',tgo:'Cảm ơn cô chủ, cho tôi vào đọc bài',tclose:'Đóng',tlab:'Lời mời từ cô chủ cottage',prev:'Bài đăng trước',next:'Bài đăng kế tiếp',ql:'Câu của hôm nay',lw:'Chào mừng đến Cottage của tôi, chúc một ngày tốt lành',lk:'Mời gõ cửa',vidAlt:'Video chào mừng',vidSoon:'Video sắp được đặt ở đây',irisWord:'iris',tl:'Nơi Vespéra nhả fun fact về tiếng Pháp',all:'Tất cả',search:'Tìm bài viết…',searchBtn:'Tìm',back:'← Về mục bài viết',nf:'Không tìm thấy bài này.',loading:'Đang mở cửa cottage…',none:'Chưa có bài nào.',noneAdm:'Bấm “Viết bài mới” để đăng bài đầu tiên nhé!',noneUsr:'Vespéra sắp nhả fun fact đầu tiên…',nomatch:'Không có bài nào khớp',pedit:'Sửa bài',pdel:'Xóa bài',cdel:'Xóa bài này?',miss:'Bài này chưa có bản tiếng Việt, đang hiển thị bản tiếng Pháp.'},
+fr:{nvw:'Bienvenue',nva:'À propos',h:'La maîtresse du cottage',rd:'Lire l’article',edu:'Formation',exp:'Expérience professionnelle',awd:'Prix et distinctions',contact:'Contact',pf:'Portfolio',edit:'Modifier la présentation',navp:'Articles',tea:'Venez prendre le thé',try:'Goûtez-en',ttpl:'La maîtresse du Cottage vous offre {item} aujourd’hui',tgo:'Merci, je vais lire les articles',tclose:'Fermer',tlab:'Invitation de la maîtresse du cottage',prev:'Article précédent',next:'Article suivant',ql:'Citation du jour',lw:'Bienvenue dans mon cottage, passez une très belle journée',lk:'Frappez à la porte',vidAlt:'Vidéo de bienvenue',vidSoon:'La vidéo arrive bientôt',irisWord:'iris',tl:'Le coin où Vespéra partage ses fun facts sur le français',all:'Tous',search:'Rechercher un article…',searchBtn:'Rechercher',back:'← Retour aux articles',nf:'Article introuvable.',loading:'Ouverture du cottage…',none:'Aucun article pour le moment.',noneAdm:'Utilisez le bouton « Viết bài mới » pour publier le premier !',noneUsr:'Vespéra prépare son premier fun fact…',nomatch:'Aucun article ne correspond',pedit:'Modifier',pdel:'Supprimer',cdel:'Supprimer cet article ?',miss:'Cet article n’existe pas encore en français : version vietnamienne affichée.'}};
 let CV={edu:[
 {vi:"Cử nhân ngành Truyền thông quốc tế - Khoa Truyền thông và Văn hóa đối ngoại - Học viện Ngoại giao Việt Nam (2023-2027)",fr:"Licence en Communication internationale - Faculté de Communication et de Culture extérieure - Académie diplomatique du Vietnam (2023-2027)"},
 {vi:"Tốt nghiệp Tú Tài - Lớp chuyên Pháp - Trường THPT Chuyên Trần Phú (Hải Phòng) (2020-2023)",fr:"Baccalauréat - Classe spécialisée de français - Lycée pour élèves doués Trần Phú (Hải Phòng) (2020-2023)"}],
@@ -737,16 +758,16 @@ function openCard(i){if(document.getElementById('cardm')||!deal||!deal[i])return
   el.querySelector('.cclose').onclick=close;el.onclick=e=>{if(e.target===el||e.target.classList.contains('cscene'))close()};document.addEventListener('keydown',onKey)}
 function renderRandom(){const v=$('#view'),L=RN[lang];dealCards(false);
   const intro=String((cards.intro||{})[lang]||'').trim()||L.intro;
-  if(!deal.length){v.innerHTML='<section class="rn"><h2 class="rnt">'+esc(L.title)+'</h2><p class="rni">'+esc(L.empty)+'</p>'+backRow()+'</section>';bindBack(v);toTop();return}
-  v.innerHTML='<section class="rn"><h2 class="rnt">'+esc(L.title)+'</h2><p class="rni">'+esc(intro)+'</p><div class="rnb"><button type="button" class="rnbtn" id="rnshuf">'+esc(L.shuf)+'</button></div><div class="deck'+(cards.back?' cust':'')+'" id="deck">'+deal.map((w,i)=>'<button type="button" class="cd'+(drawnSet.has(i)?' drawn':'')+'" data-i="'+i+'" style="--i:'+i+'" aria-label="'+esc(L.card.replace('{n}',i+1))+'"><span class="cdi"><span class="cdb"></span><span class="cdf"><b>'+esc(w.fr)+'</b></span></span></button>').join('')+'</div>'+backRow()+'</section>';
-  bindBack(v);if(cards.back)$('#deck').style.setProperty('--cb','url('+JSON.stringify(cards.back)+')');
+  if(!deal.length){v.innerHTML='<section class="rn"><h2 class="rnt">'+esc(L.title)+'</h2><p class="rni">'+esc(L.empty)+'</p></section>';toTop();return}
+  v.innerHTML='<section class="rn"><h2 class="rnt">'+esc(L.title)+'</h2><p class="rni">'+esc(intro)+'</p><div class="rnb"><button type="button" class="rnbtn" id="rnshuf">'+esc(L.shuf)+'</button></div><div class="deck'+(cards.back?' cust':'')+'" id="deck">'+deal.map((w,i)=>'<button type="button" class="cd'+(drawnSet.has(i)?' drawn':'')+'" data-i="'+i+'" style="--i:'+i+'" aria-label="'+esc(L.card.replace('{n}',i+1))+'"><span class="cdi"><span class="cdb"></span><span class="cdf"><b>'+esc(w.fr)+'</b></span></span></button>').join('')+'</div></section>';
+  if(cards.back)$('#deck').style.setProperty('--cb','url('+JSON.stringify(cards.back)+')');
   toTop();
   $('#rnshuf').onclick=()=>{dealCards(true);swap(renderRandom)};
   document.querySelectorAll('.cd').forEach(b=>b.onclick=()=>{const i=+b.dataset.i;if(drawnSet.has(i)){openCard(i);return}drawnSet.add(i);b.classList.add('drawn');setTimeout(()=>openCard(i),RM.matches?0:650)})}
 const BK={vi:'Quay trở lại trang bài viết',fr:'Retour aux articles'};
 const backRow=()=>'<div class="bkrow"><button type="button" class="backbtn" data-back>'+esc(BK[lang])+'</button></div>';
 const BKS={vi:'Về bài viết',fr:'Aux articles'};
-function paintBack(){let el=document.getElementById('backfab');const h=location.hash,on=loaded&&(h==='#menu'||h==='#diary'||h==='#random');
+function paintBack(){let el=document.getElementById('backfab');const h=location.hash,on=loaded&&(h==='#menu'||h==='#random');
   if(!on){if(el)el.hidden=true;return}
   if(!el){el=document.createElement('button');el.type='button';el.id='backfab';el.onclick=()=>{location.hash='articles'};document.body.appendChild(el)}
   el.hidden=false;el.setAttribute('aria-label',BK[lang]);
@@ -767,8 +788,8 @@ function renderMenu(){const v=$('#view'),L=MN[lang],fl='<svg class="fl" aria-hid
   const secs=['starter','main','dessert'].map(k=>{const l=items.filter(x=>menuCat(x)===k);if(!l.length)return '';
     return '<h2 class="msec">'+fl+'<span>'+esc(L.cats[k])+'</span>'+fl+'</h2><ul class="mgrid">'+l.map(x=>{const n=menuItems.push(x)-1;
       return '<li class="mi" style="--i:'+Math.min(ix++,12)+'"><button type="button" class="arch" data-i="'+n+'" aria-haspopup="dialog" aria-label="'+esc(dishName(x))+'"><span class="frame"><span class="glass"><svg class="fl key" aria-hidden="true"><use href="#fdl"/></svg><span class="gp">'+(x.img?'<img src="'+esc(x.img)+'" alt="" loading="lazy" decoding="async">':fl)+'</span></span></span><span class="plate">'+esc(dishName(x))+'</span></button></li>'}).join('')+'</ul>'}).join('');
-  v.innerHTML='<section class="menu"><h1 class="mt">'+esc(title)+'</h1><p class="mintro">'+esc(intro)+'</p>'+(secs?'<p class="mhint">'+esc(L.hint)+'</p>'+secs:'<p class="mintro" style="margin-top:30px">'+esc(L.empty)+'</p>')+backRow()+'</section>';
-  bindBack(v);v.querySelectorAll('.arch').forEach(b=>b.onclick=()=>openDish(+b.dataset.i,b));
+  v.innerHTML='<section class="menu"><h1 class="mt">'+esc(title)+'</h1><p class="mintro">'+esc(intro)+'</p>'+(secs?'<p class="mhint">'+esc(L.hint)+'</p>'+secs:'<p class="mintro" style="margin-top:30px">'+esc(L.empty)+'</p>')+'</section>';
+  v.querySelectorAll('.arch').forEach(b=>b.onclick=()=>openDish(+b.dataset.i,b));
   toTop()}
 function toast(t){const o=document.getElementById('ttoast');if(o)o.remove();const e=document.createElement('div');e.id='ttoast';e.setAttribute('role','status');e.textContent=t;document.body.appendChild(e);setTimeout(()=>{e.style.transition='opacity .4s';e.style.opacity='0';setTimeout(()=>e.remove(),420)},3400)}
 function closeDishNow(){const d=document.getElementById('dish');if(d){d.remove();document.body.style.overflow=''}}
@@ -919,16 +940,29 @@ function showTreat(){
   const sent=i<0?esc(tpl)+' <b>'+esc(name)+'</b>':esc(tpl.slice(0,i))+'<b>'+esc(name)+'</b>'+esc(tpl.slice(i+6));
   const cup='<svg class="tcup" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h12v3.5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V10z"/><path d="M16 11h1.5a2.5 2.5 0 0 1 0 5H16"/><path d="M8 3.5c-1 1 1 2 0 3.5M12 3.5c-1 1 1 2 0 3.5"/></svg>';
   const el=document.createElement('div');el.id='treat';
-  el.innerHTML='<div class="tcard" role="dialog" aria-modal="true" aria-label="'+esc(L.tlab)+'"><button type="button" class="tx" aria-label="'+esc(L.tclose)+'">×</button><div class="tpicw">'+(t.img?'<img class="tpic" src="'+esc(t.img)+'" alt="'+esc(name)+'" decoding="async">':cup)+'</div><p class="tmsg">'+sent+'</p><button type="button" class="teabtn tgo">'+esc(go)+'</button></div>';
+  const M=MN[lang],story=dishStory(t);
+  const pic=(t.img?'<img class="tpic" src="'+esc(t.img)+'" alt="'+esc(name)+'" decoding="async">':cup);
+  const paras=story?story.split(/\n\s*\n/).map(p=>'<p>'+esc(p.trim())+'</p>').join(''):'<p class="none">'+esc(M.nostory)+'</p>';
+  el.innerHTML='<div class="tcard tflip" role="dialog" aria-modal="true" aria-label="'+esc(L.tlab)+'"><button type="button" class="tx" aria-label="'+esc(L.tclose)+'">×</button><div class="tin">'
+    +'<div class="tface tfront"><div class="tpicw">'+pic+'</div><p class="tmsg">'+sent+'</p><button type="button" class="teabtn tgo" id="ttry">'+esc(L.try)+'</button></div>'
+    +'<div class="tface tback" aria-hidden="true"><div class="tpicw">'+pic+'</div><h2 class="tname">'+esc(name)+'</h2><p class="tlab2">'+esc(M.story)+'</p><div class="tstory" tabindex="0">'+paras+'</div><div class="tthx" id="tthx"><button type="button" class="teabtn tgo" id="tthanks">'+esc(go)+'</button></div><p class="tscrollhint" id="tscrollhint" hidden>↓</p></div>'
+    +'</div></div>';
   document.body.appendChild(el);document.body.style.overflow='hidden';
-  const im=el.querySelector('.tpic');if(im)im.onerror=()=>{im.outerHTML=cup};
+  el.querySelectorAll('.tpic').forEach(im=>{im.onerror=()=>{im.outerHTML=cup}});
   let done=false;
   const onKey=e=>{if(e.key==='Escape')close(false)};
   function close(enter){if(done)return;done=true;document.removeEventListener('keydown',onKey);el.classList.add('bye');
     setTimeout(()=>{el.remove();document.body.style.overflow='';try{sessionStorage.setItem('cv_tcomp','1')}catch(e){}paintComp();if(enter)location.hash='articles'},RM.matches?0:360)}
-  el.querySelector('.tx').onclick=()=>close(false);el.querySelector('.tgo').onclick=()=>close(true);
+  const card=el.querySelector('.tcard'),back=el.querySelector('.tback'),stEl=el.querySelector('.tstory'),thx=el.querySelector('#tthx'),hint=el.querySelector('#tscrollhint');
+  let ready=false;const showThanks=()=>{if(ready)return;ready=true;thx.classList.add('ready');hint.hidden=true};
+  const atEnd=()=>stEl.scrollTop+stEl.clientHeight>=stEl.scrollHeight-6;
+  stEl.addEventListener('scroll',()=>{if(atEnd())showThanks()},{passive:true});
+  el.querySelector('.tx').onclick=()=>close(false);
+  el.querySelector('#ttry').onclick=()=>{card.classList.add('flipped');back.setAttribute('aria-hidden','false');
+    setTimeout(()=>{stEl.scrollTop=0;if(!story||atEnd())setTimeout(showThanks,RM.matches?0:(story?1800:300));else hint.hidden=false;try{stEl.focus({preventScroll:true})}catch(e){}},RM.matches?0:820)};
+  el.querySelector('#tthanks').onclick=()=>{if(ready)close(true)};
   el.onclick=e=>{if(e.target===el)close(false)};document.addEventListener('keydown',onKey);
-  try{el.querySelector('.tgo').focus({preventScroll:true})}catch(e){}}
+  try{el.querySelector('#ttry').focus({preventScroll:true})}catch(e){}}
 
 /* ---------- Món được mời đi cùng khách ---------- */
 const CMP={vi:'Gọi món khác',fr:'Un autre plat'};
