@@ -1041,7 +1041,7 @@
     "id": "wmvktx3chuda8",
     "fr": "se tapir",
     "gender": "",
-    "pos": "",
+    "pos": "v",
     "vi": "ẩn mình, nấp kín",
     "ex": "Une créature semblait se tapir dans les buissons.",
     "exvi": "Một sinh vật dường như đang ẩn mình trong bụi cây."
@@ -1140,7 +1140,7 @@
     "id": "wmvktx3chmnhw",
     "fr": "se volatiliser",
     "gender": "",
-    "pos": "",
+    "pos": "v",
     "vi": "biến mất không dấu vết",
     "ex": "Le mystérieux visiteur se volatilisa avant l’aube.",
     "exvi": "Vị khách bí ẩn biến mất không dấu vết trước bình minh."
@@ -1203,7 +1203,7 @@
     "id": "wmvktx3chqjtl",
     "fr": "se décomposer",
     "gender": "",
-    "pos": "",
+    "pos": "v",
     "vi": "phân hủy",
     "ex": "Les feuilles mortes se décomposaient sur les pierres tombales.",
     "exvi": "Những chiếc lá chết phân hủy trên các phiến đá mộ."
