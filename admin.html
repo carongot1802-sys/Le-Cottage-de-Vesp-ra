@@ -207,6 +207,7 @@ button,.chip{transition:transform .3s cubic-bezier(.22,.61,.36,1),background-col
     <div class="bar"><button id="new"><svg class="fl" aria-hidden="true"><use href="#fdl"/></svg> Viết bài mới</button><span id="pst"></span></div>
     <div id="ed" class="panel" hidden>
       <label>Ngày đăng</label><input type="date" id="f-date" class="fi" style="width:auto">
+      <label style="display:flex;align-items:center;gap:10px;margin-top:14px;cursor:pointer"><input type="checkbox" id="f-featured" style="width:auto;margin:0"><span><b>★ Đặt làm tin chính (À la une)</b> – hiện to nhất ở đầu trang Bài viết. Chỉ có 1 tin chính, chọn bài này sẽ thay bài cũ.</span></label>
       <div class="cols">
         <div><div class="lh">Tiếng Việt</div>
           <label>Title (tiêu đề)</label><input type="text" id="f-title" class="fi">
@@ -699,9 +700,12 @@ $$('.tabs .chip').forEach(c=>c.onclick=()=>{$$('.tabs .chip').forEach(x=>x.class
 /* posts */
 const fmtd=d=>d||'';
 function drawPosts(){const l=[...posts].sort((a,b)=>(b.ts||0)-(a.ts||0));
-  $('#plist').innerHTML=l.length?l.map(p=>'<div class="prow"><div><b>'+esc(p.title||p.title_fr||'(không tiêu đề)')+'</b><div class="date">'+esc(fmtd(p.date))+' · '+esc(p.tag||p.tag_fr||'')+' · <span class="ic" data-ic="'+esc(p.id)+'"></span></div></div><div><button class="ghost" data-e="'+esc(p.id)+'">Sửa</button> <button class="ghost" data-d="'+esc(p.id)+'">Xóa</button></div></div>').join(''):'<div class="empty">Chưa có bài nào.</div>';
+  $('#plist').innerHTML=l.length?l.map(p=>'<div class="prow"><div><b>'+(p.featured?'<span style="color:var(--wine)">★ Tin chính · </span>':'')+esc(p.title||p.title_fr||'(không tiêu đề)')+'</b><div class="date">'+esc(fmtd(p.date))+' · '+esc(p.tag||p.tag_fr||'')+' · <span class="ic" data-ic="'+esc(p.id)+'"></span></div></div><div><button class="ghost" data-f="'+esc(p.id)+'">'+(p.featured?'Bỏ tin chính':'★ Đặt làm tin chính')+'</button> <button class="ghost" data-e="'+esc(p.id)+'">Sửa</button> <button class="ghost" data-d="'+esc(p.id)+'">Xóa</button></div></div>').join(''):'<div class="empty">Chưa có bài nào.</div>';
   l.forEach(p=>irisGet(irisKey(p.id)).then(n=>{const e=document.querySelector('[data-ic="'+p.id+'"]');if(e&&n!=null)e.innerHTML='<svg class="fl" aria-hidden="true"><use href="#fdl"/></svg> '+n+' iris'}));
   $$('[data-e]').forEach(b=>b.onclick=()=>openEd(posts.find(p=>p.id===b.dataset.e)));
+  $$('[data-f]').forEach(b=>b.onclick=async()=>{const id=b.dataset.f,was=(posts.find(p=>p.id===id)||{}).featured===true;
+    const np=posts.map(p=>({...p,featured:(p.id===id&&!was)?true:false}));b.disabled=true;
+    try{await saveJSON('data/posts.json',np,was?'Unfeature post':'Feature post');posts=np;say('#pst',was?'Đã bỏ tin chính. Web cập nhật sau ~1 phút.':'Đã đặt làm tin chính ✓ Web cập nhật sau ~1 phút.')}catch(e){say('#pst',e.message)}drawPosts()});
   $$('[data-d]').forEach(b=>b.onclick=async()=>{if(!confirm('Xóa bài này?'))return;posts=posts.filter(p=>p.id!==b.dataset.d);try{await saveJSON('data/posts.json',posts,'Delete post');say('#pst','Đã xóa. Web cập nhật sau ~1 phút.')}catch(e){say('#pst',e.message)}drawPosts()})}
 /* ---------- Trình soạn bài theo khối ---------- */
 let blocks=[],coverSrc='',focusIdx=-1,repIdx=-1;
@@ -757,6 +761,7 @@ $('#cover-pick').onclick=()=>$('#f-cover').click();
 $('#f-cover').onchange=async e=>{const f=e.target.files[0];e.target.value='';if(!f)return;say('#est','Đang tải ảnh bìa…');try{coverSrc=await upload(await fitImage(f,1600));drawCover();say('#est','')}catch(err){say('#est',err.message)}};
 function openEd(p){editId=p?p.id:null;const v={title:'',title_fr:'',tag:'',tag_fr:'',chapeau:'',chapeau_fr:'',date:new Date().toISOString().slice(0,10),...(p||{})};
   ['title','title_fr','tag','tag_fr','chapeau','chapeau_fr','date'].forEach(k=>$('#f-'+k).value=v[k]||'');
+  $('#f-featured').checked=!!(p&&p.featured);
   const legacy=p&&!(Array.isArray(p.blocks)&&p.blocks.length)&&((p.media||[]).length||p.body||p.body_fr);
   blocks=p?(Array.isArray(p.blocks)&&p.blocks.length?p.blocks.map(b=>({vi:'',fr:'',...b})):legacyToBlocks(p)):[{t:'p',vi:'',fr:''}];
   coverSrc=(p&&p.cover)||'';focusIdx=-1;drawCover();drawBlocks();
@@ -766,9 +771,9 @@ $('#esave').onclick=async()=>{
   const g=k=>$('#f-'+k).value.trim();if(!g('title')&&!g('title_fr')){say('#est','Nhập tiêu đề đã nhé');return}
   const old=posts.find(p=>p.id===editId),tr=x=>(x||'').trim();
   const bl=blocks.filter(b=>!isEmpty(b)).map(b=>b.t==='img'||b.t==='video'?{t:b.t,src:b.src,vi:tr(b.vi),fr:tr(b.fr)}:b.t==='yt'?{t:'yt',url:tr(b.url),vi:tr(b.vi),fr:tr(b.fr)}:{t:b.t,vi:tr(b.vi),fr:tr(b.fr)});
-  const post={id:editId||'p'+Date.now().toString(36),title:g('title'),title_fr:g('title_fr'),tag:g('tag'),tag_fr:g('tag_fr'),date:$('#f-date').value,chapeau:g('chapeau'),chapeau_fr:g('chapeau_fr'),cover:coverSrc,blocks:bl,ts:old?old.ts:Date.now()};
+  const post={id:editId||'p'+Date.now().toString(36),title:g('title'),title_fr:g('title_fr'),tag:g('tag'),tag_fr:g('tag_fr'),date:$('#f-date').value,chapeau:g('chapeau'),chapeau_fr:g('chapeau_fr'),cover:coverSrc,blocks:bl,featured:$('#f-featured').checked,ts:old?old.ts:Date.now()};
   say('#est','Đang lưu…');
-  try{const np=editId?posts.map(p=>p.id===editId?post:p):[post,...posts];await saveJSON('data/posts.json',np,'Save post');posts=np;$('#ed').hidden=true;drawPosts();say('#pst','Đã đăng ✓ Web sẽ cập nhật sau ~1 phút.')}catch(e){say('#est',e.message)}};
+  try{let np=editId?posts.map(p=>p.id===editId?post:p):[post,...posts];if(post.featured)np=np.map(p=>p===post?p:{...p,featured:false});await saveJSON('data/posts.json',np,'Save post');posts=np;$('#ed').hidden=true;drawPosts();say('#pst','Đã đăng ✓ Web sẽ cập nhật sau ~1 phút.')}catch(e){say('#est',e.message)}};
 
 /* quote */
 const today=()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};

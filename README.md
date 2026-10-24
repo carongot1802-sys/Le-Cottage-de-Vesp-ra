@@ -38,6 +38,20 @@
 - Khối mới được chèn ngay sau khối bạn đang soạn (hoặc xuống cuối bài nếu chưa chọn khối nào). Dùng nút ↑ ↓ để đổi thứ tự, ✕ để xóa khối.
 - Bài cũ (kiểu trước đây, một ô nội dung + ảnh gộp) vẫn hiện bình thường. Khi bấm Sửa, bài được tự chuyển sang dạng khối để bạn chỉnh tiếp.
 
+### Tin chính (À la une)
+
+Mỗi ngày bạn chọn **1 bài làm tin chính**; bài này hiện thành khung chữ nhật lớn, có nhãn "À la une" (tiếng Việt: "Tin chính"), nằm trên cùng trang Bài viết. Các bài còn lại (tin vắn) xếp thành lưới như cũ ngay bên dưới. Có hai cách chọn trong tab Bài viết của admin:
+
+- Bấm **★ Đặt làm tin chính** ngay ở dòng của bài (bấm **Bỏ tin chính** để gỡ).
+- Hoặc tick ô **★ Đặt làm tin chính** trong khung soạn bài rồi đăng.
+
+Chỉ có một tin chính tại một thời điểm: chọn bài mới thì bài cũ tự trở về tin thường. Nếu không chọn bài nào thì trang hiển thị lưới bình thường. Trường `featured` được lưu trong `data/posts.json`.
+
+## Font chữ
+
+- Toàn bộ web dùng **Cormorant Garamond** (hỗ trợ cả tiếng Việt lẫn tiếng Pháp). Hai chỗ giữ nguyên bộ font cũ: tên **Le Cottage de Vespéra** ở header (Chantelli Antiqua) và **chữ trên các thẻ bài** ở trang Ngẫu nhiên (Montserrat và Playfair Display). Các font bạn chọn riêng trong tab Giao diện (trang Chào mừng, trang Giới thiệu, bìa Nhật ký) vẫn được ưu tiên như trước.
+- Cormorant Garamond có nét nhỏ và mảnh hơn font cũ, nên mình đã tăng cỡ chữ ở các chỗ chính. Nếu thấy chỗ nào còn nhỏ, chỉnh ở khối CSS cuối cùng của `index.html` (mục `build 11`).
+
 ## Trang Chào mừng và hoa iris
 - Mục Chào mừng hiện đầu tiên khi khách quán mở web: hoa iris, tiêu đề, lời chào, lời nhắn, khung video 16:9, và số iris cottage đã nhận.
 - Muốn đổi chữ, vào admin, tab **Chào mừng**, sửa rồi bấm **Lưu trang chào mừng** (có cả bản tiếng Việt và tiếng Pháp). Trong đó có cả dòng đếm iris, lời mời và lời cảm ơn ở cuối bài. Ghi `{n}` ở chỗ muốn hiện con số.
@@ -47,6 +61,7 @@
 - Số iris gắn với địa chỉ web. Nếu đổi tên repo hoặc đổi tên miền thì bộ đếm sẽ bắt đầu lại từ 0.
 
 ## Thanh menu ở header
+- **Thanh này ẩn lúc khách mới vào.** Nó chỉ hiện ra khi khách bấm nút **Cảm ơn cô chủ, cho tôi vào đọc bài** ở phần mời thưởng trà (đóng hộp bằng dấu × hay phím Esc thì chưa hiện). Trạng thái này nhớ trong lúc khách còn mở tab, lần ghé sau lại ẩn như ban đầu. Hai trường hợp thanh hiện sẵn: khách mở thẳng một đường dẫn không phải trang Chào mừng (ví dụ link một bài viết), hoặc chưa có món nào trong tab Món mời trà (lúc đó nút mời thưởng trà đi thẳng vào Bài viết). Cờ này là khóa `cv_nav` trong `sessionStorage`, logic ở hàm `navUnlock()` trong `index.html`.
 - Sáu mục **Chào mừng**, **Bài viết**, **Ngẫu nhiên**, **Gọi món**, **Nhật ký**, **Giới thiệu** nằm ngay trên dòng "Le Cottage de Vespéra" trong header, bấm mục nào là chuyển tới mục đó. Mục đang xem được gạch chân. Trên điện thoại thanh này tự xuống thành hai dòng. Chữ và màu của thanh menu đi theo "Màu chữ header" trong tab Giao diện. Muốn đổi tên một mục, sửa các khóa `nvw`, `navp`, `nva` (và `RN.vi.nav`, `RN.fr.nav` cho mục Ngẫu nhiên, `MN.vi.nav`, `MN.fr.nav` cho mục Gọi món, `DY.vi.nav`, `DY.fr.nav` cho mục Nhật ký) trong `index.html`.
 
 ## Giao diện và Bộ theme (tab Giao diện trong admin)
@@ -87,10 +102,10 @@
 - Vì tiếng Việt cần loại từ, hãy ghi tên món kèm loại từ cho tự nhiên (vd: "tách trà hoa cúc", "chiếc bánh madeleine"). Bản tiếng Pháp nên ghi kèm mạo từ (vd: "une tasse de thé"). Câu mời và chữ trên nút đổi được ngay trong tab, ghi `{item}` ở chỗ muốn hiện tên món. Bấm **Xem thử một lời mời** để xem câu ghép ra có tự nhiên không.
 
 ## Món đi cùng khách (nút "Gọi món khác")
-- Sau khi khách đã nhận lời mời thưởng trà (đóng hộp lời mời bằng bất kỳ cách nào), hình món được mời ở lại bên mép trái, giữa chiều cao màn hình, và nhẹ nhàng nhấp nhô lên xuống trong suốt lúc khách đọc. Ngay dưới hình có dòng chữ gạch chân **Gọi món khác**. Bấm vào hình hoặc dòng chữ thì sang trang Gọi món.
+- Sau khi khách đã nhận lời mời thưởng trà (đóng hộp lời mời bằng bất kỳ cách nào), hình món được mời ở lại bên mép trái, giữa chiều cao màn hình, và nhẹ nhàng nhấp nhô lên xuống trong suốt lúc khách đọc. Ngay dưới hình có dòng chữ gạch chân **Gọi món khác**. Bấm vào **hình món** thì hiện lại hộp **câu chuyện của món đó** (giống hộp ở trang Gọi món, không có nút đổi món vì đây đã là món đang đi cùng). Bấm vào dòng chữ **Gọi món khác** thì sang trang Gọi món.
 - **Đổi món**: trong trang Gọi món, khi khách bấm vào một ô cửa sổ để đọc câu chuyện, cuối hộp có nút **Đổi món này**. Bấm vào thì món đó thay thế món cô chủ tặng ban đầu, đi cùng khách ở mép trái các trang Bài viết (hiện thông báo nhỏ xác nhận). Nếu món đang xem đã là món đi cùng thì nút ghi "Món này đang đi cùng bạn ✓". Khách đổi bao nhiêu lần cũng được, và lựa chọn giữ nguyên tới khi họ đóng tab. Chữ trên nút và thông báo nằm ở `MN` (`swap`, `swapped`, `done`) trong `index.html`.
 - Món này là món đã bốc cho khách trong lần ghé đó, đổi qua lại giữa các trang hay đổi ngôn ngữ vẫn giữ nguyên, tới lần ghé sau mới bốc món mới. Khi khách đang ở trang Gọi món thì ô này tự ẩn. Món chưa có ảnh thì hiện hình tách trà thay thế.
-- Hình lấy từ ảnh của món trong tab **Món mời trà** hoặc **Gọi món**, nên bạn không cần cài đặt thêm gì. Chữ "Gọi món khác" (tiếng Pháp: "Un autre plat") nằm trong `index.html`, ở hằng số `CMP`.
+- Hình lấy từ ảnh của món trong tab **Món mời trà** hoặc **Gọi món**, nên bạn không cần cài đặt thêm gì. Chữ "Gọi món khác" (tiếng Pháp: "Un autre plat") nằm trong `index.html`, ở hằng số `CMP`; chữ gợi ý khi chạm vào hình nằm ở `CMPST`.
 
 ## Mục Gọi món / À la carte (tab Gọi món trong admin)
 - Mục **Gọi món** trên thanh menu là một tờ thực đơn gồm 3 phần: **Khai vị**, **Món chính**, **Tráng miệng** (bản tiếng Pháp: Entrées, Plats, Desserts). Mỗi món hiện hình và tên theo ngôn ngữ khách chọn. Phần nào chưa có món thì tự ẩn.
@@ -101,6 +116,8 @@
 - **Ô cửa sổ vòm trưng bày**: mỗi món trên trang Gọi món nằm trong một ô cửa sổ vòm viền vàng, có kệ gỗ phía dưới và bảng tên món bên dưới ô. Rê chuột vào (hoặc bấm trên điện thoại) thì ô nhấc nhẹ lên và có vệt sáng lướt qua kính.
 - **Câu chuyện hoặc fact của từng món**: khách bấm vào ô nào thì hiện một hộp vòm có hình món, phân loại, tên món và phần **Câu chuyện đằng sau món** (chữ căn giữa) (bấm ×, bấm ra ngoài hoặc phím Esc để đóng). Bạn viết nội dung này ở ô **Câu chuyện hoặc fact về món này** của từng món, trong tab **Gọi món** hoặc tab **Món mời trà** (bấm vào dòng chữ đó để mở rộng ô). Có hai ô tiếng Việt và tiếng Pháp (bỏ trống bên nào thì web dùng bên còn lại), cách 1 dòng trống để sang đoạn mới. Món chưa có câu chuyện thì hộp hiện một dòng báo cô chủ cottage đang viết thêm. Nhớ bấm **Lưu thực đơn** (hoặc **Lưu danh sách món**) sau khi viết.
 - Dữ liệu lưu trong `data/site.json`: món nằm ở `treats.items` (thêm trường `cat` là `starter`, `main` hoặc `dessert`, và `storyVi`, `storyFr` cho câu chuyện), chữ trang thực đơn ở khóa `menu`.
+
+- **Hiển thị:** hình món nằm chính giữa ô cửa vòm. Trên điện thoại (màn hình rộng dưới 600px) mỗi hàng hiện 3 món, trên màn hình lớn thì tự chia cột theo bề rộng.
 
 ## Mục Nhật ký (tab Nhật ký trong admin)
 - Mục **Nhật ký** trên thanh menu là nơi cô chủ cottage cập nhật tình hình theo kiểu mạng xã hội, trong một cuốn sổ cổ. Khách bấm vào mục này sẽ thấy một cuốn sổ bìa da lơ lửng nhẹ nhàng, bấm vào sổ thì bìa mở ra, hiện những ô bài đăng giống một dòng tin. Mỗi trang có đúng **3 ô bài đăng**, bài mới nhất ở trang đầu. Lật trang bằng nút **Trang trước / Trang sau**, phím ← →, hoặc vuốt ngang trên điện thoại. Nút **Gấp sổ lại** đưa về cuốn sổ đóng.
