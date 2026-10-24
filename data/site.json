@@ -32,7 +32,7 @@
   "aDark": true,
   "fxOn": true,
   "fxKind": "custom",
-  "fxImg": "media/1792835776447-Beige_Orange_Retro_Illustrated_Happy_Halloween_Instagram_Post__1_.webp",
+  "fxImg": "media/1792649555134-icon_pumpkin_to.png",
   "fxN": 35,
   "fxSz": 22,
   "fxSpd": 4,
@@ -200,9 +200,9 @@
   }
  ],
  "quote": {
-  "date": "2026-10-22",
+  "date": "2026-10-24",
   "vi": {
-   "text": "Hạt mầm ngày nào đã đâm chồi, nhưng tôi chưa đâm",
+   "text": "Chông gai đã quen rồi, nhưng tôi chưa quen",
    "note": ""
   },
   "fr": {
@@ -745,7 +745,7 @@
    },
    {
     "id": "tmvkks8196",
-    "img": "media/1792835685369-Beige_Orange_Retro_Illustrated_Happy_Halloween_Instagram_Post.webp",
+    "img": "media/1792736092305-64.png",
     "vi": "đĩa miến xào hải sản",
     "fr": "une assiette de vermicelles sautés aux fruits de mer",
     "cat": "main",
