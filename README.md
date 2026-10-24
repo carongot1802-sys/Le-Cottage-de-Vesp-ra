@@ -83,7 +83,7 @@ Chỉ có một tin chính tại một thời điểm: chọn bài mới thì b�
 ## Video ở trang Chào mừng
 - Khung video tỉ lệ 16:9 nằm ngay dưới lời nhắn. Để thêm video: vào repo GitHub, tạo thư mục `media` (nếu chưa có), upload file đặt tên đúng **`welcome.mp4`** vào đó (Add file → Upload files).
 - Khi chưa có file, khung hiện chữ "Video sắp được đặt ở đây". Có file rồi thì khung tự đổi thành video.
-- Video tự phát khi khách kéo xuống tới nơi, tự dừng khi kéo đi chỗ khác. Nếu khách chủ động bấm dừng thì web không tự phát lại nữa. Video phát ở chế độ tắt tiếng (trình duyệt bắt buộc mới cho tự phát), khách bật tiếng bằng nút loa trên thanh điều khiển.
+- Video **không còn thanh điều khiển** (không có thanh thời gian, nút dừng/chạy hay toàn màn hình). Video tự phát khi khách kéo xuống tới nơi, tự dừng khi kéo đi chỗ khác, và **phát lặp**: chạy hết một lượt rồi tự phát lượt mới, không dừng. Âm thanh gốc của video được giữ nguyên. Web thử phát có tiếng trước; nếu trình duyệt chặn (iPhone, Safari và nhiều trình duyệt chỉ cho tự phát khi tắt tiếng) thì video phát tắt tiếng và hiện một **nút loa nhỏ** ở góc dưới bên phải khung, khách bấm vào để bật tiếng (bấm lại để tắt). Lựa chọn tiếng được nhớ khi khách đổi ngôn ngữ. Nếu trình duyệt không cho tự phát (ví dụ iPhone đang bật chế độ tiết kiệm pin), khách chạm vào khung video để phát. Chữ gợi ý của nút loa nằm ở hằng số `VSND` trong `index.html`.
 - Nên dùng mp4 mã hóa H.264, dưới 25 MB. Muốn đổi tên hoặc đường dẫn file thì sửa `media/welcome.mp4` trong `index.html`.
 
 ## Thư chào (tab Thư chào trong admin)
@@ -164,6 +164,13 @@ Chỉ có một tin chính tại một thời điểm: chọn bài mới thì b�
 
 ## Bài trước và bài kế tiếp
 - Cuối mỗi bài có hai ô gợi ý: bài đăng trước đó (cũ hơn) bên trái và bài đăng kế tiếp (mới hơn) bên phải. Bài đầu hoặc bài mới nhất thì chỉ hiện một ô.
+
+## Tải hình nhanh
+- Khi khách mở web, hình được tải theo thứ tự ưu tiên: thiệp chào trước, rồi hoa iris đầu trang Chào mừng, rồi ảnh header và nền. Các hình ít quan trọng hơn (ảnh bìa vài bài đầu, ảnh các món) chỉ được tải thêm trong lúc khách đang đọc thiệp và đọc trang, nhờ vậy lúc khách bấm **Mời thưởng trà** thì hình món đã sẵn, hộp lời mời hiện ra ngay. Trên mạng yếu hoặc khi khách bật chế độ tiết kiệm dữ liệu, web chỉ tải sẵn đúng món sắp được mời.
+- Dữ liệu `data/*.json` được yêu cầu ngay từ đầu, song song với việc dựng trang, và ảnh hiện dần với hiệu ứng mờ vào thay vì giật hiện từng mảng. Font chữ Google không còn chặn việc hiện trang.
+- Trang Gọi món chỉ tải ngay các món ở màn hình đầu, các món bên dưới tải khi khách kéo tới. Trên điện thoại, mỗi hàng luôn hiện 3 món (màn hình rộng tới 600 px).
+- Ảnh tải lên từ admin nay được nén nhẹ hơn nhiều. Ảnh PNG (kể cả nền trong) được đổi sang WebP, ảnh chụp nén JPEG. Kích thước tối đa là 600 px cho ảnh món và biểu tượng nhỏ, 800 px cho biểu tượng Chào mừng, 1000 px cho lá bài, 1600 px cho ảnh header, nền, chân trang và ảnh bìa bài, 1800 px cho ảnh trong bài. Lưu ý chỉ ảnh **tải lên từ giờ** mới được nén. Ảnh đã đăng trước đây vẫn giữ nguyên dung lượng cũ, nên với những ảnh nặng bạn hãy tải lại bằng nút Đổi ảnh.
+- Các hình có sẵn trong thư mục `assets/` cũng nên nhẹ. Gợi ý `iris-to.png` dưới 300 KB (rộng khoảng 600 px), `iris-be.png` dưới 100 KB (rộng khoảng 300 px), `thu-chao.jpg` dưới 400 KB. Có thể nén bằng squoosh.app rồi giữ nguyên tên tệp.
 
 ## Lưu ý
 - Ai cũng mở được `admin.html` nhưng không có token thì không làm gì được. Đừng chia sẻ token. Nếu lộ, xóa token trên GitHub rồi tạo cái mới.
