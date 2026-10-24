@@ -22,7 +22,7 @@
    "ts": 1792750440000,
    "date": "2026-10-23",
    "vi": "Hôm nay, cô chủ Cottage đã hoàn thành xong menu món ăn đón khách. Hân hạnh được phục vụ các khách quán!",
-   "fr": "Aujourd’hui, la maîtresse du Cottage vient de terminer la carte d’accueil. J’ai hâte de recevoir mes chers hôtes !",
+   "fr": "Aujourd’hui, moi, la maîtresse du Cottage vient de terminer la carte d’accueil. J’ai hâte de recevoir mes chers hôtes !",
    "media": [
     {
      "t": "img",
@@ -30,5 +30,6 @@
     }
    ]
   }
- ]
+ ],
+ "updated": 1792831593928
 }
