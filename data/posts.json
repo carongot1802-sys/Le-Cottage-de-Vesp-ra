@@ -144,15 +144,15 @@
   "cover": "media/1792842564147-midi.jpg",
   "blocks": [
    {
-    "t": "p",
-    "vi": "Chuyện là vầy, *midi* nghĩa gốc là “buổi trưa” (gốc từ Latin medius dies, nghĩa là giữa ngày). Ở Bắc bán cầu, trưa nắng chang chang thì mặt trời nằm ở hướng nam. Mấy ông Pháp lười đặt tên mới nên lấy “trưa” = “nam” luôn. Hỏi miền Nam nước Pháp ở đâu, kiểu gì họ cũng trả lời là “le Midi”, dòm chẳng khác mấy với “chỗ buổi trưa”, nghe như điểm hẹn ăn cơm. \n\nTính từ *méridional* thì là con ruột của midi (gốc từ Latin meridies, cũng là buổi trưa), ngang với *méridien* là đường kinh tuyến.\n\nCòn *sud* là dân nhập cư gốc Germanic, mượn từ tiếng Anh cổ *sūth*, không có họ hàng gì với đám từ Latin kia nên không có tính từ riêng. Rồi làm sao giờ? Mượn “hàng” của *midi* xài ké luôn 🤷\n\nTóm lại rằng: trong tiếng Pháp, hướng nam với buổi trưa là một nhà. Ai hỏi ăn trưa ở đâu thì cứ chỉ về phía nam, chắc vậy:)",
-    "fr": "Voici l'explication. *Midi* signifie à l'origine « milieu du jour » (du latin medius dies). Dans l'hémisphère nord, quand le soleil tape fort à la mi-journée, il se trouve plein sud. Les Français, peu pressés d'inventer un nouveau mot, ont conclu : *midi* = *sud*, point final. Demandez où se trouve le *sud* de la France, on vous répondra « le Midi », soit, à la lettre, « l'endroit de midi ». On dirait un rencard pour aller déjeuner.\n\n*Méridional*, lui, est le fils légitime de *midi* (du latin meridies, qui veut dire… midi), et le cousin de *méridien*, cette ligne imaginaire qui relie les deux pôles.\n\nEt *sud* dans tout ça ? C'est la pièce rapportée de la famille : d'origine germanique, emprunté au vieil anglais *sūth*, sans aucun lien de parenté avec la bande de latins. Résultat : pas d'adjectif à lui. Alors, on fait quoi ? On emprunte celui de *midi*, tranquille 🤷\n\nBref, en français, le *sud* et *midi*, c'est la même famille. Si on vous demande où déjeuner, pointez vers le *sud* : ça devrait marcher :)"
-   },
-   {
     "t": "img",
     "src": "media/1792843293356-25h.jpg",
     "vi": "",
     "fr": ""
+   },
+   {
+    "t": "p",
+    "vi": "Chuyện là vầy, *midi* nghĩa gốc là “buổi trưa” (gốc từ Latin medius dies, nghĩa là giữa ngày). Ở Bắc bán cầu, trưa nắng chang chang thì mặt trời nằm ở hướng nam. Mấy ông Pháp lười đặt tên mới nên lấy “trưa” = “nam” luôn. Hỏi miền Nam nước Pháp ở đâu, kiểu gì họ cũng trả lời là “le Midi”, dòm chẳng khác mấy với “chỗ buổi trưa”, nghe như điểm hẹn ăn cơm. \n\nTính từ *méridional* thì là con ruột của midi (gốc từ Latin meridies, cũng là buổi trưa), ngang với *méridien* là đường kinh tuyến.\n\nCòn *sud* là dân nhập cư gốc Germanic, mượn từ tiếng Anh cổ *sūth*, không có họ hàng gì với đám từ Latin kia nên không có tính từ riêng. Rồi làm sao giờ? Mượn “hàng” của *midi* xài ké luôn 🤷\n\nTóm lại rằng: trong tiếng Pháp, hướng nam với buổi trưa là một nhà. Ai hỏi ăn trưa ở đâu thì cứ chỉ về phía nam, chắc vậy:)",
+    "fr": "Voici l'explication. *Midi* signifie à l'origine « milieu du jour » (du latin medius dies). Dans l'hémisphère nord, quand le soleil tape fort à la mi-journée, il se trouve plein sud. Les Français, peu pressés d'inventer un nouveau mot, ont conclu : *midi* = *sud*, point final. Demandez où se trouve le *sud* de la France, on vous répondra « le Midi », soit, à la lettre, « l'endroit de midi ». On dirait un rencard pour aller déjeuner.\n\n*Méridional*, lui, est le fils légitime de *midi* (du latin meridies, qui veut dire… midi), et le cousin de *méridien*, cette ligne imaginaire qui relie les deux pôles.\n\nEt *sud* dans tout ça ? C'est la pièce rapportée de la famille : d'origine germanique, emprunté au vieil anglais *sūth*, sans aucun lien de parenté avec la bande de latins. Résultat : pas d'adjectif à lui. Alors, on fait quoi ? On emprunte celui de *midi*, tranquille 🤷\n\nBref, en français, le *sud* et *midi*, c'est la même famille. Si on vous demande où déjeuner, pointez vers le *sud* : ça devrait marcher :)"
    }
   ],
   "featured": false,
