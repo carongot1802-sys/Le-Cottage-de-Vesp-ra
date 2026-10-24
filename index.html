@@ -650,8 +650,9 @@ img[data-fade]{opacity:0}
   transform:translateX(-50%) translateY(calc(var(--off,0px)*-1 - var(--i)*.35px)) rotate(calc(var(--j)*1deg));
   transition:transform .9s cubic-bezier(.2,.8,.25,1) calc(var(--k)*20ms),filter .3s ease;pointer-events:none;-webkit-tap-highlight-color:transparent}
 .fan.spread .fc{transform:translateX(-50%) rotate(calc(var(--a)*1deg)) translateY(var(--lift,0px)) scale(var(--sc,1))}
-.fan.done .fc{pointer-events:auto;transition:transform .28s cubic-bezier(.22,.61,.36,1),filter .3s ease}
-.fan.done .fc:hover,.fan.done .fc:focus-visible{--lift:-20px}
+.fan.done .fc{pointer-events:none;transition:transform .2s cubic-bezier(.22,.61,.36,1),filter .3s ease}
+.fan.done{cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.fan.done .fc.hot,.fan.done .fc:focus-visible{--lift:-20px;z-index:250}
 .fan.done .fc:focus-visible{outline:2px solid var(--wine);outline-offset:3px}
 .fc.drawn{--lift:-10px}
 .fc.drawn .cdb{filter:brightness(.8) saturate(.85);box-shadow:0 0 0 2px #d9a7b1,0 6px 14px #0003}
@@ -748,13 +749,40 @@ const irisApi=()=>(irisCfg.api||IRIS_API_DEF).replace(/\/$/,'');
 const irisNs=()=>irisCfg.ns||((location.hostname+location.pathname.replace(/[^\/]*$/,'')).toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'').slice(0,58)||'le-cottage');
 const irisKey=id=>'p-'+String(id).replace(/[^\w.-]/g,'_').slice(0,60);
 let irisTotal=null;const irisCache={};
-async function irisCall(op,key){try{const r=await fetch(irisApi()+'/'+op+'/'+irisNs()+'/'+key,{cache:'no-store'});if(r.status===404)return 0;if(!r.ok)return null;const j=await r.json();return typeof j.value==='number'?j.value:null}catch(e){return null}}
-const irisGet=k=>irisCall('get',k),irisHit=k=>irisCall('hit',k);
+/* Gọi dịch vụ đếm: timeout 6s, thử lại tối đa 3 lần (0.8s, 2s), phân biệt 404 (chưa có khóa = 0) với lỗi mạng/máy chủ (null) */
+const irisSleep=ms=>new Promise(r=>setTimeout(r,ms));
+async function irisCall(op,key,tries){tries=tries||3;
+  for(let a=0;a<tries;a++){
+    let ctl=null,tm=0;
+    try{ctl=('AbortController' in window)?new AbortController():null;if(ctl)tm=setTimeout(()=>ctl.abort(),6000);
+      const r=await fetch(irisApi()+'/'+op+'/'+irisNs()+'/'+key,{cache:'no-store',signal:ctl?ctl.signal:undefined});clearTimeout(tm);
+      if(r.status===404)return 0;
+      if(r.ok){const j=await r.json();if(typeof j.value==='number')return j.value}
+    }catch(e){clearTimeout(tm)}
+    if(a<tries-1)await irisSleep(a?2000:800)}
+  return null}
+/* Nhớ số đếm lần cuối trong trình duyệt: số iris chỉ tăng nên luôn lấy giá trị lớn hơn, không bao giờ nhảy lùi hay biến mất */
+const irisMem=()=>{try{return JSON.parse(localStorage.getItem('cv_iriscache')||'{}')||{}}catch(e){return {}}};
+const irisRemember=(k,n)=>{try{const m=irisMem();if(!(m[k]>=n)){m[k]=n;localStorage.setItem('cv_iriscache',JSON.stringify(m))}}catch(e){}};
+const irisLast=k=>{const n=irisMem()[k];return typeof n==='number'?n:null};
+const irisGet=async k=>{const n=await irisCall('get',k);const c=irisLast(k);
+  if(n==null)return c;                       /* lỗi mạng: dùng số đã nhớ */
+  const best=c!=null?Math.max(n,c):n;irisRemember(k,best);return best};
+const irisHit=async k=>{const n=await irisCall('hit',k,3);if(n!=null)irisRemember(k,n);return n};
+/* Lượt tặng iris bị lỗi mạng được xếp hàng, tự gửi lại sau (khi có mạng lại hoặc lần mở web sau) */
+const irisQ=()=>{try{return JSON.parse(localStorage.getItem('cv_irisq')||'[]')||[]}catch(e){return []}};
+const irisQSave=a=>{try{localStorage.setItem('cv_irisq',JSON.stringify(a))}catch(e){}};
+let irisFlushing=false;
+async function irisFlush(){if(irisFlushing)return;irisFlushing=true;
+  try{let q=irisQ();const keep=[];
+    for(const k of q){const n=await irisCall('hit',k,2);if(n==null)keep.push(k);else irisRemember(k,n)}
+    irisQSave(keep)}finally{irisFlushing=false}}
+addEventListener('online',()=>irisFlush());setTimeout(()=>{if(irisQ().length)irisFlush()},4000);
 const givenSet=()=>{try{return new Set(JSON.parse(localStorage.getItem('cv_iris')||'[]'))}catch(e){return new Set()}};
 const memGiven=new Set();
 const hasGiven=id=>memGiven.has(id)||givenSet().has(id);
 const markGiven=id=>{memGiven.add(id);try{const g=givenSet();g.add(id);localStorage.setItem('cv_iris',JSON.stringify([...g]))}catch(e){}};
-function paintBank(){const el=$('#bank');if(!el)return;if(irisTotal==null){el.style.visibility='hidden';return}el.style.visibility='visible';const t=wf('counter');const i=t.indexOf('{n}');$('#banktxt').innerHTML=i<0?esc(t):esc(t.slice(0,i))+'<b>'+irisTotal+'</b>'+esc(t.slice(i+3))}
+function paintBank(){const el=$('#bank');if(!el)return;if(irisTotal==null)irisTotal=irisLast('total');if(irisTotal==null){el.style.visibility='hidden';return}el.style.visibility='visible';const t=wf('counter');const i=t.indexOf('{n}');$('#banktxt').innerHTML=i<0?esc(t):esc(t.slice(0,i))+'<b>'+irisTotal+'</b>'+esc(t.slice(i+3))}
 const src=m=>esc(m.src);
 const rich=t=>{let x=esc(t);x=x.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g,'<a href="$2" target="_blank" rel="noopener">$1</a>');x=x.replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>');x=x.replace(/(^|[^*])\*([^*\n]+)\*/g,'$1<em>$2</em>');return x};
 const bt=b=>lang==='fr'?(b.fr||b.vi||''):(b.vi||b.fr||'');
@@ -851,12 +879,19 @@ function setupWelcomeVideo(){
     else if(e.intersectionRatio<.25&&!v.paused)v.pause()
   },{threshold:[0,.25,.5]});
   vidIO.observe(box)}
+let bankTry=0,bankTm=0;
+function loadBank(){clearTimeout(bankTm);
+  irisGet('total').then(n=>{
+    if(n!=null){irisTotal=Math.max(irisTotal||0,n);bankTry=0;paintBank()}
+    else if(bankTry++<6){bankTm=setTimeout(()=>{if($('#bank'))loadBank()},Math.min(30000,4000*bankTry))}
+  })}
+addEventListener('visibilitychange',()=>{if(!document.hidden&&$('#bank')&&irisTotal==null){bankTry=0;loadBank()}});
 function renderWelcome(){const v=$('#view');
   v.innerHTML='<section class="welcome"><img class="crest'+(dz.wIcon?' cu':'')+'" src="'+esc(dz.wIcon||'assets/iris-to.png')+'" alt="Hoa iris" fetchpriority="high" decoding="async"><h1>'+esc(wf('title'))+'</h1><p class="hello">'+esc(wf('hello'))+'</p><div class="msg">'+wf('msg').split(/\n\s*\n/).map(x=>'<p>'+esc(x.trim())+'</p>').join('')+'</div>'+
   '<div class="vid" id="wvid" role="group" aria-label="'+esc(T[lang].vidAlt)+'"><video id="wv" src="media/welcome.mp4" playsinline webkit-playsinline loop preload="metadata" disablepictureinpicture controlslist="nodownload noplaybackrate nofullscreen" aria-label="'+esc(T[lang].vidAlt)+'"></video><button type="button" class="vsnd" id="wvs"></button><div class="vph"><img src="assets/iris-be.png" alt=""><span>'+esc(T[lang].vidSoon)+'</span></div></div>'+
   '<div><div class="irisbank" id="bank" style="visibility:hidden"><img src="assets/iris-be.png" alt="" aria-hidden="true"><span id="banktxt"></span></div><div><button type="button" class="teabtn" id="tea"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h12v3.5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V10z"/><path d="M16 11h1.5a2.5 2.5 0 0 1 0 5H16"/><path d="M8 3.5c-1 1 1 2 0 3.5M12 3.5c-1 1 1 2 0 3.5"/></svg><span>'+esc(T[lang].tea)+'</span></button></div></div></section>';
   $('#tea').onclick=showTreat;toTop();paintBank();setupWelcomeVideo();
-  irisGet('total').then(n=>{if(n!=null){irisTotal=n;paintBank()}})}
+  loadBank()}
 function postNav(p){const i=posts.findIndex(x=>x.id===p.id),L=T[lang];if(i<0||posts.length<2)return '';
   const o=posts[i+1],n=posts[i-1];
   const a=(x,c,lab)=>x?'<a class="'+c+'" href="#post='+esc(x.id)+'"><small>'+lab+'</small><strong>'+esc(pf(x,'title')||pf(x,'title_fr'))+'</strong></a>':'<div></div>';
@@ -864,12 +899,14 @@ function postNav(p){const i=posts.findIndex(x=>x.id===p.id),L=T[lang];if(i<0||po
 function irisEnd(p){const g=hasGiven(p.id);
   return '<div class="irisend"><p id="iask">'+esc(g?wf('thanks'):wf('ask'))+'</p><button class="irisbtn'+(g?' given':'')+'" id="ibtn" aria-pressed="'+g+'" aria-label="'+esc(wf('ask'))+'"><img src="assets/iris-be.png" alt="" aria-hidden="true"></button><div class="irisn" id="icount"></div></div>'}
 function paintCount(id){const el=$('#icount');if(!el)return;const n=irisCache[id];el.textContent=n==null?'':n+' '+T[lang].irisWord}
-function bindIris(p){const b=$('#ibtn');if(!b)return;paintCount(p.id);
-  irisGet(irisKey(p.id)).then(n=>{if(n!=null){irisCache[p.id]=n;paintCount(p.id)}});
+function bindIris(p){const b=$('#ibtn');if(!b)return;if(irisCache[p.id]==null){const c=irisLast(irisKey(p.id));if(c!=null)irisCache[p.id]=c}paintCount(p.id);
+  irisGet(irisKey(p.id)).then(n=>{if(n!=null){irisCache[p.id]=Math.max(irisCache[p.id]||0,n);paintCount(p.id)}});
   b.onclick=async()=>{if(hasGiven(p.id))return;markGiven(p.id);b.classList.add('given','pop');b.setAttribute('aria-pressed','true');$('#iask').textContent=wf('thanks');
     irisCache[p.id]=(irisCache[p.id]||0)+1;if(irisTotal!=null)irisTotal++;paintCount(p.id);
     const [a,t]=await Promise.all([irisHit(irisKey(p.id)),irisHit('total')]);
-    if(a!=null){irisCache[p.id]=a;paintCount(p.id)}if(t!=null)irisTotal=t}}
+    if(a!=null){irisCache[p.id]=Math.max(a,irisCache[p.id]||0);paintCount(p.id)}else{irisQSave(irisQ().concat(irisKey(p.id)))}
+    if(t!=null)irisTotal=Math.max(t,irisTotal||0);else{irisQSave(irisQ().concat('total'))}
+    setTimeout(irisFlush,15000)}}
 const norm=t=>String(t||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/đ/gi,'d').toLowerCase().replace(/\s+/g,' ').trim();
 function drawResults(anim){const el=$('#results');if(!el)return;const L=T[lang],none=!posts.length,ql=norm(q);
   const list=posts.filter(p=>(!tagF||pf(p,'tag').trim()===tagF)&&(!ql||norm(allText(p)).includes(ql)));
@@ -889,11 +926,32 @@ const RN={vi:{nav:'Ngẫu nhiên',title:'Rút một lá bài',intro:'Chọn mộ
 const POS={n:['danh từ','nom'],v:['động từ','verbe'],adj:['tính từ','adjectif'],adv:['trạng từ','adverbe'],prep:['giới từ','préposition'],conj:['liên từ','conjonction'],pron:['đại từ','pronom'],art:['mạo từ','article'],interj:['thán từ','interjection'],loc:['cụm từ','locution'],expr:['thành ngữ','expression']};
 const posLabel=k=>POS[k]?POS[k][lang==='fr'?1:0]:String(k||'');
 let cards={words:[],back:'',front:'',ftx:'',fpanel:false,intro:{}},deal=null,dealSig='',drawnSet=new Set();
-const shuffleArr=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+/* Số ngẫu nhiên đều hơn Math.random (dùng crypto khi có) */
+const rndInt=n=>{try{const u=new Uint32Array(1),lim=Math.floor(4294967296/n)*n;let x;do{crypto.getRandomValues(u);x=u[0]}while(x>=lim);return x%n}catch(e){return Math.floor(Math.random()*n)}};
+const shuffleArr=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=rndInt(i+1);[a[i],a[j]]=[a[j],a[i]]}return a};
+/* "Túi bốc": xáo cả bộ rồi bốc lần lượt, bốc hết cả túi mới xáo túi mới. Túi được nhớ trong trình duyệt nên các lần ghé sau
+   không gặp lại món/từ vừa thấy cho tới khi đã đi hết bộ. Lỗi lưu trữ thì tự quay về ngẫu nhiên thường. */
+function bagDraw(name,keys,count){
+  keys=[...new Set(keys)];if(!keys.length)return [];count=Math.min(count,keys.length);
+  const SK='cv_bag_'+name;let st=null;try{st=JSON.parse(localStorage.getItem(SK)||'null')}catch(e){}
+  let bag=(st&&Array.isArray(st.bag)?st.bag:[]).filter(k=>keys.includes(k)),last=(st&&Array.isArray(st.last))?st.last:[];
+  const fresh=keys.filter(k=>!bag.includes(k)&&!(st&&Array.isArray(st.seen)&&st.seen.includes(k)));   /* món mới thêm vào bộ: cho chen vào túi hiện tại */
+  fresh.forEach(k=>bag.splice(rndInt(bag.length+1),0,k));
+  if(bag.length<count){
+    const rest=bag.slice();let nb=shuffleArr(keys.filter(k=>!rest.includes(k)));
+    /* tránh những thứ vừa bốc xuất hiện ngay đầu túi mới */
+    const avoid=new Set(last);const ok=nb.filter(k=>!avoid.has(k)),bad=nb.filter(k=>avoid.has(k));
+    nb=ok.concat(bad);bag=rest.concat(nb);
+    st={seen:keys.slice()}}
+  const out=bag.slice(0,count);bag=bag.slice(count);
+  try{localStorage.setItem(SK,JSON.stringify({bag:bag,last:out.slice(-Math.min(out.length,Math.max(3,Math.floor(keys.length/6)))),seen:(st&&st.seen)||keys}))}catch(e){}
+  return out}
 function dealCards(force){const w=(cards.words||[]).filter(x=>String(x.fr||'').trim()),sig=w.map(x=>x.id||x.fr).join('|');
   if(!force&&deal&&sig===dealSig)return;dealSig=sig;drawnSet=new Set();
   if(!w.length){deal=[];return}
-  let pool=[];while(pool.length<36)pool=pool.concat(shuffleArr(w));deal=shuffleArr(pool.slice(0,36))}
+  const wk=x=>String(x.id||x.fr);
+  if(w.length>=36){const ids=bagDraw('cards',w.map(wk),36),map=new Map(w.map(x=>[wk(x),x]));deal=shuffleArr(ids.map(k=>map.get(k)).filter(Boolean))}
+  else{let pool=[];while(pool.length<36)pool=pool.concat(shuffleArr(w));deal=shuffleArr(pool.slice(0,36))}}
 function cardText(w){const L=RN[lang],g=w.gender?L['g'+w.gender]:'',p=posLabel(w.pos),tags=[g,p].filter(Boolean).map(x=>'<span>'+esc(x)+'</span>').join('');
   return '<div class="ct'+(cards.fpanel?' pan':'')+'"><div class="cw">'+esc(w.fr)+'</div>'+(tags?'<div class="cg">'+tags+'</div>':'')+(w.vi?'<div class="cv">'+esc(w.vi)+'</div>':'')+((w.ex||w.exvi)?'<div class="cex"><small>'+esc(L.ex)+'</small>'+(w.ex?'<div class="ce">'+esc(w.ex)+'</div>':'')+(w.exvi?'<div class="cev">'+esc(w.exvi)+'</div>':'')+'</div>':'')+'</div>'}
 function openCard(i){if(document.getElementById('cardm')||!deal||!deal[i])return;
@@ -923,12 +981,28 @@ function renderRandom(instant){const v=$('#view'),L=RN[lang];dealCards(false);
   v.innerHTML='<section class="rn"><h2 class="rnt">'+esc(L.title)+'</h2><p class="rni">'+esc(intro)+'</p><div class="rnb"><button type="button" class="rnbtn" id="rnshuf">'+esc(L.shuf)+'</button></div><div class="fan'+(cards.back?' cust':'')+'" id="deck" style="--h:'+g.h.toFixed(1)+'px">'+rowsHtml+'</div></section>';
   const fan=$('#deck');if(cards.back)fan.style.setProperty('--cb','url('+JSON.stringify(cards.back)+')');
   toTop();
-  const open=()=>{fan.classList.add('spread');clearTimeout(fanTimer);fanTimer=setTimeout(()=>fan.classList.add('done'),RM.matches||instant===true?0:1500)};
+  const open=()=>{fan.classList.add('spread');clearTimeout(fanTimer);fanTimer=setTimeout(()=>fan.classList.add('done'),RM.matches||instant===true?0:950)};
   if(RM.matches||instant===true){fan.classList.add('spread','done')}else setTimeout(open,520);
   $('#rnshuf').onclick=()=>{if(!fan.classList.contains('done'))return;fan.classList.remove('done','spread');setTimeout(()=>{dealCards(true);renderRandom()},RM.matches?0:1100)};
-  fan.querySelectorAll('.fc').forEach(b=>b.onclick=()=>{if(!fan.classList.contains('done'))return;const i=+b.dataset.i;
+  /* Chọn lá theo góc con trỏ so với tâm quạt (không phụ thuộc lá nào đang nằm trên cùng), nên rê/bấm luôn trúng đúng lá, kể cả khi lá nhấc lên */
+  const cardsEls=[...fan.querySelectorAll('.fc')];let hot=null;
+  const pickAt=(x,y)=>{const hh=g.h;
+    const rows=[...fan.querySelectorAll('.fanrow')];
+    for(let r=rows.length-1;r>=0;r--){const rc=rows[r].getBoundingClientRect(),cx=rc.left+rc.width/2,cy=rc.top+hh*2.3,dx=x-cx,dy=cy-y,rad=Math.hypot(dx,dy);
+      if(rad<hh*1.15||rad>hh*2.45)continue;
+      const ang=Math.atan2(dx,dy)*180/Math.PI,half=g.A/2+3;if(Math.abs(ang)>half)continue;
+      let k=Math.round((ang/g.A+.5)*(g.per-1));k=Math.max(0,Math.min(g.per-1,k));
+      return cardsEls[r*g.per+k]||null}
+    return null};
+  const setHot=b=>{if(hot===b)return;if(hot)hot.classList.remove('hot');hot=b;if(b)b.classList.add('hot')};
+  const choose=b=>{if(!fan.classList.contains('done')||!b||b.classList.contains('pick'))return;const i=+b.dataset.i;
     drawnSet.add(i);b.classList.add('pick');
-    setTimeout(()=>{openCard(i);setTimeout(()=>{b.classList.remove('pick');b.classList.add('drawn')},400)},RM.matches?0:600)})}
+    setTimeout(()=>{openCard(i);setTimeout(()=>{b.classList.remove('pick');b.classList.add('drawn')},400)},RM.matches?0:600)};
+  fan.addEventListener('pointermove',e=>{if(e.pointerType==='touch'||!fan.classList.contains('done'))return;setHot(pickAt(e.clientX,e.clientY))});
+  fan.addEventListener('pointerleave',()=>setHot(null));
+  fan.addEventListener('click',e=>{if(!fan.classList.contains('done'))return;
+    if(e.detail===0){const b=e.target.closest('.fc');if(b)choose(b);return}   /* phím Enter/Space trên lá đang focus */
+    choose(pickAt(e.clientX,e.clientY))})}
 addEventListener('resize',()=>{clearTimeout(fanRs);fanRs=setTimeout(()=>{if(location.hash!=='#random'||document.getElementById('cardm')||!document.getElementById('deck'))return;
   if(fanGeom().sig!==fanSig)renderRandom(true)},220)});
 const BK={vi:'Quay trở lại trang bài viết',fr:'Retour aux articles'};
@@ -1099,10 +1173,11 @@ $('#themebtn').onclick=()=>setTheme(isDark()?'light':'dark',true);
 try{matchMedia('(prefers-color-scheme:dark)').addEventListener('change',e=>{let st=null;try{st=localStorage.getItem('cv_theme')}catch(_){}if(dz.lock==='dark'||dz.lock==='light')return;if(st!=='dark'&&st!=='light')setTheme(e.matches?'dark':'light',false)})}catch(e){}
 let treats={items:[],tpl:{},go:{}};
 const tkey=x=>String(x.id||x.img||x.vi||x.fr||'');
+let treatMem=null;
 function pickTreat(){const it=(treats.items||[]).filter(x=>String(x.vi||x.fr||'').trim());if(!it.length)return null;
-  let k=null;try{k=sessionStorage.getItem('cv_treat')}catch(e){}
+  let k=treatMem;try{k=sessionStorage.getItem('cv_treat')||k}catch(e){}
   let t=it.find(x=>tkey(x)===k);
-  if(!t){t=it[Math.floor(Math.random()*it.length)];try{sessionStorage.setItem('cv_treat',tkey(t))}catch(e){}}
+  if(!t){const id=bagDraw('treats',it.map(tkey),1)[0];t=it.find(x=>tkey(x)===id)||it[rndInt(it.length)];treatMem=tkey(t);try{sessionStorage.setItem('cv_treat',treatMem)}catch(e){}}
   return t}
 function showTreat(){
   const t=pickTreat();if(!t){navUnlock();location.hash='articles';return}
