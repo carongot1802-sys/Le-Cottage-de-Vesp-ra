@@ -601,6 +601,8 @@ button,.btn,.teabtn,.tgo,.chip,.back,.rnbtn,.pgb button,.dyc button,.dswap,.back
 .tcard.flipped .tface.tback{visibility:visible;transition:visibility 0s linear .4s}
 .tcard.flipped .tfront .tpic{animation:none}
 @media (prefers-reduced-motion:reduce){.tface{transition:none!important}}
+/* khung tên món bằng nhau */
+.plate{box-sizing:border-box;display:flex;align-items:center;justify-content:center;text-align:center;min-height:var(--plh,0)}
 /* điện thoại: 6 mục trên header xếp 3 cột x 2 hàng cho gọn */
 @media (max-width:600px){.topnav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 4px;padding:0 46px;justify-items:center;margin-bottom:14px}.topnav a{font-size:13px;letter-spacing:.05em;line-height:1.2;text-align:center;padding:8px 2px}}
 @media (max-width:340px){.topnav{padding:0 42px}.topnav a{font-size:12px;letter-spacing:.03em}}
@@ -880,7 +882,11 @@ function renderMenu(){const v=$('#view'),L=MN[lang],fl='<svg class="fl" aria-hid
       return '<li class="mi" style="--i:'+Math.min(ix++,12)+'"><button type="button" class="arch" data-i="'+n+'" aria-haspopup="dialog" aria-label="'+esc(dishName(x))+'"><span class="frame"><span class="glass"><svg class="fl key" aria-hidden="true"><use href="#fdl"/></svg><span class="gp">'+(x.img?'<img src="'+esc(x.img)+'" alt="" loading="lazy" decoding="async">':fl)+'</span></span></span><span class="plate">'+esc(dishName(x))+'</span></button></li>'}).join('')+'</ul>'}).join('');
   v.innerHTML='<section class="menu"><h1 class="mt">'+esc(title)+'</h1><p class="mintro">'+esc(intro)+'</p>'+(secs?'<p class="mhint">'+esc(L.hint)+'</p>'+secs:'<p class="mintro" style="margin-top:30px">'+esc(L.empty)+'</p>')+'</section>';
   v.querySelectorAll('.arch').forEach(b=>b.onclick=()=>openDish(+b.dataset.i,b));
+  fitPlates();if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fitPlates);
   toTop()}
+/* khung tên món: lấy khung cao nhất làm chuẩn cho tất cả */
+function fitPlates(){const m=document.querySelector('.menu');if(!m)return;m.style.removeProperty('--plh');let h=0;m.querySelectorAll('.plate').forEach(e=>{h=Math.max(h,e.offsetHeight)});if(h)m.style.setProperty('--plh',h+'px')}
+addEventListener('resize',()=>{clearTimeout(fitPlates.t);fitPlates.t=setTimeout(fitPlates,150)});
 function toast(t){const o=document.getElementById('ttoast');if(o)o.remove();const e=document.createElement('div');e.id='ttoast';e.setAttribute('role','status');e.textContent=t;document.body.appendChild(e);setTimeout(()=>{e.style.transition='opacity .4s';e.style.opacity='0';setTimeout(()=>e.remove(),420)},3400)}
 function closeDishNow(){const d=document.getElementById('dish');if(d){d.remove();document.body.style.overflow=''}}
 addEventListener('hashchange',closeDishNow);
