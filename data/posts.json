@@ -1,5 +1,81 @@
 [
  {
+  "id": "pmvmdkgan",
+  "title": "Vũ điệu tử thần: khi cái chết nhảy múa cùng người sống",
+  "title_fr": "La danse macabre : quand la mort danse avec les vivants",
+  "tag": "Văn hóa",
+  "tag_fr": "Culture",
+  "date": "2026-10-24",
+  "chapeau": "Một bữa tiệc ai cũng được mời, và không ai được từ chối.",
+  "chapeau_fr": "Une soirée où tout le monde est invité, et où personne ne peut refuser.",
+  "cover": "",
+  "blocks": [
+   {
+    "t": "img",
+    "src": "media/1792844532661-nh_y.jpg",
+    "vi": "",
+    "fr": ""
+   },
+   {
+    "t": "p",
+    "vi": "Tưởng tượng bạn đang đi dạo trong một nghĩa trang ở Paris đầu thế kỷ XV. Trên bức tường dài, một hàng người đang nhảy múa; nào là giáo hoàng, hoàng đế, vua, hiệp sĩ, thương nhân, nông dân, thậm chí đến cả những đứa trẻ. Xen giữa họ là những bộ xương, “lọc cọc” nắm tay từng người kéo vào điệu nhảy cuối cùng. Đây là bữa tiệc duy nhất mà tấm thiệp mời không cho phép ai chối từ.",
+    "fr": "Imaginez que vous vous promenez dans un cimetière parisien, au début du XVe siècle. Sur un long mur, une file de gens danse : le pape, l’empereur, le roi, le chevalier, le marchand, le paysan, et même des enfants. Entre eux, des squelettes qui, dans un joyeux cliquetis d’os, les prennent par la main pour les entraîner dans une dernière danse. C’est la seule soirée dont l’invitation ne permet à personne de décliner."
+   },
+   {
+    "t": "h",
+    "vi": "Bức tường ở Saints-Innocents",
+    "fr": "Le mur des Saints-Innocents"
+   },
+   {
+    "t": "p",
+    "vi": "Hình ảnh sớm nhất được biết đến là bức tranh tường vẽ năm 1424-1425 ở nghĩa trang Saints-Innocents, Paris. Tiếc là nay bức tranh đã mất. \n\nNó nằm trong các hành lang chứa hài cốt (charnier) quanh nghĩa trang, nơi người Paris thời đó qua lại hằng ngày. Nghĩa là đường mà bạn đi chợ hàng ngày cũng có thể là nơi vạn người đang yên nghỉ (thực ra cũng không yên lắm nếu ai đó phải ở tập thể với người họ không thích). Năm 1426, nhà thơ người Anh John Lydgate nhìn thấy bức tranh, bèn dịch bài thơ đi kèm sang tiếng Anh, và bản dịch ấy trở thành một phần của bức tranh ở nhà thờ Old St Paul's, London. Đến năm 1485, nhà in Guy Marchant cho in lại hình ảnh này, và nó “viral” khắp châu Âu trung đại.\n\nCòn chữ “macabre” thì đến giờ vẫn chưa ai chốt được nguồn gốc chính xác. Cụm “danse macabre” đã xuất hiện từ trước năm 1424, và từ tận hồi đó đến giờ, giới học giả vẫn đang cãi nhau chưa xong.",
+    "fr": "La plus ancienne représentation connue est la fresque peinte en 1424-1425 au cimetière des Saints-Innocents, à Paris. Hélas, elle a aujourd’hui disparu.\n\nElle ornait les charniers qui entouraient le cimetière, là où les Parisiens passaient chaque jour. Autrement dit, la rue où vous alliez faire vos courses pouvait aussi abriter des milliers de dormeurs éternels (même si, soyons honnêtes, on ne repose pas si en paix quand il faut partager le dortoir avec des gens qu’on ne supporte pas). En 1426, le poète anglais John Lydgate voit la fresque, traduit en anglais le poème qui l’accompagne, et cette traduction devient une partie de la peinture de la vieille cathédrale Saint-Paul de Londres. En 1485, l’imprimeur Guy Marchant reprend l’image dans un livre, et elle devient « virale » dans toute l’Europe médiévale.\n\nQuant au mot « macabre », personne n’a encore réussi à établir son origine exacte. L’expression « danse macabre » existait déjà avant 1424, et depuis cette époque, les spécialistes n’ont toujours pas fini de se disputer."
+   },
+   {
+    "t": "h",
+    "vi": "Vì sao người ta vẽ cái chết nhảy múa?",
+    "fr": "Pourquoi peindre la mort qui danse ?"
+   },
+   {
+    "t": "p",
+    "vi": "Cách giải thích truyền thống cho rằng khi ấy châu Âu liên tục hứng chịu các cú sốc, khi mà nạn đói, Chiến tranh Trăm năm, và nhất là Cái chết Đen (1347-1351) cứ lần lượt “gõ cửa”. Nhưng các nhà nghiên cứu lưu ý rằng văn chương về cái chết đã có truyền thống lâu đời từ trước khi dịch hạch xảy ra. Chủ đề này còn bắt nguồn từ các bài giảng của dòng khất sĩ và truyền thuyết “Ba người chết và ba người sống” từ thế kỷ XIII. Trong truyền thuyết ấy, ba quý tộc đi săn gặp ba bộ xương, và mấy ông xương nói: “Tụi tui từng như các anh, rồi các anh sẽ như tụi tui. Sợ chưa nè”. Spoil kiểu này ai mà dám chơi cùng.\nDanse macabre lại tiến thêm một bước. Thay vì chỉ nhắc “rồi sẽ có ngày chết”, nó cho thấy cái chết đến ngay lúc này, không hề báo trước. Từ cảnh báo bỗng thành bắt quả tang.",
+    "fr": "L’explication classique veut que l’Europe de l’époque ait subi des chocs en série : la famine, la guerre de Cent Ans et surtout la Peste noire (1347-1351) venaient frapper à la porte les unes après les autres. Mais les chercheurs rappellent que la littérature sur la mort existait bien avant l’épidémie. Le thème vient aussi des sermons des ordres mendiants et de la légende des « Trois Morts et des Trois Vifs », qui date du XIIIe siècle. Dans cette légende, trois nobles partis chasser rencontrent trois squelettes, qui leur disent : « Nous avons été ce que vous êtes, vous serez ce que nous sommes. Ça fait peur, hein ? » Avec un spoiler pareil, personne n’a envie de jouer avec eux.\n\nLa danse macabre va encore plus loin. Au lieu de rappeler qu’« on mourra un jour », elle montre la mort qui arrive maintenant, sans prévenir. De l’avertissement, on passe soudain au flagrant délit."
+   },
+   {
+    "t": "h",
+    "vi": "Xếp hàng ngăn nắp ngay cả khi “đã hẹo”",
+    "fr": "Même morts, bien rangés"
+   },
+   {
+    "t": "p",
+    "vi": "Bố cục thường theo đúng thứ bậc xã hội thời đó: giáo hoàng, hoàng đế, vua, hồng y đi đầu, rồi xuống dần đến tu sĩ, thợ thuyền, nông dân, đứa trẻ, ẩn sĩ. Tử thần thì mỉa mai hết cỡ khi (dám) đội vương miện của vua, cầm kiếm của hiệp sĩ, trêu chọc kẻ yếu đuối. Người giàu cố mua chuộc, như ở nhà thờ Beram, nơi giáo hoàng chìa túi tiền, hoàng hậu bưng cả một bát tiền. Vô ích hết, vì tử thần không nhận tiền mặt (có lẽ y thích chuyển khoản hơn vì có hoa hồng?). Một bản in thế kỷ XV còn có câu nói với hoàng đế rằng thanh kiếm và vương trượng ở đây chẳng còn giá trị gì.\n\nỞ nhà thờ Saint-Nicolas, Lübeck, từng có bức tranh của Bernt Notke (khoảng năm 1463, bị phá hủy trong cuộc ném bom năm 1942). Trong tranh, các bộ xương nhảy điệu nghệ, còn người sống thì vụng về như chưa kịp tập, dòm như dân chuyên nghiệp đấu với dân nghiệp dư.",
+    "fr": "La composition suit en général la hiérarchie sociale de l’époque : le pape, l’empereur, le roi et le cardinal en tête, puis on descend vers les moines, les artisans, les paysans, l’enfant, l’ermite. La Mort, elle, est ironique au possible : elle ose coiffer la couronne du roi, brandir l’épée du chevalier, se moquer des faibles. Les riches tentent de la corrompre, comme à Beram, où le pape tend sa bourse et la reine apporte tout un bol de pièces. Peine perdue : la Mort n’accepte pas les espèces (peut-être préfère-t-elle le virement, à cause des commissions ?). Une gravure du XVe siècle fait même dire à l’empereur que son épée et son sceptre ne valent plus rien ici.\n\nÀ Saint-Nicolas de Lübeck, il y avait autrefois une œuvre de Bernt Notke (vers 1463, détruite lors des bombardements de 1942). Les squelettes y dansent avec aisance, tandis que les vivants sont gauches, comme s’ils n’avaient pas eu le temps de répéter : on dirait des professionnels contre des amateurs."
+   },
+   {
+    "t": "h",
+    "vi": "Nhiều phiên bản đa dạng hơn",
+    "fr": "Des versions pour tous les goûts"
+   },
+   {
+    "t": "p",
+    "vi": "Các bản danse macabre rải rác khắp nơi, ví như Kermaria-an-Iskuit (Brittany), La Chaise-Dieu (Auvergne, khoảng 1460-70), La Ferté-Loupière (Yonne, được phát hiện lại năm 1910), Basel, Berne, Istria. Khoảng năm 1482-1491, bản “Danse macabre des femmes” (vũ điệu tử thần của phụ nữ) lần đầu xuất hiện, mở đường cho chủ đề “Cái chết và thiếu nữ” kéo dài đến tận thời Lãng mạn. Cái chết không phân biệt giới tính, nhưng với phái nữ thì ra tay lịch lãm hơn hẳn.\n\nHans Holbein (1497-1543) vẽ loạt tranh khắc gỗ “Dance of Death” vào thập niên 1520, xuất bản thành sách năm 1538. Ông bỏ hàng người nhảy múa, thay bằng những cảnh riêng lẻ: tử thần xộc vào bàn làm việc của học giả, vào ngai vàng, vào cánh đồng. Loạt 41 bức này mang giọng châm biếm gắn với tinh thần Cải cách. Từ bài học dành cho cả cộng đồng, nó biến thành những mẩu chuyện kinh dị kiểu “đang làm việc thì bỗng dưng…”.",
+    "fr": "Les danses macabres sont dispersées un peu partout, par exemple à Kermaria-an-Iskuit (Bretagne), à La Chaise-Dieu (Auvergne, vers 1460-1470), à La Ferté-Loupière (Yonne, redécouverte en 1910), à Bâle, à Berne, en Istrie. Vers 1482-1491 apparaît pour la première fois la « danse macabre des femmes », qui ouvre la voie au thème de « la Mort et la Jeune Fille », présent jusqu’à l’époque romantique. La Mort ne fait pas de différence entre les sexes, mais elle se montre bien plus galante avec les dames.\n\nHans Holbein (1497-1543) réalise dans les années 1520 sa série de gravures sur bois, Les Simulachres de la Mort (Dance of Death), publiée en 1538. Il abandonne la file de danseurs pour des scènes individuelles : la Mort surgit dans le bureau du savant, sur le trône, dans les champs. Ces 41 images, d’un ton satirique lié à l’esprit de la Réforme, transforment une leçon pour toute la communauté en petites histoires d’horreur du genre : « Vous étiez en train de travailler quand, soudain… »"
+   },
+   {
+    "t": "h",
+    "vi": "Âm vang đến tận ngày nay",
+    "fr": "Un écho jusqu’à nos jours"
+   },
+   {
+    "t": "p",
+    "vi": "Danse macabre chưa bao giờ biến mất. Alfred Rethel vẽ “Another Dance of Death” năm 1848, khi châu Âu rúng động vì các cuộc cách mạng. Baudelaire làm thơ về nó, Liszt và Saint-Saëns phổ nhạc. Bản “Danse macabre” của Saint-Saëns (1874) đến giờ vẫn được biểu diễn rộng rãi (tôi rất thích bản nhạc này).\n\nNó sống dai vì nói về điều không ai tránh được. Quyền lực, của cải, địa vị chỉ là những bộ trang phục khoác lên người trong lúc nhảy. Hết nhạc, bộ xương bên trong ai cũng như ai.",
+    "fr": "La danse macabre n’a jamais disparu. Alfred Rethel dessine Une autre danse des morts (Auch ein Totentanz) en 1848, alors que l’Europe est secouée par les révolutions. Baudelaire écrit des vers à son sujet, Liszt et Saint-Saëns la mettent en musique. La Danse macabre de Saint-Saëns (1874) est toujours très jouée aujourd’hui (j’adore ce morceau).\nSi elle survit, c’est parce qu’elle parle de ce que personne ne peut éviter. Pouvoir, richesse, rang : de simples costumes qu’on enfile le temps de la danse. Quand la musique s’arrête, le squelette qu’il y a dessous est le même pour tous."
+   }
+  ],
+  "featured": false,
+  "ts": 1792844907647
+ },
+ {
   "id": "pmvmd96nj",
   "title": "Vũ hội hóa trang: niềm vui được che giấu danh tính",
   "title_fr": "Les bals masqués : le plaisir de cacher son identité",
