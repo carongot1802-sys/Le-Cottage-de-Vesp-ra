@@ -549,9 +549,9 @@ header h1,.brand{font-family:'Chantelli Antiqua',Georgia,serif;font-weight:700}
 .tmsg{font-size:clamp(21px,5vw,26px)}
 .tag{font-size:15px}.qlab{font-size:14px}.pn small{font-size:14px}.pn strong{font-size:19px}
 .hlab{font-size:14px}.tlab2{font-size:14px}.dcat{font-size:14px}.dlab{font-size:15px}.shh{font-size:15px}.dph strong{font-size:17px}
-.plate{font-size:17px}
-@media (max-width:600px){.topnav a{font-size:13.5px}.plate{font-size:13.5px}}
-@media (max-width:360px){.plate{font-size:12.5px}}
+.plate{font-size:21px;line-height:1.25}
+@media (max-width:600px){.topnav a{font-size:13.5px}.plate{font-size:16px;line-height:1.2;padding:4px 2px}}
+@media (max-width:360px){.plate{font-size:14.5px}}
 html[lang="vi"] .menu :is(h1,h2,.msec,.msec span,.plate),html[lang="vi"] #dish :is(h2,.dcat,.dlab){font-family:'Cormorant Garamond',Georgia,serif}
 button,.btn,.teabtn,.tgo,.chip,.back,.rnbtn,.pgb button,.dyc button,.dswap,.backbtn,.gsw span,#backfab,.cbtn,#tcomp .tccap,.sbtn{font-weight:700}
 /* nút bấm: Cormorant đậm, cùng kiểu với tiêu đề (tăng cỡ chữ vì Cormorant nhỏ nét) */
@@ -601,6 +601,9 @@ button,.btn,.teabtn,.tgo,.chip,.back,.rnbtn,.pgb button,.dyc button,.dswap,.back
 .tcard.flipped .tface.tback{visibility:visible;transition:visibility 0s linear .4s}
 .tcard.flipped .tfront .tpic{animation:none}
 @media (prefers-reduced-motion:reduce){.tface{transition:none!important}}
+/* điện thoại: 6 mục trên header xếp 3 cột x 2 hàng cho gọn */
+@media (max-width:600px){.topnav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 4px;padding:0 46px;justify-items:center;margin-bottom:14px}.topnav a{font-size:13px;letter-spacing:.05em;line-height:1.2;text-align:center;padding:8px 2px}}
+@media (max-width:340px){.topnav{padding:0 42px}.topnav a{font-size:12px;letter-spacing:.03em}}
 </style>
 </head>
 <body>
@@ -1076,7 +1079,7 @@ let dySeenMem=null;
 const dySeenGet=()=>{if(dySeenMem!=null)return dySeenMem;try{return +(localStorage.getItem('cv_dyseen')||0)}catch(e){return 0}};
 function dyMarkSeen(){const st=dyStamp();if(!st)return;dySeenMem=st;try{localStorage.setItem('cv_dyseen',String(st))}catch(e){}paintDyAlert()}
 function paintDyAlert(){const el=document.getElementById('dyalert');if(!el)return;
-  const h=location.hash,st=dyStamp(),on=loaded&&!denied&&h!=='#about'&&st>0&&st>dySeenGet()&&!(h==='#diary'&&dyOpen);
+  const h=location.hash,st=dyStamp(),on=loaded&&!denied&&!isWelcome()&&h!=='#about'&&st>0&&st>dySeenGet()&&!(h==='#diary'&&dyOpen);
   el.hidden=!on;el.setAttribute('aria-label',DYA[lang]);const t=document.getElementById('dyat');if(t)t.textContent=DYA[lang]}
 let navOn=false;
 const navGet=()=>{if(navOn)return true;try{return sessionStorage.getItem('cv_nav')==='1'}catch(e){return false}};
