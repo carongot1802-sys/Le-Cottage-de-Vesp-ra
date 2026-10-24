@@ -97,7 +97,7 @@ button.ghost{background:transparent;color:var(--wine);border:1px solid var(--win
 .ta{width:100%;min-height:220px;font:inherit;padding:9px;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:3px;margin-bottom:10px}
 .lang{display:flex;gap:8px;margin-bottom:18px}
 .sec{color:var(--wine);font-size:24px;margin:1.8em 0 .5em;border-bottom:1px solid var(--line);padding-bottom:6px}
-.cv{padding-left:20px;margin:0}.cv li{margin-bottom:.8em}
+ul.cv{padding-left:20px;margin:0}ul.cv li{margin-bottom:.8em}
 #ft{position:relative;overflow:hidden;margin-top:24px;background:var(--fc,#6d1a2c);border-top:4px double #d9a7b1;border-top-color:color-mix(in srgb,var(--ftx,#f3ead8) 55%,transparent)}
 #ft>#ftbg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none;z-index:0}
 #ft>#fov{position:absolute;inset:0;background:var(--fc,#6d1a2c);opacity:var(--fov,1);z-index:0}
@@ -123,8 +123,10 @@ footer{text-align:left;background:transparent;color:var(--ftx,#d9b8bf);font-size
 .vph img{height:30%;width:auto;opacity:.9}
 .vid.ok .vph{display:none}.vid.no video{visibility:hidden}
 .vid video{pointer-events:auto}
-.vsnd{position:absolute;right:10px;bottom:10px;z-index:2;width:42px;height:42px;padding:0;border:0;border-radius:50%;background:#000a;color:#fff;display:none;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 2px 8px #0005;transition:transform .25s ease,background-color .25s ease}
-.vid.ok .vsnd{display:flex}.vid.no .vsnd{display:none}
+.vsnd{position:absolute;right:10px;bottom:10px;z-index:2;width:42px;height:42px;padding:0;border:0;border-radius:50%;background:#000a;color:#fff;display:none;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 2px 8px #0005;transition:transform .25s ease,background-color .25s ease,opacity .3s ease}
+.vid.ok .vsnd{display:flex}
+.vid.ok video{cursor:pointer}
+.vsnd.off{opacity:0;visibility:hidden;pointer-events:none;transform:scale(.8);transition:opacity .3s ease,transform .3s ease,visibility 0s linear .3s}.vid.no .vsnd{display:none}
 .vsnd:hover,.vsnd:focus-visible{background:#000d;transform:scale(1.08);outline:none}
 .vsnd svg{width:22px;height:22px}
 .vsnd.hint{animation:vpulse 1.8s ease-in-out infinite}
@@ -585,7 +587,7 @@ button,.btn,.teabtn,.tgo,.chip,.back,.rnbtn,.pgb button,.dyc button,.dswap,.back
 .cdf b{display:block;width:100%;text-align:center}
 .ct,.ct>*{text-align:center}
 .cfr.dflt .ct{padding:16% 10%}
-.ct .cw,.ct .cg,.ct .cv,.ct .cex,.ct .ce,.ct .cev{text-align:center;margin-left:auto;margin-right:auto}
+.ct .cw,.ct .cg,.ct .cv,.ct .cex,.ct .ce,.ct .cev{text-align:center;margin-left:auto;margin-right:auto;padding-left:0;padding-right:0}
 .tfront{justify-content:center}
 .tfront .tmsg{margin:10px 0 38px}
 .tfront .tgo{margin-top:6px}
@@ -803,20 +805,20 @@ function quoteBox(){const a=quote[lang]||{},b=quote[lang==='vi'?'fr':'vi']||{},s
   const n=(sx.note||'').trim(),L=T[lang],fl='<svg class="fl xs" aria-hidden="true"><use href="#fdl"/></svg>';
   return '<section class="qbox" aria-label="'+esc(L.ql)+'"><div class="qlab">'+fl+' '+esc(L.ql)+(quote.date?' · '+esc(fmt(quote.date)):'')+' '+fl+'</div><blockquote class="qtext" style="margin-left:auto;margin-right:auto">'+esc(t)+'</blockquote>'+(n?'<div class="qnote">'+esc(n)+'</div>':'')+'</section>'}
 /* ---------- Video chào mừng: không có thanh điều khiển, phát lặp hết lượt này tới lượt khác, giữ nhạc gốc ---------- */
-let vidIO=null,vidMute=null; /* null = chưa biết: thử phát có tiếng trước, trình duyệt chặn thì phát tắt tiếng + hiện nút loa */
+let vidIO=null,vidMute=null,vidBtnOff=false; /* null = chưa biết: thử phát có tiếng trước, trình duyệt chặn thì phát tắt tiếng + hiện nút loa */
 const VSND={vi:{on:'Bật tiếng video',off:'Tắt tiếng video'},fr:{on:'Activer le son de la vidéo',off:'Couper le son de la vidéo'}};
 const VICO={off:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6 9H3v6h3l5 4V5z"/><path d="M16 9l5 6M21 9l-5 6"/></svg>',on:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg>'};
 function paintVidBtn(b,v){const m=v.muted;b.setAttribute('aria-pressed',String(!m));b.setAttribute('aria-label',m?VSND[lang].on:VSND[lang].off);b.title=m?VSND[lang].on:VSND[lang].off;b.innerHTML=m?VICO.off:VICO.on;b.classList.toggle('hint',m)}
 function setupWelcomeVideo(){
   if(vidIO){vidIO.disconnect();vidIO=null}
   const box=$('#wvid'),v=$('#wv'),b=$('#wvs');if(!box||!v)return;
-  v.loop=true;v.controls=false;v.muted=vidMute===true;if(b)paintVidBtn(b,v);
+  v.loop=true;v.controls=false;v.muted=vidMute===true;if(b){paintVidBtn(b,v);b.classList.toggle('off',vidBtnOff)}
   const go=()=>{if(box.classList.contains('no'))return;const p=v.play();
     if(p&&p.catch)p.catch(()=>{if(!v.muted){v.muted=true;vidMute=true;if(b)paintVidBtn(b,v);const q=v.play();if(q&&q.catch)q.catch(()=>{})}})};
   v.addEventListener('loadedmetadata',()=>box.classList.add('ok'));
   v.addEventListener('error',()=>box.classList.add('no'));
   if(b)b.onclick=e=>{e.stopPropagation();v.muted=!v.muted;vidMute=v.muted;paintVidBtn(b,v);if(v.paused)go()};
-  v.addEventListener('click',()=>{if(v.paused)go()});
+  v.addEventListener('click',()=>{if(v.paused){go();return}vidBtnOff=!vidBtnOff;if(b)b.classList.toggle('off',vidBtnOff)});
   if(!('IntersectionObserver' in window))return;
   vidIO=new IntersectionObserver(es=>{const e=es[es.length-1];
     if(e.intersectionRatio>=.5){if(v.paused)go()}
