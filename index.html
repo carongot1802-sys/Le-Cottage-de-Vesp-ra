@@ -642,6 +642,24 @@ img[data-fade]{opacity:0}
 @media (min-width:700px){.hlogo img{height:56px}}
 @media (min-width:1180px){header>.hlogo{position:absolute;z-index:2;top:14px;left:20px;margin:0}.hlogo img{height:64px}}
 @media (prefers-reduced-motion:reduce){.hlogo img{transition:none}.hlogo:hover img,.hlogo:focus-visible img{transform:none}}
+
+/* ===== Ngẫu nhiên: sấp bài xòe ===== */
+.fan{position:relative;margin:6px auto 0;max-width:880px;padding-top:36px;overflow-x:clip}
+.fanrow{position:relative;margin:0 auto}
+.fc{position:absolute;left:50%;top:0;width:calc(var(--h)/1.6);height:var(--h);margin:0;padding:0;border:0;border-radius:8px;background:none;cursor:pointer;perspective:700px;container-type:inline-size;transform-origin:50% 230%;z-index:var(--z,1);
+  transform:translateX(-50%) translateY(calc(var(--off,0px)*-1 - var(--i)*.35px)) rotate(calc(var(--j)*1deg));
+  transition:transform .9s cubic-bezier(.2,.8,.25,1) calc(var(--k)*20ms),filter .3s ease;pointer-events:none;-webkit-tap-highlight-color:transparent}
+.fan.spread .fc{transform:translateX(-50%) rotate(calc(var(--a)*1deg)) translateY(var(--lift,0px)) scale(var(--sc,1))}
+.fan.done .fc{pointer-events:auto;transition:transform .28s cubic-bezier(.22,.61,.36,1),filter .3s ease}
+.fan.done .fc:hover,.fan.done .fc:focus-visible{--lift:-20px}
+.fan.done .fc:focus-visible{outline:2px solid var(--wine);outline-offset:3px}
+.fc.drawn{--lift:-10px}
+.fc.drawn .cdb{filter:brightness(.8) saturate(.85);box-shadow:0 0 0 2px #d9a7b1,0 6px 14px #0003}
+.fan.done .fc.pick{--lift:-90px;--sc:1.12;z-index:300;transition:transform .55s cubic-bezier(.22,.61,.36,1)}
+.fc.pick .cdi{transform:rotateY(180deg)}
+.fc.pick .cdb{filter:none}
+.fanhint{margin:6px 0 0;color:var(--muted);font-size:14.5px;letter-spacing:.04em;min-height:1.6em}
+@media (prefers-reduced-motion:reduce){.fc{transition:none!important}}
 </style>
 </head>
 <body>
@@ -890,14 +908,29 @@ function openCard(i){if(document.getElementById('cardm')||!deal||!deal[i])return
   let done=false;const onKey=e=>{if(e.key==='Escape')close()};
   function close(){if(done)return;done=true;document.removeEventListener('keydown',onKey);el.classList.add('bye');setTimeout(()=>{el.remove();document.body.style.overflow=''},RM.matches?0:360)}
   el.querySelector('.cclose').onclick=close;el.onclick=e=>{if(e.target===el||e.target.classList.contains('cscene'))close()};document.addEventListener('keydown',onKey)}
-function renderRandom(){const v=$('#view'),L=RN[lang];dealCards(false);
+let fanSig='',fanTimer=0,fanRs=0;
+function fanGeom(){const two=window.innerWidth<=640,W=Math.max(260,Math.min($('#view').clientWidth||360,860)),A=two?112:140,sinA=Math.sin(A/2*Math.PI/180);
+  const h=Math.min(W/(4.6*sinA+.625),two?125:190);return{two,W,A,h,rows:two?2:1,per:two?18:36,sig:(two?'m':'d')+Math.round(W/24)}}
+function renderRandom(instant){const v=$('#view'),L=RN[lang];dealCards(false);
   const intro=String((cards.intro||{})[lang]||'').trim()||L.intro;
   if(!deal.length){v.innerHTML='<section class="rn"><h2 class="rnt">'+esc(L.title)+'</h2><p class="rni">'+esc(L.empty)+'</p></section>';toTop();return}
-  v.innerHTML='<section class="rn"><h2 class="rnt">'+esc(L.title)+'</h2><p class="rni">'+esc(intro)+'</p><div class="rnb"><button type="button" class="rnbtn" id="rnshuf">'+esc(L.shuf)+'</button></div><div class="deck'+(cards.back?' cust':'')+'" id="deck">'+deal.map((w,i)=>'<button type="button" class="cd'+(drawnSet.has(i)?' drawn':'')+'" data-i="'+i+'" style="--i:'+i+'" aria-label="'+esc(L.card.replace('{n}',i+1))+'"><span class="cdi"><span class="cdb"></span><span class="cdf"><b>'+esc(w.fr)+'</b></span></span></button>').join('')+'</div></section>';
-  if(cards.back)$('#deck').style.setProperty('--cb','url('+JSON.stringify(cards.back)+')');
+  const g=fanGeom();fanSig=g.sig;const rowH=g.h*1.7,gap=g.h*.12;
+  let rowsHtml='';
+  for(let r=0;r<g.rows;r++){let cs='';
+    for(let k=0;k<g.per;k++){const i=r*g.per+k,w=deal[i],a=((k/(g.per-1))-.5)*g.A,j=(((i*37)%7)-3)*.7,off=r*(rowH-gap);
+      cs+='<button type="button" class="fc'+(drawnSet.has(i)?' drawn':'')+'" data-i="'+i+'" style="--i:'+i+';--k:'+k+';--a:'+a.toFixed(2)+';--j:'+j.toFixed(2)+';--off:'+off.toFixed(1)+'px;--z:'+(i+1)+'" aria-label="'+esc(L.card.replace('{n}',i+1))+'"><span class="cdi"><span class="cdb"></span><span class="cdf"><b>'+esc(w.fr)+'</b></span></span></button>'}
+    rowsHtml+='<div class="fanrow" style="height:'+rowH.toFixed(1)+'px;'+(r?'margin-top:-'+gap.toFixed(1)+'px':'')+'">'+cs+'</div>'}
+  v.innerHTML='<section class="rn"><h2 class="rnt">'+esc(L.title)+'</h2><p class="rni">'+esc(intro)+'</p><div class="rnb"><button type="button" class="rnbtn" id="rnshuf">'+esc(L.shuf)+'</button></div><div class="fan'+(cards.back?' cust':'')+'" id="deck" style="--h:'+g.h.toFixed(1)+'px">'+rowsHtml+'</div></section>';
+  const fan=$('#deck');if(cards.back)fan.style.setProperty('--cb','url('+JSON.stringify(cards.back)+')');
   toTop();
-  $('#rnshuf').onclick=()=>{dealCards(true);swap(renderRandom)};
-  document.querySelectorAll('.cd').forEach(b=>b.onclick=()=>{const i=+b.dataset.i;if(drawnSet.has(i)){openCard(i);return}drawnSet.add(i);b.classList.add('drawn');setTimeout(()=>openCard(i),RM.matches?0:650)})}
+  const open=()=>{fan.classList.add('spread');clearTimeout(fanTimer);fanTimer=setTimeout(()=>fan.classList.add('done'),RM.matches||instant===true?0:1500)};
+  if(RM.matches||instant===true){fan.classList.add('spread','done')}else setTimeout(open,520);
+  $('#rnshuf').onclick=()=>{if(!fan.classList.contains('done'))return;fan.classList.remove('done','spread');setTimeout(()=>{dealCards(true);renderRandom()},RM.matches?0:1100)};
+  fan.querySelectorAll('.fc').forEach(b=>b.onclick=()=>{if(!fan.classList.contains('done'))return;const i=+b.dataset.i;
+    drawnSet.add(i);b.classList.add('pick');
+    setTimeout(()=>{openCard(i);setTimeout(()=>{b.classList.remove('pick');b.classList.add('drawn')},400)},RM.matches?0:600)})}
+addEventListener('resize',()=>{clearTimeout(fanRs);fanRs=setTimeout(()=>{if(location.hash!=='#random'||document.getElementById('cardm')||!document.getElementById('deck'))return;
+  if(fanGeom().sig!==fanSig)renderRandom(true)},220)});
 const BK={vi:'Quay trở lại trang bài viết',fr:'Retour aux articles'};
 const backRow=()=>'<div class="bkrow"><button type="button" class="backbtn" data-back>'+esc(BK[lang])+'</button></div>';
 const BKS={vi:'Về bài viết',fr:'Aux articles'};
@@ -1133,7 +1166,7 @@ let navOn=false;
 const navGet=()=>{if(navOn)return true;try{return sessionStorage.getItem('cv_nav')==='1'}catch(e){return false}};
 function navUnlock(){navOn=true;try{sessionStorage.setItem('cv_nav','1')}catch(e){}paintNav()}
 function paintNav(){const n=document.getElementById('topnav');if(n)n.hidden=!navGet()}
-if(!isWelcome())navUnlock();
+if(isWelcome()){navOn=false;try{sessionStorage.removeItem('cv_nav')}catch(e){}}else navUnlock();
 
 /* ---------- Hình hiện mượt, tải trước hình sắp dùng ---------- */
 function fadeImg(im){if(im.hasAttribute('data-fade')||(im.complete&&im.naturalWidth))return;im.setAttribute('data-fade','');
