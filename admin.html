@@ -594,7 +594,7 @@ $('#tr-save').onclick=()=>saveItems('#trst');
 $('#mn-save').onclick=()=>saveItems('#mnst');
 
 /* ---------- Nhật ký (data/diary.json: {title,sub,entries:[{id,ts,date,vi,fr,media:[{t:'img'|'video'|'yt',src|url}]}]}) ---------- */
-function mkDiary(d){d=d&&typeof d==='object'&&!Array.isArray(d)?d:{};return{title:{...(d.title||{})},sub:{...(d.sub||{})},cover:{...DEF_DYC,...((d.cover&&typeof d.cover==='object')?d.cover:{})},entries:Array.isArray(d.entries)?d.entries:[]}}
+function mkDiary(d){d=d&&typeof d==='object'&&!Array.isArray(d)?d:{};return{title:{...(d.title||{})},sub:{...(d.sub||{})},cover:{...DEF_DYC,...((d.cover&&typeof d.cover==='object')?d.cover:{})},entries:Array.isArray(d.entries)?d.entries:[],updated:+d.updated||0}}
 const dyToday=()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
 const dyNew=()=>({id:null,ts:0,date:dyToday(),vi:'',fr:'',media:[]});
 const dyFmt=e=>{const d=e.date?new Date(e.date+'T12:00:00'):new Date(e.ts||0);return isNaN(d)?'':d.toLocaleDateString('vi-VN',{day:'numeric',month:'long',year:'numeric'})};
@@ -624,8 +624,8 @@ $('#dy-post').onclick=async()=>{const d=dyDraft;if(!String(d.vi).trim()&&!String
   const date=d.date||dyToday(),old=d.id?diary.entries.find(x=>x.id===d.id):null,now=new Date(),hm='T'+String(now.getHours()).padStart(2,'0')+':'+String(now.getMinutes()).padStart(2,'0')+':00';
   const ts=old&&old.date===date?old.ts:new Date(date+hm).getTime();
   const ent={id:d.id||'d'+Date.now().toString(36),ts,date,vi:d.vi,fr:d.fr,media:d.media};
-  const prev0=diary.entries;diary.entries=d.id?prev0.map(x=>x.id===d.id?ent:x):[ent,...prev0];
-  if(await saveDiary('#dyst','Save diary entry')){dyDraft=dyNew();drawDiary();dyStatus('Đã đăng ✓ Web cập nhật sau ~1 phút.')}else diary.entries=prev0};
+  const prev0=diary.entries,prevU=diary.updated;diary.entries=d.id?prev0.map(x=>x.id===d.id?ent:x):[ent,...prev0];diary.updated=Date.now();
+  if(await saveDiary('#dyst','Save diary entry')){dyDraft=dyNew();drawDiary();dyStatus('Đã đăng ✓ Web cập nhật sau ~1 phút.')}else{diary.entries=prev0;diary.updated=prevU}};
 $('#dy-list').onclick=async e=>{const ed=e.target.closest('[data-dye]'),de=e.target.closest('[data-dyd]');
   if(ed){const x=diary.entries.find(y=>y.id===ed.dataset.dye);if(!x)return;dyDraft={id:x.id,ts:x.ts,date:x.date||dyToday(),vi:x.vi||'',fr:x.fr||'',media:(x.media||[]).map(m=>({...m}))};drawDyDraft();$('#dy-ft').scrollIntoView({behavior:'smooth',block:'start'})}
   else if(de){if(!confirm('Xóa bài này khỏi nhật ký?'))return;const prev0=diary.entries;diary.entries=prev0.filter(y=>y.id!==de.dataset.dyd);

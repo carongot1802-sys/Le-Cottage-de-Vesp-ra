@@ -49,8 +49,11 @@ Chỉ có một tin chính tại một thời điểm: chọn bài mới thì b�
 
 ## Font chữ
 
-- Toàn bộ web dùng **Cormorant Garamond** (hỗ trợ cả tiếng Việt lẫn tiếng Pháp). Hai chỗ giữ nguyên bộ font cũ: tên **Le Cottage de Vespéra** ở header (Chantelli Antiqua) và **chữ trên các thẻ bài** ở trang Ngẫu nhiên (Montserrat và Playfair Display). Các font bạn chọn riêng trong tab Giao diện (trang Chào mừng, trang Giới thiệu, bìa Nhật ký) vẫn được ưu tiên như trước.
-- Cormorant Garamond có nét nhỏ và mảnh hơn font cũ, nên mình đã tăng cỡ chữ ở các chỗ chính. Nếu thấy chỗ nào còn nhỏ, chỉnh ở khối CSS cuối cùng của `index.html` (mục `build 11`).
+- **Tiêu đề** (h1 đến h3, tên mục, 6 mục trên header, tiêu đề trang Chào mừng và dòng chào, khung số iris, lời mời thưởng trà, nhãn "À la une", tên món trên ô cửa vòm, tên ngày trong nhật ký...) dùng **Cormorant Garamond đậm** (weight 700, mức đậm nhất của font này, hỗ trợ cả tiếng Việt lẫn tiếng Pháp).
+- **Chữ nội dung** (nội dung bài viết, đoạn trích, câu chuyện món, chữ trong nhật ký, ghi chú...) dùng **Montserrat**.
+- **Nút bấm** cũng dùng **Cormorant Garamond đậm**, cùng kiểu với tiêu đề (cỡ chữ nút đã được tăng nhẹ vì Cormorant nhỏ nét).
+- Hai chỗ giữ nguyên bộ font cũ: tên **Le Cottage de Vespéra** ở header (Chantelli Antiqua) và **chữ trên các thẻ bài** ở trang Ngẫu nhiên (Montserrat và Playfair Display). Các font bạn chọn riêng trong tab Giao diện (trang Chào mừng, trang Giới thiệu, bìa Nhật ký) vẫn được ưu tiên như trước.
+- Muốn đổi một dòng từ tiêu đề sang chữ nội dung (hoặc ngược lại), thêm hoặc bớt tên lớp CSS của nó trong khối `build 11-12` ở cuối thẻ `<style>` của `index.html`.
 
 ## Trang Chào mừng và hoa iris
 - Mục Chào mừng hiện đầu tiên khi khách quán mở web: hoa iris, tiêu đề, lời chào, lời nhắn, khung video 16:9, và số iris cottage đã nhận.
@@ -126,6 +129,13 @@ Chỉ có một tin chính tại một thời điểm: chọn bài mới thì b�
 - **Sửa hoặc xóa**: ở danh sách "Các bài đã đăng" bên dưới, bấm **Sửa** (bài hiện lên khung soạn phía trên, sửa xong bấm **Lưu chỉnh sửa**) hoặc **Xóa**. Xóa bài chỉ gỡ bài khỏi nhật ký, file ảnh vẫn nằm trong `media/`.
 - **Bìa và nền cuốn sổ**: web dùng sẵn hai ảnh trong thư mục `assets/`: `nhat-ky-bia.jpg` (bìa vải xanh, khung vàng, hai con thiên nga) và `nhat-ky-nen.jpg` (nền giấy các trang bên trong). Vì ảnh bìa không có chữ, cuối tab Nhật ký có mục **Bìa và nền cuốn sổ** để bạn tự đặt chữ lên bìa, có khung xem trước đổi ngay khi bạn kéo: tên và dòng nhỏ (VI/FR), **phông chữ** (7 phông có sẵn của web) cho tên và cho dòng nhỏ, **màu chữ**, **cỡ chữ**, **vị trí ngang và dọc**, **độ rộng khung chữ**, **căn lề** trái/giữa/phải và **bóng chữ**. Tắt ô "Hiện chữ trên bìa" nếu bạn muốn bìa không có chữ. Muốn đổi ảnh bìa hay ảnh nền trang thì bấm **Chọn ảnh bìa** / **Chọn ảnh nền trang** (ảnh dọc, tỉ lệ khoảng 5:7), bấm **Về ảnh có sẵn** để quay lại. Nhớ bấm **Lưu bìa sổ**. Nhớ upload cả hai file ảnh trong `assets/` lên GitHub.
 - Dữ liệu lưu trong `data/diary.json` (admin tự tạo khi đăng bài đầu tiên): `title`, `sub`, `cover` (chữ, phông, vị trí trên bìa và ảnh tùy chọn) cho bìa, `entries` cho các bài (mỗi bài có `date`, `vi`, `fr`, `media`). Chưa có file này thì sổ hiện trang trắng kèm lời nhắn. Mục này hợp với chế độ sáng/tối: bìa và trang giấy của sổ giữ nguyên ở cả chế độ sáng và tối. Khi khách đứng ở trang Nhật ký thì ô "Gọi món khác" ở mép trái tự ẩn.
+
+### Biểu tượng "Nhật ký có trang mới"
+
+- Mỗi khi cô chủ **đăng hoặc sửa** một bài trong tab Nhật ký của admin, web ghi lại thời điểm cập nhật (trường `updated` trong `data/diary.json`). Từ đó, ở **mọi trang trừ Giới thiệu**, bên mép phải, ngay phía trên thẻ bài "?", hiện một biểu tượng cuốn nhật ký có **dấu chấm than đỏ** nhấp nháy nhẹ. Rê chuột vào thì hiện dòng "Nhật ký có trang mới" (tiếng Pháp: "Nouvelle page au journal"); bấm vào thì sang trang Nhật ký.
+- Biểu tượng tự biến mất khi khách **mở cuốn nhật ký ra xem** (bấm vào bìa sổ), và không hiện lại cho tới lần cô chủ cập nhật tiếp theo. Việc "đã xem" được nhớ trên trình duyệt của từng khách (khóa `cv_dyseen` trong `localStorage`), nên lần sau khách quay lại cũng không bị nhắc lại. Khách mới vào lần đầu mà nhật ký đã có bài thì sẽ thấy biểu tượng.
+- Xóa một bài nhật ký hoặc đổi bìa sổ thì **không** làm biểu tượng hiện lại. Nếu `data/diary.json` chưa có trường `updated` (nhật ký cũ), web dùng ngày giờ của bài mới nhất thay thế.
+- Muốn đổi chữ gợi ý, sửa hằng số `DYA` trong `index.html`.
 
 ## Hiệu ứng icon rơi ở nền (tab Giao diện trong admin)
 - Mục **Hiệu ứng icon rơi ở nền** cho icon nhẹ nhàng rơi trên toàn web, ví dụ tuyết cho Giáng sinh. Đổi được: bật/tắt, loại icon (bông tuyết, hạt tuyết tròn, hoa iris nhỏ, hoặc hình của bạn: PNG nền trong, vd cánh mai, lá phong, bí ngô, dơi), số lượng, cỡ, tốc độ rơi, độ đậm, và lớp hiển thị (phía sau chữ như nền, hoặc phía trước phủ lên cả nội dung).

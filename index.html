@@ -517,7 +517,7 @@ header{padding-top:20px}
 @media (max-width:560px){.open-book{padding:14px 10px 12px 18px}.sheet{padding:16px 12px 12px}.pgb button{min-width:0;padding:7px 12px;font-size:13.5px}}
 @media (prefers-reduced-motion:reduce){.bk,.bk::after,.open-book,.dp{animation:none!important}.dcv,.bk.opening .dcv{transition:none!important}}
 
-html[lang="vi"] .menu *,html[lang="vi"] #dish *,html[lang="vi"] #ttoast{font-family:'Cormorant Garamond',Georgia,serif}
+html[lang="vi"] .menu *,html[lang="vi"] #dish *,html[lang="vi"] #ttoast{font-family:'Montserrat',system-ui,sans-serif}
 html[lang="vi"] .menu .fl,html[lang="vi"] #dish .fl{font-family:inherit}
 /* nút đổi món + nút quay lại + thông báo */
 .dswap{display:inline-flex;align-items:center;gap:8px;margin-top:6px;padding:10px 24px;border-radius:40px;background:var(--green);color:var(--bg);font-size:15.5px;font-weight:500}
@@ -537,54 +537,70 @@ html[lang="vi"] .menu .fl,html[lang="vi"] #dish .fl{font-family:inherit}
 @media (max-width:640px){#backfab{top:18%;padding:9px 13px 9px 8px;font-size:13px}}
 @media (prefers-reduced-motion:reduce){#backfab{animation:none}}
 
-/* ===== build 11: font Cormorant Garamond toàn trang (trừ tên "Le Cottage de Vespéra" ở header và chữ trên thẻ bài) ===== */
+/* ===== build 11-12: Cormorant Garamond chỉ cho tiêu đề (đậm); chữ nội dung và nút dùng Montserrat ===== */
 #topnav[hidden]{display:none}
-body{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:19.5px;line-height:1.65;font-variant-numeric:lining-nums}
-h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:700}
+h1,h2,h3,h4{font-family:'Cormorant Garamond',Georgia,serif;font-weight:700}
 header h1,.brand{font-family:'Chantelli Antiqua',Georgia,serif;font-weight:700}
-input,textarea,select,button{font-family:inherit}
-b,strong{font-weight:700}
-.qtext,.tmsg{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600}
-.qtext{font-size:clamp(23px,3.8vw,31px)}
-.tmsg{font-size:clamp(21px,5vw,26px)}
-.tag{font-size:15px}.date{font-size:16px}.excerpt{font-size:17.5px}.card.hero .excerpt{font-size:19px}
-button,.btn{font-size:17px}.back{font-size:18px}.chip{font-size:16px}.note{font-size:17px}
-.qlab{font-size:14px}.qnote{font-size:17px}.pn small{font-size:14px}.pn strong{font-size:19px}
-.fig figcaption{font-size:16px}.hlab{font-size:14px}
-.irisbank span,.irisend p,.irisn{font-size:17px}
-.teabtn{font-size:18px}.tgo{font-size:17.5px}
-.tback .tlab2{font-size:14px}.tstory{font-size:17.5px}
-.mintro,.rni{font-size:18px}.mhint{font-size:15px}.rnbtn{font-size:16px}
-.plate{font-size:17px}
-.dcard .dcat{font-size:14px}.dcard .dlab{font-size:15px}.dcard .dstory{font-size:18px}
-.dswap,.backbtn{font-size:17.5px}.bkh{font-size:17px}
-.dph strong{font-size:17px}.dph time{font-size:15px}.dpt p{font-size:18.5px}
-.shh{font-size:15px}.pgb button{font-size:16px}.pgn{font-size:16px}.dyc button{font-size:16px}
+.topnav a,.irisbank,.irisbank b,.irisbank span,.irisend p,.irisn,.tmsg,.tmsg b,.qlab,.tag,.pn small,.pn strong,.hlab,.mt,.rnt,.dyh,.msec,.tname,.tlab2,.dcat,.dlab,.shh,.dph strong,.plate,.welcome .hello,.qtext{font-family:'Cormorant Garamond',Georgia,serif;font-weight:700}
+.qtext{font-weight:600;font-size:clamp(23px,3.8vw,31px)}
+.welcome .hello{font-size:22px}
 .topnav a{font-size:15.5px}
-.gsw span{font-size:15px}
-#contact{font-size:15px}footer{font-size:14px}
-.rdtip{font-size:15px}
+.irisbank b{font-size:26px}.irisbank span{font-size:19px}.irisend p{font-size:19px}.irisn{font-size:18px}
+.tmsg{font-size:clamp(21px,5vw,26px)}
+.tag{font-size:15px}.qlab{font-size:14px}.pn small{font-size:14px}.pn strong{font-size:19px}
+.hlab{font-size:14px}.tlab2{font-size:14px}.dcat{font-size:14px}.dlab{font-size:15px}.shh{font-size:15px}.dph strong{font-size:17px}
+.plate{font-size:17px}
+@media (max-width:600px){.topnav a{font-size:13.5px}.plate{font-size:13.5px}}
+@media (max-width:360px){.plate{font-size:12.5px}}
+html[lang="vi"] .menu :is(h1,h2,.msec,.msec span,.plate),html[lang="vi"] #dish :is(h2,.dcat,.dlab){font-family:'Cormorant Garamond',Georgia,serif}
+button,.btn,.teabtn,.tgo,.chip,.back,.rnbtn,.pgb button,.dyc button,.dswap,.backbtn,.gsw span,#backfab,.cbtn,#tcomp .tccap,.sbtn{font-weight:700}
+/* nút bấm: Cormorant đậm, cùng kiểu với tiêu đề (tăng cỡ chữ vì Cormorant nhỏ nét) */
+.btn,.teabtn,.tgo,.chip,.back,.rnbtn,.pgb button,.dyc button,.dswap,.backbtn,.gsw span,#backfab,.cbtn,#tcomp .tccap,.sbtn,.ghost,.bar button,.knock.vis{font-family:'Cormorant Garamond',Georgia,serif}
+.knock.vis{font-weight:700;font-size:clamp(17px,4vw,22px)}
+.ghost{font-weight:700;font-size:17px}
+.btn{font-size:17px}.back{font-size:18px}.chip{font-size:16px}.rnbtn{font-size:16px}
+.pgb button{font-size:16px}.dyc button{font-size:16px}.dswap,.backbtn{font-size:17.5px}
+.teabtn{font-size:18px}.tgo{font-size:17.5px}.gsw span{font-size:15px}.cbtn{font-size:14px}
 #backfab{font-size:16px}
 #tcomp .tccap{font-size:13px}
 @media (min-width:1100px){#tcomp .tccap{font-size:15px}}
 @media (max-width:640px){#tcomp .tccap{font-size:12px}#backfab{font-size:15px}}
-@media (max-width:600px){.topnav a{font-size:13.5px}.plate{font-size:13.5px}.pgb button{font-size:15px}}
-@media (max-width:360px){.plate{font-size:12.5px}}
-/* chữ trên thẻ bài: giữ nguyên bộ font cũ */
+@media (max-width:600px){.pgb button{font-size:15px}}
+.dcvs{font-weight:400}
 .ct,.cdf{font-family:'Montserrat',system-ui,sans-serif}
-.cw,.ce,.cdf b{font-family:'Playfair Display','Chantelli Antiqua',Georgia,serif}
+.cw,.ce{font-family:'Playfair Display','Chantelli Antiqua',Georgia,serif}
 .cdf b{font-family:'Playfair Display',Georgia,serif}
-/* chữ trên thẻ bài: căn giữa đều cả ngang lẫn dọc */
 .cdf{text-align:center}
 .cdf b{display:block;width:100%;text-align:center}
 .ct,.ct>*{text-align:center}
 .cfr.dflt .ct{padding:16% 10%}
 .ct .cw,.ct .cg,.ct .cv,.ct .cex,.ct .ce,.ct .cev{text-align:center;margin-left:auto;margin-right:auto}
-/* nút Mời thử: tách khỏi dòng chữ, cân đối với thẻ cao */
 .tfront{justify-content:center}
 .tfront .tmsg{margin:10px 0 38px}
 .tfront .tgo{margin-top:6px}
 @media (max-width:600px){.tfront .tmsg{margin-bottom:32px}}
+.dyalert{position:fixed;z-index:41;right:max(12px,env(safe-area-inset-right,0px));top:calc(46% - 76px);display:block;text-decoration:none;-webkit-tap-highlight-color:transparent;animation:dyin .6s cubic-bezier(.22,1.1,.3,1) backwards}
+.dyalert[hidden]{display:none}
+.dyai{position:relative;display:flex;align-items:center;justify-content:center;width:54px;height:54px;border-radius:50%;background:#fbf3df;color:#6d1a2c;border:2px solid #b8860b;box-shadow:0 6px 16px #0004;transition:transform .3s ease}
+:root[data-theme="dark"] .dyai{background:#3a2d26;color:#f1e6d0}
+.dyai svg{width:30px;height:30px}
+.dyab{position:absolute;top:-7px;right:-7px;min-width:22px;height:22px;padding:0 5px;box-sizing:border-box;display:flex;align-items:center;justify-content:center;border-radius:11px;background:#d62828;color:#fff;border:2px solid #fff;font:700 15px/1 'Cormorant Garamond',Georgia,serif;box-shadow:0 2px 6px #0005;animation:dypulse 1.8s ease-in-out infinite}
+.dyalert:hover .dyai,.dyalert:focus-visible .dyai{transform:scale(1.08)}
+.dyalert:focus-visible{outline:2px solid #e6c46a;outline-offset:5px;border-radius:50%}
+.dyat{position:absolute;right:calc(100% + 12px);top:50%;transform:translate(8px,-50%);white-space:nowrap;padding:7px 14px;border-radius:20px;background:var(--hc,#1f3a2e);color:var(--htx,#f3ead8);font-family:'Montserrat',system-ui,sans-serif;font-size:13px;font-weight:700;letter-spacing:.06em;box-shadow:0 6px 16px #0004;opacity:0;pointer-events:none;transition:opacity .25s ease,transform .3s ease}
+.dyalert:hover .dyat,.dyalert:focus-visible .dyat{opacity:1;transform:translate(0,-50%)}
+@keyframes dyin{from{opacity:0;transform:translateX(120%)}to{opacity:1;transform:none}}
+@keyframes dypulse{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+@media (max-width:600px){.dyalert{top:auto;bottom:calc(env(safe-area-inset-bottom,0px) + 170px);right:8px}.dyai{width:46px;height:46px}.dyai svg{width:26px;height:26px}.dyat{display:none}}
+@media (prefers-reduced-motion:reduce){.dyalert,.dyab{animation:none!important}.dyai{transition:none}}
+/* sửa lỗi hình món mặt trước chồng lên chữ mặt sau lúc lật thẻ: hình có animation riêng nên bỏ qua backface của thẻ */
+.tface,.tface *{-webkit-backface-visibility:hidden;backface-visibility:hidden}
+.tin{transition-timing-function:cubic-bezier(.45,.05,.55,.95)}
+.tface.tback{visibility:hidden}
+.tcard.flipped .tface.tfront{visibility:hidden;transition:visibility 0s linear .4s}
+.tcard.flipped .tface.tback{visibility:visible;transition:visibility 0s linear .4s}
+.tcard.flipped .tfront .tpic{animation:none}
+@media (prefers-reduced-motion:reduce){.tface{transition:none!important}}
 </style>
 </head>
 <body>
@@ -612,6 +628,7 @@ button,.btn{font-size:17px}.back{font-size:18px}.chip{font-size:16px}.note{font-
   <div class="orn" aria-hidden="true"><svg class="fl" aria-hidden="true"><use href="#fdl"/></svg><svg class="fl" aria-hidden="true"><use href="#fdl"/></svg><svg class="fl" aria-hidden="true"><use href="#fdl"/></svg></div>
   <div class="gsw"><span data-l="vi">VI</span><span data-l="fr">FR</span></div>
 </header>
+<a class="dyalert" id="dyalert" href="#diary" hidden aria-label="Nhật ký có trang mới"><span class="dyai"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4.5h15a3 3 0 0 1 3 3V26a1.5 1.5 0 0 1-1.5 1.5H9.5A2.5 2.5 0 0 1 7 25V4.5z"/><path d="M7 25a2.5 2.5 0 0 1 2.5-2.5H25"/><path d="M12 10h8M12 14h8"/></svg><span class="dyab" aria-hidden="true">!</span></span><span class="dyat" id="dyat">Nhật ký có trang mới</span></a>
 <a class="rdcard" id="rdcard" href="#random" aria-label="Rút một lá bài"><span class="rdc"><span class="rdq" aria-hidden="true">?</span><i class="rds s1"></i><i class="rds s2"></i></span><span class="rdtip" id="rdtip">Rút một lá bài</span></a>
 <main>
   <div id="view"></div>
@@ -708,7 +725,7 @@ const excerpt=b=>{const t=(b||'').replace(/\s+/g,' ').trim();return t.length>130
 function route(){const h=location.hash.slice(1);return h.startsWith('post=')?h.slice(5):null}
 const isWelcome=()=>{const h=location.hash.slice(1);return h===''||h==='welcome'};
 const pf=(p,f)=>{const a=p[f]||'',b=p[f+'_fr']||'';return lang==='fr'?(b||a):(a||b)};
-function applyLang(){try{paintComp()}catch(e){}try{paintBack()}catch(e){}document.documentElement.lang=lang;document.querySelectorAll('.gsw span').forEach(e=>e.classList.toggle('on',e.dataset.l===lang));$('#nv-home').textContent=T[lang].navp;$('#nv-welcome').textContent=T[lang].nvw;$('#nv-random').textContent=RN[lang].nav;$('#nv-menu').textContent=MN[lang].nav;$('#nv-diary').textContent=DY[lang].nav;$('#rdcard').setAttribute('aria-label',RN[lang].title);$('#rdtip').textContent=RN[lang].title;$('#nv-about').textContent=T[lang].nva;$('#tagline').textContent=T[lang].tl;paintThemeBtn()}
+function applyLang(){try{paintDyAlert()}catch(e){}try{paintComp()}catch(e){}try{paintBack()}catch(e){}document.documentElement.lang=lang;document.querySelectorAll('.gsw span').forEach(e=>e.classList.toggle('on',e.dataset.l===lang));$('#nv-home').textContent=T[lang].navp;$('#nv-welcome').textContent=T[lang].nvw;$('#nv-random').textContent=RN[lang].nav;$('#nv-menu').textContent=MN[lang].nav;$('#nv-diary').textContent=DY[lang].nav;$('#rdcard').setAttribute('aria-label',RN[lang].title);$('#rdtip').textContent=RN[lang].title;$('#nv-about').textContent=T[lang].nva;$('#tagline').textContent=T[lang].tl;paintThemeBtn()}
 let swapId=0;
 function swap(fn){const v=$('#view'),id=++swapId;
   if(!v.animate||RM.matches||!v.firstElementChild){fn();return}
@@ -718,7 +735,7 @@ function swap(fn){const v=$('#view'),id=++swapId;
   o.onfinish=()=>{if(id!==swapId)return;fn();o.cancel();v.animate([{opacity:0,transform:'translateY(14px)'},{opacity:1,transform:'none'}],{duration:520,easing:'cubic-bezier(.22,.61,.36,1)'})}}
 function setLang(l){lang=l;tagF='';applyLang();swap(render)}
 function render(){
-  const v=$('#view'),id=route(),L=T[lang];paintNav();
+  const v=$('#view'),id=route(),L=T[lang];paintNav();paintDyAlert();
   $('#nv-about').classList.toggle('on',location.hash==='#about');$('#nv-welcome').classList.toggle('on',isWelcome());$('#nv-random').classList.toggle('on',location.hash==='#random');$('#nv-menu').classList.toggle('on',location.hash==='#menu');$('#nv-diary').classList.toggle('on',location.hash==='#diary');$('#nv-home').classList.toggle('on',!isWelcome()&&location.hash!=='#about'&&location.hash!=='#random'&&location.hash!=='#menu'&&location.hash!=='#diary');document.querySelectorAll('.topnav a').forEach(a=>{if(a.classList.contains('on'))a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});$('#rdcard').classList.toggle('show',loaded&&!denied&&!isWelcome()&&location.hash!=='#about'&&location.hash!=='#random'&&location.hash!=='#menu'&&location.hash!=='#diary');try{paintComp()}catch(e){}try{paintBack()}catch(e){}
   if(location.hash!=='#diary'){dyOpen=false;dyPage=0}
   if(!loaded){v.innerHTML='<div class="empty">'+L.loading+'</div>';return}
@@ -878,7 +895,7 @@ function openDishItem(x,opener,noSwap){if(!x||document.getElementById('dish'))re
 const DY={vi:{nav:'Nhật ký',title:'Nhật ký của Cottage',intro:'Những dòng cô chủ cottage ghi lại mỗi ngày.',cover:'Nhật ký',sub:'Le Cottage de Vespéra',open:'Chạm vào cuốn sổ để mở ra',host:'Cô chủ Cottage',pg:'Trang',prev:'‹ Trang trước',next:'Trang sau ›',close:'Gấp sổ lại',empty:'Cuốn sổ còn trắng. Cô chủ sẽ sớm viết những dòng đầu tiên.',more:'xem thêm'},
  fr:{nav:'Journal',title:'Le journal du Cottage',intro:'Les lignes que la maîtresse du cottage écrit au fil des jours.',cover:'Journal',sub:'Le Cottage de Vespéra',open:'Touchez le carnet pour l’ouvrir',host:'La maîtresse du Cottage',pg:'Page',prev:'‹ Page précédente',next:'Page suivante ›',close:'Refermer le carnet',empty:'Le carnet est encore vierge. Les premières lignes arrivent bientôt.',more:'voir plus'}};
 const DEF_DYC={show:true,tf:'playfair',sf:'montserrat',color:'#f2c590',tsz:11,ssz:3.6,x:50,y:40,w:70,align:'center',shadow:true,img:'',bg:''};
-let diary={title:{},sub:{},entries:[],cover:{}},dyOpen=false,dyPage=0;
+let diary={title:{},sub:{},entries:[],updated:0,cover:{}},dyOpen=false,dyPage=0;
 const dyCov=()=>({...DEF_DYC,...(diary.cover||{})});
 function dyVars(root){const c=dyCov(),st=root.style,q=u=>"url('"+String(u).replace(/[^\w\/.\-]/g,ch=>encodeURIComponent(ch))+"')";
   st.setProperty('--cvimg',q(c.img||'assets/nhat-ky-bia.jpg'));st.setProperty('--dybg',q(c.bg||'assets/nhat-ky-nen.jpg'))}
@@ -902,7 +919,7 @@ function dyTurn(dir){const ents=dyEnt(),pages=Math.max(1,Math.ceil(ents.length/D
   const a=sh.animate([{transform:'rotateY(0)',opacity:1},{transform:'rotateY('+(dir>0?-82:82)+'deg)',opacity:.15}],{duration:300,easing:'ease-in'});
   a.onfinish=()=>{paint();sh.animate([{transform:'rotateY('+(dir>0?82:-82)+'deg)',opacity:.15},{transform:'rotateY(0)',opacity:1}],{duration:380,easing:'cubic-bezier(.22,.61,.36,1)'})}}
 function dyBar(pages){const L=DY[lang];$('#dyprev').disabled=dyPage<=0;$('#dynext').disabled=dyPage>=pages-1;$('#dypn').textContent=(dyPage+1)+' / '+pages}
-function dyShowBook(){const v=$('#view'),L=DY[lang],ents=dyEnt(),pages=Math.max(1,Math.ceil(ents.length/DY_PER));if(dyPage>=pages)dyPage=pages-1;
+function dyShowBook(){dyMarkSeen();const v=$('#view'),L=DY[lang],ents=dyEnt(),pages=Math.max(1,Math.ceil(ents.length/DY_PER));if(dyPage>=pages)dyPage=pages-1;
   const all=ents.slice(dyPage*DY_PER,dyPage*DY_PER+DY_PER);
   v.innerHTML='<section class="dy"><h1 class="dyh">'+esc(L.title)+'</h1><div class="open-book"><div class="sheet" id="dysheet">'+(ents.length?dySheet(all):'<div class="dyempty">'+esc(L.empty)+'</div>')+'</div><div class="pgb"><button type="button" id="dyprev">'+esc(L.prev)+'</button><span class="pgn" id="dypn"></span><button type="button" id="dynext">'+esc(L.next)+'</button></div></div><div class="dyc"><button type="button" id="dyclose">'+esc(L.close)+'</button></div>'+backRow()+'</section>';bindBack(v);
   dyVars(v.querySelector('.dy'));const sh=$('#dysheet');dyBind(sh,all);dyBar(pages);$('#dyprev').onclick=()=>dyTurn(-1);$('#dynext').onclick=()=>dyTurn(1);
@@ -1052,6 +1069,15 @@ function paintComp(){try{
 }catch(e){}}
 addEventListener('hashchange',paintComp);
 /* Thanh 6 mục ở header chỉ hiện sau khi khách bấm "Cảm ơn" ở phần mời thưởng trà (hoặc vào thẳng một trang khác, không qua trang Chào mừng) */
+/* ---------- Biểu tượng "Nhật ký có trang mới" (dấu chấm than đỏ) ---------- */
+const DYA={vi:'Nhật ký có trang mới',fr:'Nouvelle page au journal'};
+const dyStamp=()=>{let m=+diary.updated||0;(diary.entries||[]).forEach(e=>{if((+e.ts||0)>m)m=+e.ts});return m};
+let dySeenMem=null;
+const dySeenGet=()=>{if(dySeenMem!=null)return dySeenMem;try{return +(localStorage.getItem('cv_dyseen')||0)}catch(e){return 0}};
+function dyMarkSeen(){const st=dyStamp();if(!st)return;dySeenMem=st;try{localStorage.setItem('cv_dyseen',String(st))}catch(e){}paintDyAlert()}
+function paintDyAlert(){const el=document.getElementById('dyalert');if(!el)return;
+  const h=location.hash,st=dyStamp(),on=loaded&&!denied&&h!=='#about'&&st>0&&st>dySeenGet()&&!(h==='#diary'&&dyOpen);
+  el.hidden=!on;el.setAttribute('aria-label',DYA[lang]);const t=document.getElementById('dyat');if(t)t.textContent=DYA[lang]}
 let navOn=false;
 const navGet=()=>{if(navOn)return true;try{return sessionStorage.getItem('cv_nav')==='1'}catch(e){return false}};
 function navUnlock(){navOn=true;try{sessionStorage.setItem('cv_nav','1')}catch(e){}paintNav()}
@@ -1087,7 +1113,7 @@ applyLang();renderContact();render();setTimeout(startLetter,2600);
 (async()=>{
   const g=async u=>{try{const r=await fetch(u+'?t='+Date.now(),{cache:'no-store'});return r.ok?await r.json():null}catch(e){return null}};
   const [ps,st,dj]=await Promise.all([g('data/posts.json'),g('data/site.json'),g('data/diary.json')]);
-  if(dj&&typeof dj==='object'&&!Array.isArray(dj))diary={title:dj.title||{},sub:dj.sub||{},entries:Array.isArray(dj.entries)?dj.entries:[],cover:(dj.cover&&typeof dj.cover==='object')?dj.cover:{}};
+  if(dj&&typeof dj==='object'&&!Array.isArray(dj))diary={title:dj.title||{},sub:dj.sub||{},entries:Array.isArray(dj.entries)?dj.entries:[],updated:+dj.updated||0,cover:(dj.cover&&typeof dj.cover==='object')?dj.cover:{}};
   posts=Array.isArray(ps)?ps.slice().sort((a,b)=>(b.ts||0)-(a.ts||0)):[];
   if(st){if(Array.isArray(st.contact)&&st.contact.length)contact=st.contact;if(st.about)about={vi:st.about.vi||'',fr:st.about.fr||''};if(st.design)dz={...DEF_DZ,...st.design};if(st.welcome)welcome={vi:st.welcome.vi||{},fr:st.welcome.fr||{}};if(st.iris)irisCfg=st.iris;if(st.quote&&typeof st.quote==='object')quote=st.quote;if(st.cv&&st.cv.edu&&st.cv.exp&&st.cv.awd)CV=st.cv;if(st.letter&&typeof st.letter==='object')letter={...DEF_LETTER,...st.letter,label:{...DEF_LETTER.label,...(st.letter.label||{})}};if(st.menu&&typeof st.menu==='object')menuCfg={title:st.menu.title||{},intro:st.menu.intro||{}};if(st.treats&&typeof st.treats==='object')treats={items:Array.isArray(st.treats.items)?st.treats.items:[],tpl:st.treats.tpl||{},go:st.treats.go||{}};if(st.cards&&typeof st.cards==='object')cards={words:Array.isArray(st.cards.words)?st.cards.words:[],back:st.cards.back||'',front:st.cards.front||'',ftx:st.cards.ftx||'',fpanel:!!st.cards.fpanel,intro:st.cards.intro||{}}}
   applyDesign();renderContact();loaded=true;paintComp();swap(render);startLetter();
